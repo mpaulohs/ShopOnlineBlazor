@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace ShopOnlineLIbrary.Models.Catalogs
+namespace ShopOnlinePWA.Library.Catalogs
 {
     public class ItemSerie
     {
@@ -16,5 +13,6 @@ namespace ShopOnlineLIbrary.Models.Catalogs
 
         [Timestamp]
         public byte[] Timestamp { get; set; }
+
     }
 }

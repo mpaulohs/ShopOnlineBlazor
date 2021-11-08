@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "1f52f884-2e36-49d0-90b5-edcb2041c5ab": {
+      "ProjectGuid": "1f52f884-2e36-49d0-90b5-edcb2041c5ab",
+      "DisplayName": "ShopOnlinePWA.Library",
+      "ColorIndex": 0
+    },
+    "e8564131-80bd-4c41-a21a-1ec782640a2d": {
+      "ProjectGuid": "e8564131-80bd-4c41-a21a-1ec782640a2d",
+      "DisplayName": "ShopOnlinePWA.Client",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "2482ebce-cab2-4838-b237-254f046a8f4d": {
+      "ProjectGuid": "2482ebce-cab2-4838-b237-254f046a8f4d",
+      "DisplayName": "ShopOnlinePWA.Server",
+      "ColorIndex": 2
+    },
+    "3ef80522-afb4-4739-99fc-149a54c8635c": {
+      "ProjectGuid": "3ef80522-afb4-4739-99fc-149a54c8635c",
+      "DisplayName": "ShopOnlinePWA.Client",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

@@ -1,0 +1,264 @@
+﻿++Solution 'ShopOnlinePWA' ‎(1 of 1 project)
+++ModelsLibrary
+++Dependencies
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:>1213
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:>2190
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:>2536
+i:{602ddcbd-cebf-4123-a016-afbf83f9d7e0}:>2547
+++Analyzers
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:analyzers
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:analyzers
+i:{602ddcbd-cebf-4123-a016-afbf83f9d7e0}:analyzers
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:analyzers
+++Microsoft.CodeAnalysis.CSharp.NetAnalyzers
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{602ddcbd-cebf-4123-a016-afbf83f9d7e0}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+++Microsoft.CodeAnalysis.NetAnalyzers
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{602ddcbd-cebf-4123-a016-afbf83f9d7e0}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+++Frameworks
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:frameworks
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:frameworks
+i:{602ddcbd-cebf-4123-a016-afbf83f9d7e0}:frameworks
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:frameworks
+++Microsoft.NETCore.App
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\microsoft.netcore.app
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\microsoft.netcore.app
+i:{602ddcbd-cebf-4123-a016-afbf83f9d7e0}:z:\study\c#\shoponlinepwa\shoponlinepwa\shared\microsoft.netcore.app
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:z:\study\c#\shoponlinepwa\shoponlinepwa\server\microsoft.netcore.app
+++Packages
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:packages
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:packages
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:packages
+++Microsoft.Extensions.Identity.Stores (5.0.11)
+++Catalogs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\
+++AdditionalInformation.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\additionalinformation.cs
+++AdditionalInformationType.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\additionalinformationtype.cs
+++AppUser.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\appuser.cs
+++Bank.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\bank.cs
+++BankAccount.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\bankaccount.cs
+++CashDesk.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\cashdesk.cs
+++ClientContactInformation.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\clientcontactinformation.cs
+++ClientContactInformationType.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\clientcontactinformationtype.cs
+++ClientContract.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\clientcontract.cs
+++Currency.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\currency.cs
+++DocumentStatus.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\documentstatus.cs
+++DocumentType.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\documenttype.cs
+++Item.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\item.cs
+++ItemCharacteristic.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\itemcharacteristic.cs
+++ItemQuality.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\itemquality.cs
+++ItemSerie.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\itemserie.cs
+++ItemType.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\itemtype.cs
+++ItemUnitClassifier.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\itemunitclassifier.cs
+++ItemUnitMeasurement.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\itemunitmeasurement.cs
+++Organization.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\organization.cs
+++Storage.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\storage.cs
+++Subdivision.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\catalogs\subdivision.cs
+++Documents
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\documents\
+++Registers
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\registers\
+++Reports
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\reports\
+++Adjustment.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\documents\adjustment.cs
+++Mesage.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\documents\mesage.cs
+++Order.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\documents\order.cs
+++OrderItem.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\documents\orderitem.cs
+++Payment.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\documents\payment.cs
+++Return.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\documents\return.cs
+++Sale.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\documents\sale.cs
+++CurencyCalendar.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\registers\curencycalendar.cs
+++ItemPrice.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\registers\itemprice.cs
+++ItemQuantity.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\registers\itemquantity.cs
+++StatementOfSettlementsWithConterparties.cs
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:z:\study\c#\shoponlinepwa\shared\reports\statementofsettlementswithconterparties.cs
+++Solution 'ShopOnlinePWA' ‎(2 of 2 projects)
+++ShopOnlinePWA.Server
+i:{00000000-0000-0000-0000-000000000000}:ShopOnlinePWA.Server
+++Solution 'ShopOnlinePWA' ‎(3 of 3 projects)
+++Solution 'ShopOnlinePWA' ‎(4 of 4 projects)
+i:{00000000-0000-0000-0000-000000000000}:ShopOnlinePWA.sln
+++Connected Services 
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:>2191
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:>2537
+++Properties
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:z:\study\c#\shoponlinepwa\shoponlinepwa\server\properties\
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\properties\
+++Controllers
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:z:\study\c#\shoponlinepwa\shoponlinepwa\server\controllers\
+++Pages
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:z:\study\c#\shoponlinepwa\shoponlinepwa\server\pages\
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\pages\
+++appsettings.json
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:z:\study\c#\shoponlinepwa\shoponlinepwa\server\appsettings.json
+++Program.cs
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:z:\study\c#\shoponlinepwa\shoponlinepwa\server\program.cs
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\program.cs
+++Startup.cs
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:z:\study\c#\shoponlinepwa\shoponlinepwa\server\startup.cs
+++No service dependencies discovered
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:>2192
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:>2538
+++launchSettings.json
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:z:\study\c#\shoponlinepwa\shoponlinepwa\server\properties\launchsettings.json
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\properties\launchsettings.json
+++WeatherForecastController.cs
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:z:\study\c#\shoponlinepwa\shoponlinepwa\server\controllers\weatherforecastcontroller.cs
+++Error.cshtml
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:z:\study\c#\shoponlinepwa\shoponlinepwa\server\pages\error.cshtml
+++appsettings.Development.json
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:z:\study\c#\shoponlinepwa\shoponlinepwa\server\appsettings.development.json
+++Error.cshtml.cs
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:z:\study\c#\shoponlinepwa\shoponlinepwa\server\pages\error.cshtml.cs
+++ShopOnlinePWA.Client
+i:{00000000-0000-0000-0000-000000000000}:ShopOnlinePWA.Client
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\shoponlinepwa.client.csproj
+++wwwroot
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\
+++Shared
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\shared\
+++_Imports.razor
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\_imports.razor
+++App.razor
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\app.razor
+++Projects
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:projects
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:projects
+++css
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\css\
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\css\open-iconic\font\css\
+++favicon.ico
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\favicon.ico
+++icon-512.png
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\icon-512.png
+++index.html
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\index.html
+++manifest.json
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\manifest.json
+++service-worker.js
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\service-worker.js
+++Counter.razor
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\pages\counter.razor
+++FetchData.razor
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\pages\fetchdata.razor
+++Index.razor
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\pages\index.razor
+++MainLayout.razor
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\shared\mainlayout.razor
+++NavMenu.razor
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\shared\navmenu.razor
+++SurveyPrompt.razor
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\shared\surveyprompt.razor
+++C:\Program Files\dotnet\sdk\6.0.100\Sdks\Microsoft.NET.Sdk\targets\..\analyzers\ILLink.CodeFixProvider.dll
+++C:\Program Files\dotnet\sdk\6.0.100\Sdks\Microsoft.NET.Sdk\targets\..\analyzers\ILLink.RoslynAnalyzer.dll
+++C:\Program Files\dotnet\sdk\6.0.100\Sdks\Microsoft.NET.Sdk\targets\..\analyzers\Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll
+++C:\Program Files\dotnet\sdk\6.0.100\Sdks\Microsoft.NET.Sdk\targets\..\analyzers\Microsoft.CodeAnalysis.NetAnalyzers.dll
+++Microsoft.AspNetCore.Components.WebAssembly (5.0.11)
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:>2565
+++Microsoft.AspNetCore.Components.WebAssembly.DevServer (5.0.11)
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:>2567
+++System.Net.Http.Json (5.0.0)
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:>2569
+++ShopOnlinePWA.Shared
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\shared\shoponlinepwa.shared.csproj
+i:{00000000-0000-0000-0000-000000000000}:ShopOnlinePWA.Shared
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:z:\study\c#\shoponlinepwa\shoponlinepwa\shared\shoponlinepwa.shared.csproj
+++bootstrap
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\css\bootstrap\
+++open-iconic
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\css\open-iconic\
+++app.css
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\css\app.css
+++service-worker.published.js
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\service-worker.published.js
+++MainLayout.razor.css
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\shared\mainlayout.razor.css
+++NavMenu.razor.css
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\shared\navmenu.razor.css
+++bootstrap.min.css
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\css\bootstrap\bootstrap.min.css
+++font
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\css\open-iconic\font\
+++FONT-LICENSE
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\css\open-iconic\font-license
+++ICON-LICENSE
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\css\open-iconic\icon-license
+++README.md
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\css\open-iconic\readme.md
+++bootstrap.min.css.map
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\css\bootstrap\bootstrap.min.css.map
+++fonts
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\css\open-iconic\font\fonts\
+++open-iconic-bootstrap.min.css
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\css\open-iconic\font\css\open-iconic-bootstrap.min.css
+++open-iconic.eot
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\css\open-iconic\font\fonts\open-iconic.eot
+++open-iconic.otf
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\css\open-iconic\font\fonts\open-iconic.otf
+++open-iconic.svg
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\css\open-iconic\font\fonts\open-iconic.svg
+++open-iconic.ttf
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\css\open-iconic\font\fonts\open-iconic.ttf
+++open-iconic.woff
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:z:\study\c#\shoponlinepwa\shoponlinepwa\client\wwwroot\css\open-iconic\font\fonts\open-iconic.woff
+++WeatherForecast.cs
+i:{602ddcbd-cebf-4123-a016-afbf83f9d7e0}:z:\study\c#\shoponlinepwa\shoponlinepwa\shared\weatherforecast.cs
+++C:\Program Files\dotnet\sdk\6.0.100\Sdks\Microsoft.NET.Sdk.Web\analyzers\cs\Microsoft.AspNetCore.Analyzers.dll
+++C:\Program Files\dotnet\sdk\6.0.100\Sdks\Microsoft.NET.Sdk.Web\analyzers\cs\Microsoft.AspNetCore.Components.Analyzers.dll
+++C:\Program Files\dotnet\sdk\6.0.100\Sdks\Microsoft.NET.Sdk.Web\analyzers\cs\Microsoft.AspNetCore.Mvc.Analyzers.dll
+++Microsoft.AspNetCore.App
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:z:\study\c#\shoponlinepwa\shoponlinepwa\server\microsoft.aspnetcore.app
+++Microsoft.AspNetCore.Components.WebAssembly.Server (5.0.11)
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:>2568
+++ILLink.CodeFixProvider
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\illink.codefixprovider.dll
+++ILLink.RoslynAnalyzer
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\illink.roslynanalyzer.dll
+++Microsoft.AspNetCore.Analyzers
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.analyzers.dll
+++Microsoft.AspNetCore.Components.Analyzers
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.components.analyzers.dll
+i:{3ef80522-afb4-4739-99fc-149a54c8635c}:c:\users\melnik.igor.corpuzservice\.nuget\packages\microsoft.aspnetcore.components.analyzers\5.0.11\analyzers\dotnet\cs\microsoft.aspnetcore.components.analyzers.dll
+++Microsoft.AspNetCore.Mvc.Analyzers
+i:{2482ebce-cab2-4838-b237-254f046a8f4d}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.mvc.analyzers.dll
+++ShopOnlinePWA.Library
+i:{00000000-0000-0000-0000-000000000000}:ShopOnlinePWA.Library
+++Microsoft.Extensions.Identity.Stores (5.0.12)
+i:{1f52f884-2e36-49d0-90b5-edcb2041c5ab}:>2804

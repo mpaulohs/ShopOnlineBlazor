@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ShopOnlinePWA.Library.Catalogs;
+using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace ShopOnlineLIbrary.Models.Documents
+
+namespace ShopOnlinePWA.Library.Documents
 {
     public class Order
     {
@@ -12,7 +11,18 @@ namespace ShopOnlineLIbrary.Models.Documents
 
         public int ExchangeId { get; set; }
 
+        public DateTime Date { get; set; }
+
+        public AppUser Owner { get; set; }
+
+        public ClientContactInformation ContactInformation { get; set; }
+
+        public AppUser Client { get; set; }
+
+        public DocumentStatus Status { get; set; }
+
         [Timestamp]
         public byte[] Timestamp { get; set; }
+
     }
 }

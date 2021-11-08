@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31729.503
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnlinePWA.Server", "Server\ShopOnlinePWA.Server.csproj", "{AA0631FA-BF1C-4B0A-A606-BE6082507A3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnlinePWA.Library", "Shared\ShopOnlinePWA.Library.csproj", "{1F52F884-2E36-49D0-90B5-EDCB2041C5AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnlinePWA.Client", "Client\ShopOnlinePWA.Client.csproj", "{E8564131-80BD-4C41-A21A-1EC782640A2D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnlinePWA.Server", "ShopOnlinePWA\Server\ShopOnlinePWA.Server.csproj", "{2482EBCE-CAB2-4838-B237-254F046A8F4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnlinePWA.Shared", "Shared\ShopOnlinePWA.Shared.csproj", "{1F52F884-2E36-49D0-90B5-EDCB2041C5AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnlinePWA.Client", "ShopOnlinePWA\Client\ShopOnlinePWA.Client.csproj", "{3EF80522-AFB4-4739-99FC-149A54C8635C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnlinePWA.Shared", "ShopOnlinePWA\Shared\ShopOnlinePWA.Shared.csproj", "{602DDCBD-CEBF-4123-A016-AFBF83F9D7E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +17,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AA0631FA-BF1C-4B0A-A606-BE6082507A3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA0631FA-BF1C-4B0A-A606-BE6082507A3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA0631FA-BF1C-4B0A-A606-BE6082507A3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA0631FA-BF1C-4B0A-A606-BE6082507A3A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E8564131-80BD-4C41-A21A-1EC782640A2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E8564131-80BD-4C41-A21A-1EC782640A2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E8564131-80BD-4C41-A21A-1EC782640A2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E8564131-80BD-4C41-A21A-1EC782640A2D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1F52F884-2E36-49D0-90B5-EDCB2041C5AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1F52F884-2E36-49D0-90B5-EDCB2041C5AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F52F884-2E36-49D0-90B5-EDCB2041C5AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F52F884-2E36-49D0-90B5-EDCB2041C5AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2482EBCE-CAB2-4838-B237-254F046A8F4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2482EBCE-CAB2-4838-B237-254F046A8F4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2482EBCE-CAB2-4838-B237-254F046A8F4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2482EBCE-CAB2-4838-B237-254F046A8F4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EF80522-AFB4-4739-99FC-149A54C8635C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EF80522-AFB4-4739-99FC-149A54C8635C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EF80522-AFB4-4739-99FC-149A54C8635C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EF80522-AFB4-4739-99FC-149A54C8635C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{602DDCBD-CEBF-4123-A016-AFBF83F9D7E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{602DDCBD-CEBF-4123-A016-AFBF83F9D7E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{602DDCBD-CEBF-4123-A016-AFBF83F9D7E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{602DDCBD-CEBF-4123-A016-AFBF83F9D7E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
