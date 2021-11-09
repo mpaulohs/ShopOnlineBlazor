@@ -8,7 +8,7 @@ namespace ShopOnlinePWA.Library.Catalogs
 
         public string Name { get; set; }
 
-        public AppUser AppUser { get; set; }
+        public User AppUser { get; set; }
 
         public Currency Currency { get; set; }
 

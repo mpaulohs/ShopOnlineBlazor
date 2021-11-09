@@ -13,11 +13,11 @@ namespace ShopOnlinePWA.Library.Documents
 
         public DateTime Date { get; set; }
 
-        public AppUser Owner { get; set; }
+        public User Owner { get; set; }
 
         public ClientContactInformation ContactInformation { get; set; }
 
-        public AppUser Client { get; set; }
+        public User Client { get; set; }
 
         public DocumentStatus Status { get; set; }
 

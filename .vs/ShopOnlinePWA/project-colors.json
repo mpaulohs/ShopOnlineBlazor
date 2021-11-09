@@ -25,7 +25,17 @@
       "ProjectGuid": "3ef80522-afb4-4739-99fc-149a54c8635c",
       "DisplayName": "ShopOnlinePWA.Client",
       "ColorIndex": 3
+    },
+    "fb72968d-56de-4eb3-ae11-619dc229006a": {
+      "ProjectGuid": "fb72968d-56de-4eb3-ae11-619dc229006a",
+      "DisplayName": "ShopOnlinePWA.API",
+      "ColorIndex": 4
+    },
+    "602ddcbd-cebf-4123-a016-afbf83f9d7e0": {
+      "ProjectGuid": "602ddcbd-cebf-4123-a016-afbf83f9d7e0",
+      "DisplayName": "ShopOnlinePWA.Shared",
+      "ColorIndex": 5
     }
   },
-  "NextColorIndex": 4
+  "NextColorIndex": 6
 }
