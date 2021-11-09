@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using ShopOnlinePWA.API.Migrations;
+using ShopOnlinePWA.Library.Catalogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,13 +32,21 @@ namespace ShopOnlinePWA.API
         {
 
             services.AddControllers();
-            services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(options =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
             });
             services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DbConnection"))
-                );
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DbConnection"));
+            });
+            
+            services.AddIdentity<User, Role>().AddEntityFrameworkStores<AppDbContext>();
+
+           // services.AddTransient<UserManager<User>>();
+
+           // services.AddTransient<RoleManager<Role>>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +69,8 @@ namespace ShopOnlinePWA.API
             {
                 endpoints.MapControllers();
             });
+  
         }
     }
 }
+

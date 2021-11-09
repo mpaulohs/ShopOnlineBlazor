@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using ShopOnlinePWA.Library.Catalogs;
 
 namespace ShopOnlinePWA.API.Migrations
@@ -7,10 +8,14 @@ namespace ShopOnlinePWA.API.Migrations
     {
         public AppDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
         {
-             
         }
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<Role> Roles { get; set; }
+
+
+
     }
 }
 

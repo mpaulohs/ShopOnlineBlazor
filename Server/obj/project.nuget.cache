@@ -1,27 +1,39 @@
 {
   "version": 2,
-  "dgSpecHash": "vnxjlZyMEmeN8DeWLxCE00CelsIsBMQNUM96oo3A3qLIpHqhHFdHrtU+moUzHF2WdMVqzhdQyZYsDllwRPmtqw==",
-  "success": false,
+  "dgSpecHash": "DhXqpJIIGK4Wohoowqu5LmnA5tml82mO2HtemElFb3/MqvS49w6omLRC2gTuxPOk+he0mdzm5GYqZHC/8SuJBg==",
+  "success": true,
   "projectFilePath": "Z:\\study\\C#\\ShopOnlinePWA\\Server\\ShopOnlinePWA.Server.csproj",
-  "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "NU1201",
-      "level": "Error",
-      "message": "Project ShopOnlinePWA.Shared is not compatible with net5.0 (.NETCoreApp,Version=v5.0). Project ShopOnlinePWA.Shared supports: net6.0 (.NETCoreApp,Version=v6.0)",
-      "libraryId": "ShopOnlinePWA.Shared",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    },
-    {
-      "code": "NU1201",
-      "level": "Error",
-      "message": "Project ShopOnlinePWA.Client is not compatible with net5.0 (.NETCoreApp,Version=v5.0). Project ShopOnlinePWA.Client supports: net6.0 (.NETCoreApp,Version=v6.0)",
-      "libraryId": "ShopOnlinePWA.Client",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  "expectedPackageFiles": [
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.0\\microsoft.aspnetcore.authorization.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.0\\microsoft.aspnetcore.components.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.0\\microsoft.aspnetcore.components.analyzers.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\6.0.0\\microsoft.aspnetcore.components.forms.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.0\\microsoft.aspnetcore.components.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\6.0.0\\microsoft.aspnetcore.components.webassembly.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.server\\5.0.11\\microsoft.aspnetcore.components.webassembly.server.5.0.11.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.0\\microsoft.aspnetcore.metadata.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.extensions.configuration.binder\\6.0.0\\microsoft.extensions.configuration.binder.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\6.0.0\\microsoft.extensions.configuration.fileextensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.extensions.configuration.json\\6.0.0\\microsoft.extensions.configuration.json.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\6.0.0\\microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\6.0.0\\microsoft.extensions.fileproviders.physical.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\6.0.0\\microsoft.extensions.filesystemglobbing.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.extensions.logging\\6.0.0\\microsoft.extensions.logging.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.jsinterop\\6.0.0\\microsoft.jsinterop.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.jsinterop.webassembly\\6.0.0\\microsoft.jsinterop.webassembly.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.io.pipelines\\6.0.0\\system.io.pipelines.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.net.http.json\\6.0.0\\system.net.http.json.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
 }
