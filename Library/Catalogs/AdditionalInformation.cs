@@ -16,7 +16,7 @@ namespace ShopOnlinePWA.Library.Catalogs
         [Timestamp]
         public byte[] Timestamp { get; set; }
 
-        
+
     }
 
 }

@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />
-    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="5.0.12" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="6.0.0" />
   </ItemGroup>
 
 </Project>

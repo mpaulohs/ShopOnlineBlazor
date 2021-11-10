@@ -769,7 +769,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Microsoft.Extensions.Identity.Stores": "5.0.12"
+          "Microsoft.Extensions.Identity.Stores": "6.0.0"
         },
         "compile": {
           "bin/placeholder/ShopOnlinePWA.Library.dll": {}
@@ -2225,6 +2225,7 @@
       "Microsoft.EntityFrameworkCore >= 6.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.0",
+      "Microsoft.Extensions.Identity.Stores >= 6.0.0",
       "ShopOnlinePWA.Library >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
@@ -2295,6 +2296,10 @@
           "Microsoft.EntityFrameworkCore.Tools": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
+            "target": "Package",
+            "version": "[6.0.0, )"
+          },
+          "Microsoft.Extensions.Identity.Stores": {
             "target": "Package",
             "version": "[6.0.0, )"
           },

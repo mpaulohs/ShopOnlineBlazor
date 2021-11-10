@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ShopOnlinePWA.Library.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace ShopOnlinePWA.Library.Catalogs
 {
@@ -8,7 +9,7 @@ namespace ShopOnlinePWA.Library.Catalogs
 
         public string Name { get; set; }
 
-        public User AppUser { get; set; }
+        public User Client { get; set; }
 
         public Currency Currency { get; set; }
 

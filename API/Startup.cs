@@ -10,7 +10,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using ShopOnlinePWA.API.Migrations;
+using ShopOnlinePWA.API.Migrations.AppIdentityDb;
 using ShopOnlinePWA.Library.Catalogs;
+using ShopOnlinePWA.Library.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,8 +42,14 @@ namespace ShopOnlinePWA.API
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DbConnection"));
             });
-            
-            services.AddIdentity<User, Role>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddDbContext<AppIdentityDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DbIdentityConnection"));
+            });
+
+            services.AddIdentity<User, Role>()
+                .AddEntityFrameworkStores<AppIdentityDbContext>()
+                .AddDefaultTokenProviders();
 
            // services.AddTransient<UserManager<User>>();
 

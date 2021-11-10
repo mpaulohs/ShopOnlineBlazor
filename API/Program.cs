@@ -4,7 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using ShopOnlinePWA.API.Migrations;
+using ShopOnlinePWA.API.Migrations.AppIdentityDb;
 using ShopOnlinePWA.Library.Catalogs;
+using ShopOnlinePWA.Library.Identity;
 using System;
 using System.Threading.Tasks;
 
@@ -25,8 +27,8 @@ namespace ShopOnlinePWA.API
                 {
                     var userManager = services.GetRequiredService<UserManager<User>>();
                     var roleManager = services.GetRequiredService<RoleManager<Role>>();
-                    await SeedRoles.Run(roleManager);
-                    await SeedUsers.Run(userManager);
+                    await SeedData.Run(roleManager, userManager);
+
                 }
                 catch (Exception ex)
                 {

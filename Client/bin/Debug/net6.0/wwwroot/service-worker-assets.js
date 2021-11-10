@@ -89,8 +89,20 @@
       "url": "_framework\/Microsoft.AspNetCore.Components.WebAssembly.dll"
     },
     {
+      "hash": "sha256-ONM6zzrxXgeekTnMJIrQEG\/wpK3LTuWoii8Rti14HmI=",
+      "url": "_framework\/Microsoft.AspNetCore.Cryptography.Internal.dll"
+    },
+    {
+      "hash": "sha256-tehBvhP\/hQCA18y773iDV1zHhVy\/lwnxrp4yiMhWV1M=",
+      "url": "_framework\/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll"
+    },
+    {
       "hash": "sha256-\/zApvvb9dk2x1gEETekzuO5UX3Jw98goTZP6G4rKKT0=",
       "url": "_framework\/Microsoft.AspNetCore.Metadata.dll"
+    },
+    {
+      "hash": "sha256-WLcZIKlgct2nj4hpaBvZXfHorQG9DH9B\/FZ2IKePG2I=",
+      "url": "_framework\/Microsoft.Extensions.Caching.Abstractions.dll"
     },
     {
       "hash": "sha256-c8yYhfrOBLEnOBglLTu9peXSbJDwFpuT4UQiXSv28Og=",
@@ -131,6 +143,14 @@
     {
       "hash": "sha256-viiXOG0fwhWobT0TQ1ZOJiZBdRvYRlWbDtjz+6d8sQI=",
       "url": "_framework\/Microsoft.Extensions.FileSystemGlobbing.dll"
+    },
+    {
+      "hash": "sha256-sjphgadKb5PMDz4PzpLSv6fDZDrVBOzizLrRXSVlIJI=",
+      "url": "_framework\/Microsoft.Extensions.Identity.Core.dll"
+    },
+    {
+      "hash": "sha256-Wu4Kqcn8jkoVBOVLZ9kFnMahAZecIjgmmzyHjAHBjzk=",
+      "url": "_framework\/Microsoft.Extensions.Identity.Stores.dll"
     },
     {
       "hash": "sha256-GDZQCBtVHfrZZ6fL95lGoinLeUWLjQShLbfESwO7mrc=",
@@ -861,11 +881,11 @@
       "url": "_framework\/ShopOnlinePWA.Shared.pdb"
     },
     {
-      "hash": "sha256-QU9oXOytvWX+g+q2hk7qkrkQU\/DYASBwcE907bJg0zo=",
+      "hash": "sha256-P0ugOeBI9HgcUGhZwb64dFukZBBbHZwgaN0Ha15pKXk=",
       "url": "_framework\/ShopOnlinePWA.Client.dll"
     },
     {
-      "hash": "sha256-zwzr1+\/3Xbamj7JTDFabEt6qzQFBkHAVRg7w465YmLY=",
+      "hash": "sha256-HxM\/jYnAARJebfBY1zSWe2AZ0nYrQT2fVlO4PsT9pAM=",
       "url": "_framework\/ShopOnlinePWA.Client.pdb"
     },
     {
@@ -873,9 +893,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-0vnLjbgjwXzgwjHRkc0k0FJdCtCldkWSf1eJiZVfKe8=",
+      "hash": "sha256-XJQCwW3VezdqSaFNpU6NNv9l\/WBOf7426EbQpuHDNDw=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "LWpcXlMT"
+  "version": "6ix7724o"
 };

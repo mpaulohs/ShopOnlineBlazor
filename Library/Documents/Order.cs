@@ -1,4 +1,5 @@
 ﻿using ShopOnlinePWA.Library.Catalogs;
+using ShopOnlinePWA.Library.Identity;
 using System;
 using System.ComponentModel.DataAnnotations;
 

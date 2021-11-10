@@ -12,6 +12,7 @@
           "Microsoft.EntityFrameworkCore": "6.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.0",
+          "Microsoft.Extensions.Identity.Stores": "6.0.0",
           "ShopOnlinePWA.Library": "1.0.0",
           "Swashbuckle.AspNetCore": "6.2.3"
         },

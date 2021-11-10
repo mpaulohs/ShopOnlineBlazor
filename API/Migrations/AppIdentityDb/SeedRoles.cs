@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using ShopOnlinePWA.Library.Catalogs;
+using ShopOnlinePWA.Library.Identity;
 using System.Threading.Tasks;
 
-namespace ShopOnlinePWA.API.Migrations
+namespace ShopOnlinePWA.API.Migrations.AppIdentityDb
 {
     public static class SeedRoles
-    { 
+    {
 
         public static async Task Run(RoleManager<Role> roleManager)
         {

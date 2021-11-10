@@ -1,16 +1,14 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
-using ShopOnlinePWA.Library.Catalogs;
+using ShopOnlinePWA.Library.Identity;
 using System;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace ShopOnlinePWA.API.Migrations
+namespace ShopOnlinePWA.API.Migrations.AppIdentityDb
 {
     public static class SeedUsers
     {
-        
+
         public static async Task Run(UserManager<User> userManager)
         {
             string _administrator = $"Admitistrator@{Assembly.GetCallingAssembly().GetName().Name}.com";
@@ -36,7 +34,7 @@ namespace ShopOnlinePWA.API.Migrations
 
                 if (userManager.CreateAsync(user, "Password@1234").Result == IdentityResult.Success)
                 {
-                   await userManager.AddToRoleAsync(user, "_administrator");
+                    await userManager.AddToRoleAsync(user, "_administrator");
                 }
             }
 
@@ -60,7 +58,7 @@ namespace ShopOnlinePWA.API.Migrations
 
                 if (userManager.CreateAsync(user, "Password@1234").Result == IdentityResult.Success)
                 {
-                   await userManager.AddToRoleAsync(user, "User");
+                    await userManager.AddToRoleAsync(user, "User");
                 }
             }
         }
