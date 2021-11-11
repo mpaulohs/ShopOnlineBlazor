@@ -4,7 +4,6 @@ using Microsoft.Extensions.Logging;
 using ShopOnlinePWA.API.Migrations.AppIdentityDb;
 using ShopOnlinePWA.Library.Identity;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -72,10 +71,10 @@ namespace ShopOnlinePWA.API.ModelsRepository
                 foreach ((string key, object value) in parameters)
                 {
                     users.Where(e => e.GetType().GetProperty(key).GetValue(e) == value);
-            
+
                 }
                 return users.ToList();
-               
+
             }
             catch (Exception)
             {
