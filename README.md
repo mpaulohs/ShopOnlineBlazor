@@ -3,19 +3,37 @@
 ## Опис
 Сучасний інтернет магазин з використанням сучасних стандартів побудови кросплатформенного підходу.
 - для безпосередньої робти з даними використовується RESTful API interface
-- для браузерів, які не підтрмують Web Assembly створено Blazor Server
-- для браузерів, які підтримують Web Assembly слієнт на Blazor Pages
+- для браузерів, які не підтрмують WebAssembly створено Blazor Server
+- для браузерів, які підтримують WebAssembly слієнт на Blazor Pages
 - для підтримки роботи із популярною в Україні CMR 1C підтримка ро
 
 ## Технології
 
-Мова програмування: C#
-Фреймворки:
-- .Net 5
-- Blazor Server
-- Blazor Pages
+**IDE**
+- Visual Studio 2019
+- Visual Studio 2022
+- Visual Code
 
-'''
+**Мова програмування**
+- C# 9
+- HTML
+- CSS
+
+
+**Фреймворки**
+- .NET 5.O
+- ASP.NET Core 5.0
+
+**Технології**
+- ASP.NET Core Web API
+- Blazor
+- Blazor Pages
+- RESTfull API
+
+
+## Resources
+
+https://www.syncfusion.com/
 
 ## REST API
 ### naming convention:
@@ -47,39 +65,47 @@
 - csv
 - xml
 
-### Resources 
+#### Resources
 
-**Recive a list of resources**
-* GET .../resources.format (return list of all resources in json format)
-
-**Recive a single resource**
-
- * GET .../resources/identifier.format (return single resource in json format)
-
-**Filtering list of resources**
- * GET .../resources.format?filter1=value-filter1&filter2=value-filter2 (return list of resources filtered by name and sortet desc)
-
-**Create new resource** 
+**Create** 
  * POST .../resources (create resource)
  
-**Update resource**
- * PUT .../resources/identifier (update resources)
+**Read**
+ * GET .../resources.format (return the list of all resources)
+ * GET .../resources/identifier.format (return a single resource)
+ * GET .../resources.format?filter1=value-filter1&filter2=value-filter2 (return list of resources filtered by name and sortet desc)
+
+**Update**
+ * PUT .../resources/identifier (updates the entire resource)
+ * PATCH .../resources/identifier (updates only subset of the resource)
  
-**Delete resource**
+**Delete**
  * DELETE .../resources (delete all resources)
  * DELETE .../resources/identifier (delete single resource with identifier)
 
 ### Subresources 
 
-**List of all subresources in resource**
- * GET .../resources/identifier/subresources.format
-
-**Add new subresource in resource**
+**Create**
  * POST .../resources/identifier/subresources
 
-**Update subresource in resource**
- * PUT .../resources/identifier/subresources/identifier (update single subresource with id)
+**Read**
+ * GET .../resources/identifier/subresources.format
 
-**Delete subresources from resource**
+**Update**
+ * PUT .../resources/identifier/subresources/identifier (update single subresource with id)
+ * PATCH .../resources/identifier/subresources/identifier (updates only subset of the the protpriesd of singlr subresource)
+ 
+**Delete**
  * DELETE .../resources/identifier/subresources (delete all subresources in single resource)
  * DELETE .../resources/identifier/subresources/identifier (delete subresource in singler resource)
+
+**HTTP Statuses**
+
+Since REST APIs depend upon HTTP standards, each request’s status is used to communicate the result of the request, such as success or failure. Each status code provides a machine-readable response, plus a human-readable message. Web developers (and a number of users) will be familiar with many of these.
+
+- 200: Success
+- 201: Created
+- 404: Not found
+- 401: Unauthorized
+- 403: Forbidden
+- 429: Too many requests
