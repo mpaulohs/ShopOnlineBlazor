@@ -14,7 +14,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnlinePWA.Client", "Cli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnlinePWA.Shared", "Shared\ShopOnlinePWA.Shared.csproj", "{602DDCBD-CEBF-4123-A016-AFBF83F9D7E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopOnlinePWA.API", "API\ShopOnlinePWA.API.csproj", "{FB72968D-56DE-4EB3-AE11-619DC229006A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnlinePWA.API", "API\ShopOnlinePWA.API.csproj", "{FB72968D-56DE-4EB3-AE11-619DC229006A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
