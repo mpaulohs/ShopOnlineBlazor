@@ -66,11 +66,21 @@ namespace ShopOnlinePWA.API.ModelsRepository
         {
             try
             {
+                //ToDo Create Universal functon
+                //property
+                //operator (egual, lte, gte)
+                //value
+                int offset = 0;
+                int limit = 0;
+                string filters = String.Empty;
+                string sortings = String.Empty;
+                string searchs = String.Empty;
+
                 //ToDo check this behavior
                 var users = appIdentityDbContext.Users;
                 foreach ((string key, object value) in parameters)
                 {
-                    users.Where(e => e.GetType().GetProperty(key).GetValue(e) == value);
+                    //users.Where(e => e.GetType().GetProperty(key).GetValue(e) == value);
 
                 }
                 return users.ToList();
@@ -84,14 +94,94 @@ namespace ShopOnlinePWA.API.ModelsRepository
 
         }
 
-        public Task<User> Update(User entity)
+        public async Task<User> Update(User entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var updatedEntity = await appIdentityDbContext.Users.FirstOrDefaultAsync(e => e.Id == entity.Id);
+                if (updatedEntity != null)
+                {
+                    var entityType = updatedEntity.GetType();
+                    var properties = entityType.GetProperties();
+
+                    foreach (var property in properties)
+                    {
+                        try
+                        {
+                            entityType.GetProperty(property.Name).SetValue(updatedEntity, entity.GetType().GetProperty(property.Name).GetValue(entity));
+                        }
+                        catch (Exception)
+                        {
+                            throw;
+                        }
+                    }
+
+                    var fields = entityType.GetFields();
+                    foreach (var field in fields)
+                    {
+                        try
+                        {
+                            entityType.GetField(field.Name).SetValue(updatedEntity, entity.GetType().GetField(field.Name).GetValue(entity));
+                        }
+                        catch (Exception)
+                        {
+                            throw;
+                        }
+                    }
+
+                    await appIdentityDbContext.SaveChangesAsync();
+                    return updatedEntity;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex, "An error occurred while create user entity in database.");
+                throw new Exception();
+            }
         }
 
-        public Task<User> Update(Guid quid, object parameters)
+        public async Task<User> Update(Guid id, IDictionary<string, object> parameters)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var updatedEntity = await appIdentityDbContext.Users.FirstOrDefaultAsync(e => e.Id == id);
+                if (updatedEntity != null)
+                {
+                    var entityType = updatedEntity.GetType();
+                    var properties = entityType.GetProperties();
+
+                    foreach (var parameter in parameters)
+                    {
+                        var property = entityType.GetProperty(parameter.Key);
+                        var field = entityType.GetField(parameter.Key);
+
+                        if (property != null)
+                        {
+                            property.SetValue(updatedEntity, parameter.Value);
+                        }
+                        else if (field != null)
+                        {
+                            field.SetValue(updatedEntity, parameter.Value);
+                        }
+                    }
+                    await appIdentityDbContext.SaveChangesAsync();
+                    return updatedEntity;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex, "An error occurred while create user entity in database.");
+                throw new Exception();
+            }
         }
 
         public async Task Delete()

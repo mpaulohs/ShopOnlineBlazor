@@ -17,7 +17,7 @@ namespace API.ModelsRepository
 
         public Task<TEntity> Update(TEntity entity);
 
-        public Task<TEntity> Update(Guid quid, object parameters);
+        public Task<TEntity> Update(Guid quid, IDictionary<string, object> parameters);
 
         public Task Delete();
 
