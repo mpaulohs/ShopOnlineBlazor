@@ -157,12 +157,12 @@ namespace ShopOnlinePWA.API.ModelsRepository
 
                     foreach (var parameter in parameters)
                     {
-                        var property = entityType.GetProperty(parameter.Key);
-                        var field = entityType.GetField(parameter.Key);
+                        var property = entityType.GetProperty(parameter.Key, System.Reflection.BindingFlags.Public| System.Reflection.BindingFlags.Instance);
+                        var field = entityType.GetField(parameter.Key, System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
 
-                        if (property != null)
+                        if (property != null && property.CanWrite)
                         {
-                            property.SetValue(updatedEntity, parameter.Value);
+                            property.SetValue(updatedEntity, parameter.Value, null);
                         }
                         else if (field != null)
                         {

@@ -131,3 +131,14 @@ Since REST APIs depend upon HTTP standards, each request’s status is used to c
 - 415 Unsupported Media Type - If incorrect content type was provided as part of the request
 - 422 Unprocessable Entity - Used for validation errors
 - 429 Too Many Requests - When a request is rejected due to rate limiting
+
+
+
+
+
+#User Read#
+Where User name = jkjj
+Where User id = 453535
+Where User name begin from asc sort by name acs
+Where User age >= 18 sort by age dec
+where user age>=10 and name like "vas" sort by date regis firs 40 
