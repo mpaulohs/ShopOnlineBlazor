@@ -62,35 +62,36 @@ namespace ShopOnlinePWA.API.ModelsRepository
             }
         }
 
-        public async Task<ICollection<User>> Read(IDictionary<string, object> parameters)
+        public Task<ICollection<User>> Read(ICollection<ShopOnlinePWA.Library.Helpers.RequestHelper<Object, Object>> requestHelpers)
         {
-            try
-            {
-                //ToDo Create Universal functon
-                //property
-                //operator (egual, lte, gte)
-                //value
-                int offset = 0;
-                int limit = 0;
-                string filters = String.Empty;
-                string sortings = String.Empty;
-                string searchs = String.Empty;
+            throw new Exception();
+            //try
+            //{
+            //    //ToDo Create Universal functon
+            //    //property
+            //    //operator (egual, lte, gte)
+            //    //value
+            //    int offset = 0;
+            //    int limit = 0;
+            //    string filters = String.Empty;
+            //    string sortings = String.Empty;
+            //    string searchs = String.Empty;
 
-                //ToDo check this behavior
-                var users = appIdentityDbContext.Users;
-                foreach ((string key, object value) in parameters)
-                {
-                    //users.Where(e => e.GetType().GetProperty(key).GetValue(e) == value);
+            //    //ToDo check this behavior
+            //    var users = appIdentityDbContext.Users;
+            //    foreach ((string key, object value) in parameters)
+            //    {
+            //        //users.Where(e => e.GetType().GetProperty(key).GetValue(e) == value);
 
-                }
-                return users.ToList();
+            //    }
+            //    return users.ToList();
 
-            }
-            catch (Exception)
-            {
+            //}
+            //catch (Exception)
+            //{
 
-                throw;
-            }
+            //    throw;
+            //}
 
         }
 
@@ -153,7 +154,6 @@ namespace ShopOnlinePWA.API.ModelsRepository
                 if (updatedEntity != null)
                 {
                     var entityType = updatedEntity.GetType();
-                    var properties = entityType.GetProperties();
 
                     foreach (var parameter in parameters)
                     {
@@ -170,6 +170,7 @@ namespace ShopOnlinePWA.API.ModelsRepository
                         }
                     }
                     await appIdentityDbContext.SaveChangesAsync();
+
                     return updatedEntity;
                 }
                 else

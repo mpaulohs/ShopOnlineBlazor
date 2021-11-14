@@ -13,7 +13,7 @@ namespace API.ModelsRepository
 
         public Task<TEntity> Read(Guid id);
 
-        public Task<ICollection<TEntity>> Read(IDictionary<string, object> parameters);
+        public Task<ICollection<TEntity>> Read(ICollection<ShopOnlinePWA.Library.Helpers.RequestHelper<Object, Object>> requestHelpers);
 
         public Task<TEntity> Update(TEntity entity);
 

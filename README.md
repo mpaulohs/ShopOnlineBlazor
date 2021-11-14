@@ -38,14 +38,29 @@
 - [Syncfusion developing](https://www.syncfusion.com/)
 - [Best pracice for using parameters in RESTful API](https://www.moesif.com/blog/technical/api-design/REST-API-Design-Filtering-Sorting-and-Pagination/)
 - [RESTfull API](https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api)
+- [RESTfull API Core Concepts](https://developer.channeladvisor.com/rest-api-core-concepts/getting-and-filtering-data)
 - [Pragim Technologi Chanal](https://www.pragimtech.com/blog/blazor-webAssembly/progressive-web-apps/)
 - [Metanit](https://metanit.com/sharp/tutorial/15.1.php)
 - [Microsoft Doc Scafolding](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?view=aspnetcore-6.0&tabs=visual-studio)
+- [Date Time format](https://www.w3.org/TR/xmlschema11-2/#rf-lexicalMappings-datetime)
+
 
 ## REST API
-### naming convention:
+### Naming convention
+
+### Subresource ###
+
+**Macet**
+*protocol://host:prot/api/version/resources/identifier*
+*protocol://host:port/api/version/resources?
+select=property1,property2...
+filter=property operation value or/and property operation value
+orderby=property desc/aes
+count = true
+access-token=
 
 *protocol://host:port/api/version/resources/identifier/subresources/identifier*
+
 
 *hppt://localhost:5000/api/v1/orders/1/items.json*
 
@@ -105,6 +120,132 @@
 **Delete**
  * DELETE .../resources/identifier/subresources (delete all subresources in single resource)
  * DELETE .../resources/identifier/subresources/identifier (delete subresource in singler resource)
+
+
+Getting and Filtering Data
+==========================
+
+The ChannelAdvisor REST API supports the [OData
+4.0](http://www.odata.org/documentation/) specification, which is an
+[OASIS](https://www.oasis-open.org/news/pr/oasis-approves-odata-4-0-standards-for-an-open-programmable-web)
+standard that supports filtering, sorting, paging, selecting and
+expanding. The select and expand capabilities allow developers to
+specify the exact details they want to retrieve as parameters in the
+request. This both reduces load on ChannelAdvisor servers and decreases
+JSON payload sizes for more efficient network usage. Use of these
+features improves performance for downstream systems and ultimately
+leads to higher customer satisfaction.  
+
+Filtering {#GettingandFilteringData-Filtering}
+=========
+
+Requests can be filtered by using the **\$filter** keyword.  Filters
+utilizing a text string value require single quotes around the value,
+otherwise no single quotes are required.
+
+The following logical operations are supported:
+
+| Operation | Description           | Example                                       |
+|-----------|-----------------------|-----------------------------------------------|
+| and       | And                   | Field1 eq 'abc' and Field2 eq 'def'           |
+| or        | Or                    | Field1 eq 'abc' or Field1 eq 'def'            |
+| eq        | Equals                | BuyerEmailAddress eq 'first.last@example.com' |
+| ne        | Not Equals            | BuyerEmailAddress ne 'first.last@example.com' |
+| gt        | Greater Than          | CreatedDateUtc gt 2016-03-02                  |
+| gte       | Greater Than Or Equal | CreatedDateUtc ge 2016-03-02                  |
+| lt        | Less Than             | Quantity lt 1500                              |
+| lte       | Less Than Or Equal    | Quantity le 1500                              |
+
+Additionally, there are several functions that can be used to help
+filter specific data types.
+
+| Function | Description                                                                                    | Data Type | Example                 |
+|----------|------------------------------------------------------------------------------------------------|-----------|-------------------------|
+| Year     | Returns the year component (without the fractional part) of a DateTimeOffset                   | Integer   | year(BirthDate) eq 1971 |
+| Month    | Returns the month component (without the fractional part) of a DateTimeOffset                  | Integer   | month(BirthDate) eq 5   |
+| Day      | Returns the day component (without the fractional part) of a DateTimeOffset                    | Integer   | day(BirthDate) eq 8     |
+| Hour     | Returns the hour component (without the fractional part) of a DateTimeOffset                   | Integer   | hour(BirthDate) eq 4    |
+| Minute   | Returns the minute component (without the fractional part) of a DateTimeOffset                 | Integer   | minute(BirthDate) eq 40 |
+| Second   | Returns the second component (without the fractional part) of a DateTimeOffset                 | Integer   | second(BirthDate) eq 40 |
+| Floor    | Rounds the input numeric parameter down to the nearest numeric value with no decimal component | Decimal   | floor(Freight) eq 32    |
+| Ceiling  | Rounds the input numeric parameter up to the nearest numeric value with no decimal component   | Decimal   | ceiling(Freight) eq 32  |
+
+
+Notes
+
+- String functions such as 'SubstringOf' and 'StartsWith' are currently not supported.
+- When using any of the filters to reference a specific date, but no specific time in a filter, the API assumes the time is 12:00.00am UTC.
+- When sending a request to retrieve Orders with \$filter=CreatedDateUtc **eq** 2015-11-15, the only result would be an order created 2015-11-15 at 12:00.00am UTC.
+- See some examples below in the "Filtering on properties" for filtering between date ranges or after a specific time.
+- To capture all of an item with an Order filter created up to the moment the request is made, try \$filter=CreatedDateUtc **ge**2015-11-15****(assumes today is November 15, 2015)
+- Case-Sensitivity in URIs:
+- Every property definition before the "?" in a URI is case-sensitive (e.g. attribute name string values)
+- Everything after the "?" in a URI is not case-sensitive (e.g. \$filter=property definitions, operators; \$select, \$orderby, etc)
+
+Selecting Properties {#GettingandFilteringData-SelectingProperties}
+====================
+
+**Query**
+
+**Example**
+
+Selecting a subset of properties
+
+| Query                                                                                                         | Example                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+|---------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Selecting a subset of properties                                                                              | https://api.channeladvisor.com/v1/Orders?$select=ID, ShippingStatus, CreatedOnDateUtc                                                                                                                                                                                                                                                                                                                                                                                         |
+| Filtering on properties                                                                                       | https://api.channeladvisor.com/v1/Orders?$filter=BuyerEmailAddress eq 'first.last@example.com' <br>https://api.channeladvisor.com/v1/Orders?$filter=CreatedDateUtc ge 2016-03-02 <br>https://api.channeladvisor.com/v1/Orders?$filter=PaymentStatus eq 'Cleared'<br>https://api.channeladvisor.com/v1/Orders?$filter=CreatedDateUtc ge 2016-03-02 and CreatedDateUtc lt 2016-03-03<br>https://api.channeladvisor.com/v1/Orders?$filter=CreatedDateUtc gt 2016-03-02T14:59:59Z |
+| Sorting by a property                                                                                         | https://api.channeladvisor.com/v1/Orders?$orderby=CreatedOnDateUtc desc                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Returning the total count of an endpoint                                                                      | https://api.channeladvisor.com/v1/Orders/$count                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Returning the total count of a filtered endpoint                                                              | https://api.channeladvisor.com/v1/Orders?$filter=ProfileID eq 12345678 and CreatedDateUtc gt 2016-05-01&$count=true                                                                                                                                                                                                                                                                                                                                                           |
+| Paging through results                                                                                        | Page 1: https://api.channeladvisor.com/v1/Orders<br> Page 2: https://api.channeladvisor.com/v1/Orders?$skip=20<br> Page 3: https://api.channeladvisor.com/v1/Orders?$skip=40<br>See additional notes below about Paging Through Results.                                                                                                                                                                                                                                      |
+| Expanding child collections                                                                                   | https://api.channeladvisor.com/v1/Orders?$expand=Items                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Expanding multiple child collections                                                                          | https://api.channeladvisor.com/v1/Orders?$expand=Items,Fulfillments                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Expanding 2nd level child collections                                                                         | https://api.channeladvisor.com/v1/Orders?$expand=Fulfillments($expand=Items)<br>                                                                                                                                                                                                                                                                                                                                                                                              |
+| Expanding 2nd level child collections for multiple child collections                                          | https://api.channeladvisor.com/v1/Orders?$expand=Items($expand=Adjustments),Fulfillments($expand=Items)                                                                                                                                                                                                                                                                                                                                                                       |
+| Selecting properties on child collections                                                                     | https://api.channeladvisor.com/v1/Orders?$expand=Items($select=Sku, Quantity)                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Filtering based on child collection property value                                                            | https://api.channeladvisor.com/v1/Orders?$filter=Adjustments/Any(c: c/Reason eq '2')                                                                                                                                                                                                                                                                                                                                                                                          |
+| Filtering based on multiple property values (one at endpoint level and one at child collection level)         | https://api.channeladvisor.com/v1/Products?$filter=Attributes/Any (c: c/Value eq '13M') and Brand eq 'Skechers' and Attributes/Any (c: c/Name eq 'Size') &$expand=Attributes                                                                                                                                                                                                                                                                                                  |
+| Retrieve the first 50 products with ID and Sku only                                                           | https://api.channeladvisor.com/v1/Products?$select=ID,Sku&$top=50                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Retreive the second 50 products with ID and Sku only<br>Note: $skip must appear before $top for this to work  | https://api.channeladvisor.com/v1/Products?$select=ID,Sku&$skip=50&$top=50                                                                                                                                                                                                                                                                                                                                                                                                    |
+
+DateTimeOffset {#GettingandFilteringData-DateTimeOffset}
+==============
+
+Read about "Lexical Mapping" on [this W3
+page](https://www.w3.org/TR/xmlschema11-2/#rf-lexicalMappings-datetime)
+for more information on formatting DateTimeOffset.
+
+**Proper Format:**
+
+Any of the below formats are accurate within the API and will be
+interpreted correctly within POST/PATCH/PUT requests. \
+GET requests will allow the below, but do not require the time to
+execute properly.
+
+-   2016-10-31T14:08:36.8033257Z
+-   2016-08-19T10:44:15Z
+-   2016-10-31T14:08:36.8033257-04:00
+-   2016-10-31T14:08:36.8033257+12:00
+-   2016-08-19T10:44:15+01:00
+
+Paging Through Results {#GettingandFilteringData-PagingThroughResults}
+======================
+
+Each page of results will have a link to the next page embedded in the
+**@odata.nextLink** property. The last page will not contain a value for
+**@odata.nextLink**, indicating the end of the result set.
+
+It is highly recommended to use the **@odata.NextLink** URI for paging
+instead of manually setting a **\$skip** value because maximum page
+sizes may vary.
+
+For most GET requests, the default response page size is 20, but some
+endpoints, such as Products, support larger page sizes in order to
+optimize performance and efficiency.
+
+
+
 
 **HTTP Statuses**
 
