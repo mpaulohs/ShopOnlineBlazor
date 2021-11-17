@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Shared\ShopOnlinePWA.Shared.csproj" />
+    <ProjectReference Include="..\Library\ShopOnlinePWA.Library.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -51,10 +51,6 @@ namespace ShopOnlinePWA.API
                 .AddEntityFrameworkStores<AppIdentityDbContext>()
                 .AddDefaultTokenProviders();
 
-           // services.AddTransient<UserManager<User>>();
-
-           // services.AddTransient<RoleManager<Role>>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

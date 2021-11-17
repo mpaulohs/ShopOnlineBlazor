@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Client\ShopOnlinePWA.Client.csproj" />
-    <ProjectReference Include="..\Shared\ShopOnlinePWA.Shared.csproj" />
+    <ProjectReference Include="..\Library\ShopOnlinePWA.Library.csproj" />
   </ItemGroup>
 
 

@@ -76,5 +76,7 @@ namespace ShopOnlinePWA.API.Migrations.AppIdentityDb
             modelBuilder.Entity<RoleClaim>(b => b.ToTable("RoleClaims"));
 
         }
+
+
     }
 }
