@@ -39,6 +39,7 @@
 - [Best pracice for using parameters in RESTful API](https://www.moesif.com/blog/technical/api-design/REST-API-Design-Filtering-Sorting-and-Pagination/)
 - [RESTfull API](https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api)
 - [RESTfull API Core Concepts](https://developer.channeladvisor.com/rest-api-core-concepts/getting-and-filtering-data)
+- [RESTfull API Repository patern](https://code-maze.com/net-core-web-development-part4/#repository)
 - [Pragim Technologi Chanal](https://www.pragimtech.com/blog/blazor-webAssembly/progressive-web-apps/)
 - [Metanit](https://metanit.com/sharp/tutorial/15.1.php)
 - [Microsoft Doc Scafolding](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?view=aspnetcore-6.0&tabs=visual-studio)

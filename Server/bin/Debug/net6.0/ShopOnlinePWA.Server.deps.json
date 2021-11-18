@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "ShopOnlinePWA.Server/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Components.WebAssembly.Server": "5.0.11",
+          "Microsoft.AspNetCore.Components.WebAssembly.Server": "6.0.0",
           "ShopOnlinePWA.Client": "1.0.0",
           "ShopOnlinePWA.Library": "1.0.0"
         },
@@ -59,11 +59,11 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.WebAssembly.Server/5.0.11": {
+      "Microsoft.AspNetCore.Components.WebAssembly.Server/6.0.0": {
         "runtime": {
-          "lib/net5.0/Microsoft.AspNetCore.Components.WebAssembly.Server.dll": {
-            "assemblyVersion": "5.0.11.0",
-            "fileVersion": "5.0.1121.47605"
+          "lib/net6.0/Microsoft.AspNetCore.Components.WebAssembly.Server.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52608"
           }
         }
       },
@@ -336,12 +336,12 @@
       "path": "microsoft.aspnetcore.components.webassembly/6.0.0",
       "hashPath": "microsoft.aspnetcore.components.webassembly.6.0.0.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Components.WebAssembly.Server/5.0.11": {
+    "Microsoft.AspNetCore.Components.WebAssembly.Server/6.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-rwHurrTw6rcqao/jcKN506KpbhE+WZhJiABtRFdaOXJb7VE7BAEL7zhtEnU3lKnzjS625vMnyX3AgXBMu42TPg==",
-      "path": "microsoft.aspnetcore.components.webassembly.server/5.0.11",
-      "hashPath": "microsoft.aspnetcore.components.webassembly.server.5.0.11.nupkg.sha512"
+      "sha512": "sha512-tEv7Ma9/AWqLm4v/GKkctYxYmxmbMxHQ5oMbXidgSZK6fVC1yG+BMNZJkuGeAShE28A3JU90+YGU5wDyTk0GFw==",
+      "path": "microsoft.aspnetcore.components.webassembly.server/6.0.0",
+      "hashPath": "microsoft.aspnetcore.components.webassembly.server.6.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/6.0.0": {
       "type": "package",

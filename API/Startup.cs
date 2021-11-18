@@ -42,13 +42,9 @@ namespace ShopOnlinePWA.API
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DbConnection"));
             });
-            services.AddDbContext<AppIdentityDbContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("DbIdentityConnection"));
-            });
-
+  
             services.AddIdentity<User, Role>()
-                .AddEntityFrameworkStores<AppIdentityDbContext>()
+                .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
         }

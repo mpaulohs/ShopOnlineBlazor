@@ -13,9 +13,9 @@ namespace ShopOnlinePWA.API.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly AppIdentityDbContext _context;
+        private readonly AppDbContext _context;
 
-        public UsersController(AppIdentityDbContext context)
+        public UsersController(AppDbContext context)
         {
             _context = context;
         }

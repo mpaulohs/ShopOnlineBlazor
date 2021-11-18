@@ -893,19 +893,19 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-3gD5MjJ2Zf0oPuQBv5uXwHwVK6y2pgZPpge\/nH25G6w=",
+      "hash": "sha256-ijhoAFzM+a0IpJe8vYx1vsrSXZ9iqSq5EX\/2lozaLuA=",
       "url": "_framework\/ShopOnlinePWA.Library.dll"
     },
     {
-      "hash": "sha256-LEZwUZ4D3srYRkWuN60y5BDzFnwqSkP5qlEiR8q8vJ4=",
+      "hash": "sha256-2KDSzmDysRptffZTqkVD1xSaILIkNgW+Jrv699I+CoA=",
       "url": "_framework\/ShopOnlinePWA.Library.pdb"
     },
     {
-      "hash": "sha256-0pYlVn6ZDyc154aVMtPZ4P94nOyD1NFWyMD4Z9ZN6YA=",
+      "hash": "sha256-BmPkj2RWrx4YQqNojO2Ct8eG5+flAbVt7\/GYhkHrvas=",
       "url": "_framework\/ShopOnlinePWA.Client.dll"
     },
     {
-      "hash": "sha256-Ql4hTCGJRr3BYct2Rw8szMvRMaOQ514iGQnZmsR\/YTY=",
+      "hash": "sha256-iIdly2ALGiIWtYQmlnjnls0e3MgZVXabepLaaXqDbrw=",
       "url": "_framework\/ShopOnlinePWA.Client.pdb"
     },
     {
@@ -913,9 +913,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-j6I0toTWKZODWiVqkm+R0GybHizuCzr7pdUUH\/a1+To=",
+      "hash": "sha256-RPP+lcdonh\/X8ByalPFQBNZEybbirEVOCyazcSygJzY=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "BYa0JRYP"
+  "version": "6XkpwuVf"
 };
