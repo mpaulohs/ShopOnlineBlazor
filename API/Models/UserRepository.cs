@@ -10,8 +10,11 @@ using System.Threading.Tasks;
 
 namespace ShopOnlinePWA.API.Models
 {
-    public class UserRepository
+    public class UserRepository : RepositoryBase<User, Guid>, IUserRepository
     {
+        public UserRepository(AppDbContext RepositoryContext, ILogger Logger) : base(RepositoryContext, Logger)
+        {
+        }
     }
-        
+
 }

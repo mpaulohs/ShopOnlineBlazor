@@ -1,9 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using ShopOnlinePWA.Library.Repositories;
 
 namespace ShopOnlinePWA.Library.Catalogs
 {
-    public class ItemUnitClassifier
+    public class ItemUnitClassifier : IEntityBase<Guid>
     {
         public Guid Id { get; set; }
 

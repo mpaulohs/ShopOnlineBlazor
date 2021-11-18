@@ -1,6 +1,7 @@
 ﻿using ShopOnlinePWA.Library.Identity;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace ShopOnlinePWA.Library.Catalogs
 {
     class ClientContract

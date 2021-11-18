@@ -14,12 +14,12 @@ namespace ShopOnlinePWA.API.Models
     {
         protected AppDbContext RepositoryContext { get; set; }
 
-        private readonly ILogger _logger;
+        protected ILogger Logger { get; set; }
 
-        public RepositoryBase(AppDbContext RepositoryContext, ILogger _logger)
+        public RepositoryBase(AppDbContext RepositoryContext, ILogger Logger)
         {
             this.RepositoryContext = RepositoryContext;
-            this._logger = _logger;
+            this.Logger = Logger;
         }
 
         public async Task<TId> Create(TEntity entity)
@@ -63,7 +63,7 @@ namespace ShopOnlinePWA.API.Models
             }
             catch (Exception ex)
             {
-                this._logger.LogError(ex, "An error ocur Delete entity");
+                this.Logger.LogError(ex, "An error ocur Delete entity");
                 return false;
             }
         }

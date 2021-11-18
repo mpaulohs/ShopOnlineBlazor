@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using ShopOnlinePWA.Library.Repositories;
 using System;
 using System.Collections.Generic;
 
 namespace ShopOnlinePWA.Library.Identity
 {
-    public class User : IdentityUser<Guid>
+    public class User : IdentityUser<Guid>, IEntityBase<Guid>
     {
         public string FirstName { get; set; }
 

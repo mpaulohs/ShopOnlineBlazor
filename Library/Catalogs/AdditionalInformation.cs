@@ -1,9 +1,10 @@
-﻿using System;
+﻿using ShopOnlinePWA.Library.Repositories;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace ShopOnlinePWA.Library.Catalogs
 {
-    public class AdditionalInformation
+    public class AdditionalInformation  : IEntityBase<Guid>
     {
         public Guid Id { get; set; }
 

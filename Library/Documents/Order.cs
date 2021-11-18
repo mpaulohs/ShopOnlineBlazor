@@ -2,11 +2,12 @@
 using ShopOnlinePWA.Library.Identity;
 using System;
 using System.ComponentModel.DataAnnotations;
+using ShopOnlinePWA.Library.Repositories;
 
 
 namespace ShopOnlinePWA.Library.Documents
 {
-    public class Order
+    public class Order : IEntityBase<Guid>
     {
         public Guid Id { get; set; }
 

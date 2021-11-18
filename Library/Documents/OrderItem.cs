@@ -1,9 +1,10 @@
 ﻿using ShopOnlinePWA.Library.Catalogs;
+using ShopOnlinePWA.Library.Repositories;
 using System;
 
 namespace ShopOnlinePWA.Library.Documents
 {
-    class OrderItem
+    class OrderItem : IEntityBase<Guid>
     {
         public Guid Id { get; set; }
 

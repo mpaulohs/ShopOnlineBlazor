@@ -1,9 +1,10 @@
-﻿using System;
+﻿using ShopOnlinePWA.Library.Repositories;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace ShopOnlinePWA.Library.Catalogs
 {
-    public class Storage
+    public class Storage : IEntityBase<Guid>
     {
         public Guid Id { get; set; }
 

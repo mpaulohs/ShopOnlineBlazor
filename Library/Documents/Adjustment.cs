@@ -1,9 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using ShopOnlinePWA.Library.Repositories;
 
 namespace ShopOnlinePWA.Library.Documents
 {
-    public class Adjustment
+    public class Adjustment : IEntityBase<Guid>
     {
         public Guid Id { get; set; }
 
