@@ -1,8 +1,8 @@
 ﻿using ShopOnlinePWA.Library.Catalogs;
 using ShopOnlinePWA.Library.Identity;
+using ShopOnlinePWA.Library.Repositories;
 using System;
 using System.ComponentModel.DataAnnotations;
-using ShopOnlinePWA.Library.Repositories;
 
 
 namespace ShopOnlinePWA.Library.Documents

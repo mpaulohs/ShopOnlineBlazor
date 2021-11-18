@@ -4,7 +4,6 @@ using ShopOnlinePWA.Library.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ShopOnlinePWA.Server.Controllers
 {

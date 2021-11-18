@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ShopOnlinePWA.Library.Catalogs
 {
-    public class AdditionalInformation  : IEntityBase<Guid>
+    public class AdditionalInformation : IEntityBase<Guid>
     {
         public Guid Id { get; set; }
 

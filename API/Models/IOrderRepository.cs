@@ -4,7 +4,7 @@ using System;
 
 namespace ShopOnlinePWA.API.Models
 {
-    public interface IOrderRepository : IRepositoryBase<Order, Guid> 
+    public interface IOrderRepository : IRepositoryBase<Order, Guid>
     {
     }
 }

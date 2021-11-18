@@ -1,7 +1,7 @@
-﻿using System;
+﻿using ShopOnlinePWA.Library.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using ShopOnlinePWA.Library.Repositories;
 
 namespace ShopOnlinePWA.Library.Catalogs
 {
