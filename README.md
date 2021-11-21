@@ -35,6 +35,7 @@
 
 ## Resources
 
+- [RESTful API Exemples](https://code-maze.com/net-core-series/)
 - [Syncfusion developing](https://www.syncfusion.com/)
 - [Best pracice for using parameters in RESTful API](https://www.moesif.com/blog/technical/api-design/REST-API-Design-Filtering-Sorting-and-Pagination/)
 - [RESTfull API](https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api)
@@ -44,7 +45,7 @@
 - [Metanit](https://metanit.com/sharp/tutorial/15.1.php)
 - [Microsoft Doc Scafolding](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?view=aspnetcore-6.0&tabs=visual-studio)
 - [Date Time format](https://www.w3.org/TR/xmlschema11-2/#rf-lexicalMappings-datetime)
-
+- [Statuc Codes, Heders, MIME Types](https://code-maze.com/the-http-reference/)
 
 ## REST API
 ### Naming convention

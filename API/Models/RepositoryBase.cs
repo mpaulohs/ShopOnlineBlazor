@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using ShopOnlinePWA.API.Migrations.AppIdentityDb;
+using ShopOnlinePWA.API.Migrations;
 using ShopOnlinePWA.Library.Repositories;
 using System;
 using System.Collections.Generic;
@@ -14,12 +14,12 @@ namespace ShopOnlinePWA.API.Models
     {
         protected AppDbContext RepositoryContext { get; set; }
 
-        protected ILogger Logger { get; set; }
+        protected ILogger<TEntity> Logger { get; set; }
 
-        public RepositoryBase(AppDbContext RepositoryContext, ILogger Logger)
+        public RepositoryBase(AppDbContext repositoryContext, ILogger<TEntity> logger)
         {
-            this.RepositoryContext = RepositoryContext;
-            this.Logger = Logger;
+            this.RepositoryContext = repositoryContext;
+            this.Logger = logger;
         }
 
         public async Task<TId> Create(TEntity entity)
