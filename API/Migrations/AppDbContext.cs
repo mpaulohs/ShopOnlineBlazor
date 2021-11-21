@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ShopOnlinePWA.Library.Documents;
 using ShopOnlinePWA.Library.Identity;
 using System;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace ShopOnlinePWA.API.Migrations
 {
@@ -88,194 +91,133 @@ namespace ShopOnlinePWA.API.Migrations
 
             modelBuilder.Entity<Order>(b => b.ToTable("Orders"));
 
-            this.SeedRoles(modelBuilder);
-
-            //{
-            //    //Seed data
-            //    //Role
-            //    if (roleManager.FindByNameAsync("Administrators") == null)
-            //    {
-            //        var role = new Role()
-            //        {
-            //            Id = new Guid(),
-            //            Name = "Administrators",
-            //            Description = "Administrators of application"
-            //        };
-
-            //        roleManager.UpdateAsync(role);
-            //    }
-
-            //    if (roleManager.FindByNameAsync("Managers") == null)
-            //    {
-            //        var role = new Role()
-            //        {
-            //            Id = new Guid(),
-            //            Name = "Managers",
-            //            Description = "Managers of application"
-            //        };
-
-            //        roleManager.UpdateAsync(role);
-            //    }
-
-            //    if (roleManager.FindByNameAsync("Clients") == null)
-            //    {
-            //        var role = new Role()
-            //        {
-            //            Id = new Guid(),
-            //            Name = "Clients",
-            //            Description = "Clients of application"
-            //        };
-
-            //        roleManager.UpdateAsync(role);
-            //    }
-
-
-            //    if (roleManager.FindByNameAsync("Public") == null)
-            //    {
-            //        var role = new Role()
-            //        {
-            //            Id = new Guid(),
-            //            Name = "Public",
-            //            Description = "Public users of application"
-            //        };
-
-            //        roleManager.UpdateAsync(role);
-            //    }
-
-            //    //User
-            //    string _administrator = $"Admitistrator@{Assembly.GetCallingAssembly().GetName().Name}.com";
-            //    string _manager = $"Manager@{Assembly.GetCallingAssembly().GetName().Name}.com";
-            //    string _user = $"Client@{Assembly.GetCallingAssembly().GetName().Name}.com";
-
-            //    List<User> users = null;
-
-            //    if (!roleManager.RoleExistsAsync(_administrator).Result)
-            //    {
-            //        var user = new User()
-            //        {
-            //            Id = new Guid(),
-            //            FirstName = _administrator,
-            //            UserName = _administrator,
-            //            NormalizedUserName = _administrator.ToUpper(),
-            //            Email = _administrator,
-            //            NormalizedEmail = _administrator.ToUpper(),
-            //            EmailConfirmed = true,
-            //            SecurityStamp = DateTime.Now.ToString(),
-            //            ConcurrencyStamp = DateTime.Now.ToString(),
-            //            PhoneNumberConfirmed = true,
-            //            TwoFactorEnabled = false,
-            //            LockoutEnabled = false
-            //        };
-
-            //        users.Add(user);
-
-            //        modelBuilder.Entity<User>().HasData(users);
-
-            //        if (userManager.CreateAsync(user, "Password@1234").Result == IdentityResult.Success)
-            //        {
-            //            userManager.AddToRoleAsync(user, "Administrators");
-            //        };
-
-            //    };
-
-
-
-            //    if (!roleManager.RoleExistsAsync(_manager).Result)
-            //    {
-            //        var user = new User()
-            //        {
-            //            Id = new Guid(),
-            //            FirstName = _manager,
-            //            UserName = _manager,
-            //            NormalizedUserName = _manager.ToUpper(),
-            //            Email = _manager,
-            //            NormalizedEmail = _manager.ToUpper(),
-            //            EmailConfirmed = true,
-            //            SecurityStamp = DateTime.Now.ToString(),
-            //            ConcurrencyStamp = DateTime.Now.ToString(),
-            //            PhoneNumberConfirmed = true,
-            //            TwoFactorEnabled = false,
-            //            LockoutEnabled = false
-            //        };
-
-            //        users.Add(user);
-
-            //        modelBuilder.Entity<User>().HasData(users);
-
-            //        if (userManager.CreateAsync(user, "Password@1234").Result == IdentityResult.Success)
-            //        {
-            //            userManager.AddToRoleAsync(user, "Managers");
-            //        };
-            //    };
-
-            //    if (!roleManager.RoleExistsAsync(_user).Result)
-            //    {
-            //        var user = new User()
-            //        {
-            //            Id = new Guid(),
-            //            FirstName = _user,
-            //            UserName = _user,
-            //            NormalizedUserName = _user.ToUpper(),
-            //            Email = _user,
-            //            NormalizedEmail = _user.ToUpper(),
-            //            EmailConfirmed = true,
-            //            SecurityStamp = DateTime.Now.ToString(),
-            //            ConcurrencyStamp = DateTime.Now.ToString(),
-            //            PhoneNumberConfirmed = true,
-            //            TwoFactorEnabled = false,
-            //            LockoutEnabled = false
-            //        };
-
-            //        users.Add(user);
-
-            //        modelBuilder.Entity<User>().HasData(users);
-
-            //        if (userManager.CreateAsync(user, "Password@1234").Result == IdentityResult.Success)
-            //        {
-            //            userManager.AddToRoleAsync(user, "Clients");
-            //        };
-            //    };
-            //}
+            this.Seed(modelBuilder);
         }
 
 
-        private void SeedRoles(ModelBuilder modelBuilder)
+        private void Seed(ModelBuilder modelBuilder)
         {
             //Seed data
-            //Role
 
-            Role[] roles = {
+            //Role
+            string roleAdministrators = "Administrators";
+            string roleManagers = "Managers";
+            string roleClients = "Clients";
+            string rolePublic = "Public";
+
+            List<Role> roles = new List<Role> {
                     new Role()
                      {
-                    Id = Guid.NewGuid(),
-                    Name = "Administrators",
-                    Description = "Administrators of application"
-                     },
+                        Id = Guid.NewGuid(),
+                        Name = roleAdministrators,
+                        NormalizedName = roleAdministrators.ToUpper(),
+                        Description = "Administrators of application"
+                    },
                     new Role()
                     {
                         Id = Guid.NewGuid(),
-                        Name = "Managers",
+                        Name = roleManagers,
+                        NormalizedName = roleManagers.ToUpper(),
                         Description = "Managers of application"
+                    },               
+                    new Role()
+                    {
+                        Id = Guid.NewGuid(),
+                        Name = roleClients,
+                        NormalizedName = roleClients.ToUpper(),
+                        Description = "Clients of application"
                     },
                      new Role()
-                     {
-                    Id = Guid.NewGuid(),
-                    Name = "Public",
-                    Description = "Public users of application"
-                        },
-                 new Role()
-                   {
-                    Id = Guid.NewGuid(),
-                    Name = "Clients",
-                    Description = "Clients of application"
+                    {
+                        Id = Guid.NewGuid(),
+                        Name =rolePublic,
+                        NormalizedName = rolePublic.ToUpper(),
+                        Description = "Public users of application"
                     }
             };
 
 
             foreach (var role in roles)
             {
-                // if (this.Roles.AnyAsync<Role>(r => r.Name == "Managers") == null)
+                // if (this.Roles.AnyAsync<Role>(r => r.NormalizedName == role.NormalizedName) == null)
                 modelBuilder.Entity<Role>().HasData(role);
+            }
+
+
+            //User
+            string userAdministrator = $"Admitistrator@{Assembly.GetCallingAssembly().GetName().Name}.com";
+            string userManager = $"Manager@{Assembly.GetCallingAssembly().GetName().Name}.com";
+            string userClient = $"Client@{Assembly.GetCallingAssembly().GetName().Name}.com";
+            var password = new PasswordHasher<User>();
+
+            var users = new List<User> {
+                new User()
+                {
+                    Id = Guid.NewGuid(),
+                    FirstName = userAdministrator,
+                    UserName = userAdministrator,
+                    NormalizedUserName = userAdministrator.ToUpper(),
+                    Email = userAdministrator,
+                    NormalizedEmail = userAdministrator.ToUpper(),
+                    EmailConfirmed = true,
+                    SecurityStamp = DateTime.Now.ToString(),
+                    ConcurrencyStamp = DateTime.Now.ToString(),
+                    PhoneNumberConfirmed = true,
+                    TwoFactorEnabled = false,
+                    LockoutEnabled = false
+                },
+                new User()
+                {
+                    Id = Guid.NewGuid(),
+                    FirstName = userManager,
+                    UserName = userManager,
+                    NormalizedUserName = userManager.ToUpper(),
+                    Email = userManager,
+                    NormalizedEmail = userManager.ToUpper(),
+                    EmailConfirmed = true,
+                    SecurityStamp = DateTime.Now.ToString(),
+                    ConcurrencyStamp = DateTime.Now.ToString(),
+                    PhoneNumberConfirmed = true,
+                    TwoFactorEnabled = false,
+                    LockoutEnabled = false
+                },
+                new User()
+                {
+                    Id = Guid.NewGuid(),
+                    FirstName = userClient,
+                    UserName = userClient,
+                    NormalizedUserName = userClient.ToUpper(),
+                    Email = userClient,
+                    NormalizedEmail = userClient.ToUpper(),
+                    EmailConfirmed = true,
+                    SecurityStamp = DateTime.Now.ToString(),
+                    ConcurrencyStamp = DateTime.Now.ToString(),
+                    PhoneNumberConfirmed = true,
+                    TwoFactorEnabled = false,
+                    LockoutEnabled = false
+                }
+            };
+
+          
+            foreach (var user in users)
+            {
+                // if (this.Roles.AnyAsync<Role>(r => r.NormalizedName == role.NormalizedName) == null)
+                user.PasswordHash = password.HashPassword(user, "K1DvesCS");
+                modelBuilder.Entity<User>().HasData(user);
+
+                //if (user.NormalizedUserName == userAdministrator.ToUpper())
+                //{
+                //    var role = roles.Find(r => r.NormalizedName == roleAdministrators.ToUpper());
+                //    if (role != null)
+                //        modelBuilder.Entity<UserRole>().HasData(new RoleClaim()
+                //        {
+                //            Role = role,
+                //            RoleId = role.Id,
+                //            ClaimValue = user.Id.ToString(),          
+                //        }) ;
+        
+                //}
+
             }
         }
     }
