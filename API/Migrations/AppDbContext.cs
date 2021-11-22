@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ShopOnlinePWA.Library.Catalogs;
 using ShopOnlinePWA.Library.Documents;
 using ShopOnlinePWA.Library.Identity;
 using System;
@@ -12,15 +13,6 @@ namespace ShopOnlinePWA.API.Migrations
 
     public class AppDbContext : IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
     {
-        //private readonly UserManager<User> userManager;
-        //private readonly RoleManager<Role> roleManager;
-
-        //public AppDbContext(DbContextOptions<AppDbContext> options, UserManager<User> userManager, RoleManager<Role> roleManager)
-        //: base(options)
-        //{
-        //    this.userManager = userManager;
-        //    this.roleManager = roleManager;
-        //}
         public AppDbContext(DbContextOptions<AppDbContext> options)
         : base(options)
         {
@@ -89,7 +81,59 @@ namespace ShopOnlinePWA.API.Migrations
 
             modelBuilder.Entity<RoleClaim>(b => b.ToTable("RoleClaims"));
 
-            modelBuilder.Entity<Order>(b => b.ToTable("Orders"));
+            //Catalogs
+
+            modelBuilder.Entity<AdditionalInformation>(b => b.ToTable("AdditionalInformations"));
+
+            modelBuilder.Entity<AdditionalInformationType>(b => b.ToTable("AddititonalInformationTypes"));
+
+            modelBuilder.Entity<Bank>(b => b.ToTable("Banks"));
+
+            modelBuilder.Entity<BankAccount>(b => b.ToTable("BankAccounts"));
+
+            modelBuilder.Entity<CashDesk>(b => b.ToTable("CashDesks"));
+
+            modelBuilder.Entity<ClientContactInformation>(b => b.ToTable("ClientContackInformations"));
+
+            modelBuilder.Entity<ClientContactInformationType>(b => b.ToTable("ClientContactInformationTypes"));
+
+            modelBuilder.Entity<ClientContract>(b => b.ToTable("ClientContracts"));
+
+            modelBuilder.Entity<Currency>(b => b.ToTable("Currencyes"));
+
+            modelBuilder.Entity<DocumentStatus>(b => b.ToTable("DocumentStatuses"));
+
+            modelBuilder.Entity<Item>(b => b.ToTable("Items"));
+
+            modelBuilder.Entity<ItemCharacteristic>(b => b.ToTable("ItemCharacteristics"));
+
+            modelBuilder.Entity<ItemQuality>(b => b.ToTable("ItmeQualityes"));
+
+            modelBuilder.Entity<ItemSerie>(b => b.ToTable("ItemSeries"));
+
+            modelBuilder.Entity<ItemType>(b => b.ToTable("ItemTypes"));
+
+            modelBuilder.Entity<ItemUnitClassifier>(b => b.ToTable("ItemUnitClassifiers"));
+
+            modelBuilder.Entity<ItemUnitMeasurement>(b => b.ToTable("ItemUnitMeasuraments"));
+
+            modelBuilder.Entity<Organization>(b => b.ToTable("Organizations"));
+
+            modelBuilder.Entity<Storage>(b => b.ToTable("Storages"));
+
+            modelBuilder.Entity<Subdivision>(b => b.ToTable("Subdivisions"));
+
+            //Documents
+
+            modelBuilder.Entity<Sale>(b => b.ToTable("Sales"));
+
+            modelBuilder.Entity<Payment>(b => b.ToTable("Payments"));
+
+            modelBuilder.Entity<Adjustment>(b => b.ToTable("Adjustments"));
+
+            modelBuilder.Entity<Mesage>(b => b.ToTable("Mesages"));
+
+            //Seed data
 
             this.Seed(modelBuilder);
         }
@@ -97,8 +141,6 @@ namespace ShopOnlinePWA.API.Migrations
 
         private void Seed(ModelBuilder modelBuilder)
         {
-            //Seed data
-
             //Role
             string roleAdministrators = "Administrators";
             string roleManagers = "Managers";
@@ -119,7 +161,7 @@ namespace ShopOnlinePWA.API.Migrations
                         Name = roleManagers,
                         NormalizedName = roleManagers.ToUpper(),
                         Description = "Managers of application"
-                    },               
+                    },
                     new Role()
                     {
                         Id = Guid.NewGuid(),
@@ -198,7 +240,7 @@ namespace ShopOnlinePWA.API.Migrations
                 }
             };
 
-          
+
             foreach (var user in users)
             {
                 // if (this.Roles.AnyAsync<Role>(r => r.NormalizedName == role.NormalizedName) == null)
@@ -215,10 +257,55 @@ namespace ShopOnlinePWA.API.Migrations
                 //            RoleId = role.Id,
                 //            ClaimValue = user.Id.ToString(),          
                 //        }) ;
-        
+
                 //}
 
             }
+
+            List<Item> items = new List<Item>() {
+                new Item()
+                {
+                    Id = Guid.NewGuid(),
+                    Article = new Random().Next(0, 1000).ToString(),
+                    Name = "Name Item1",
+                    FullName = "Full name Item1",
+                    Description = "Description"
+                }
+            };
+
+
+            List<Sale> sales = new List<Sale>()
+            {
+                new Sale()
+                {
+                    Id = Guid.NewGuid(),
+                    Date = DateTime.Now,
+                    Client = users[0],
+                    Reciver = users[0],
+                }
+            };
+
+            List<SaleItem> saleItems = new List<SaleItem>()
+            {
+                new SaleItem()
+                {
+                    Id= Guid.NewGuid(),
+                    Item=items[0],
+                    Price =  500,
+                    Discount = 10,
+                    Serie = new ItemSerie()
+                    {
+                        Id = Guid.NewGuid(),
+                        Name = "SerieForItem"
+                    },
+                    Quality = new ItemQuality()
+                    {
+                        Id = Guid.NewGuid(),
+                        Name = "QualityForItem"
+                    }
+                    
+                }
+            };
         }
     }
 }

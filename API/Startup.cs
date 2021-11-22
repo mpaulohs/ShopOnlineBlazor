@@ -48,7 +48,7 @@ namespace ShopOnlinePWA.API
             //services.AddIdentity<User, Role>().AddDefaultTokenProviders();
 
 
-            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<ISaleRepository, SaleRepository>();
             //services.AddAutoMapper(typeof(Startup));
         }
 
