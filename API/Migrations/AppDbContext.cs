@@ -4,8 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using ShopOnlinePWA.Library.Catalogs;
 using ShopOnlinePWA.Library.Documents;
 using ShopOnlinePWA.Library.Identity;
+using ShopOnlinePWA.Library.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Reflection;
 
 namespace ShopOnlinePWA.API.Migrations
@@ -85,8 +87,6 @@ namespace ShopOnlinePWA.API.Migrations
 
             modelBuilder.Entity<AdditionalInformation>(b => b.ToTable("AdditionalInformations"));
 
-            modelBuilder.Entity<AdditionalInformationType>(b => b.ToTable("AddititonalInformationTypes"));
-
             modelBuilder.Entity<Bank>(b => b.ToTable("Banks"));
 
             modelBuilder.Entity<BankAccount>(b => b.ToTable("BankAccounts"));
@@ -125,9 +125,7 @@ namespace ShopOnlinePWA.API.Migrations
 
             //Documents
 
-            modelBuilder.Entity<Sale>(b => b.ToTable("Sales"));
-
-            modelBuilder.Entity<Payment>(b => b.ToTable("Payments"));
+            modelBuilder.Entity<IDocumentBase<Guid>>(b => b.ToTable("Documents"));
 
             modelBuilder.Entity<Adjustment>(b => b.ToTable("Adjustments"));
 
@@ -279,7 +277,7 @@ namespace ShopOnlinePWA.API.Migrations
                 new Sale()
                 {
                     Id = Guid.NewGuid(),
-                    Date = DateTime.Now,
+                    DateTime = DateTime.Now,
                     Client = users[0],
                     Reciver = users[0],
                 }
@@ -303,9 +301,18 @@ namespace ShopOnlinePWA.API.Migrations
                         Id = Guid.NewGuid(),
                         Name = "QualityForItem"
                     }
-                    
+
                 }
             };
+
+            //Curency
+            var Curensy = new HashSet<Currency>();
+            foreach (CultureInfo item in CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures))
+                Curensy.Add(new Currency(item.Name, item.ToString(), item.NumberFormat.CurrencySymbol));
+
+            foreach (Currency currency in Curensy)
+                modelBuilder.Entity<Currency>().HasData(currency);
+
         }
     }
 }

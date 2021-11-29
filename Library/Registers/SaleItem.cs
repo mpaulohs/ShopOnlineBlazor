@@ -23,6 +23,7 @@ namespace ShopOnlinePWA.Library.Documents
         public ItemQuality Quality { get; set; }
 
         public decimal Discount { get; set; }
-
+        public string ExchangeId { get; set; }
+        public byte[] Timestamp { get; set; }
     }
 }

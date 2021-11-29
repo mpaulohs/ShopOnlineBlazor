@@ -13,6 +13,7 @@ namespace ShopOnlinePWA.Library.Identity
         public virtual ICollection<UserRole> UserRoles { get; set; }
 
         public virtual ICollection<RoleClaim> RoleClaims { get; set; }
-
+        public string ExchangeId { get; set ; }
+        public byte[] Timestamp { get; set; }
     }
 }

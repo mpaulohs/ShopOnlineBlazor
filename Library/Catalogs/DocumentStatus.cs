@@ -4,17 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ShopOnlinePWA.Library.Catalogs
 {
-    public class DocumentStatus : IEntityBase<Guid>
+    public class DocumentStatus : CatalogBase<Guid>
     {
-        public Guid Id { get; set; }
 
-        public int ExchangeId { get; set; }
-
-        public string Name { get; set; }
-
-        public string Type { get; set; }
-
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
     }
 }

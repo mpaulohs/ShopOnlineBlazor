@@ -20,7 +20,7 @@ namespace ShopOnlinePWA.Library.Identity
         public virtual ICollection<UserToken> Tokens { get; set; }
 
         public virtual ICollection<UserRole> UserRoles { get; set; }
-
-
+        public string ExchangeId { get; set; }
+        public byte[] Timestamp { get; set; }
     }
 }

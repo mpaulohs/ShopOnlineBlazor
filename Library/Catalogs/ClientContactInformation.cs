@@ -1,17 +1,17 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using ShopOnlinePWA.Library.Identity;
+using ShopOnlinePWA.Library.Repositories;
+using System;
 
 namespace ShopOnlinePWA.Library.Catalogs
 {
-    public class ClientContactInformation
+    public class ClientContactInformation : CatalogBase<Guid>
     {
-        public Guid Id { get; set; }
+        public User Client { get; set; }
 
-        public int ExchangeId { get; set; }
+        public ClientContactInformationType ClientContactInformationType { get; set; }
 
-        public string Name { get; set; }
+        public string Value { get; set; }
 
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
+
     }
 }

@@ -8,9 +8,10 @@ namespace ShopOnlinePWA.Library.Documents
     {
         public Guid Id { get; set; }
 
-        public int ExchangeId { get; set; }
+        public string ExchangeId { get; set; }
 
         [Timestamp]
         public byte[] Timestamp { get; set; }
+
     }
 }

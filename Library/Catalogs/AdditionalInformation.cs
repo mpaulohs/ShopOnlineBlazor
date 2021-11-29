@@ -4,20 +4,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ShopOnlinePWA.Library.Catalogs
 {
-    public class AdditionalInformation : IEntityBase<Guid>
+    public class AdditionalInformation : CatalogBase<Guid>
     {
-        public Guid Id { get; set; }
+        public virtual IEntityBase<Guid> Entity { get; set; }
 
-        public int ExchangeId { get; set; }
-
-        public AdditionalInformationType Type { get; set; }
-
-        public string Value { get; set; }
-
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
-
-
+        public string Path { get; set; }
     }
 
 }

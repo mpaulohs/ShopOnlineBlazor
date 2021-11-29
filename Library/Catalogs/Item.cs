@@ -5,15 +5,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ShopOnlinePWA.Library.Catalogs
 {
-    public class Item : IEntityBase<Guid>
+    public class Item : CatalogBase<Guid>
     {
-        public Guid Id { get; set; }
-
-        public int ExchangeId { get; set; }
-
         public string Article { get; set; }
-
-        public string Name { get; set; }
 
         [Display(Name = "Full name")]
         public string FullName { get; set; }
@@ -30,11 +24,5 @@ namespace ShopOnlinePWA.Library.Catalogs
 
         public string Description { get; set; }
 
-        public ICollection<AdditionalInformation> AdditionalInformations { get; set; }
-
-        public int Price { get; set; }
-
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
     }
 }

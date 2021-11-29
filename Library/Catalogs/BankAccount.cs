@@ -1,21 +1,12 @@
-﻿using System;
+﻿using ShopOnlinePWA.Library.Repositories;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace ShopOnlinePWA.Library.Catalogs
 {
-    public class BankAccount
+    public class BankAccount : CatalogBase<Guid>
     {
-        public Guid Id { get; set; }
+        public virtual Bank Bank { get; set; }
 
-        public int ExchangeId { get; set; }
-
-        public string Name { get; set; }
-
-        public int Number { get; set; }
-
-        public Bank Bank { get; set; }
-
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
     }
 }

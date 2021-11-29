@@ -1,19 +1,24 @@
 ﻿using ShopOnlinePWA.Library.Repositories;
 using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace ShopOnlinePWA.Library.Catalogs
 {
-    public class Currency : IEntityBase<Guid>
+    public class Currency : CatalogBase<Guid>
     {
-        public Guid Id { get; set; }
+        public string? Code { get; set; }
 
-        public int ExchangeId { get; set; }
+        public string? Symbol { get; set; }
 
-        public string Name { get; set; }
+        public Currency(string Name, string? Code = null, string? Symbol = null )
+        {
 
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
+            this.Id = Guid.NewGuid();
+           // this.Timestamp = BitConverter.GetBytes(DateTime.UtcNow.Ticks);
+            this.Name = Name;
+            this.Code = Code;
+            this.Symbol = Symbol;
+
+        }
 
     }
 }
