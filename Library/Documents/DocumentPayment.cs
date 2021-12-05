@@ -1,12 +1,10 @@
-﻿using ShopOnlinePWA.Library.Catalogs;
-using ShopOnlinePWA.Library.Repositories;
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
 
-namespace ShopOnlinePWA.Library.Documents
+namespace ShopOnlinePWA.Library
 {
     public class DocumentPayment : DocumentBase<Guid>, IDocumentPayment
     {
         public Currency Currency { get; set; }
+        public IDocumentPaymentRessiver PaymentRessiver { get; set; }
     }
 }

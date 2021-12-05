@@ -1,11 +1,6 @@
-﻿using ShopOnlinePWA.Library.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
-namespace ShopOnlinePWA.Library.Catalogs
+namespace ShopOnlinePWA.Library
 {
     public class PriceType : CatalogBase<Guid>
     {

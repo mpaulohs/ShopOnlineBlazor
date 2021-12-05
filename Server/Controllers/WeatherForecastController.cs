@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ShopOnlinePWA.Library.Identity;
+using ShopOnlinePWA.Library;
 using System;
 using System.Collections.Generic;
 using System.Linq;

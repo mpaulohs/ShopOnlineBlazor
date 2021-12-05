@@ -1,4 +1,4 @@
-﻿namespace ShopOnlinePWA.Library.Catalogs
+﻿namespace ShopOnlinePWA.Library
 {
     public enum DocumentType
     {

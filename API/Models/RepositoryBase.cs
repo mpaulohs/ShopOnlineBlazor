@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using ShopOnlinePWA.API.Migrations;
-using ShopOnlinePWA.Library.Repositories;
+using ShopOnlinePWA.Library;
 using System;
 using System.Collections.Generic;
 using System.Linq;

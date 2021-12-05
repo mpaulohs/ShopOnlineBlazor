@@ -1,9 +1,7 @@
-﻿using ShopOnlinePWA.Library.Identity;
-using ShopOnlinePWA.Library.Repositories;
-using System;
+﻿using System;
 
 
-namespace ShopOnlinePWA.Library.Catalogs
+namespace ShopOnlinePWA.Library
 {
     public class ClientContract : CatalogBase<Guid>
     {

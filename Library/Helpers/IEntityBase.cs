@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ShopOnlinePWA.Library.Repositories
+namespace ShopOnlinePWA.Library
 {
     public interface IEntityBase<TId>
     {

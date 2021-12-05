@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using ShopOnlinePWA.Library.Repositories;
 using System;
 using System.Collections.Generic;
 
-namespace ShopOnlinePWA.Library.Identity
+namespace ShopOnlinePWA.Library
 {
     public class User : IdentityUser<Guid>, IEntityBase<Guid>
     {

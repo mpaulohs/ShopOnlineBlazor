@@ -1,11 +1,9 @@
-﻿using ShopOnlinePWA.Library.Repositories;
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
 
-namespace ShopOnlinePWA.Library.Catalogs
+namespace ShopOnlinePWA.Library
 {
     public class ItemSerie : CatalogBase<Guid>
-    { 
+    {
 
 
     }

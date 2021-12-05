@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using ShopOnlinePWA.API.Migrations;
-using ShopOnlinePWA.Library.Identity;
+using ShopOnlinePWA.Library;
 using System;
 
 namespace ShopOnlinePWA.API.Models

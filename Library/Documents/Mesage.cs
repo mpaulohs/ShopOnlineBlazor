@@ -1,8 +1,7 @@
-﻿using ShopOnlinePWA.Library.Repositories;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ShopOnlinePWA.Library.Documents
+namespace ShopOnlinePWA.Library
 {
     public class Mesage : IEntityBase<Guid>
     {

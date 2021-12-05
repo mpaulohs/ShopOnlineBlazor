@@ -1,8 +1,6 @@
-﻿using ShopOnlinePWA.Library.Catalogs;
-using ShopOnlinePWA.Library.Identity;
-using System;
+﻿using System;
 
-namespace ShopOnlinePWA.Library.Repositories
+namespace ShopOnlinePWA.Library
 {
     public abstract class DocumentBase<TId> : IDocumentBase<TId>
     {
@@ -22,10 +20,8 @@ namespace ShopOnlinePWA.Library.Repositories
                     this.Timestamp = value;
             }
         }
-
         public DocumentType DocumentType { get; set; }
         public DateTime DateTime { get; set; }
-
         public DateTime ExchangeDateTime { get; set; }
         public Organization Organization { get; set; }
         public User Client { get; set; }
@@ -39,11 +35,11 @@ namespace ShopOnlinePWA.Library.Repositories
         public IDocumentBase<TId> RefDocument { get; set; }
         public User Responsible { get; set; }
         public string Comment { get; set; }
-        public Subdivision Subdivision { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        DateTime? IDocumentBase<TId>.ExchangeDateTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        decimal? IDocumentBase<TId>.DocumentCurrencyValue { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        decimal? IDocumentBase<TId>.MultiplicityMutalSettlements { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        decimal? IDocumentBase<TId>.DocumentAmount { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        decimal? IDocumentBase<TId>.ContractAmount { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Subdivision Subdivision { get; set; }
+        decimal IDocumentBase<TId>.DocumentCurrencyValue { get; set; }
+        decimal IDocumentBase<TId>.MultiplicityMutalSettlements { get; set; }
+        decimal IDocumentBase<TId>.DocumentAmount { get; set; }
+        decimal IDocumentBase<TId>.ContractAmount { get; set; }
+        DateTime IDocumentBase<TId>.ExchangeDateTime { get; set; }
     }
 }

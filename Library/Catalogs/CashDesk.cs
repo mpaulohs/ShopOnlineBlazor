@@ -1,11 +1,9 @@
-﻿using ShopOnlinePWA.Library.Repositories;
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
 
-namespace ShopOnlinePWA.Library.Catalogs
+namespace ShopOnlinePWA.Library
 {
-    public class CashDesk: CatalogBase<Guid>
+    public class CashDesk : CatalogBase<Guid>, IDocumentPaymentRessiver
     {
-       
+
     }
 }

@@ -1,10 +1,9 @@
-﻿using ShopOnlinePWA.Library.Documents;
-using ShopOnlinePWA.Library.Repositories;
+﻿using ShopOnlinePWA.Library;
 using System;
 
 namespace ShopOnlinePWA.API.Models
 {
-    public interface ISaleRepository : IRepositoryBase<Sale, Guid>
+    public interface ISaleRepository : IRepositoryBase<DocumentSale, Guid>
     {
     }
 }

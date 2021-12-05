@@ -1,9 +1,7 @@
-﻿using ShopOnlinePWA.Library.Repositories;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ShopOnlinePWA.Library.Catalogs
+namespace ShopOnlinePWA.Library
 {
     public class Item : CatalogBase<Guid>
     {

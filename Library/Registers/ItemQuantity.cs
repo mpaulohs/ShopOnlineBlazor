@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ShopOnlinePWA.Library.Registers
+namespace ShopOnlinePWA.Library
 {
     public class ItemQuantity
     {

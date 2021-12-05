@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ShopOnlinePWA.Library.Catalogs;
-using ShopOnlinePWA.Library.Documents;
-using ShopOnlinePWA.Library.Identity;
-using ShopOnlinePWA.Library.Repositories;
+using ShopOnlinePWA.Library;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -127,7 +124,7 @@ namespace ShopOnlinePWA.API.Migrations
 
             modelBuilder.Entity<IDocumentBase<Guid>>(b => b.ToTable("Documents"));
 
-            modelBuilder.Entity<Adjustment>(b => b.ToTable("Adjustments"));
+            modelBuilder.Entity<DocumentAdjustment>(b => b.ToTable("Adjustments"));
 
             modelBuilder.Entity<Mesage>(b => b.ToTable("Mesages"));
 
@@ -272,9 +269,9 @@ namespace ShopOnlinePWA.API.Migrations
             };
 
 
-            List<Sale> sales = new List<Sale>()
+            List<DocumentSale> sales = new List<DocumentSale>()
             {
-                new Sale()
+                new DocumentSale()
                 {
                     Id = Guid.NewGuid(),
                     DateTime = DateTime.Now,

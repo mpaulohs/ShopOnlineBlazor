@@ -1,14 +1,12 @@
-﻿using ShopOnlinePWA.Library.Catalogs;
-using ShopOnlinePWA.Library.Repositories;
-using System;
+﻿using System;
 
-namespace ShopOnlinePWA.Library.Documents
+namespace ShopOnlinePWA.Library
 {
-   public class SaleItem : IEntityBase<Guid>
+    public class SaleItem : IEntityBase<Guid>
     {
         public Guid Id { get; set; }
 
-        public Sale Sale { get; set; }
+        public IDocumentSale Document { get; set; }
 
         public Item Item { get; set; }
 
@@ -18,12 +16,18 @@ namespace ShopOnlinePWA.Library.Documents
 
         public ItemSerie Serie { get; set; }
 
-        public decimal Price { get; set; }
-
         public ItemQuality Quality { get; set; }
 
+        public decimal Price { get; set; }
+
+        public decimal Quantity { get; set; }
+
         public decimal Discount { get; set; }
+
+        public decimal Amount { get; set; }
+
         public string ExchangeId { get; set; }
+
         public byte[] Timestamp { get; set; }
     }
 }

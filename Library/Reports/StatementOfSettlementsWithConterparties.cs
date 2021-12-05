@@ -1,4 +1,4 @@
-﻿namespace ShopOnlinePWA.Library.Reports
+﻿namespace ShopOnlinePWA.Library
 {
     public class StatementOfSettlementsWithConterparties
     {

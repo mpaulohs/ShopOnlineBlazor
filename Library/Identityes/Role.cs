@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using ShopOnlinePWA.Library.Repositories;
 using System;
 using System.Collections.Generic;
 
-namespace ShopOnlinePWA.Library.Identity
+namespace ShopOnlinePWA.Library
 {
 
     public class Role : IdentityRole<Guid>, IEntityBase<Guid>
@@ -13,7 +12,7 @@ namespace ShopOnlinePWA.Library.Identity
         public virtual ICollection<UserRole> UserRoles { get; set; }
 
         public virtual ICollection<RoleClaim> RoleClaims { get; set; }
-        public string ExchangeId { get; set ; }
+        public string ExchangeId { get; set; }
         public byte[] Timestamp { get; set; }
     }
 }
