@@ -12,7 +12,7 @@ namespace ShopOnlinePWA.Library
 
         public string ReciverPhoneNumber { get; set; }
 
-        public DocumentStatus documentStatus { get; set; }
+        public DocumentStatus DocumentStatus { get; set; }
 
     }
 }

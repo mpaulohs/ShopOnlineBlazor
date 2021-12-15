@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ShopOnlinePWA.API.Models;
+using ShopOnlinePWA.Library;
 using System;
 
 namespace ShopOnlinePWA.API.Controllers
@@ -59,6 +60,27 @@ namespace ShopOnlinePWA.API.Controllers
 
         }
 
+        [HttpPost]
+        public ActionResult Post(DocumentSale document)
+        {
+            try
+            {
+                var result = _repository.Create(document);
+                if (result == null)
+                {
+                    _logger.LogError("Cannot add the document to db {0}", document);
+                    return NotFound();
+                }
+
+                return Ok(result);
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message, "Error inside Get axtion ");
+                return StatusCode(500, "Internal server error");
+            }
+        }
 
     }
 }

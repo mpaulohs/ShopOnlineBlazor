@@ -30,8 +30,6 @@ namespace ShopOnlinePWA.Library
 
         public decimal ContractAmount { get; set; }
 
-        public IDocumentBase<TId> RefDocument { get; set; }
-
         public User Responsible { get; set; }
 
         public string Comment { get; set; }

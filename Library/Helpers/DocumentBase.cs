@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopOnlinePWA.Library
 {
@@ -15,9 +16,9 @@ namespace ShopOnlinePWA.Library
             set
             {
                 if (value == null)
-                    this.Timestamp = BitConverter.GetBytes(DateTime.UtcNow.Ticks);
+                    Timestamp = BitConverter.GetBytes(DateTime.UtcNow.Ticks);
                 else
-                    this.Timestamp = value;
+                    Timestamp = value;
             }
         }
         public DocumentType DocumentType { get; set; }
@@ -28,18 +29,18 @@ namespace ShopOnlinePWA.Library
         public ClientContract ClientContract { get; set; }
         public PriceType PriceType { get; set; }
         public Currency DocumentCurrency { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal DocumentCurrencyValue { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal MultiplicityMutalSettlements { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal DocumentAmount { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal ContractAmount { get; set; }
-        public IDocumentBase<TId> RefDocument { get; set; }
+        //public IDocumentBase<TId> RefDocument { get; set; }
         public User Responsible { get; set; }
         public string Comment { get; set; }
         public Subdivision Subdivision { get; set; }
-        decimal IDocumentBase<TId>.DocumentCurrencyValue { get; set; }
-        decimal IDocumentBase<TId>.MultiplicityMutalSettlements { get; set; }
-        decimal IDocumentBase<TId>.DocumentAmount { get; set; }
-        decimal IDocumentBase<TId>.ContractAmount { get; set; }
-        DateTime IDocumentBase<TId>.ExchangeDateTime { get; set; }
+
     }
 }

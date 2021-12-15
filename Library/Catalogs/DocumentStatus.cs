@@ -2,8 +2,11 @@
 
 namespace ShopOnlinePWA.Library
 {
-    public class DocumentStatus : CatalogBase<Guid>
+    public enum DocumentStatus
     {
-
+        New,
+        Inprocess,
+        Acssepted,
+        Denyed,
     }
 }

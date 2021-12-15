@@ -98,8 +98,6 @@ namespace ShopOnlinePWA.API.Migrations
 
             modelBuilder.Entity<Currency>(b => b.ToTable("Currencyes"));
 
-            modelBuilder.Entity<DocumentStatus>(b => b.ToTable("DocumentStatuses"));
-
             modelBuilder.Entity<Item>(b => b.ToTable("Items"));
 
             modelBuilder.Entity<ItemCharacteristic>(b => b.ToTable("ItemCharacteristics"));
@@ -122,9 +120,11 @@ namespace ShopOnlinePWA.API.Migrations
 
             //Documents
 
-            modelBuilder.Entity<IDocumentBase<Guid>>(b => b.ToTable("Documents"));
+            modelBuilder.Entity<DocumentSale>(b => b.ToTable("Documents"));
 
-            modelBuilder.Entity<DocumentAdjustment>(b => b.ToTable("Adjustments"));
+            modelBuilder.Entity<DocumentPayment>(b => b.ToTable("Payments"));
+
+            //modelBuilder.Entity<DocumentAdjustment>(b => b.ToTable("Adjustments"));
 
             modelBuilder.Entity<Mesage>(b => b.ToTable("Mesages"));
 
@@ -238,23 +238,8 @@ namespace ShopOnlinePWA.API.Migrations
 
             foreach (var user in users)
             {
-                // if (this.Roles.AnyAsync<Role>(r => r.NormalizedName == role.NormalizedName) == null)
                 user.PasswordHash = password.HashPassword(user, "K1DvesCS");
                 modelBuilder.Entity<User>().HasData(user);
-
-                //if (user.NormalizedUserName == userAdministrator.ToUpper())
-                //{
-                //    var role = roles.Find(r => r.NormalizedName == roleAdministrators.ToUpper());
-                //    if (role != null)
-                //        modelBuilder.Entity<UserRole>().HasData(new RoleClaim()
-                //        {
-                //            Role = role,
-                //            RoleId = role.Id,
-                //            ClaimValue = user.Id.ToString(),          
-                //        }) ;
-
-                //}
-
             }
 
             List<Item> items = new List<Item>() {
@@ -277,6 +262,9 @@ namespace ShopOnlinePWA.API.Migrations
                     DateTime = DateTime.Now,
                     Client = users[0],
                     Reciver = users[0],
+                    DocumentType = DocumentType.Order,
+                    DocumentStatus = DocumentStatus.New,
+                 
                 }
             };
 

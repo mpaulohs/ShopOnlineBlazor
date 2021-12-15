@@ -2,9 +2,12 @@
 
 namespace ShopOnlinePWA.Library
 {
-    public class DocumentPayment : DocumentBase<Guid>, IDocumentPayment
+    public class DocumentPayment : DocumentBase<Guid>
     {
         public Currency Currency { get; set; }
-        public IDocumentPaymentRessiver PaymentRessiver { get; set; }
+
+
+        //ToDo
+        //public IDocumentPaymentRessiver PaymentRessiver { get; set; }
     }
 }

@@ -1,17 +1,18 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopOnlinePWA.Library
 {
     public class CurencyCalendar
     {
-        public Guid Id { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime Date { get; set; }
 
-        public int ExchangeId { get; set; }
+        public Currency Currency { get; set; }
 
-        public string Name { get; set; }
+        public decimal Multiplisity { get; set; }
 
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
+        public decimal CurencyValue { get; set; }
     }
 }

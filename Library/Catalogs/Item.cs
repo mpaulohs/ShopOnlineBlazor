@@ -18,7 +18,7 @@ namespace ShopOnlinePWA.Library
 
         public ItemSerie ItemSerie { get; set; }
 
-        public ItemUnitMeasurement itemUnitMeasurement { get; set; }
+        public ItemUnitMeasurement ItemUnitMeasurement { get; set; }
 
         public string Description { get; set; }
 

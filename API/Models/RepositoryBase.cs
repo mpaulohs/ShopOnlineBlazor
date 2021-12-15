@@ -45,7 +45,7 @@ namespace ShopOnlinePWA.API.Models
 
         public async Task<TId> Update(TId id, TEntity entity)
         {
-            var result = this.RepositoryContext.Set<TEntity>().Update(entity);
+            var result = RepositoryContext.Set<TEntity>().Update(entity);
             return result.Entity.Id;
         }
 
