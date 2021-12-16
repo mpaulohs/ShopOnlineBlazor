@@ -1,31 +1,33 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ShopOnlinePWA.API.Models;
 using ShopOnlinePWA.Library;
 using System;
+using System.Threading.Tasks;
 
 namespace ShopOnlinePWA.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrderController : ControllerBase
+    public class UserController : ControllerBase
     {
-        private ISaleRepository _repository;
+        private IUserRepository _repository;
 
-        private ILogger<OrderController> _logger;
+        private ILogger<UserController> _logger;
 
-        public OrderController(ISaleRepository repository, ILogger<OrderController> loger)
+        public UserController(IUserRepository repository, ILogger<UserController> loger)
         {
             _repository = repository;
             _logger = loger;
         }
 
         [HttpGet]
-        public ActionResult Get()
+        public async Task<ActionResult> Get()
         {
             try
             {
-                var items = _repository.ReadAll();
+                var items = await _repository.Read();
                 return Ok(items);
 
             }
@@ -37,38 +39,37 @@ namespace ShopOnlinePWA.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult Get(Guid id)
+        public async Task<ActionResult> Get(Guid id)
         {
             try
             {
-                var item = _repository.Read(id);
+                var item = await _repository.Read(id);
                 if (item == null)
                 {
-                    _logger.LogError("Owner witn id {0}, hasn't been found in db.", id);
+                    _logger.LogError("Can't fount Entity witn id {0}", id);
                     return NotFound();
                 }
-
                 return Ok(item);
 
             }
             catch (Exception ex)
             {
 
-                _logger.LogError(ex.Message, "Error inside Get axtion ");
+                _logger.LogError(ex.Message, "Error inside Get axtion");
                 return StatusCode(500, "Internal server error");
             }
 
         }
 
         [HttpPost]
-        public ActionResult Post(DocumentSale item)
+        public async Task<ActionResult> Post(User item)
         {
             try
             {
-                var result = _repository.Create(item);
+                var result = await _repository.Create(item);
                 if (result == null)
                 {
-                    _logger.LogError("Cannot add the {0} to db", item);
+                    _logger.LogError("Cannot add the {0} to db ", item);
                     return NotFound();
                 }
 
@@ -82,5 +83,22 @@ namespace ShopOnlinePWA.API.Controllers
             }
         }
 
+        //[HttpPost]
+        //public async Task<ActionResult> Post()
+        //{
+        //    try
+        //    {
+
+        //        return Ok();
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _logger.LogError(ex.Message, "Error inside Get axtion ");
+        //        return StatusCode(500, "Internal server error");
+        //    }
+        //}
+
     }
 }
+

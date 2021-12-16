@@ -24,13 +24,17 @@ namespace ShopOnlinePWA.API.Models
 
         public async Task<TId> Create(TEntity entity)
         {
-            var result = await this.RepositoryContext.Set<TEntity>().AddAsync(entity);
+            var result = await RepositoryContext.Set<TEntity>().AddAsync(entity);
+            await RepositoryContext.SaveChangesAsync();
             return result.Entity.Id;
         }
 
         public async Task<IEnumerable<TEntity>> ReadAll()
         {
-            return await RepositoryContext.Set<TEntity>().ToListAsync();//ToDo Check .AsNoTracking();
+            IQueryable<TEntity> query = RepositoryContext.Set<TEntity>();
+            return await query.ToListAsync();
+            // return await RepositoryContext.Set<TEntity>().ToListAsync();//ToDo Check .AsNoTracking();
+            //return RepositoryContext.Set<TEntity>().AsNoTracking().ToList();
         }
 
         public async Task<TEntity> Read(TId id)
@@ -38,14 +42,24 @@ namespace ShopOnlinePWA.API.Models
             return await RepositoryContext.Set<TEntity>().SingleOrDefaultAsync(e => e.Id.Equals(id));
         }
 
-        public async Task<IEnumerable<TEntity>> Read(Expression<Func<TEntity, bool>> expression)
+        public async Task<IEnumerable<TEntity>> Read(params Expression<Func<TEntity, bool>>[] filters)
         {
-            return await RepositoryContext.Set<TEntity>().Where(expression).ToListAsync();//ToDo Check .AsNoTracking();
+            IQueryable<TEntity> query = RepositoryContext.Set<TEntity>();
+
+            if (filters != null)
+            {
+                foreach (var filter in filters)
+                {
+                    query = query.Where(filter);
+                }
+            }
+
+            return await query.AsNoTracking().ToListAsync();
         }
 
         public async Task<TId> Update(TId id, TEntity entity)
         {
-            var result = RepositoryContext.Set<TEntity>().Update(entity);
+            var result = await RepositoryContext.Set<TEntity>().AddAsync(entity);
             return result.Entity.Id;
         }
 

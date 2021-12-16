@@ -48,6 +48,7 @@ namespace ShopOnlinePWA.API
 
 
             services.AddScoped<ISaleRepository, SaleRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             //services.AddAutoMapper(typeof(Startup));
         }
 

@@ -13,7 +13,7 @@ namespace ShopOnlinePWA.Library
 
         public Task<TEntity> Read(TId id);
 
-        public Task<IEnumerable<TEntity>> Read(Expression<Func<TEntity, bool>> expression);
+        public Task<IEnumerable<TEntity>> Read(params Expression<Func<TEntity, bool>>[] filters);
 
         public Task<TId> Update(TId id, TEntity entity);
 
