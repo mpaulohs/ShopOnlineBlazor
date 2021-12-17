@@ -7,20 +7,22 @@ namespace ShopOnlinePWA.Library
     {
         public TId Id { get; set; }
         public string ExchangeId { get; set; }
-        public byte[] Timestamp
-        {
-            get
-            {
-                return this.Timestamp;
-            }
-            set
-            {
-                if (value == null)
-                    Timestamp = BitConverter.GetBytes(DateTime.UtcNow.Ticks);
-                else
-                    Timestamp = value;
-            }
-        }
+        //public byte[] Timestamp
+        //{
+        //    get
+        //    {
+        //        return this.Timestamp;
+        //    }
+        //    set
+        //    {
+        //        if (value == null)
+        //            Timestamp = BitConverter.GetBytes(DateTime.UtcNow.Ticks);
+        //        else
+        //            Timestamp = value;
+        //    }
+        //}
+
+        public byte[] Timestamp { get; set; }
         public DocumentType DocumentType { get; set; }
         public DateTime DateTime { get; set; }
         public DateTime ExchangeDateTime { get; set; }
