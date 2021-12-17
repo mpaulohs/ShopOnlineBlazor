@@ -6,6 +6,10 @@ namespace ShopOnlinePWA.Library
 {
     public class User : IdentityUser<Guid>, IEntityBase<Guid>
     {
+        public string ExchangeId { get; set; }
+
+        public byte[] Timestamp { get; set; }
+
         public string FirstName { get; set; }
 
         public string MiddleName { get; set; }
@@ -19,7 +23,6 @@ namespace ShopOnlinePWA.Library
         public virtual ICollection<UserToken> Tokens { get; set; }
 
         public virtual ICollection<UserRole> UserRoles { get; set; }
-        public string ExchangeId { get; set; }
-        public byte[] Timestamp { get; set; }
+
     }
 }

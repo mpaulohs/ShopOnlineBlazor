@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ShopOnlinePWA.API.Models;
 using ShopOnlinePWA.Library;
@@ -82,22 +81,6 @@ namespace ShopOnlinePWA.API.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
-
-        //[HttpPost]
-        //public async Task<ActionResult> Post()
-        //{
-        //    try
-        //    {
-
-        //        return Ok();
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _logger.LogError(ex.Message, "Error inside Get axtion ");
-        //        return StatusCode(500, "Internal server error");
-        //    }
-        //}
 
     }
 }
