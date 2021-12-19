@@ -11,9 +11,9 @@ namespace ShopOnlinePWA.API.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
-        private ISaleRepository _repository;
+        private readonly ISaleRepository _repository;
 
-        private ILogger<OrderController> _logger;
+        private readonly ILogger<OrderController> _logger;
 
         public OrderController(ISaleRepository repository, ILogger<OrderController> loger)
         {

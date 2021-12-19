@@ -43,6 +43,6 @@ namespace ShopOnlinePWA.Library
         public User Responsible { get; set; }
         public string Comment { get; set; }
         public Subdivision Subdivision { get; set; }
-
+        public string ConcurrencyStamp { get; set; } = Guid.NewGuid().ToString();
     }
 }

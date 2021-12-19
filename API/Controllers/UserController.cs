@@ -11,9 +11,9 @@ namespace ShopOnlinePWA.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private IUserRepository _repository;
+        private readonly IUserRepository _repository;
 
-        private ILogger<UserController> _logger;
+        private readonly ILogger<UserController> _logger;
 
         public UserController(IUserRepository repository, ILogger<UserController> loger)
         {

@@ -10,5 +10,7 @@ namespace ShopOnlinePWA.Library
 
         [Timestamp]
         public byte[] Timestamp { get; set; }
+
+        public string ConcurrencyStamp {get; set;} 
     }
 }
