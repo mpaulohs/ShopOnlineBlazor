@@ -2,7 +2,7 @@
 
 namespace ShopOnlinePWA.Library
 {
-    public interface IDocumentBase<TId> : IEntityBase<TId>
+    public interface IDocumentBase<TKey> : IEntityBase<TKey>
     {
         public DocumentType DocumentType { get; set; }
 

@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopOnlinePWA.Library
 {
-    public abstract class DocumentBase<TId> : IDocumentBase<TId>
+    public abstract class DocumentBase<TKey> : IDocumentBase<TKey>
     {
-        public TId Id { get; set; }
+        public TKey Id { get; set; }
         public string ExchangeId { get; set; }
         //public byte[] Timestamp
         //{
@@ -21,8 +21,7 @@ namespace ShopOnlinePWA.Library
         //            Timestamp = value;
         //    }
         //}
-
-        public byte[] Timestamp { get; set; }
+        public byte[] Timestamp { get; set; } = BitConverter.GetBytes(DateTime.UtcNow.Ticks);
         public DocumentType DocumentType { get; set; }
         public DateTime DateTime { get; set; }
         public DateTime ExchangeDateTime { get; set; }
@@ -39,7 +38,7 @@ namespace ShopOnlinePWA.Library
         public decimal DocumentAmount { get; set; }
         [Column(TypeName = "decimal(18,2)")]
         public decimal ContractAmount { get; set; }
-        //public IDocumentBase<TId> RefDocument { get; set; }
+        //public IDocumentBase<TKey> RefDocument { get; set; }
         public User Responsible { get; set; }
         public string Comment { get; set; }
         public Subdivision Subdivision { get; set; }

@@ -5,12 +5,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShopOnlinePWA.API.Migrations;
+using ShopOnlinePWA.Library;
 
 #nullable disable
 
 namespace ShopOnlinePWA.API.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -29,6 +30,9 @@ namespace ShopOnlinePWA.API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("EntityGuid")
@@ -63,6 +67,9 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
 
@@ -89,6 +96,9 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
 
@@ -112,6 +122,9 @@ namespace ShopOnlinePWA.API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ExchangeId")
@@ -141,6 +154,9 @@ namespace ShopOnlinePWA.API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ExchangeId")
@@ -173,6 +189,9 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
 
@@ -197,6 +216,9 @@ namespace ShopOnlinePWA.API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("CurrencyId")
@@ -232,6 +254,9 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
 
@@ -262,6 +287,9 @@ namespace ShopOnlinePWA.API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("ContractAmount")
@@ -343,6 +371,9 @@ namespace ShopOnlinePWA.API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("ContractAmount")
@@ -437,6 +468,9 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -491,6 +525,9 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
 
@@ -512,6 +549,9 @@ namespace ShopOnlinePWA.API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ExchangeId")
@@ -537,6 +577,9 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
 
@@ -558,6 +601,9 @@ namespace ShopOnlinePWA.API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ExchangeId")
@@ -583,6 +629,9 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
 
@@ -606,6 +655,9 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
 
@@ -625,6 +677,9 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
@@ -648,6 +703,9 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
 
@@ -669,6 +727,9 @@ namespace ShopOnlinePWA.API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ExchangeId")
@@ -724,32 +785,32 @@ namespace ShopOnlinePWA.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b91d56bb-5dcb-4a8e-9dbd-f53c2a4a4a04"),
-                            ConcurrencyStamp = "d46b89ab-0f13-4844-aaed-a6473aa1daf3",
+                            Id = new Guid("92e9de7b-0da5-4f42-95f4-65ad7ff687f4"),
+                            ConcurrencyStamp = "4e061f3d-5d62-4273-b9aa-dd2e002737d5",
                             Description = "Administrators of application",
                             Name = "Administrators",
                             NormalizedName = "ADMINISTRATORS"
                         },
                         new
                         {
-                            Id = new Guid("878e3ad6-b021-46d9-984d-04df8585db47"),
-                            ConcurrencyStamp = "361447d7-66dc-4e84-8b10-1c57d9a18bea",
+                            Id = new Guid("62e9bac9-8bdc-40c6-9642-b7b83717d391"),
+                            ConcurrencyStamp = "17f487f1-1704-4c5b-8910-3414e56dd807",
                             Description = "Managers of application",
                             Name = "Managers",
                             NormalizedName = "MANAGERS"
                         },
                         new
                         {
-                            Id = new Guid("65f518c4-94c6-48bf-a9d9-122b957ca69a"),
-                            ConcurrencyStamp = "96a1a901-addc-451c-bbd5-0eae591fd208",
+                            Id = new Guid("cd401d73-4493-4c61-a89d-0b2aebe9cf4e"),
+                            ConcurrencyStamp = "d44833e9-fbda-4575-b502-dc6b1283bbb2",
                             Description = "Clients of application",
                             Name = "Clients",
                             NormalizedName = "CLIENTS"
                         },
                         new
                         {
-                            Id = new Guid("ff63a07c-c2c6-4348-af65-d450771927b6"),
-                            ConcurrencyStamp = "8086a301-3986-43a3-b9b7-ed47922033de",
+                            Id = new Guid("042428a2-a0b1-43b5-9023-4166634f8f2d"),
+                            ConcurrencyStamp = "1e5468f9-53c0-4757-9963-f6513104619a",
                             Description = "Public users of application",
                             Name = "Public",
                             NormalizedName = "PUBLIC"
@@ -789,6 +850,9 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
 
@@ -810,6 +874,9 @@ namespace ShopOnlinePWA.API.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ExchangeId")
@@ -909,52 +976,52 @@ namespace ShopOnlinePWA.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1d762c53-3a31-4a9f-9a67-93e549ed3b3e"),
+                            Id = new Guid("c138fa92-cb8e-4e7a-ab1b-a60e1ada24e9"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "15.12.2021 11:49:08",
+                            ConcurrencyStamp = "19.12.2021 11:26:49",
                             Email = "Admitistrator@ShopOnlinePWA.API.com",
                             EmailConfirmed = true,
                             FirstName = "Admitistrator@ShopOnlinePWA.API.com",
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMITISTRATOR@SHOPONLINEPWA.API.COM",
                             NormalizedUserName = "ADMITISTRATOR@SHOPONLINEPWA.API.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOWcx0jLtonfLrBad45fg/EGiERQBsRCIZ7pdacUsHh0HB9pTZMMF8ddzpMcsqoVrw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDAY1ZGljGS/psuDlXHoyfg6nDFVljGD83Uqz4qPr/pXdh6Zo4Ctu+8eUvWDdZ5Elg==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "15.12.2021 11:49:08",
+                            SecurityStamp = "19.12.2021 11:26:49",
                             TwoFactorEnabled = false,
                             UserName = "Admitistrator@ShopOnlinePWA.API.com"
                         },
                         new
                         {
-                            Id = new Guid("6879c496-5769-442b-b844-166fb2e75b03"),
+                            Id = new Guid("dc5ed28e-07ea-4637-be3d-37e74b1e4f82"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "15.12.2021 11:49:08",
+                            ConcurrencyStamp = "19.12.2021 11:26:49",
                             Email = "Manager@ShopOnlinePWA.API.com",
                             EmailConfirmed = true,
                             FirstName = "Manager@ShopOnlinePWA.API.com",
                             LockoutEnabled = false,
                             NormalizedEmail = "MANAGER@SHOPONLINEPWA.API.COM",
                             NormalizedUserName = "MANAGER@SHOPONLINEPWA.API.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFM3fNnLfDTgOOTO1gfknnWfoFksTj1Nlyoq9Zxx++cBSu9J7xhfL9B25cUPwvJvlQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGZC9wpIqoq/iIOPtg9GsC02ZImLf1m0RdG+8zQXZ5aIB7BV0Q/6ch6pHNU9AG1uJA==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "15.12.2021 11:49:08",
+                            SecurityStamp = "19.12.2021 11:26:49",
                             TwoFactorEnabled = false,
                             UserName = "Manager@ShopOnlinePWA.API.com"
                         },
                         new
                         {
-                            Id = new Guid("a2ae5c95-9550-416e-a6cc-c02c395a67cd"),
+                            Id = new Guid("19f78532-1784-400c-89b3-1e411cf6b9fd"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "15.12.2021 11:49:08",
+                            ConcurrencyStamp = "19.12.2021 11:26:49",
                             Email = "Client@ShopOnlinePWA.API.com",
                             EmailConfirmed = true,
                             FirstName = "Client@ShopOnlinePWA.API.com",
                             LockoutEnabled = false,
                             NormalizedEmail = "CLIENT@SHOPONLINEPWA.API.COM",
                             NormalizedUserName = "CLIENT@SHOPONLINEPWA.API.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBDowd7lFWoXzIUumMypVLSWTXb4XD1nwz7eU3+qHc4rsh3zBPVmP+7tKmGzI5O5hw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEG7XrYXzetwWsHY2FstHEGOj0hsSeXLfxM/JpauPJoPcBLMyimYHcgp1MltnLd66zA==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "15.12.2021 11:49:08",
+                            SecurityStamp = "19.12.2021 11:26:49",
                             TwoFactorEnabled = false,
                             UserName = "Client@ShopOnlinePWA.API.com"
                         });

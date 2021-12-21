@@ -6,12 +6,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShopOnlinePWA.API.Migrations;
+using ShopOnlinePWA.Library;
 
 #nullable disable
 
 namespace ShopOnlinePWA.API.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20211215094908_Initital")]
     partial class Initital
     {

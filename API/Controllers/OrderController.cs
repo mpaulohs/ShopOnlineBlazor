@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ShopOnlinePWA.API.Models;
 using ShopOnlinePWA.Library;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ShopOnlinePWA.API.Controllers
@@ -11,11 +11,11 @@ namespace ShopOnlinePWA.API.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
-        private readonly ISaleRepository _repository;
+        private readonly ISaleStore _repository;
 
         private readonly ILogger<OrderController> _logger;
 
-        public OrderController(ISaleRepository repository, ILogger<OrderController> loger)
+        public OrderController(ISaleStore repository, ILogger<OrderController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -26,13 +26,18 @@ namespace ShopOnlinePWA.API.Controllers
         {
             try
             {
-                var items = await _repository.Read();
-                return Ok(items);
+                var result = await _repository.GetByFiltersAsync();
 
+                if (result!=null)
+                {
+                    return StatusCode(200, result);
+                }
+
+                return StatusCode(404);
             }
-            catch (System.Exception ex)
+            catch (Exception exception)
             {
-                _logger.LogError(ex, "Eror inside Get() actoin");
+                _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -42,19 +47,18 @@ namespace ShopOnlinePWA.API.Controllers
         {
             try
             {
-                var item = await _repository.Read(id);
-                if (item == null)
+                var result = await _repository.GetByIdAsync(id);
+
+                if (result != null)
                 {
-                    _logger.LogError("Can't fount Entity witn id {0}", id);
-                    return NotFound();
+                    return StatusCode(200, result);
                 }
-                return Ok(item);
 
+                return StatusCode(404);
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-
-                _logger.LogError(ex.Message, "Error inside Get axtion");
+                _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return StatusCode(500, "Internal server error");
             }
 
@@ -65,19 +69,18 @@ namespace ShopOnlinePWA.API.Controllers
         {
             try
             {
-                var result = await _repository.Create(item);
-                if (result == null)
+                var result = await _repository.CreateAsync(item);
+
+                if (result!=null)
                 {
-                    _logger.LogError("Cannot add the {0} to db ", item);
-                    return NotFound();
+                    return StatusCode(201, result);
                 }
 
-                return Ok(result);
-
+                return StatusCode(404);
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                _logger.LogError(ex.Message, "Error inside Get axtion ");
+                _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return StatusCode(500, "Internal server error");
             }
         }

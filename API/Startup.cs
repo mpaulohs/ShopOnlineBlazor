@@ -1,21 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using ShopOnlinePWA.API.Migrations;
-using ShopOnlinePWA.API.Models;
 using ShopOnlinePWA.Library;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ShopOnlinePWA.API
 {
@@ -38,17 +30,17 @@ namespace ShopOnlinePWA.API
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
             });
 
-            services.AddDbContext<AppDbContext>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("AppConnectionString"));
             });
 
-            services.AddIdentity<User, Role>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+            services.AddIdentity<User, Role>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
             //services.AddIdentity<User, Role>().AddDefaultTokenProviders();
 
 
-            services.AddScoped<ISaleRepository, SaleRepository>();
-            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ISaleStore, SaleStore>();
+            services.AddScoped<IEntityStore<User, Guid, ApplicationDbContext>, UserStore<User,Guid, ApplicationDbContext>>();
             //services.AddAutoMapper(typeof(Startup));
         }
 

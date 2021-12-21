@@ -1,6 +1,6 @@
 ﻿namespace ShopOnlinePWA.Library
 {
-    public interface ICatalogBase<TId> : IEntityBase<TId>
+    public interface ICatalogBase<TKey> : IEntityBase<TKey>
     {
         public string Name { get; set; }
 
