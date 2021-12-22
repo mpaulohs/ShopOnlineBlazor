@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace ShopOnlinePWA.Library
 {
-    public abstract class EntityStore<TEntity, TKey, TContext> :
+    public abstract class RepositoryBase<TEntity, TKey, TContext> :
         IDisposable,
-        IEntityStore<TEntity, TKey, TContext>
-        where TEntity : class, IEntityBase<TKey>
+        IRepository<TEntity, TKey, TContext>
+        where TEntity : class, IApplicationEntity<TKey>
         where TKey : IEquatable<TKey>
         where TContext : DbContext
     {
 
-        public EntityStore(TContext context, ILogger<TEntity> logger)
+        public RepositoryBase(TContext context, ILogger<TEntity> logger)
         {
             Context = context ?? throw new ArgumentNullException(nameof(Context));
             Logger = logger ?? throw new ArgumentNullException(nameof(logger));

@@ -291,12 +291,12 @@ namespace ShopOnlinePWA.API.Models
             };
 
             //Curency
-            var Curensy = new HashSet<Currency>();
-            foreach (CultureInfo item in CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures))
-                Curensy.Add(new Currency(item.Name, item.ToString(), item.NumberFormat.CurrencySymbol));
+            //var Curensy = new HashSet<Currency>();
+            //foreach (CultureInfo item in CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures))
+            //    Curensy.Add(new Currency(item.Name, item.ToString(), item.NumberFormat.CurrencySymbol));
 
-            foreach (Currency currency in Curensy)
-                modelBuilder.Entity<Currency>().HasData(currency);
+            //foreach (Currency currency in Curensy)
+            //    modelBuilder.Entity<Currency>().HasData(currency);
 
         }
     }

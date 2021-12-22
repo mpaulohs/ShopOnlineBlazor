@@ -2,10 +2,10 @@
 
 namespace ShopOnlinePWA.Library
 {
-    public class SaleItem : IEntityBase<Guid>
+    public class SaleItem : IApplicationEntity<Guid>
     {
         public Guid Id { get; set; }
-        public IDocumentSale Document { get; set; }
+        public DocumentSale Document { get; set; }
         public Item Item { get; set; }
         public ItemUnitMeasurement UtilMeasurement { get; set; }
         public ItemCharacteristic Characteristic { get; set; }

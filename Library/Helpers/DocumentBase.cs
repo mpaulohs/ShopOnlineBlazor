@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopOnlinePWA.Library
 {
-    public abstract class DocumentBase<TKey> : IDocumentBase<TKey>
+    public abstract class DocumentBase<TKey> : IApplicationEntity<TKey>
     {
         public TKey Id { get; set; }
         public string ExchangeId { get; set; }

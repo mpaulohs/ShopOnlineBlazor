@@ -2,7 +2,7 @@
 
 namespace ShopOnlinePWA.Library
 {
-    public class DocumentSale : DocumentBase<Guid>, IDocumentSale
+    public class DocumentSale : DocumentBase<Guid>
     {
         public Storage Storage { get; set; }
 

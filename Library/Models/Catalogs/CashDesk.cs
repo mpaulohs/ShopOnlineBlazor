@@ -2,7 +2,7 @@
 
 namespace ShopOnlinePWA.Library
 {
-    public class CashDesk : CatalogBase<Guid>, IDocumentPaymentRessiver
+    public class CashDesk : CatalogBase<Guid>
     {
 
     }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace ShopOnlinePWA.Library
 {
 
-    public class Role : IdentityRole<Guid>, IEntityBase<Guid>
+    public class Role : IdentityRole<Guid>, IApplicationEntity<Guid>
     {
         public string Description { get; set; }
         public virtual ICollection<UserRole> UserRoles { get; set; }

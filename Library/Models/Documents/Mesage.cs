@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ShopOnlinePWA.Library
 {
-    public class Mesage : IEntityBase<Guid>
+    public class Mesage : IApplicationEntity<Guid>
     {
         public Guid Id { get; set; }
         public string ExchangeId { get; set; }

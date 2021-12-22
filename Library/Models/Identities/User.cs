@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace ShopOnlinePWA.Library
 {
-    public class User : IdentityUser<Guid>, IEntityBase<Guid>
+    public class User : IdentityUser<Guid>, IApplicationEntity<Guid>
     {
         public string ExchangeId { get; set; }
 

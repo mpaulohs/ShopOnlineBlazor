@@ -11,11 +11,11 @@ namespace ShopOnlinePWA.API.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
-        private readonly IEntityStore<DocumentSale, Guid, ApplicationDbContext> _repository;
+        private readonly IRepository<DocumentSale, Guid, ApplicationDbContext> _repository;
 
         private readonly ILogger<OrderController> _logger;
 
-        public OrderController(IEntityStore<DocumentSale, Guid, ApplicationDbContext> repository, ILogger<OrderController> loger)
+        public OrderController(IRepository<DocumentSale, Guid, ApplicationDbContext> repository, ILogger<OrderController> loger)
         {
             _repository = repository;
             _logger = loger;

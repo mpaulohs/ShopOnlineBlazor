@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace ShopOnlinePWA.Library
 {
-    public interface IEntityStore<TEntity, TKey, TContext>
-        where TEntity : class, IEntityBase<TKey>
+    public interface IRepository<TEntity, TKey, TContext>
+        where TEntity : class, IApplicationEntity<TKey>
         where TKey : IEquatable<TKey>
         where TContext : DbContext
 

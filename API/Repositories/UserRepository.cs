@@ -5,10 +5,10 @@ using System;
 
 namespace ShopOnlinePWA.API.Repositories
 {
-    public class UserStore : EntityStore<User, Guid, ApplicationDbContext>
+    public class UserRepository : RepositoryBase<User, Guid, ApplicationDbContext>
 
     {
-        public UserStore(ApplicationDbContext context, ILogger<User> logger) : base(context, logger)
+        public UserRepository(ApplicationDbContext context, ILogger<User> logger) : base(context, logger)
         {
         }
     }
