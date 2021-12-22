@@ -9,8 +9,6 @@ namespace ShopOnlinePWA.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
-    
-
     {
         private readonly IEntityStore<User, Guid, ApplicationDbContext> _repository;
 
@@ -33,7 +31,6 @@ namespace ShopOnlinePWA.API.Controllers
                 {
                     return StatusCode(200, result);
                 }
-
                 return StatusCode(404);
             }
             catch (Exception exception)
@@ -55,7 +52,6 @@ namespace ShopOnlinePWA.API.Controllers
                 {
                     return StatusCode(200, result);
                 }
-
                 return StatusCode(404);
             }
             catch (Exception exception)
@@ -67,7 +63,7 @@ namespace ShopOnlinePWA.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post(User item)
+        public async Task<ActionResult> Post([FromBody] User item)
         {
             try
             {

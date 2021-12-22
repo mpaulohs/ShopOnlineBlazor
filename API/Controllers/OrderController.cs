@@ -27,12 +27,11 @@ namespace ShopOnlinePWA.API.Controllers
             {
                 var result = await _repository.GetByFiltersAsync();
 
-                if (result != null)
+                if (result == null)
                 {
-                    return StatusCode(200, result);
-                }
-
-                return StatusCode(404);
+                    return StatusCode(404);
+                }     
+                return StatusCode(200, result);
             }
             catch (Exception exception)
             {
@@ -46,6 +45,11 @@ namespace ShopOnlinePWA.API.Controllers
         {
             try
             {
+                if (id == Guid.Empty)
+                {
+                    return StatusCode(400, "Bad Request");
+                }
+
                 var result = await _repository.GetByIdAsync(id);
 
                 if (result != null)
@@ -64,10 +68,15 @@ namespace ShopOnlinePWA.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post(DocumentSale item)
+        public async Task<ActionResult> Post([FromBody] DocumentSale item)
         {
             try
             {
+                if (item == null)
+                {
+                    return StatusCode(400, "Bad Request");
+                }
+
                 var result = await _repository.CreateAsync(item);
 
                 return StatusCode(201, result);
@@ -79,6 +88,54 @@ namespace ShopOnlinePWA.API.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
+        // PUT api/<ValuesController>/5
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Put(Guid id, [FromBody] DocumentSale item)
+        {
+            try
+            {
+                if (id==Guid.Empty||item==null)
+                {
+                      return StatusCode(400, "Bad Request");
+                }
+
+                var result = await _repository.UpdateAsync(id, item);
+
+                return StatusCode(200, result);
+
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        // DELETE api/<ValuesController>/5
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(Guid id)
+        {
+            try
+            {
+                if (id == Guid.Empty)
+                {
+                    return StatusCode(400, "Bad Request");
+                }
+
+                var result = await _repository.DeleteByIdAsync(id);
+
+                return StatusCode(200, result);
+
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+
 
     }
 }

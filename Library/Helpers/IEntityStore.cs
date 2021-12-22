@@ -22,7 +22,7 @@ namespace ShopOnlinePWA.Library
         public Task<IEnumerable<TEntity>> GetByFiltersAsync (CancellationToken cancellationToken = default, params Expression<Func<TEntity, bool>>[] filters);
 
 
-        public Task<bool> UpdateAsync (TEntity entity, CancellationToken cancellationToken = default);
+        public Task<bool> UpdateAsync (TKey id, TEntity entity, CancellationToken cancellationToken = default);
 
 
         public Task<bool> DeleteAllAsync (CancellationToken cancellationToken = default);
