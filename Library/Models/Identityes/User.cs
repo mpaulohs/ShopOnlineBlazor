@@ -8,7 +8,9 @@ namespace ShopOnlinePWA.Library
     {
         public string ExchangeId { get; set; }
 
-        public byte[] Timestamp { get; set; }
+        public byte[] CreatedAt { get; set; }
+
+        public byte[] UpdatedAt { get; set; }
 
         public string FirstName { get; set; }
 

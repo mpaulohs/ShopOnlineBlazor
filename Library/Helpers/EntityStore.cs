@@ -140,19 +140,105 @@ namespace ShopOnlinePWA.Library
             return await entities.ToListAsync<TEntity>();
         }
 
-        public async Task<bool> UpdateAsync(TEntity entity, CancellationToken cancellationToken = default)
+        //public async Task<bool> UpdateAsync(TKey id, TEntity entity, CancellationToken cancellationToken = default)
+        //{
+        //    cancellationToken.ThrowIfCancellationRequested();
+        //    ThrowIfDisposed();
+
+        //    bool haveChanges = false;
+
+        //    if (entity == null)
+        //    {
+        //        Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+        //        throw new ArgumentNullException(nameof(entity));
+        //    }
+
+        //    var origEntity = await GetByIdAsync(id, cancellationToken);
+        //    if (origEntity == null)
+        //    {
+        //        Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+        //        throw new NullReferenceException(nameof(origEntity));
+        //    }
+
+
+        //    Context.Attach(origEntity);
+
+
+
+        //    //ToDo chec update process
+        //    //entity.MapToModel(origEntity);
+
+        //    foreach (var property in entity.GetType().GetProperties())
+        //    {
+        //        if (property.GetValue(entity, null) != default&& property.GetValue(entity, null) != null)
+        //        {
+        //            var origPropery = origEntity.GetType().GetProperty(property.Name);
+
+        //            //ToDo not check equals
+        //            if (origPropery.GetValue(origEntity, null) != property.GetValue(entity, null))
+        //            {
+        //                origPropery.SetValue(origEntity, property.GetValue(entity, null));
+        //                haveChanges = true;
+        //            }
+
+        //            //property.SetValue(entity, origEntity.GetType().GetProperty(property.Name).GetValue(origEntity, null));
+
+        //            //origEntity.GetType().GetProperty(property.Name).SetValue(entity, property.GetValue(entity, null));
+        //        }
+        //    }
+
+        //    if (haveChanges)
+        //    {
+        //        origEntity.ConcurrencyStamp = Guid.NewGuid().ToString();
+
+        //        Context.Update(origEntity);
+        //        try
+        //        {
+        //            await SaveChanges(cancellationToken);
+        //        }
+        //        catch (Exception exception)
+        //        {
+        //            Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+        //            throw new Exception(exception.Message, exception);
+        //        }
+        //        return true;
+
+        //    }
+        //    return false;
+
+        //}
+
+        public async Task<bool> UpdateAsync(TKey id, TEntity entity, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
+
+            bool haveChanges = false;
+
             if (entity == null)
             {
                 Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            Context.Attach(entity);
-            entity.ConcurrencyStamp = Guid.NewGuid().ToString();
-            Context.Update(entity);
+            var origEntity = await GetByIdAsync(id, cancellationToken);
+            if (origEntity == null)
+            {
+                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                throw new NullReferenceException(nameof(origEntity));
+            }
+
+
+            Context.Attach(origEntity);
+
+
+
+            //ToDo chec update process
+            //entity.MapToModel(origEntity);
+
+
+
+            Context.Update(origEntity);
             try
             {
                 await SaveChanges(cancellationToken);
@@ -163,6 +249,9 @@ namespace ShopOnlinePWA.Library
                 throw new Exception(exception.Message, exception);
             }
             return true;
+
+
+
         }
 
         public async Task<bool> DeleteAllAsync(CancellationToken cancellationToken = default)
@@ -229,6 +318,5 @@ namespace ShopOnlinePWA.Library
             }
             return true;
         }
-
     }
 }

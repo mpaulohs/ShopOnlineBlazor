@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BieNOm+xHSvhbFbn0T2jbvLCmIBN+9OKkKH3BUjJdnc=",
+  "Hash": "zdUmwkgIU9n2lgTe68Zhle17LsLpr/lXTNu+CMq2dM0=",
   "Source": "ShopOnlinePWA.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -16,6 +16,40 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\AutoMapper.dll",
+      "SourceId": "ShopOnlinePWA.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/AutoMapper.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\automapper\\10.1.1\\lib\\netstandard2.0\\AutoMapper.dll"
+    },
+    {
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\AutoMapper.Extensions.Microsoft.DependencyInjection.dll",
+      "SourceId": "ShopOnlinePWA.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/AutoMapper.Extensions.Microsoft.DependencyInjection.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\lib\\netstandard2.0\\AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+    },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\blazor.boot.json",
       "SourceId": "ShopOnlinePWA.Client",
@@ -48,7 +82,7 @@
       "AssetTraitValue": "boot",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\6.0.0\\build\\net6.0\\blazor.webassembly.js"
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\6.0.1\\build\\net6.0\\blazor.webassembly.js"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\dotnet.6.0.1.m9s5fvrgbu.js",
@@ -184,7 +218,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.0\\lib\\net6.0\\Microsoft.AspNetCore.Authorization.dll"
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.1\\lib\\net6.0\\Microsoft.AspNetCore.Authorization.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.dll",
@@ -201,7 +235,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.0\\lib\\net6.0\\Microsoft.AspNetCore.Components.dll"
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.1\\lib\\net6.0\\Microsoft.AspNetCore.Components.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Forms.dll",
@@ -218,7 +252,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\6.0.0\\lib\\net6.0\\Microsoft.AspNetCore.Components.Forms.dll"
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\6.0.1\\lib\\net6.0\\Microsoft.AspNetCore.Components.Forms.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Web.dll",
@@ -235,7 +269,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.0\\lib\\net6.0\\Microsoft.AspNetCore.Components.Web.dll"
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.1\\lib\\net6.0\\Microsoft.AspNetCore.Components.Web.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.WebAssembly.dll",
@@ -252,7 +286,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\6.0.0\\lib\\net6.0\\Microsoft.AspNetCore.Components.WebAssembly.dll"
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\6.0.1\\lib\\net6.0\\Microsoft.AspNetCore.Components.WebAssembly.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Cryptography.Internal.dll",
@@ -269,7 +303,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.0\\lib\\net6.0\\Microsoft.AspNetCore.Cryptography.Internal.dll"
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.1\\lib\\net6.0\\Microsoft.AspNetCore.Cryptography.Internal.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll",
@@ -286,7 +320,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.0\\lib\\net6.0\\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll"
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.1\\lib\\net6.0\\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll",
@@ -303,7 +337,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.0\\lib\\net6.0\\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll"
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.1\\lib\\net6.0\\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Metadata.dll",
@@ -320,7 +354,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.0\\lib\\net6.0\\Microsoft.AspNetCore.Metadata.dll"
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.1\\lib\\net6.0\\Microsoft.AspNetCore.Metadata.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.CSharp.dll",
@@ -354,7 +388,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.0\\lib\\net6.0\\Microsoft.EntityFrameworkCore.Abstractions.dll"
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.1\\lib\\net6.0\\Microsoft.EntityFrameworkCore.Abstractions.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.EntityFrameworkCore.dll",
@@ -371,7 +405,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.0\\lib\\net6.0\\Microsoft.EntityFrameworkCore.dll"
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.1\\lib\\net6.0\\Microsoft.EntityFrameworkCore.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.EntityFrameworkCore.Relational.dll",
@@ -388,7 +422,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.0\\lib\\net6.0\\Microsoft.EntityFrameworkCore.Relational.dll"
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.1\\lib\\net6.0\\Microsoft.EntityFrameworkCore.Relational.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Caching.Abstractions.dll",
@@ -609,7 +643,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.extensions.identity.core\\6.0.0\\lib\\net6.0\\Microsoft.Extensions.Identity.Core.dll"
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.extensions.identity.core\\6.0.1\\lib\\net6.0\\Microsoft.Extensions.Identity.Core.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Identity.Stores.dll",
@@ -626,7 +660,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.extensions.identity.stores\\6.0.0\\lib\\net6.0\\Microsoft.Extensions.Identity.Stores.dll"
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.extensions.identity.stores\\6.0.1\\lib\\net6.0\\Microsoft.Extensions.Identity.Stores.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.Abstractions.dll",
@@ -711,7 +745,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.jsinterop\\6.0.0\\lib\\net6.0\\Microsoft.JSInterop.dll"
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.jsinterop\\6.0.1\\lib\\net6.0\\Microsoft.JSInterop.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.WebAssembly.dll",
@@ -728,7 +762,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.jsinterop.webassembly\\6.0.0\\lib\\net6.0\\Microsoft.JSInterop.WebAssembly.dll"
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.jsinterop.webassembly\\6.0.1\\lib\\net6.0\\Microsoft.JSInterop.WebAssembly.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.VisualBasic.Core.dll",
@@ -1748,7 +1782,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.io.pipelines\\6.0.0\\lib\\net6.0\\System.IO.Pipelines.dll"
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.io.pipelines\\6.0.1\\lib\\net6.0\\System.IO.Pipelines.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.IO.Pipes.AccessControl.dll",
@@ -3672,6 +3706,23 @@
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Data.DataSetExtensions.dll"
     },
     {
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\+Yy8dhZc.gz",
+      "SourceId": "ShopOnlinePWA.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/System.IO.Pipelines.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.IO.Pipelines.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.IO.Pipelines.dll"
+    },
+    {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\06dO1EXL.gz",
       "SourceId": "ShopOnlinePWA.Client",
       "SourceType": "Computed",
@@ -3740,23 +3791,6 @@
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Diagnostics.TextWriterTraceListener.dll"
     },
     {
-      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\1uKKUgpM.gz",
-      "SourceId": "ShopOnlinePWA.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Authorization.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.dll"
-    },
-    {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\27qRaJ4X.gz",
       "SourceId": "ShopOnlinePWA.Client",
       "SourceType": "Computed",
@@ -3774,58 +3808,7 @@
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Primitives.dll"
     },
     {
-      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\2gE77sgk.gz",
-      "SourceId": "ShopOnlinePWA.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Cryptography.Internal.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Cryptography.Internal.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Cryptography.Internal.dll"
-    },
-    {
-      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\2H9Gal4u.gz",
-      "SourceId": "ShopOnlinePWA.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll"
-    },
-    {
-      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\2nla03BO.gz",
-      "SourceId": "ShopOnlinePWA.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.Extensions.Identity.Core.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Identity.Core.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Identity.Core.dll"
-    },
-    {
-      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\2ZCkkieq.gz",
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\2A1OSrXY.gz",
       "SourceId": "ShopOnlinePWA.Client",
       "SourceType": "Computed",
       "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
@@ -3995,23 +3978,6 @@
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Diagnostics.Debug.dll"
     },
     {
-      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\66JP3lYs.gz",
-      "SourceId": "ShopOnlinePWA.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Forms.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Forms.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Forms.dll"
-    },
-    {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\6jBxuWoX.gz",
       "SourceId": "ShopOnlinePWA.Client",
       "SourceType": "Computed",
@@ -4129,23 +4095,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Caching.Memory.dll"
-    },
-    {
-      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\8NRyhWk7.gz",
-      "SourceId": "ShopOnlinePWA.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.EntityFrameworkCore.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.EntityFrameworkCore.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.EntityFrameworkCore.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\8oS29SaI.gz",
@@ -4301,6 +4250,23 @@
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Reflection.Emit.ILGeneration.dll"
     },
     {
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\a1nY90iE.gz",
+      "SourceId": "ShopOnlinePWA.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/AutoMapper.Extensions.Microsoft.DependencyInjection.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\AutoMapper.Extensions.Microsoft.DependencyInjection.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+    },
+    {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\ACdyYGus.gz",
       "SourceId": "ShopOnlinePWA.Client",
       "SourceType": "Computed",
@@ -4403,6 +4369,23 @@
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Net.Primitives.dll"
     },
     {
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\AXXqUnfs.gz",
+      "SourceId": "ShopOnlinePWA.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/blazor.webassembly.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\blazor.webassembly.js"
+    },
+    {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\AYlDT9TH.gz",
       "SourceId": "ShopOnlinePWA.Client",
       "SourceType": "Computed",
@@ -4437,6 +4420,23 @@
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Net.WebClient.dll"
     },
     {
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\b3MKaLUM.gz",
+      "SourceId": "ShopOnlinePWA.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Authorization.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.dll"
+    },
+    {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\b4cN6EN+.gz",
       "SourceId": "ShopOnlinePWA.Client",
       "SourceType": "Computed",
@@ -4452,23 +4452,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.IO.Compression.Brotli.dll"
-    },
-    {
-      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\b7QQ5+N5.gz",
-      "SourceId": "ShopOnlinePWA.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\BDLpu0+7.gz",
@@ -4503,6 +4486,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Runtime.Extensions.dll"
+    },
+    {
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\BvPRa+XF.gz",
+      "SourceId": "ShopOnlinePWA.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\BZcD3eBk.gz",
@@ -4673,6 +4673,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Net.Sockets.dll"
+    },
+    {
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\d3geqk++.gz",
+      "SourceId": "ShopOnlinePWA.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.Extensions.Identity.Stores.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Identity.Stores.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Identity.Stores.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\d72hVcun.gz",
@@ -4879,6 +4896,23 @@
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Security.Cryptography.OpenSsl.dll"
     },
     {
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\f9ELiPtv.gz",
+      "SourceId": "ShopOnlinePWA.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll"
+    },
+    {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\fGLZFVfv.gz",
       "SourceId": "ShopOnlinePWA.Client",
       "SourceType": "Computed",
@@ -4979,23 +5013,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Globalization.Extensions.dll"
-    },
-    {
-      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\fw8v6NDd.gz",
-      "SourceId": "ShopOnlinePWA.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.EntityFrameworkCore.Relational.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.EntityFrameworkCore.Relational.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.EntityFrameworkCore.Relational.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\FxE4+u2f.gz",
@@ -5100,23 +5117,6 @@
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Buffers.dll"
     },
     {
-      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\gvt8uWZd.gz",
-      "SourceId": "ShopOnlinePWA.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/blazor.webassembly.js.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\blazor.webassembly.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\blazor.webassembly.js"
-    },
-    {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\gXMGCQ3p.gz",
       "SourceId": "ShopOnlinePWA.Client",
       "SourceType": "Computed",
@@ -5202,23 +5202,6 @@
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Runtime.InteropServices.dll"
     },
     {
-      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\HWN4msIS.gz",
-      "SourceId": "ShopOnlinePWA.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Web.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Web.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Web.dll"
-    },
-    {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\hzhkl2a0.gz",
       "SourceId": "ShopOnlinePWA.Client",
       "SourceType": "Computed",
@@ -5251,6 +5234,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Net.Requests.dll"
+    },
+    {
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\IDdb1g0u.gz",
+      "SourceId": "ShopOnlinePWA.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.JSInterop.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\Iex9J0mT.gz",
@@ -5302,23 +5302,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Security.Cryptography.Csp.dll"
-    },
-    {
-      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\ipPF7wCU.gz",
-      "SourceId": "ShopOnlinePWA.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Components.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\isNQoPpT.gz",
@@ -5593,23 +5576,6 @@
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Threading.Thread.dll"
     },
     {
-      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\KQYIgGJR.gz",
-      "SourceId": "ShopOnlinePWA.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.JSInterop.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.JSInterop.dll"
-    },
-    {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\KT2eOohl.gz",
       "SourceId": "ShopOnlinePWA.Client",
       "SourceType": "Computed",
@@ -5848,21 +5814,21 @@
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Configuration.Binder.dll"
     },
     {
-      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\N0UNNDr5.gz",
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\N+ute5IF.gz",
       "SourceId": "ShopOnlinePWA.Client",
       "SourceType": "Computed",
       "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.EntityFrameworkCore.Abstractions.dll.gz",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Metadata.dll.gz",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Alternative",
-      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.EntityFrameworkCore.Abstractions.dll",
+      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Metadata.dll",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.EntityFrameworkCore.Abstractions.dll"
+      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Metadata.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\NCcCe3Y9.gz",
@@ -5899,6 +5865,23 @@
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.DependencyInjection.dll"
     },
     {
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\NlThqF+r.gz",
+      "SourceId": "ShopOnlinePWA.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Forms.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Forms.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Forms.dll"
+    },
+    {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\NM453c3F.gz",
       "SourceId": "ShopOnlinePWA.Client",
       "SourceType": "Computed",
@@ -5933,21 +5916,21 @@
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Net.WebProxy.dll"
     },
     {
-      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\o0m16RBc.gz",
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\Nq4UX4RS.gz",
       "SourceId": "ShopOnlinePWA.Client",
       "SourceType": "Computed",
       "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Components.WebAssembly.dll.gz",
+      "RelativePath": "_framework/AutoMapper.dll.gz",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Alternative",
-      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.WebAssembly.dll",
+      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\AutoMapper.dll",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.WebAssembly.dll"
+      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\AutoMapper.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\OCoxfhzC.gz",
@@ -6069,6 +6052,23 @@
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.IO.IsolatedStorage.dll"
     },
     {
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\pGA0S9L0.gz",
+      "SourceId": "ShopOnlinePWA.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Cryptography.Internal.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Cryptography.Internal.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Cryptography.Internal.dll"
+    },
+    {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\puktLl39.gz",
       "SourceId": "ShopOnlinePWA.Client",
       "SourceType": "Computed",
@@ -6084,6 +6084,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\icudt_EFIGS.dat"
+    },
+    {
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\puzStE48.gz",
+      "SourceId": "ShopOnlinePWA.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.WebAssembly.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.WebAssembly.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.WebAssembly.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\PVbsK1E0.gz",
@@ -6358,6 +6375,23 @@
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Diagnostics.TraceSource.dll"
     },
     {
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\S5FIR69X.gz",
+      "SourceId": "ShopOnlinePWA.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.EntityFrameworkCore.Abstractions.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.EntityFrameworkCore.Abstractions.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.EntityFrameworkCore.Abstractions.dll"
+    },
+    {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\sDtauNKu.gz",
       "SourceId": "ShopOnlinePWA.Client",
       "SourceType": "Computed",
@@ -6373,6 +6407,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Linq.Queryable.dll"
+    },
+    {
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\SekvFg6X.gz",
+      "SourceId": "ShopOnlinePWA.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\SFikdKaf.gz",
@@ -6441,6 +6492,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Xml.dll"
+    },
+    {
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\sV6tMvzM.gz",
+      "SourceId": "ShopOnlinePWA.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.EntityFrameworkCore.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.EntityFrameworkCore.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.EntityFrameworkCore.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\SYj0apcB.gz",
@@ -6613,23 +6681,6 @@
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Reflection.Extensions.dll"
     },
     {
-      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\uV+dx5Pn.gz",
-      "SourceId": "ShopOnlinePWA.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/System.IO.Pipelines.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.IO.Pipelines.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.IO.Pipelines.dll"
-    },
-    {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\UXYcHYdu.gz",
       "SourceId": "ShopOnlinePWA.Client",
       "SourceType": "Computed",
@@ -6662,23 +6713,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.IO.Compression.ZipFile.dll"
-    },
-    {
-      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\UYvCOBIe.gz",
-      "SourceId": "ShopOnlinePWA.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.Extensions.Identity.Stores.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Identity.Stores.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Identity.Stores.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\V2devpKr.gz",
@@ -6800,6 +6834,23 @@
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Runtime.Serialization.Primitives.dll"
     },
     {
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\voZJSg1B.gz",
+      "SourceId": "ShopOnlinePWA.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.Extensions.Identity.Core.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Identity.Core.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Identity.Core.dll"
+    },
+    {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\wbYJDLhZ.gz",
       "SourceId": "ShopOnlinePWA.Client",
       "SourceType": "Computed",
@@ -6849,6 +6900,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Drawing.dll"
+    },
+    {
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\wquDsrlf.gz",
+      "SourceId": "ShopOnlinePWA.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Web.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Web.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Web.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\WQVkGXAW.gz",
@@ -6951,23 +7019,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Collections.NonGeneric.dll"
-    },
-    {
-      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\xA5RbUqZ.gz",
-      "SourceId": "ShopOnlinePWA.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Metadata.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Metadata.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Metadata.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\XajD+oGs.gz",
@@ -7172,6 +7223,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Xml.XmlSerializer.dll"
+    },
+    {
+      "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\ZMoUM9Al.gz",
+      "SourceId": "ShopOnlinePWA.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.EntityFrameworkCore.Relational.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.EntityFrameworkCore.Relational.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.EntityFrameworkCore.Relational.dll"
     },
     {
       "Identity": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\obj\\Debug\\net6.0\\build-gz\\ZUjb5dRK.gz",
