@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using ShopOnlinePWA.API.Models;
 using ShopOnlinePWA.Library;
 using System;
 using System.Threading.Tasks;

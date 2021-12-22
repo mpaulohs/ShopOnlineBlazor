@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
+using ShopOnlinePWA.API.Models;
+using ShopOnlinePWA.Library;
 using System;
 
-namespace ShopOnlinePWA.Library
+namespace ShopOnlinePWA.API.Repositories
 {
     public class UserStore : EntityStore<User, Guid, ApplicationDbContext>
 

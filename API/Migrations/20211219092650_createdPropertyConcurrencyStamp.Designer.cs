@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShopOnlinePWA.API.Migrations;
+using ShopOnlinePWA.API.Models;
 using ShopOnlinePWA.Library;
 
 #nullable disable

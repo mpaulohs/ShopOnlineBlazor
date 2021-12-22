@@ -6,6 +6,6 @@ namespace ShopOnlinePWA.Library.Helpers.Mappings
     {
         void Mapping(Profile profile) =>
             profile.CreateMap(typeof(TEntity), GetType());
-
     }
 }
+ 

@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using ShopOnlinePWA.API.Models;
+using ShopOnlinePWA.API.Repositories;
 using ShopOnlinePWA.Library;
 using System;
 
