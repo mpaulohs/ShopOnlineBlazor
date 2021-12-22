@@ -4,12 +4,10 @@ using System;
 
 namespace ShopOnlinePWA.Library
 {
-    public class UserStore<TEntity, TKey, TContext> : EntityStore<TEntity, TKey, TContext>, IEntityStore<TEntity, TKey, TContext>
-        where TEntity : class, IEntityBase<TKey>
-        where TKey : IEquatable<TKey>
-        where TContext : DbContext
+    public class UserStore : EntityStore<User, Guid, ApplicationDbContext>
+
     {
-        public UserStore(TContext context, ILogger<TEntity> logger) : base(context, logger)
+        public UserStore(ApplicationDbContext context, ILogger<User> logger) : base(context, logger)
         {
         }
     }

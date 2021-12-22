@@ -8,15 +8,15 @@ namespace ShopOnlinePWA.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController<TEntity, TKey, TContext> : ControllerBase
-        where TEntity:class
-        
+    public class UserController : ControllerBase
+    
+
     {
         private readonly IEntityStore<User, Guid, ApplicationDbContext> _repository;
 
-        private readonly ILogger<UserController<TEntity, TKey, TContext>> _logger;
+        private readonly ILogger<UserController> _logger;
 
-        public UserController(IEntityStore<User, Guid, ApplicationDbContext> repository, ILogger<UserController<TEntity, TKey, TContext>> loger)
+        public UserController(IEntityStore<User, Guid, ApplicationDbContext> repository, ILogger<UserController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -38,6 +38,7 @@ namespace ShopOnlinePWA.API.Controllers
             }
             catch (Exception exception)
             {
+
                 _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return StatusCode(500, "Internal server error");
             }
@@ -72,12 +73,7 @@ namespace ShopOnlinePWA.API.Controllers
             {
                 var result = await _repository.CreateAsync(item);
 
-                if (result != null)
-                {
-                    return StatusCode(201, result);
-                }
-
-                return StatusCode(404);
+                return StatusCode(201, result);
             }
             catch (Exception exception)
             {

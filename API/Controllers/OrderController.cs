@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using ShopOnlinePWA.Library;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ShopOnlinePWA.API.Controllers
@@ -11,11 +10,11 @@ namespace ShopOnlinePWA.API.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
-        private readonly ISaleStore _repository;
+        private readonly IEntityStore<DocumentSale, Guid, ApplicationDbContext> _repository;
 
         private readonly ILogger<OrderController> _logger;
 
-        public OrderController(ISaleStore repository, ILogger<OrderController> loger)
+        public OrderController(IEntityStore<DocumentSale, Guid, ApplicationDbContext> repository, ILogger<OrderController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -28,7 +27,7 @@ namespace ShopOnlinePWA.API.Controllers
             {
                 var result = await _repository.GetByFiltersAsync();
 
-                if (result!=null)
+                if (result != null)
                 {
                     return StatusCode(200, result);
                 }
@@ -71,12 +70,8 @@ namespace ShopOnlinePWA.API.Controllers
             {
                 var result = await _repository.CreateAsync(item);
 
-                if (result!=null)
-                {
-                    return StatusCode(201, result);
-                }
+                return StatusCode(201, result);
 
-                return StatusCode(404);
             }
             catch (Exception exception)
             {

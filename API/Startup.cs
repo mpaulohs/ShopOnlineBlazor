@@ -39,8 +39,8 @@ namespace ShopOnlinePWA.API
             //services.AddIdentity<User, Role>().AddDefaultTokenProviders();
 
 
-            services.AddScoped<ISaleStore, SaleStore>();
-            services.AddScoped<IEntityStore<User, Guid, ApplicationDbContext>, UserStore<User,Guid, ApplicationDbContext>>();
+            services.AddScoped<IEntityStore<DocumentSale, Guid, ApplicationDbContext>, SaleStore>();
+            services.AddScoped<IEntityStore<User, Guid, ApplicationDbContext>, UserStore>();
             //services.AddAutoMapper(typeof(Startup));
         }
 
