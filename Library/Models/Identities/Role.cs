@@ -11,7 +11,7 @@ namespace ShopOnlinePWA.Library
         public virtual ICollection<UserRole> UserRoles { get; set; }
         public virtual ICollection<RoleClaim> RoleClaims { get; set; }
         public string ExchangeId { get; set; }
-        public byte[] CreatedAt { get; set; }
-        public byte[] UpdatedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }

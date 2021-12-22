@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShopOnlinePWA.API.Models;
-using ShopOnlinePWA.Library;
 
 #nullable disable
 
@@ -35,8 +34,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("EntityGuid")
                         .HasColumnType("uniqueidentifier");
@@ -53,8 +52,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Path")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -73,8 +72,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
@@ -82,8 +81,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -105,8 +104,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
@@ -114,8 +113,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -136,8 +135,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
@@ -145,8 +144,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -171,8 +170,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
@@ -180,8 +179,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -207,8 +206,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
@@ -216,8 +215,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -239,8 +238,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid?>("CurrencyId")
                         .HasColumnType("uniqueidentifier");
@@ -251,8 +250,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -278,8 +277,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
@@ -290,8 +289,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Symbol")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -319,8 +318,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<decimal>("ContractAmount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid?>("CurrencyId")
                         .HasColumnType("uniqueidentifier");
@@ -361,8 +360,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<Guid?>("SubdivisionId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -406,8 +405,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<decimal>("ContractAmount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime2");
@@ -460,8 +459,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<Guid?>("SubdivisionId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -501,8 +500,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -531,8 +530,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -561,8 +560,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
@@ -570,8 +569,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -590,8 +589,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
@@ -599,8 +598,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -619,8 +618,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
@@ -628,8 +627,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -648,8 +647,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
@@ -657,8 +656,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -677,8 +676,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
@@ -686,8 +685,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -706,8 +705,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
@@ -715,8 +714,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -732,14 +731,14 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -758,8 +757,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
@@ -767,8 +766,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -787,8 +786,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
@@ -796,8 +795,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -814,8 +813,8 @@ namespace ShopOnlinePWA.API.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -831,8 +830,8 @@ namespace ShopOnlinePWA.API.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -846,35 +845,43 @@ namespace ShopOnlinePWA.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d2c89dc6-0913-4d52-aaf1-2ece50d4fe1e"),
-                            ConcurrencyStamp = "ec4d9b0b-9300-4bb5-aa35-d4988ba629b6",
+                            Id = new Guid("2d3bb7d1-2405-480b-9900-fb037f35f553"),
+                            ConcurrencyStamp = "c75e17c0-c6c9-4aed-9b2a-0a5fee7711e1",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Administrators of application",
                             Name = "Administrators",
-                            NormalizedName = "ADMINISTRATORS"
+                            NormalizedName = "ADMINISTRATORS",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("7a3264b5-3e6e-4d9a-913f-000b518bbc83"),
-                            ConcurrencyStamp = "e2c84128-2063-4e53-b9a1-05d300ae6b12",
+                            Id = new Guid("c4006dfe-1566-4685-996f-babe13ad2b44"),
+                            ConcurrencyStamp = "1b3ed4b3-582b-4f40-9835-2629f824997c",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Managers of application",
                             Name = "Managers",
-                            NormalizedName = "MANAGERS"
+                            NormalizedName = "MANAGERS",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("61e9b06e-12d2-407c-ba1b-ccf1af75dc60"),
-                            ConcurrencyStamp = "be4c5446-a45d-4fd9-8106-fc70e77747bb",
+                            Id = new Guid("732b6e8e-b651-490f-a2a9-d730991e3904"),
+                            ConcurrencyStamp = "bc7644f7-47e4-45f6-9c4f-bd9f150c5eeb",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Clients of application",
                             Name = "Clients",
-                            NormalizedName = "CLIENTS"
+                            NormalizedName = "CLIENTS",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("ef7b0351-37ab-4eeb-a446-0b02fd53eeda"),
-                            ConcurrencyStamp = "7f976530-caea-4363-a58c-1136003cb3d8",
+                            Id = new Guid("a6b3eb13-4acb-4cde-becf-8df64492b86c"),
+                            ConcurrencyStamp = "0e1718d4-0025-419a-be4d-356a027d610e",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Public users of application",
                             Name = "Public",
-                            NormalizedName = "PUBLIC"
+                            NormalizedName = "PUBLIC",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -914,8 +921,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
@@ -923,8 +930,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -943,8 +950,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ExchangeId")
                         .HasColumnType("nvarchar(max)");
@@ -952,8 +959,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -973,8 +980,8 @@ namespace ShopOnlinePWA.API.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("CreatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -1024,8 +1031,8 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
-                    b.Property<byte[]>("UpdatedAt")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
@@ -1046,54 +1053,60 @@ namespace ShopOnlinePWA.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e9d50a79-9206-45d0-98db-9c46a62ec5ec"),
+                            Id = new Guid("8b861189-1354-4104-88d9-e611ac548004"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "22.12.2021 22:53:28",
-                            Email = "Admitistrator@ShopOnlinePWA.Library.com",
+                            ConcurrencyStamp = "23.12.2021 0:05:27",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "Admitistrator@ShopOnlinePWA.API.com",
                             EmailConfirmed = true,
-                            FirstName = "Admitistrator@ShopOnlinePWA.Library.com",
+                            FirstName = "Admitistrator@ShopOnlinePWA.API.com",
                             LockoutEnabled = false,
-                            NormalizedEmail = "ADMITISTRATOR@SHOPONLINEPWA.LIBRARY.COM",
-                            NormalizedUserName = "ADMITISTRATOR@SHOPONLINEPWA.LIBRARY.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBEtx68xhbnPpOSVAb/F9t3xrqeacuKYx9C7r0E9lSY4OzOmELkNX+LuZy89jZYOLQ==",
+                            NormalizedEmail = "ADMITISTRATOR@SHOPONLINEPWA.API.COM",
+                            NormalizedUserName = "ADMITISTRATOR@SHOPONLINEPWA.API.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKwRIewKyaLvaS2F9eYqhkMcD4BIJS2MSEpjzklSez/jVkl8G7Nz34agKGP2rIUbAg==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "22.12.2021 22:53:28",
+                            SecurityStamp = "23.12.2021 0:05:27",
                             TwoFactorEnabled = false,
-                            UserName = "Admitistrator@ShopOnlinePWA.Library.com"
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserName = "Admitistrator@ShopOnlinePWA.API.com"
                         },
                         new
                         {
-                            Id = new Guid("c585ada3-5241-4032-b9cc-6b1a63edb057"),
+                            Id = new Guid("88dcb55b-e9fc-43dc-9b08-a1963edd5243"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "22.12.2021 22:53:28",
-                            Email = "Manager@ShopOnlinePWA.Library.com",
+                            ConcurrencyStamp = "23.12.2021 0:05:27",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "Manager@ShopOnlinePWA.API.com",
                             EmailConfirmed = true,
-                            FirstName = "Manager@ShopOnlinePWA.Library.com",
+                            FirstName = "Manager@ShopOnlinePWA.API.com",
                             LockoutEnabled = false,
-                            NormalizedEmail = "MANAGER@SHOPONLINEPWA.LIBRARY.COM",
-                            NormalizedUserName = "MANAGER@SHOPONLINEPWA.LIBRARY.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECLDULk1ciqPIWjHn0ctQh1h1YelNBpjCYaRjP/yllX9L7WUPGDayQypBtc8GRkAog==",
+                            NormalizedEmail = "MANAGER@SHOPONLINEPWA.API.COM",
+                            NormalizedUserName = "MANAGER@SHOPONLINEPWA.API.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEP9f7f+/JbSyKAI7p2WRClv9R3K3Gh7iSjepxlwUGNnV/LG/sixiRaTkXJUj78FVkQ==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "22.12.2021 22:53:28",
+                            SecurityStamp = "23.12.2021 0:05:27",
                             TwoFactorEnabled = false,
-                            UserName = "Manager@ShopOnlinePWA.Library.com"
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserName = "Manager@ShopOnlinePWA.API.com"
                         },
                         new
                         {
-                            Id = new Guid("6d15cc1b-0265-4299-b0c9-a4cb78e93a86"),
+                            Id = new Guid("e2411384-2136-4371-b742-7415c09ee807"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "22.12.2021 22:53:28",
-                            Email = "Client@ShopOnlinePWA.Library.com",
+                            ConcurrencyStamp = "23.12.2021 0:05:27",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "Client@ShopOnlinePWA.API.com",
                             EmailConfirmed = true,
-                            FirstName = "Client@ShopOnlinePWA.Library.com",
+                            FirstName = "Client@ShopOnlinePWA.API.com",
                             LockoutEnabled = false,
-                            NormalizedEmail = "CLIENT@SHOPONLINEPWA.LIBRARY.COM",
-                            NormalizedUserName = "CLIENT@SHOPONLINEPWA.LIBRARY.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEomc+GFvQbjB3JhGS6SELHJMNFsw7MeB6Si99m7rrExHYiSrp1XFTWNAnsaMTJJ+w==",
+                            NormalizedEmail = "CLIENT@SHOPONLINEPWA.API.COM",
+                            NormalizedUserName = "CLIENT@SHOPONLINEPWA.API.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIvUhp+WBIUF+Hi776e0++x2jFWJGPdmEGKW3sRYzlJrX961kLXzW3TbjoKfLYBZ4Q==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "22.12.2021 22:53:28",
+                            SecurityStamp = "23.12.2021 0:05:27",
                             TwoFactorEnabled = false,
-                            UserName = "Client@ShopOnlinePWA.Library.com"
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserName = "Client@ShopOnlinePWA.API.com"
                         });
                 });
 

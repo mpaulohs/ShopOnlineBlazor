@@ -7,8 +7,8 @@ namespace ShopOnlinePWA.Library
     {
         public TKey Id { get; set; }
         public string ExchangeId { get; set; }
-        public byte[] CreatedAt { get; set; }
-        public byte[] UpdatedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
         public DocumentType DocumentType { get; set; }
         public DateTime DateTime { get; set; }
         public DateTime ExchangeDateTime { get; set; }
@@ -17,6 +17,7 @@ namespace ShopOnlinePWA.Library
         public ClientContract ClientContract { get; set; }
         public PriceType PriceType { get; set; }
         public Currency DocumentCurrency { get; set; }
+
         [Column(TypeName = "decimal(18,2)")]
         public decimal DocumentCurrencyValue { get; set; }
         [Column(TypeName = "decimal(18,2)")]

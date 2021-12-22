@@ -9,11 +9,11 @@ namespace ShopOnlinePWA.Library
 
         public string ExchangeId { get; set; }
 
-        [Timestamp]
-        public byte[] CreatedAt { get; set; }
+        
+        public DateTime CreatedAt { get; set; }
 
-        [Timestamp]
-        public byte[] UpdatedAt { get; set; }
+        
+        public DateTime UpdatedAt { get; set; }
 
         public string ConcurrencyStamp { get; set; }
     }
