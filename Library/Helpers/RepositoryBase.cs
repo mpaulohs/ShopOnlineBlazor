@@ -77,7 +77,7 @@ namespace ShopOnlinePWA.Library
         /// <summary>Saves the current store.</summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
         /// <returns>The <see cref="Task"/> that represents the asynchronous operation.</returns>
-        protected async Task SaveChanges(CancellationToken cancellationToken)
+        protected virtual async Task SaveChanges(CancellationToken cancellationToken)
         {
             if (AutoSaveChanges)
             {
@@ -92,7 +92,7 @@ namespace ShopOnlinePWA.Library
         /// <param name="entity">The entity in the store.</param>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
         /// <returns>A <see cref="Task{TResult}"/> that represents the <see cref="IdentityResult"/> of the asynchronous query.</returns>
-        public async Task<TKey> CreateAsync(TEntity entity, CancellationToken cancellationToken = default)
+        public virtual async Task<TKey> CreateAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
@@ -116,14 +116,14 @@ namespace ShopOnlinePWA.Library
             return result.Entity.Id;
         }
 
-        public async Task<TEntity> GetByIdAsync(TKey id, CancellationToken cancellationToken = default)
+        public virtual async Task<TEntity> GetByIdAsync(TKey id, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
             return await Entities.SingleOrDefaultAsync(e => e.Id.Equals(id), cancellationToken);
         }
 
-        public async Task<IEnumerable<TEntity>> GetByFiltersAsync(CancellationToken cancellationToken = default, params Expression<Func<TEntity, bool>>[] filters)
+        public virtual async Task<IEnumerable<TEntity>> GetByFiltersAsync(CancellationToken cancellationToken = default, params Expression<Func<TEntity, bool>>[] filters)
         {
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
@@ -208,12 +208,12 @@ namespace ShopOnlinePWA.Library
 
         //}
 
-        public async Task<bool> UpdateAsync(TKey id, TEntity entity, CancellationToken cancellationToken = default)
+        public virtual async Task<bool> UpdateAsync(TKey id, TEntity entity, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
-            bool haveChanges = false;
+            //bool haveChanges = false;
 
             if (entity == null)
             {
@@ -254,7 +254,7 @@ namespace ShopOnlinePWA.Library
 
         }
 
-        public async Task<bool> DeleteAllAsync(CancellationToken cancellationToken = default)
+        public virtual async Task<bool> DeleteAllAsync(CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
@@ -276,7 +276,7 @@ namespace ShopOnlinePWA.Library
             return true;
         }
 
-        public async Task<bool> DeleteByIdAsync(TKey id, CancellationToken cancellationToken = default)
+        public virtual async Task<bool> DeleteByIdAsync(TKey id, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
@@ -294,7 +294,7 @@ namespace ShopOnlinePWA.Library
 
 
 
-        public async Task<bool> DeleteAsync(TEntity entity, CancellationToken cancellationToken = default)
+        public virtual async Task<bool> DeleteAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();

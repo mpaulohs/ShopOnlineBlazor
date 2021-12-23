@@ -9,6 +9,7 @@ namespace ShopOnlinePWA.API.Repositories
     {
         public SaleRepository(ApplicationDbContext RepositoryContext, ILogger<DocumentSale> Logger) : base(RepositoryContext, Logger)
         {
+            
         }
     }
 }
