@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -102,6 +103,12 @@ namespace ShopOnlinePWA.Library
                 throw new ArgumentNullException(nameof(entity));
             }
 
+            //Change properyes before Creating
+            entity.Id = default(TKey);
+            entity.CreatedAt = DateTime.Now;
+            entity.UpdatedAt = default;
+
+
             var result = await Context.Set<TEntity>().AddAsync(entity);
 
             try
@@ -120,7 +127,7 @@ namespace ShopOnlinePWA.Library
         {
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
-            return await Entities.SingleOrDefaultAsync(e => e.Id.Equals(id), cancellationToken);
+            return await Entities.AsNoTracking().SingleOrDefaultAsync(e => e.Id.Equals(id), cancellationToken);
         }
 
         public virtual async Task<IEnumerable<TEntity>> GetByFiltersAsync(CancellationToken cancellationToken = default, params Expression<Func<TEntity, bool>>[] filters)
@@ -140,85 +147,15 @@ namespace ShopOnlinePWA.Library
             return await entities.ToListAsync<TEntity>();
         }
 
-        //public async Task<bool> UpdateAsync(TKey id, TEntity entity, CancellationToken cancellationToken = default)
-        //{
-        //    cancellationToken.ThrowIfCancellationRequested();
-        //    ThrowIfDisposed();
-
-        //    bool haveChanges = false;
-
-        //    if (entity == null)
-        //    {
-        //        Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
-        //        throw new ArgumentNullException(nameof(entity));
-        //    }
-
-        //    var origEntity = await GetByIdAsync(id, cancellationToken);
-        //    if (origEntity == null)
-        //    {
-        //        Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
-        //        throw new NullReferenceException(nameof(origEntity));
-        //    }
-
-
-        //    Context.Attach(origEntity);
-
-
-
-        //    //ToDo chec update process
-        //    //entity.MapToModel(origEntity);
-
-        //    foreach (var property in entity.GetType().GetProperties())
-        //    {
-        //        if (property.GetValue(entity, null) != default&& property.GetValue(entity, null) != null)
-        //        {
-        //            var origPropery = origEntity.GetType().GetProperty(property.Name);
-
-        //            //ToDo not check equals
-        //            if (origPropery.GetValue(origEntity, null) != property.GetValue(entity, null))
-        //            {
-        //                origPropery.SetValue(origEntity, property.GetValue(entity, null));
-        //                haveChanges = true;
-        //            }
-
-        //            //property.SetValue(entity, origEntity.GetType().GetProperty(property.Name).GetValue(origEntity, null));
-
-        //            //origEntity.GetType().GetProperty(property.Name).SetValue(entity, property.GetValue(entity, null));
-        //        }
-        //    }
-
-        //    if (haveChanges)
-        //    {
-        //        origEntity.ConcurrencyStamp = Guid.NewGuid().ToString();
-
-        //        Context.Update(origEntity);
-        //        try
-        //        {
-        //            await SaveChanges(cancellationToken);
-        //        }
-        //        catch (Exception exception)
-        //        {
-        //            Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
-        //            throw new Exception(exception.Message, exception);
-        //        }
-        //        return true;
-
-        //    }
-        //    return false;
-
-        //}
-
-        public virtual async Task<bool> UpdateAsync(TKey id, TEntity entity, CancellationToken cancellationToken = default)
+        public virtual async Task<bool> UpdateAsync(TKey id, TEntity newEntity, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
-            //bool haveChanges = false;
-
-            if (entity == null)
+            if (newEntity == null)
             {
                 Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
-                throw new ArgumentNullException(nameof(entity));
+                throw new ArgumentNullException(nameof(newEntity));
             }
 
             var origEntity = await GetByIdAsync(id, cancellationToken);
@@ -228,19 +165,17 @@ namespace ShopOnlinePWA.Library
                 throw new NullReferenceException(nameof(origEntity));
             }
 
+            //ToDo Check about paralel changed models
+            //Context.Attach(origEntity);
 
-            Context.Attach(origEntity);
+            newEntity.Id = id;
+            newEntity.CreatedAt = origEntity.CreatedAt;
+            newEntity.UpdatedAt = DateTime.Now;
+            newEntity.ConcurrencyStamp = origEntity.ConcurrencyStamp;
 
-
-
-            //ToDo chec update process
-            //entity.MapToModel(origEntity);
-
-
-
-            Context.Update(origEntity);
             try
             {
+                Context.Update(newEntity);
                 await SaveChanges(cancellationToken);
             }
             catch (Exception exception)
@@ -249,9 +184,42 @@ namespace ShopOnlinePWA.Library
                 throw new Exception(exception.Message, exception);
             }
             return true;
+        }
 
+        public virtual async Task<bool> UpdatePartyalAsync(TKey id, JsonPatchDocument entity, CancellationToken cancellationToken = default)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            ThrowIfDisposed();
 
+            if (entity == null)
+            {
+                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                throw new ArgumentNullException(nameof(entity));
+            }
 
+            // works var origEntity = await Entities.SingleOrDefaultAsync(e => e.Id.Equals(id), cancellationToken); 
+            var origEntity = await GetByIdAsync(id, cancellationToken);
+
+            if (origEntity == null)
+            {
+                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                throw new NullReferenceException(nameof(origEntity));
+            }
+
+            try
+            {
+                Context.Attach(origEntity);
+                entity.ApplyTo(origEntity);
+                origEntity.UpdatedAt = DateTime.Now;
+                origEntity.Id = id;
+                await SaveChanges(cancellationToken);
+            }
+            catch (Exception exception)
+            {
+                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                throw new Exception(exception.Message, exception);
+            }
+            return true;
         }
 
         public virtual async Task<bool> DeleteAllAsync(CancellationToken cancellationToken = default)
@@ -292,8 +260,6 @@ namespace ShopOnlinePWA.Library
             return await DeleteAsync(entity, cancellationToken);
         }
 
-
-
         public virtual async Task<bool> DeleteAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
@@ -318,5 +284,7 @@ namespace ShopOnlinePWA.Library
             }
             return true;
         }
+
+
     }
 }

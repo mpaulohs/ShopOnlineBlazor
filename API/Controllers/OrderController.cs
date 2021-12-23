@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ShopOnlinePWA.API.Models;
 using ShopOnlinePWA.Library;
@@ -41,8 +42,8 @@ namespace ShopOnlinePWA.API.Controllers
             }
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult> Get(Guid id)
+        [HttpGet("{id:Guid}")]
+        public async Task<ActionResult> Get([FromRoute] Guid id)
         {
             try
             {
@@ -69,16 +70,16 @@ namespace ShopOnlinePWA.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] DocumentSale item)
+        public async Task<ActionResult> Post([FromBody] DocumentSale entity)
         {
             try
             {
-                if (item == null)
+                if (entity == null)
                 {
                     return StatusCode(400, "Bad Request");
                 }
 
-                var result = await _repository.CreateAsync(item);
+                var result = await _repository.CreateAsync(entity);
 
                 return StatusCode(201, result);
 
@@ -90,18 +91,18 @@ namespace ShopOnlinePWA.API.Controllers
             }
         }
 
-        // PUT api/<ValuesController>/5
-        [HttpPut("{id}")]
-        public async Task<ActionResult> Put(Guid id, [FromBody] DocumentSale item)
+
+        [HttpPut("{id:Guid}")]
+        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] DocumentSale entity)
         {
             try
             {
-                if (id==Guid.Empty||item==null)
+                if (id==Guid.Empty||entity==null)
                 {
                       return StatusCode(400, "Bad Request");
                 }
 
-                var result = await _repository.UpdateAsync(id, item);
+                var result = await _repository.UpdateAsync(id, entity);
 
                 return StatusCode(200, result);
 
@@ -113,9 +114,31 @@ namespace ShopOnlinePWA.API.Controllers
             }
         }
 
-        // DELETE api/<ValuesController>/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(Guid id)
+
+        [HttpPatch("{id:Guid}")]
+        public async Task<ActionResult> Patch([FromRoute] Guid id, [FromBody] JsonPatchDocument entity)
+        {
+            try
+            {
+                if (id == Guid.Empty || entity == null)
+                {
+                    return StatusCode(400, "Bad Request");
+                }
+
+                var result = await _repository.UpdatePartyalAsync(id, entity);
+
+                return StatusCode(200, result);
+
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpDelete("{id:Guid}")]
+        public async Task<ActionResult> Delete([FromRoute] Guid id)
         {
             try
             {
