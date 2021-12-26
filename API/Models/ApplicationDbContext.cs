@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ShopOnlinePWA.Library;
+using ShopOnline.Library;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace ShopOnlinePWA.API.Models
+namespace ShopOnline.API.Models
 {
 
     public class ApplicationDbContext : IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>

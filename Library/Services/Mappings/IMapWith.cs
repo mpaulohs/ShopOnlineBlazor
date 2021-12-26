@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace ShopOnlinePWA.Library.Helpers.Mappings
+namespace ShopOnline.Library.Helpers.Mappings
 {
     public interface IMapWith<TEntity>
     {

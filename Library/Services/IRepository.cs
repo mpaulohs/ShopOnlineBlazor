@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ShopOnlinePWA.Library
+namespace ShopOnline.Library
 {
     public interface IRepository<TEntity, TKey, TContext>
         where TEntity : class, IApplicationEntity<TKey>

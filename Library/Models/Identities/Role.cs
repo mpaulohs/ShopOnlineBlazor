@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ShopOnlinePWA.Library
+namespace ShopOnline.Library
 {
 
     public class Role : IdentityRole<Guid>, IApplicationEntity<Guid>

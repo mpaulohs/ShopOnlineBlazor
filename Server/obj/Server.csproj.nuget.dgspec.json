@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\study\\C#\\ShopOnlinePWA\\Server\\Server.csproj": {}
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Server\\Server.csproj": {}
   },
   "projects": {
-    "Z:\\study\\C#\\ShopOnlinePWA\\Library\\Library.csproj": {
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Library\\Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\study\\C#\\ShopOnlinePWA\\Library\\Library.csproj",
+        "projectUniqueName": "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Library\\Library.csproj",
         "projectName": "Library",
-        "projectPath": "Z:\\study\\C#\\ShopOnlinePWA\\Library\\Library.csproj",
+        "projectPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Library\\Library.csproj",
         "packagesPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\",
-        "outputPath": "Z:\\study\\C#\\ShopOnlinePWA\\Library\\obj\\",
+        "outputPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Library\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -46,6 +46,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.1, )"
@@ -78,14 +82,14 @@
         }
       }
     },
-    "Z:\\study\\C#\\ShopOnlinePWA\\Server\\Server.csproj": {
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Server\\Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\study\\C#\\ShopOnlinePWA\\Server\\Server.csproj",
+        "projectUniqueName": "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Server\\Server.csproj",
         "projectName": "Server",
-        "projectPath": "Z:\\study\\C#\\ShopOnlinePWA\\Server\\Server.csproj",
+        "projectPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Server\\Server.csproj",
         "packagesPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\",
-        "outputPath": "Z:\\study\\C#\\ShopOnlinePWA\\Server\\obj\\",
+        "outputPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -108,8 +112,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "Z:\\study\\C#\\ShopOnlinePWA\\Library\\Library.csproj": {
-                "projectPath": "Z:\\study\\C#\\ShopOnlinePWA\\Library\\Library.csproj"
+              "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Library\\Library.csproj": {
+                "projectPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Library\\Library.csproj"
               }
             }
           }

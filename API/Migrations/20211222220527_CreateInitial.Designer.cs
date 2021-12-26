@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ShopOnlinePWA.API.Models;
+using ShopOnline.API.Models;
 
 #nullable disable
 
-namespace ShopOnlinePWA.API.Migrations
+namespace ShopOnline.API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20211222220527_CreateInitial")]
@@ -24,7 +24,7 @@ namespace ShopOnlinePWA.API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.AdditionalInformation", b =>
+            modelBuilder.Entity("ShopOnline.Library.AdditionalInformation", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -62,7 +62,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("AdditionalInformations", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.Bank", b =>
+            modelBuilder.Entity("ShopOnline.Library.Bank", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -91,7 +91,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("Banks", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.BankAccount", b =>
+            modelBuilder.Entity("ShopOnline.Library.BankAccount", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -125,7 +125,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("BankAccounts", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.CashDesk", b =>
+            modelBuilder.Entity("ShopOnline.Library.CashDesk", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -154,7 +154,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("CashDesks", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.ClientContactInformation", b =>
+            modelBuilder.Entity("ShopOnline.Library.ClientContactInformation", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -196,7 +196,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("ClientContackInformations", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.ClientContactInformationType", b =>
+            modelBuilder.Entity("ShopOnline.Library.ClientContactInformationType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -225,7 +225,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("ClientContactInformationTypes", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.ClientContract", b =>
+            modelBuilder.Entity("ShopOnline.Library.ClientContract", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -264,7 +264,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("ClientContracts", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.Currency", b =>
+            modelBuilder.Entity("ShopOnline.Library.Currency", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -299,7 +299,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("Currencyes", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.DocumentPayment", b =>
+            modelBuilder.Entity("ShopOnline.Library.DocumentPayment", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -386,7 +386,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("Payments", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.DocumentSale", b =>
+            modelBuilder.Entity("ShopOnline.Library.DocumentSale", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -487,7 +487,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("Documents", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.Item", b =>
+            modelBuilder.Entity("ShopOnline.Library.Item", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -550,7 +550,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("Items", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.ItemCharacteristic", b =>
+            modelBuilder.Entity("ShopOnline.Library.ItemCharacteristic", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -579,7 +579,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("ItemCharacteristics", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.ItemQuality", b =>
+            modelBuilder.Entity("ShopOnline.Library.ItemQuality", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -608,7 +608,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("ItmeQualityes", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.ItemSerie", b =>
+            modelBuilder.Entity("ShopOnline.Library.ItemSerie", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -637,7 +637,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("ItemSeries", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.ItemType", b =>
+            modelBuilder.Entity("ShopOnline.Library.ItemType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -666,7 +666,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("ItemTypes", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.ItemUnitClassifier", b =>
+            modelBuilder.Entity("ShopOnline.Library.ItemUnitClassifier", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -695,7 +695,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("ItemUnitClassifiers", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.ItemUnitMeasurement", b =>
+            modelBuilder.Entity("ShopOnline.Library.ItemUnitMeasurement", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -724,7 +724,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("ItemUnitMeasuraments", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.Mesage", b =>
+            modelBuilder.Entity("ShopOnline.Library.Mesage", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -747,7 +747,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("Mesages", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.Organization", b =>
+            modelBuilder.Entity("ShopOnline.Library.Organization", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -776,7 +776,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("Organizations", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.PriceType", b =>
+            modelBuilder.Entity("ShopOnline.Library.PriceType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -805,7 +805,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("PriceType");
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.Role", b =>
+            modelBuilder.Entity("ShopOnline.Library.Role", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -887,7 +887,7 @@ namespace ShopOnlinePWA.API.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.RoleClaim", b =>
+            modelBuilder.Entity("ShopOnline.Library.RoleClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -911,7 +911,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("RoleClaims", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.Storage", b =>
+            modelBuilder.Entity("ShopOnline.Library.Storage", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -940,7 +940,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("Storages", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.Subdivision", b =>
+            modelBuilder.Entity("ShopOnline.Library.Subdivision", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -969,7 +969,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("Subdivisions", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.User", b =>
+            modelBuilder.Entity("ShopOnline.Library.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -1059,18 +1059,18 @@ namespace ShopOnlinePWA.API.Migrations
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "23.12.2021 0:05:27",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "Admitistrator@ShopOnlinePWA.API.com",
+                            Email = "Admitistrator@ShopOnline.API.com",
                             EmailConfirmed = true,
-                            FirstName = "Admitistrator@ShopOnlinePWA.API.com",
+                            FirstName = "Admitistrator@ShopOnline.API.com",
                             LockoutEnabled = false,
-                            NormalizedEmail = "ADMITISTRATOR@SHOPONLINEPWA.API.COM",
-                            NormalizedUserName = "ADMITISTRATOR@SHOPONLINEPWA.API.COM",
+                            NormalizedEmail = "ADMITISTRATOR@ShopOnline.API.COM",
+                            NormalizedUserName = "ADMITISTRATOR@ShopOnline.API.COM",
                             PasswordHash = "AQAAAAEAACcQAAAAEKwRIewKyaLvaS2F9eYqhkMcD4BIJS2MSEpjzklSez/jVkl8G7Nz34agKGP2rIUbAg==",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = "23.12.2021 0:05:27",
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserName = "Admitistrator@ShopOnlinePWA.API.com"
+                            UserName = "Admitistrator@ShopOnline.API.com"
                         },
                         new
                         {
@@ -1078,18 +1078,18 @@ namespace ShopOnlinePWA.API.Migrations
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "23.12.2021 0:05:27",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "Manager@ShopOnlinePWA.API.com",
+                            Email = "Manager@ShopOnline.API.com",
                             EmailConfirmed = true,
-                            FirstName = "Manager@ShopOnlinePWA.API.com",
+                            FirstName = "Manager@ShopOnline.API.com",
                             LockoutEnabled = false,
-                            NormalizedEmail = "MANAGER@SHOPONLINEPWA.API.COM",
-                            NormalizedUserName = "MANAGER@SHOPONLINEPWA.API.COM",
+                            NormalizedEmail = "MANAGER@ShopOnline.API.COM",
+                            NormalizedUserName = "MANAGER@ShopOnline.API.COM",
                             PasswordHash = "AQAAAAEAACcQAAAAEP9f7f+/JbSyKAI7p2WRClv9R3K3Gh7iSjepxlwUGNnV/LG/sixiRaTkXJUj78FVkQ==",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = "23.12.2021 0:05:27",
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserName = "Manager@ShopOnlinePWA.API.com"
+                            UserName = "Manager@ShopOnline.API.com"
                         },
                         new
                         {
@@ -1097,22 +1097,22 @@ namespace ShopOnlinePWA.API.Migrations
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "23.12.2021 0:05:27",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "Client@ShopOnlinePWA.API.com",
+                            Email = "Client@ShopOnline.API.com",
                             EmailConfirmed = true,
-                            FirstName = "Client@ShopOnlinePWA.API.com",
+                            FirstName = "Client@ShopOnline.API.com",
                             LockoutEnabled = false,
-                            NormalizedEmail = "CLIENT@SHOPONLINEPWA.API.COM",
-                            NormalizedUserName = "CLIENT@SHOPONLINEPWA.API.COM",
+                            NormalizedEmail = "CLIENT@ShopOnline.API.COM",
+                            NormalizedUserName = "CLIENT@ShopOnline.API.COM",
                             PasswordHash = "AQAAAAEAACcQAAAAEIvUhp+WBIUF+Hi776e0++x2jFWJGPdmEGKW3sRYzlJrX961kLXzW3TbjoKfLYBZ4Q==",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = "23.12.2021 0:05:27",
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserName = "Client@ShopOnlinePWA.API.com"
+                            UserName = "Client@ShopOnline.API.com"
                         });
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.UserClaim", b =>
+            modelBuilder.Entity("ShopOnline.Library.UserClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1136,7 +1136,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("UserClaims", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.UserLogin", b =>
+            modelBuilder.Entity("ShopOnline.Library.UserLogin", b =>
                 {
                     b.Property<string>("LoginProvider")
                         .HasColumnType("nvarchar(450)");
@@ -1157,7 +1157,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("UserLogins", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.UserRole", b =>
+            modelBuilder.Entity("ShopOnline.Library.UserRole", b =>
                 {
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -1172,7 +1172,7 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("UserRoles", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.UserToken", b =>
+            modelBuilder.Entity("ShopOnline.Library.UserToken", b =>
                 {
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -1191,22 +1191,22 @@ namespace ShopOnlinePWA.API.Migrations
                     b.ToTable("UserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.BankAccount", b =>
+            modelBuilder.Entity("ShopOnline.Library.BankAccount", b =>
                 {
-                    b.HasOne("ShopOnlinePWA.Library.Bank", "Bank")
+                    b.HasOne("ShopOnline.Library.Bank", "Bank")
                         .WithMany()
                         .HasForeignKey("BankId");
 
                     b.Navigation("Bank");
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.ClientContactInformation", b =>
+            modelBuilder.Entity("ShopOnline.Library.ClientContactInformation", b =>
                 {
-                    b.HasOne("ShopOnlinePWA.Library.ClientContactInformationType", "ClientContactInformationType")
+                    b.HasOne("ShopOnline.Library.ClientContactInformationType", "ClientContactInformationType")
                         .WithMany()
                         .HasForeignKey("ClientContactInformationTypeId");
 
-                    b.HasOne("ShopOnlinePWA.Library.User", "Client")
+                    b.HasOne("ShopOnline.Library.User", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
 
@@ -1215,13 +1215,13 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Navigation("ClientContactInformationType");
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.ClientContract", b =>
+            modelBuilder.Entity("ShopOnline.Library.ClientContract", b =>
                 {
-                    b.HasOne("ShopOnlinePWA.Library.User", "Client")
+                    b.HasOne("ShopOnline.Library.User", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
 
-                    b.HasOne("ShopOnlinePWA.Library.Currency", "Currency")
+                    b.HasOne("ShopOnline.Library.Currency", "Currency")
                         .WithMany()
                         .HasForeignKey("CurrencyId");
 
@@ -1230,37 +1230,37 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Navigation("Currency");
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.DocumentPayment", b =>
+            modelBuilder.Entity("ShopOnline.Library.DocumentPayment", b =>
                 {
-                    b.HasOne("ShopOnlinePWA.Library.ClientContract", "ClientContract")
+                    b.HasOne("ShopOnline.Library.ClientContract", "ClientContract")
                         .WithMany()
                         .HasForeignKey("ClientContractId");
 
-                    b.HasOne("ShopOnlinePWA.Library.User", "Client")
+                    b.HasOne("ShopOnline.Library.User", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
 
-                    b.HasOne("ShopOnlinePWA.Library.Currency", "Currency")
+                    b.HasOne("ShopOnline.Library.Currency", "Currency")
                         .WithMany()
                         .HasForeignKey("CurrencyId");
 
-                    b.HasOne("ShopOnlinePWA.Library.Currency", "DocumentCurrency")
+                    b.HasOne("ShopOnline.Library.Currency", "DocumentCurrency")
                         .WithMany()
                         .HasForeignKey("DocumentCurrencyId");
 
-                    b.HasOne("ShopOnlinePWA.Library.Organization", "Organization")
+                    b.HasOne("ShopOnline.Library.Organization", "Organization")
                         .WithMany()
                         .HasForeignKey("OrganizationId");
 
-                    b.HasOne("ShopOnlinePWA.Library.PriceType", "PriceType")
+                    b.HasOne("ShopOnline.Library.PriceType", "PriceType")
                         .WithMany()
                         .HasForeignKey("PriceTypeId");
 
-                    b.HasOne("ShopOnlinePWA.Library.User", "Responsible")
+                    b.HasOne("ShopOnline.Library.User", "Responsible")
                         .WithMany()
                         .HasForeignKey("ResponsibleId");
 
-                    b.HasOne("ShopOnlinePWA.Library.Subdivision", "Subdivision")
+                    b.HasOne("ShopOnline.Library.Subdivision", "Subdivision")
                         .WithMany()
                         .HasForeignKey("SubdivisionId");
 
@@ -1281,41 +1281,41 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Navigation("Subdivision");
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.DocumentSale", b =>
+            modelBuilder.Entity("ShopOnline.Library.DocumentSale", b =>
                 {
-                    b.HasOne("ShopOnlinePWA.Library.ClientContract", "ClientContract")
+                    b.HasOne("ShopOnline.Library.ClientContract", "ClientContract")
                         .WithMany()
                         .HasForeignKey("ClientContractId");
 
-                    b.HasOne("ShopOnlinePWA.Library.User", "Client")
+                    b.HasOne("ShopOnline.Library.User", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
 
-                    b.HasOne("ShopOnlinePWA.Library.Currency", "DocumentCurrency")
+                    b.HasOne("ShopOnline.Library.Currency", "DocumentCurrency")
                         .WithMany()
                         .HasForeignKey("DocumentCurrencyId");
 
-                    b.HasOne("ShopOnlinePWA.Library.Organization", "Organization")
+                    b.HasOne("ShopOnline.Library.Organization", "Organization")
                         .WithMany()
                         .HasForeignKey("OrganizationId");
 
-                    b.HasOne("ShopOnlinePWA.Library.PriceType", "PriceType")
+                    b.HasOne("ShopOnline.Library.PriceType", "PriceType")
                         .WithMany()
                         .HasForeignKey("PriceTypeId");
 
-                    b.HasOne("ShopOnlinePWA.Library.User", "Reciver")
+                    b.HasOne("ShopOnline.Library.User", "Reciver")
                         .WithMany()
                         .HasForeignKey("ReciverId");
 
-                    b.HasOne("ShopOnlinePWA.Library.User", "Responsible")
+                    b.HasOne("ShopOnline.Library.User", "Responsible")
                         .WithMany()
                         .HasForeignKey("ResponsibleId");
 
-                    b.HasOne("ShopOnlinePWA.Library.Storage", "Storage")
+                    b.HasOne("ShopOnline.Library.Storage", "Storage")
                         .WithMany()
                         .HasForeignKey("StorageId");
 
-                    b.HasOne("ShopOnlinePWA.Library.Subdivision", "Subdivision")
+                    b.HasOne("ShopOnline.Library.Subdivision", "Subdivision")
                         .WithMany()
                         .HasForeignKey("SubdivisionId");
 
@@ -1338,25 +1338,25 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Navigation("Subdivision");
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.Item", b =>
+            modelBuilder.Entity("ShopOnline.Library.Item", b =>
                 {
-                    b.HasOne("ShopOnlinePWA.Library.ItemCharacteristic", "ItemCharacteristic")
+                    b.HasOne("ShopOnline.Library.ItemCharacteristic", "ItemCharacteristic")
                         .WithMany()
                         .HasForeignKey("ItemCharacteristicId");
 
-                    b.HasOne("ShopOnlinePWA.Library.ItemQuality", "ItemQuality")
+                    b.HasOne("ShopOnline.Library.ItemQuality", "ItemQuality")
                         .WithMany()
                         .HasForeignKey("ItemQualityId");
 
-                    b.HasOne("ShopOnlinePWA.Library.ItemSerie", "ItemSerie")
+                    b.HasOne("ShopOnline.Library.ItemSerie", "ItemSerie")
                         .WithMany()
                         .HasForeignKey("ItemSerieId");
 
-                    b.HasOne("ShopOnlinePWA.Library.ItemType", "ItemType")
+                    b.HasOne("ShopOnline.Library.ItemType", "ItemType")
                         .WithMany()
                         .HasForeignKey("ItemTypeId");
 
-                    b.HasOne("ShopOnlinePWA.Library.ItemUnitMeasurement", "ItemUnitMeasurement")
+                    b.HasOne("ShopOnline.Library.ItemUnitMeasurement", "ItemUnitMeasurement")
                         .WithMany()
                         .HasForeignKey("ItemUnitMeasurementId");
 
@@ -1371,9 +1371,9 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Navigation("ItemUnitMeasurement");
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.RoleClaim", b =>
+            modelBuilder.Entity("ShopOnline.Library.RoleClaim", b =>
                 {
-                    b.HasOne("ShopOnlinePWA.Library.Role", "Role")
+                    b.HasOne("ShopOnline.Library.Role", "Role")
                         .WithMany("RoleClaims")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1382,9 +1382,9 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.UserClaim", b =>
+            modelBuilder.Entity("ShopOnline.Library.UserClaim", b =>
                 {
-                    b.HasOne("ShopOnlinePWA.Library.User", "User")
+                    b.HasOne("ShopOnline.Library.User", "User")
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1393,9 +1393,9 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.UserLogin", b =>
+            modelBuilder.Entity("ShopOnline.Library.UserLogin", b =>
                 {
-                    b.HasOne("ShopOnlinePWA.Library.User", "User")
+                    b.HasOne("ShopOnline.Library.User", "User")
                         .WithMany("Logins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1404,15 +1404,15 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.UserRole", b =>
+            modelBuilder.Entity("ShopOnline.Library.UserRole", b =>
                 {
-                    b.HasOne("ShopOnlinePWA.Library.Role", "Role")
+                    b.HasOne("ShopOnline.Library.Role", "Role")
                         .WithMany("UserRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ShopOnlinePWA.Library.User", "User")
+                    b.HasOne("ShopOnline.Library.User", "User")
                         .WithMany("UserRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1423,9 +1423,9 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.UserToken", b =>
+            modelBuilder.Entity("ShopOnline.Library.UserToken", b =>
                 {
-                    b.HasOne("ShopOnlinePWA.Library.User", "User")
+                    b.HasOne("ShopOnline.Library.User", "User")
                         .WithMany("Tokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1434,14 +1434,14 @@ namespace ShopOnlinePWA.API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.Role", b =>
+            modelBuilder.Entity("ShopOnline.Library.Role", b =>
                 {
                     b.Navigation("RoleClaims");
 
                     b.Navigation("UserRoles");
                 });
 
-            modelBuilder.Entity("ShopOnlinePWA.Library.User", b =>
+            modelBuilder.Entity("ShopOnline.Library.User", b =>
                 {
                     b.Navigation("Claims");
 

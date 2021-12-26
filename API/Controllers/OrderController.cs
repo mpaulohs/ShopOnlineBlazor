@@ -2,12 +2,12 @@
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ShopOnlinePWA.API.Models;
-using ShopOnlinePWA.Library;
+using ShopOnline.API.Models;
+using ShopOnline.Library;
 using System;
 using System.Threading.Tasks;
 
-namespace ShopOnlinePWA.API.Controllers
+namespace ShopOnline.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

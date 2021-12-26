@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 
-namespace ShopOnlinePWA.Library
+namespace ShopOnline.Library
 {
 
     public class UserToken : IdentityUserToken<Guid>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ShopOnlinePWA.Library
+namespace ShopOnline.Library
 {
     public class Item : CatalogBase<Guid>
     {

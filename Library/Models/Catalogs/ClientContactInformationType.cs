@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ShopOnlinePWA.Library
+namespace ShopOnline.Library
 {
     public class ClientContactInformationType : CatalogBase<Guid>
     {

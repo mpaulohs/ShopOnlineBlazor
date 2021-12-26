@@ -37,14 +37,14 @@ else
 }
 
 @code {
-    private WeatherForecast[]? forecasts;
+    private User[]? forecasts;
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+        forecasts = await Http.GetFromJsonAsync<User[]>("sample-data/weather.json");
     }
 
-    public class WeatherForecast
+    public class User
     {
         public DateTime Date { get; set; }
 

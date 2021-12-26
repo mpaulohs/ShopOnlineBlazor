@@ -3208,7 +3208,7 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "ShopOnlinePWA.Library/1.0.0": {
+      "Library/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -3218,10 +3218,10 @@
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.1"
         },
         "compile": {
-          "bin/placeholder/ShopOnlinePWA.Library.dll": {}
+          "bin/placeholder/Library.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ShopOnlinePWA.Library.dll": {}
+          "bin/placeholder/Library.dll": {}
         }
       }
     }
@@ -9912,20 +9912,20 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "ShopOnlinePWA.Library/1.0.0": {
+    "Library/1.0.0": {
       "type": "project",
-      "path": "../Library/ShopOnlinePWA.Library.csproj",
-      "msbuildProject": "../Library/ShopOnlinePWA.Library.csproj"
+      "path": "../Library/Library.csproj",
+      "msbuildProject": "../Library/Library.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Library >= 1.0.0",
       "Microsoft.AspNetCore.JsonPatch >= 6.0.1",
       "Microsoft.EntityFrameworkCore >= 6.0.1",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.1",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.1",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.1",
-      "ShopOnlinePWA.Library >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -9937,11 +9937,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "Z:\\study\\C#\\ShopOnlinePWA\\API\\ShopOnlinePWA.API.csproj",
-      "projectName": "ShopOnlinePWA.API",
-      "projectPath": "Z:\\study\\C#\\ShopOnlinePWA\\API\\ShopOnlinePWA.API.csproj",
+      "projectUniqueName": "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Api\\Api.csproj",
+      "projectName": "Api",
+      "projectPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Api\\Api.csproj",
       "packagesPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\",
-      "outputPath": "Z:\\study\\C#\\ShopOnlinePWA\\API\\obj\\",
+      "outputPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -9964,8 +9964,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "Z:\\study\\C#\\ShopOnlinePWA\\Library\\ShopOnlinePWA.Library.csproj": {
-              "projectPath": "Z:\\study\\C#\\ShopOnlinePWA\\Library\\ShopOnlinePWA.Library.csproj"
+            "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Library\\Library.csproj": {
+              "projectPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Library\\Library.csproj"
             }
           }
         }

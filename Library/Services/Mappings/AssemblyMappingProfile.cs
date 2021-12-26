@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 
-namespace ShopOnlinePWA.Library.Helpers.Mappings
+namespace ShopOnline.Library.Helpers.Mappings
 {
     public class AssemblyMappingProfile: Profile
     {

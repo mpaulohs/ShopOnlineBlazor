@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ShopOnlinePWA.Library
+namespace ShopOnline.Library
 {
     public abstract class DocumentBase<TKey> : IApplicationEntity<TKey>
     {

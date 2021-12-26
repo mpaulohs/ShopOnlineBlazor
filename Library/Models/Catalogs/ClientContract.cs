@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace ShopOnlinePWA.Library
+namespace ShopOnline.Library
 {
     public class ClientContract : CatalogBase<Guid>
     {

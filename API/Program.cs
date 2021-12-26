@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace ShopOnlinePWA.API
+namespace ShopOnline.API
 {
 
     public class Program

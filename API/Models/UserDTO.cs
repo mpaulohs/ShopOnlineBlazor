@@ -1,4 +1,4 @@
-﻿namespace ShopOnlinePWA.API.Models
+﻿namespace ShopOnline.API.Models
 {
     public class UserDTO
     {

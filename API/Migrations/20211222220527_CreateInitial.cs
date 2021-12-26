@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace ShopOnlinePWA.API.Migrations
+namespace ShopOnline.API.Migrations
 {
     public partial class CreateInitial : Migration
     {
@@ -738,9 +738,9 @@ namespace ShopOnlinePWA.API.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreatedAt", "Email", "EmailConfirmed", "ExchangeId", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "MiddleName", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UpdatedAt", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("88dcb55b-e9fc-43dc-9b08-a1963edd5243"), 0, "23.12.2021 0:05:27", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Manager@ShopOnlinePWA.API.com", true, null, "Manager@ShopOnlinePWA.API.com", null, false, null, null, "MANAGER@SHOPONLINEPWA.API.COM", "MANAGER@SHOPONLINEPWA.API.COM", "AQAAAAEAACcQAAAAEP9f7f+/JbSyKAI7p2WRClv9R3K3Gh7iSjepxlwUGNnV/LG/sixiRaTkXJUj78FVkQ==", null, true, "23.12.2021 0:05:27", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Manager@ShopOnlinePWA.API.com" },
-                    { new Guid("8b861189-1354-4104-88d9-e611ac548004"), 0, "23.12.2021 0:05:27", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admitistrator@ShopOnlinePWA.API.com", true, null, "Admitistrator@ShopOnlinePWA.API.com", null, false, null, null, "ADMITISTRATOR@SHOPONLINEPWA.API.COM", "ADMITISTRATOR@SHOPONLINEPWA.API.COM", "AQAAAAEAACcQAAAAEKwRIewKyaLvaS2F9eYqhkMcD4BIJS2MSEpjzklSez/jVkl8G7Nz34agKGP2rIUbAg==", null, true, "23.12.2021 0:05:27", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admitistrator@ShopOnlinePWA.API.com" },
-                    { new Guid("e2411384-2136-4371-b742-7415c09ee807"), 0, "23.12.2021 0:05:27", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Client@ShopOnlinePWA.API.com", true, null, "Client@ShopOnlinePWA.API.com", null, false, null, null, "CLIENT@SHOPONLINEPWA.API.COM", "CLIENT@SHOPONLINEPWA.API.COM", "AQAAAAEAACcQAAAAEIvUhp+WBIUF+Hi776e0++x2jFWJGPdmEGKW3sRYzlJrX961kLXzW3TbjoKfLYBZ4Q==", null, true, "23.12.2021 0:05:27", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Client@ShopOnlinePWA.API.com" }
+                    { new Guid("88dcb55b-e9fc-43dc-9b08-a1963edd5243"), 0, "23.12.2021 0:05:27", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Manager@ShopOnline.API.com", true, null, "Manager@ShopOnline.API.com", null, false, null, null, "MANAGER@ShopOnline.API.COM", "MANAGER@ShopOnline.API.COM", "AQAAAAEAACcQAAAAEP9f7f+/JbSyKAI7p2WRClv9R3K3Gh7iSjepxlwUGNnV/LG/sixiRaTkXJUj78FVkQ==", null, true, "23.12.2021 0:05:27", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Manager@ShopOnline.API.com" },
+                    { new Guid("8b861189-1354-4104-88d9-e611ac548004"), 0, "23.12.2021 0:05:27", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admitistrator@ShopOnline.API.com", true, null, "Admitistrator@ShopOnline.API.com", null, false, null, null, "ADMITISTRATOR@ShopOnline.API.COM", "ADMITISTRATOR@ShopOnline.API.COM", "AQAAAAEAACcQAAAAEKwRIewKyaLvaS2F9eYqhkMcD4BIJS2MSEpjzklSez/jVkl8G7Nz34agKGP2rIUbAg==", null, true, "23.12.2021 0:05:27", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admitistrator@ShopOnline.API.com" },
+                    { new Guid("e2411384-2136-4371-b742-7415c09ee807"), 0, "23.12.2021 0:05:27", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Client@ShopOnline.API.com", true, null, "Client@ShopOnline.API.com", null, false, null, null, "CLIENT@ShopOnline.API.COM", "CLIENT@ShopOnline.API.COM", "AQAAAAEAACcQAAAAEIvUhp+WBIUF+Hi776e0++x2jFWJGPdmEGKW3sRYzlJrX961kLXzW3TbjoKfLYBZ4Q==", null, true, "23.12.2021 0:05:27", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Client@ShopOnline.API.com" }
                 });
 
             migrationBuilder.CreateIndex(

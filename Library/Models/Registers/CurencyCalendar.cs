@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ShopOnlinePWA.Library
+namespace ShopOnline.Library
 {
     public class CurencyCalendar
     {

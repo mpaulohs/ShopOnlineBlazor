@@ -1,17 +1,22 @@
 {
   "cacheBootResources": true,
-  "config": [ ],
+  "config": [
+    "appsettings.Development.json",
+    "appsettings.json"
+  ],
   "debugBuild": true,
-  "entryAssembly": "ShopOnlinePWA.Client",
+  "entryAssembly": "Client",
   "icuDataMode": 0,
   "linkerEnabled": false,
   "resources": {
     "assembly": {
       "Microsoft.AspNetCore.Authorization.dll": "sha256-hGbT4jDhpi63093bjGt+4XVJ3Z9t1FVbmgNmYYmpiNY=",
       "Microsoft.AspNetCore.Components.dll": "sha256-NJ2GmZOAzlolS7ZPvt5guh86ICBupqwCNK0ygg7fkhE=",
+      "Microsoft.AspNetCore.Components.Authorization.dll": "sha256-JE3kRVO7ej\/zCUUshzEyxzoY+yl8N\/AdGAX9tVpcNGA=",
       "Microsoft.AspNetCore.Components.Forms.dll": "sha256-YEcUfJbV\/+SrxppUEKn5jqOg8WptBrdAGaDG+psN8Yg=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-aq+IFhf0HZZKVz6P\/GhuaY0UvXsguM0h5hlYrzAfugk=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-zARafz0vNUQ9qVFCoQO3oQSP+VMitM2+PZs+2OkxMgE=",
+      "Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll": "sha256-o7lG9z1KhOW24JqJqCUfzoILLj\/R5Xd3Ocb1ww1b8Tw=",
       "Microsoft.AspNetCore.Metadata.dll": "sha256-hXAd66KKDdPFPpv7aqk5iax9UhTcBUufrs8eHMuWft8=",
       "Microsoft.Extensions.Configuration.dll": "sha256-c8yYhfrOBLEnOBglLTu9peXSbJDwFpuT4UQiXSv28Og=",
       "Microsoft.Extensions.Configuration.Abstractions.dll": "sha256-5Otet+KKVUjNkE\/hqcNWmt75H1K2VNuKPFagpRd6Ces=",
@@ -196,13 +201,13 @@
       "mscorlib.dll": "sha256-+5VU+MYaTQMTlRe9QKobEjWZWv6I9teAGdNndWSBqWE=",
       "netstandard.dll": "sha256-E5RFhGIaDH5QM6BEbFUuHU8U9wP6N6jbo5MCttzLOCM=",
       "System.Private.CoreLib.dll": "sha256-9NtEbYixyog7vUmeYXyyqzfBXUYl8wxoVQ26Ji7sNRg=",
-      "ShopOnlinePWA.Client.dll": "sha256-v0sb+64Jdgslz9S7Iyb36JQveOI0neSJYdyNuv02FZE="
+      "Client.dll": "sha256-dEykITWst+oazhVWVdxkvZlBzI4hcTL9eSsqHSwHAVQ="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "ShopOnlinePWA.Client.pdb": "sha256-1fIA+QcQmePD7hwRFS0sOmTsCCwBEvt5mBDkJJ0yG34="
+      "Client.pdb": "sha256-8h48MFLmUrKnGkq6sxuzupeygiGvP+bmthhPlp04QKY="
     },
     "runtime": {
       "dotnet.6.0.1.m9s5fvrgbu.js": "sha256-awQsJ\/WxYhouHPuE+i3eJqjA4XClQlr2rD6nKvW80ww=",

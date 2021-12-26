@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Logging;
-using ShopOnlinePWA.API.Models;
-using ShopOnlinePWA.Library;
+using ShopOnline.API.Models;
+using ShopOnline.Library;
 using System;
 
-namespace ShopOnlinePWA.API.Repositories
+namespace ShopOnline.API.Repositories
 {
     public class SaleRepository : RepositoryBase<DocumentSale, Guid, ApplicationDbContext>
     {
