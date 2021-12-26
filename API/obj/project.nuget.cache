@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "YUB5bmqwUAgMaEES1J109PilMRTPjs01ySe80Bz/avUZwwx7RfCTPhBSMgxpzIOeDDtAGWyrpt8Nit8ZCO2KEg==",
+  "dgSpecHash": "QXEKO/mLNufqrH1InBR4CN/pjenWORx69SfFbqSYHWKk2DyqP0d2zPFYIHh7BMaZU46bk0X0SfuJ5hGLMkacLQ==",
   "success": true,
   "projectFilePath": "Z:\\study\\C#\\ShopOnlinePWA\\API\\ShopOnlinePWA.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
@@ -147,7 +148,7 @@
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.net.sockets\\4.3.0\\system.net.sockets.4.3.0.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.objectmodel\\4.3.0\\system.objectmodel.4.3.0.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
-    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.reflection.emit\\4.6.0\\system.reflection.emit.4.6.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.reflection.emit.lightweight\\4.6.0\\system.reflection.emit.lightweight.4.6.0.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",

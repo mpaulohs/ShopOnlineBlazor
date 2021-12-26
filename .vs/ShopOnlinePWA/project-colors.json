@@ -3,7 +3,7 @@
   "ProjectMap": {
     "1f52f884-2e36-49d0-90b5-edcb2041c5ab": {
       "ProjectGuid": "1f52f884-2e36-49d0-90b5-edcb2041c5ab",
-      "DisplayName": "ShopOnlinePWA.Library",
+      "DisplayName": "Library",
       "ColorIndex": 0
     },
     "e8564131-80bd-4c41-a21a-1ec782640a2d": {
@@ -18,17 +18,17 @@
     },
     "2482ebce-cab2-4838-b237-254f046a8f4d": {
       "ProjectGuid": "2482ebce-cab2-4838-b237-254f046a8f4d",
-      "DisplayName": "ShopOnlinePWA.Server",
+      "DisplayName": "Server",
       "ColorIndex": 2
     },
     "3ef80522-afb4-4739-99fc-149a54c8635c": {
       "ProjectGuid": "3ef80522-afb4-4739-99fc-149a54c8635c",
-      "DisplayName": "ShopOnlinePWA.Client",
+      "DisplayName": "ShopOnlinePWA.Client2",
       "ColorIndex": 3
     },
     "fb72968d-56de-4eb3-ae11-619dc229006a": {
       "ProjectGuid": "fb72968d-56de-4eb3-ae11-619dc229006a",
-      "DisplayName": "ShopOnlinePWA.API",
+      "DisplayName": "API",
       "ColorIndex": 4
     },
     "602ddcbd-cebf-4123-a016-afbf83f9d7e0": {
@@ -40,7 +40,12 @@
       "ProjectGuid": "26e716f1-6fce-42d7-9a8e-6bdbb6d0bbab",
       "DisplayName": "Solution Items",
       "ColorIndex": 6
+    },
+    "fb94198a-0a66-44ff-b580-1269233e1665": {
+      "ProjectGuid": "fb94198a-0a66-44ff-b580-1269233e1665",
+      "DisplayName": "Client",
+      "ColorIndex": 7
     }
   },
-  "NextColorIndex": 7
+  "NextColorIndex": 8
 }

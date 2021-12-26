@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "EVyfPzkcli1Vco11OcdRHG+LngS3ebWcR+IyuYec/ok7v9XdW7WjqTa9BdQtcc+tnhOaQ+UUyyivlOeeNDjS9Q==",
+  "dgSpecHash": "EyX22nxjDwDwK1XAHJMI2A9s/ClDvuIoTQ/IXmPrqq5loV4nPkyRkPKRxPBFqgx89G7W6XN6NmXq1R4zVtpyRg==",
   "success": true,
   "projectFilePath": "Z:\\study\\C#\\ShopOnlinePWA\\Server\\ShopOnlinePWA.Server.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.server\\6.0.1\\microsoft.aspnetcore.components.webassembly.server.6.0.1.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.1\\microsoft.aspnetcore.cryptography.internal.6.0.1.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.1\\microsoft.aspnetcore.cryptography.keyderivation.6.0.1.nupkg.sha512",
@@ -30,6 +31,7 @@
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []
