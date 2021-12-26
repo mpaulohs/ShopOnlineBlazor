@@ -354,19 +354,6 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "ShopOnlinePWA.Client/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "ShopOnlinePWA.Library": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/ShopOnlinePWA.Client.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ShopOnlinePWA.Client.dll": {}
-        }
-      },
       "ShopOnlinePWA.Library/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1005,11 +992,6 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "ShopOnlinePWA.Client/1.0.0": {
-      "type": "project",
-      "path": "../Client/ShopOnlinePWA.Client.csproj",
-      "msbuildProject": "../Client/ShopOnlinePWA.Client.csproj"
-    },
     "ShopOnlinePWA.Library/1.0.0": {
       "type": "project",
       "path": "../Library/ShopOnlinePWA.Library.csproj",
@@ -1019,7 +1001,6 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.AspNetCore.Components.WebAssembly.Server >= 6.0.1",
-      "ShopOnlinePWA.Client >= 1.0.0",
       "ShopOnlinePWA.Library >= 1.0.0"
     ]
   },
@@ -1058,9 +1039,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "Z:\\study\\C#\\ShopOnlinePWA\\Client\\ShopOnlinePWA.Client.csproj": {
-              "projectPath": "Z:\\study\\C#\\ShopOnlinePWA\\Client\\ShopOnlinePWA.Client.csproj"
-            },
             "Z:\\study\\C#\\ShopOnlinePWA\\Library\\ShopOnlinePWA.Library.csproj": {
               "projectPath": "Z:\\study\\C#\\ShopOnlinePWA\\Library\\ShopOnlinePWA.Library.csproj"
             }

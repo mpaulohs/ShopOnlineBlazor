@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.JsonPatch;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ShopOnlinePWA.API.Models;
@@ -38,7 +39,7 @@ namespace ShopOnlinePWA.API.Controllers
             catch (Exception exception)
             {
                 _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
-                return StatusCode(500, "Internal server error");
+                return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
 
@@ -49,22 +50,22 @@ namespace ShopOnlinePWA.API.Controllers
             {
                 if (id == Guid.Empty)
                 {
-                    return StatusCode(400, "Bad Request");
+                    return StatusCode(StatusCodes.Status400BadRequest);
                 }
 
                 var result = await _repository.GetByIdAsync(id);
 
                 if (result != null)
                 {
-                    return StatusCode(200, result);
+                    return StatusCode(StatusCodes.Status200OK, result);
                 }
 
-                return StatusCode(404);
+                return StatusCode(StatusCodes.Status404NotFound);
             }
             catch (Exception exception)
             {
                 _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
-                return StatusCode(500, "Internal server error");
+                return StatusCode(StatusCodes.Status500InternalServerError);
             }
 
         }

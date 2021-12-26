@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using ShopOnlinePWA.Library;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Reflection;
 
 namespace ShopOnlinePWA.API.Models
@@ -130,7 +129,7 @@ namespace ShopOnlinePWA.API.Models
 
             //Seed data
 
-            this.Seed(modelBuilder);
+            Seed(modelBuilder);
         }
 
 
@@ -187,7 +186,8 @@ namespace ShopOnlinePWA.API.Models
             string userClient = $"Client@{Assembly.GetCallingAssembly().GetName().Name}.com";
             var password = new PasswordHasher<User>();
 
-            var users = new List<User> {
+            var users = new List<User>
+            {
                 new User()
                 {
                     Id = Guid.NewGuid(),
@@ -242,7 +242,8 @@ namespace ShopOnlinePWA.API.Models
                 modelBuilder.Entity<User>().HasData(user);
             }
 
-            List<Item> items = new List<Item>() {
+            List<Item> items = new List<Item>()
+            {
                 new Item()
                 {
                     Id = Guid.NewGuid(),

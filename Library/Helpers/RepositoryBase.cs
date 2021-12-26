@@ -20,7 +20,7 @@ namespace ShopOnlinePWA.Library
 
         public RepositoryBase(TContext context, ILogger<TEntity> logger)
         {
-            Context = context ?? throw new ArgumentNullException(nameof(Context));
+            Context = context ?? throw new ArgumentNullException(nameof(context));
             Logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
@@ -99,17 +99,18 @@ namespace ShopOnlinePWA.Library
             ThrowIfDisposed();
             if (entity == null)
             {
+                //ToDo Change results to Action results /return StatusCode
                 Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
                 throw new ArgumentNullException(nameof(entity));
             }
 
             //Change properyes before Creating
-            entity.Id = default(TKey);
+            entity.Id = default;
             entity.CreatedAt = DateTime.Now;
             entity.UpdatedAt = default;
 
-
-            var result = await Context.Set<TEntity>().AddAsync(entity);
+            //Before Context.Set<TEntity>().AddAsync(entity);
+            var result = await Context.AddAsync<TEntity>(entity, cancellationToken); 
 
             try
             {
@@ -255,7 +256,13 @@ namespace ShopOnlinePWA.Library
                 throw new ArgumentNullException(nameof(id));
             }
 
-            var entity = await this.Entities.SingleOrDefaultAsync(e => e.Id.Equals(id));
+            var entity = await GetByIdAsync(id, cancellationToken);
+
+            if (entity==null)
+            {
+                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                throw new ArgumentNullException(nameof(entity));
+            }
 
             return await DeleteAsync(entity, cancellationToken);
         }
