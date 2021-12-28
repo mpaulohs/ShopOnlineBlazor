@@ -1,6 +1,7 @@
-﻿using System;
+﻿using ShopOnline.Library.Services;
+using System;
 
-namespace ShopOnline.Library
+namespace ShopOnline.Library.Models.Catalogs
 {
     public class ItemCharacteristic : CatalogBase<Guid>
     {

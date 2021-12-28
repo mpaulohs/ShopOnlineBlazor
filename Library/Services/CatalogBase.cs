@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ShopOnline.Library
+namespace ShopOnline.Library.Services
 {
     public abstract class CatalogBase<TKey> : IApplicationEntity<TKey>
     {

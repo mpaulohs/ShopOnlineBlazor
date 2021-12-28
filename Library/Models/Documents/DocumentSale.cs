@@ -1,6 +1,9 @@
-﻿using System;
+﻿using ShopOnline.Library.Models.Catalogs;
+using ShopOnline.Library.Models.Identities;
+using ShopOnline.Library.Services;
+using System;
 
-namespace ShopOnline.Library
+namespace ShopOnline.Library.Models.Documents
 {
     public class DocumentSale : DocumentBase<Guid>
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 
-namespace ShopOnline.Library
+namespace ShopOnline.Library.Models.Identities
 {
     public class UserRole : IdentityUserRole<Guid>
     {

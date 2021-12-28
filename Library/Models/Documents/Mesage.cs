@@ -1,7 +1,8 @@
-﻿using System;
+﻿using ShopOnline.Library.Services;
+using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ShopOnline.Library
+namespace ShopOnline.Library.Models.Documents
 {
     public class Mesage : IApplicationEntity<Guid>
     {

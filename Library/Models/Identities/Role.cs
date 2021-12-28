@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using ShopOnline.Library.Services;
 using System;
 using System.Collections.Generic;
 
-namespace ShopOnline.Library
+namespace ShopOnline.Library.Models.Identities
 {
 
     public class Role : IdentityRole<Guid>, IApplicationEntity<Guid>

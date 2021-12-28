@@ -1,7 +1,9 @@
-﻿using System;
+﻿using ShopOnline.Library.Models.Identities;
+using ShopOnline.Library.Services;
+using System;
 
 
-namespace ShopOnline.Library
+namespace ShopOnline.Library.Models.Catalogs
 {
     public class ClientContract : CatalogBase<Guid>
     {

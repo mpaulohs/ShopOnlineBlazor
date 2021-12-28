@@ -1,6 +1,9 @@
-﻿using System;
+﻿using ShopOnline.Library.Models.Catalogs;
+using ShopOnline.Library.Models.Documents;
+using ShopOnline.Library.Services;
+using System;
 
-namespace ShopOnline.Library
+namespace ShopOnline.Library.Models.Registers
 {
     public class SaleItem : IApplicationEntity<Guid>
     {

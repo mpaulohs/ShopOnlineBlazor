@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ShopOnline.Library
+namespace ShopOnline.Library.Services
 {
     public abstract class RepositoryBase<TEntity, TKey, TContext> :
         IDisposable,

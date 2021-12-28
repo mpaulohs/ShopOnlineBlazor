@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ShopOnline.Library
+namespace ShopOnline.Library.Services
 {
     public interface IApplicationEntity<TKey>
     {

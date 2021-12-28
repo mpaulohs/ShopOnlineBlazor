@@ -2,6 +2,10 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ShopOnline.Library;
+using ShopOnline.Library.Models.Catalogs;
+using ShopOnline.Library.Models.Documents;
+using ShopOnline.Library.Models.Identities;
+using ShopOnline.Library.Models.Registers;
 using System;
 using System.Collections.Generic;
 using System.Reflection;

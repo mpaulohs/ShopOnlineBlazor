@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ShopOnline.Library;
+using ShopOnline.Library.Models.Documents;
 
 namespace Client.Server.Controllers
 {
