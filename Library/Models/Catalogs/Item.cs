@@ -1,5 +1,4 @@
-﻿using ShopOnline.Library.Services;
-using System;
+﻿using Shared.Services;
 using System.ComponentModel.DataAnnotations;
 
 namespace ShopOnline.Library.Models.Catalogs

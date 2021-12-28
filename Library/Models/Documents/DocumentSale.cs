@@ -1,7 +1,6 @@
-﻿using ShopOnline.Library.Models.Catalogs;
+﻿using Shared.Services;
+using ShopOnline.Library.Models.Catalogs;
 using ShopOnline.Library.Models.Identities;
-using ShopOnline.Library.Services;
-using System;
 
 namespace ShopOnline.Library.Models.Documents
 {

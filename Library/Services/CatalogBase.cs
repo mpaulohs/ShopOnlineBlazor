@@ -1,4 +1,6 @@
-﻿namespace ShopOnline.Library.Services
+﻿using System;
+
+namespace Shared.Services
 {
     public abstract class CatalogBase<TKey> : IApplicationEntity<TKey>
     {

@@ -3,7 +3,7 @@ using ShopOnline.Library.Models.Identities;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ShopOnline.Library.Services
+namespace Shared.Services
 {
     public abstract class DocumentBase<TKey> : IApplicationEntity<TKey>
     {

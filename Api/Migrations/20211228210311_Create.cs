@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace ShopOnline.API.Migrations
+namespace Api.Migrations
 {
-    public partial class CreateInitial : Migration
+    public partial class Create : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,7 +21,7 @@ namespace ShopOnline.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -38,7 +38,7 @@ namespace ShopOnline.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -55,7 +55,7 @@ namespace ShopOnline.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -72,7 +72,7 @@ namespace ShopOnline.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -91,7 +91,7 @@ namespace ShopOnline.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -108,7 +108,7 @@ namespace ShopOnline.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -125,7 +125,7 @@ namespace ShopOnline.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -142,7 +142,7 @@ namespace ShopOnline.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -159,7 +159,7 @@ namespace ShopOnline.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -176,7 +176,7 @@ namespace ShopOnline.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -193,7 +193,7 @@ namespace ShopOnline.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -225,7 +225,7 @@ namespace ShopOnline.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -242,7 +242,7 @@ namespace ShopOnline.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -277,7 +277,7 @@ namespace ShopOnline.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -294,7 +294,7 @@ namespace ShopOnline.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -343,7 +343,7 @@ namespace ShopOnline.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -373,7 +373,7 @@ namespace ShopOnline.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -439,7 +439,7 @@ namespace ShopOnline.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -468,7 +468,7 @@ namespace ShopOnline.API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -599,7 +599,7 @@ namespace ShopOnline.API.Migrations
                     ResponsibleId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SubdivisionId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -675,7 +675,7 @@ namespace ShopOnline.API.Migrations
                     ResponsibleId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SubdivisionId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -727,10 +727,10 @@ namespace ShopOnline.API.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "CreatedAt", "Description", "ExchangeId", "Name", "NormalizedName", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { new Guid("2d3bb7d1-2405-480b-9900-fb037f35f553"), "c75e17c0-c6c9-4aed-9b2a-0a5fee7711e1", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Administrators of application", null, "Administrators", "ADMINISTRATORS", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("732b6e8e-b651-490f-a2a9-d730991e3904"), "bc7644f7-47e4-45f6-9c4f-bd9f150c5eeb", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Clients of application", null, "Clients", "CLIENTS", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("a6b3eb13-4acb-4cde-becf-8df64492b86c"), "0e1718d4-0025-419a-be4d-356a027d610e", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Public users of application", null, "Public", "PUBLIC", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("c4006dfe-1566-4685-996f-babe13ad2b44"), "1b3ed4b3-582b-4f40-9835-2629f824997c", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Managers of application", null, "Managers", "MANAGERS", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { new Guid("65a751a6-6caa-4f6c-8231-3a2f9e75bffa"), "6ac260df-184d-4e68-ab53-2ad1f6609ba1", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Public users of application", null, "Public", "PUBLIC", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("c287615f-1497-4fa0-9748-93d694c8429c"), "264c3c18-f3ab-4e36-b65c-81876068b56d", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Administrators of application", null, "Administrators", "ADMINISTRATORS", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("c4b21581-2eea-4fb5-a1ac-817a9fdc13a7"), "b2b41c42-587f-4c73-87a4-913c6b7cd186", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Managers of application", null, "Managers", "MANAGERS", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("ff5d539d-fbfd-4a66-8920-550c88e2b7c6"), "37e6282d-98f0-4018-84cb-d7ba4b0d3c2c", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Clients of application", null, "Clients", "CLIENTS", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
@@ -738,9 +738,9 @@ namespace ShopOnline.API.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreatedAt", "Email", "EmailConfirmed", "ExchangeId", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "MiddleName", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UpdatedAt", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("88dcb55b-e9fc-43dc-9b08-a1963edd5243"), 0, "23.12.2021 0:05:27", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Manager@ShopOnline.API.com", true, null, "Manager@ShopOnline.API.com", null, false, null, null, "MANAGER@ShopOnline.API.COM", "MANAGER@ShopOnline.API.COM", "AQAAAAEAACcQAAAAEP9f7f+/JbSyKAI7p2WRClv9R3K3Gh7iSjepxlwUGNnV/LG/sixiRaTkXJUj78FVkQ==", null, true, "23.12.2021 0:05:27", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Manager@ShopOnline.API.com" },
-                    { new Guid("8b861189-1354-4104-88d9-e611ac548004"), 0, "23.12.2021 0:05:27", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admitistrator@ShopOnline.API.com", true, null, "Admitistrator@ShopOnline.API.com", null, false, null, null, "ADMITISTRATOR@ShopOnline.API.COM", "ADMITISTRATOR@ShopOnline.API.COM", "AQAAAAEAACcQAAAAEKwRIewKyaLvaS2F9eYqhkMcD4BIJS2MSEpjzklSez/jVkl8G7Nz34agKGP2rIUbAg==", null, true, "23.12.2021 0:05:27", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admitistrator@ShopOnline.API.com" },
-                    { new Guid("e2411384-2136-4371-b742-7415c09ee807"), 0, "23.12.2021 0:05:27", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Client@ShopOnline.API.com", true, null, "Client@ShopOnline.API.com", null, false, null, null, "CLIENT@ShopOnline.API.COM", "CLIENT@ShopOnline.API.COM", "AQAAAAEAACcQAAAAEIvUhp+WBIUF+Hi776e0++x2jFWJGPdmEGKW3sRYzlJrX961kLXzW3TbjoKfLYBZ4Q==", null, true, "23.12.2021 0:05:27", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Client@ShopOnline.API.com" }
+                    { new Guid("035a633f-40b8-4bb5-950a-4c864d9d62f3"), 0, "28.12.2021 23:03:11", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Client@Api.com", true, null, "Client@Api.com", null, false, null, null, "CLIENT@API.COM", "CLIENT@API.COM", "AQAAAAEAACcQAAAAEGnuyL0Ckge0jCWLGe/CEm23LZip17+KOh99aNc6NwCksekvkz2iGXqN75zmKpBgfw==", null, true, "28.12.2021 23:03:11", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Client@Api.com" },
+                    { new Guid("568d9257-9786-4266-ba62-2b794f178ce8"), 0, "28.12.2021 23:03:11", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Manager@Api.com", true, null, "Manager@Api.com", null, false, null, null, "MANAGER@API.COM", "MANAGER@API.COM", "AQAAAAEAACcQAAAAECAtrnoYYt2oPPuiSJEIgxPGGdVsdNQCERE7si/fpxLlQEoK72csigzn/6+kWn0Bzw==", null, true, "28.12.2021 23:03:11", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Manager@Api.com" },
+                    { new Guid("c4dd3b41-ffa1-4745-ab28-ada68863a823"), 0, "28.12.2021 23:03:11", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admitistrator@Api.com", true, null, "Admitistrator@Api.com", null, false, null, null, "ADMITISTRATOR@API.COM", "ADMITISTRATOR@API.COM", "AQAAAAEAACcQAAAAEOobl+86EmIVrxU2D94ZSIsV6XWAqwznwOVf0Mjf0SkBwQYJFQgS5qIfAbJfxMio7Q==", null, true, "28.12.2021 23:03:11", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admitistrator@Api.com" }
                 });
 
             migrationBuilder.CreateIndex(

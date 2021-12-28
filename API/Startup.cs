@@ -8,10 +8,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using ShopOnline.API.Models;
 using ShopOnline.API.Repositories;
-using ShopOnline.Library;
+using ShopOnline.API.Services;
 using ShopOnline.Library.Models.Documents;
 using ShopOnline.Library.Models.Identities;
-using ShopOnline.Library.Services;
 using System;
 
 namespace ShopOnline.API

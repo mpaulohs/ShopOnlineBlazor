@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ShopOnline.Library;
 using ShopOnline.Library.Models.Catalogs;
 using ShopOnline.Library.Models.Documents;
 using ShopOnline.Library.Models.Identities;
@@ -145,7 +144,8 @@ namespace ShopOnline.API.Models
             string roleClients = "Clients";
             string rolePublic = "Public";
 
-            List<Role> roles = new List<Role> {
+            List<Role> roles = new List<Role>
+            {
                     new Role()
                      {
                         Id = Guid.NewGuid(),
@@ -180,7 +180,7 @@ namespace ShopOnline.API.Models
             foreach (var role in roles)
             {
                 // if (this.Roles.AnyAsync<Role>(r => r.NormalizedName == role.NormalizedName) == null)
-                modelBuilder.Entity<Role>().HasData(role);
+               modelBuilder.Entity<Role>().HasData(role);
             }
 
 

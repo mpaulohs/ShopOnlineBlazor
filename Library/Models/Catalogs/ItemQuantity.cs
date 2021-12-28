@@ -1,4 +1,4 @@
-﻿using ShopOnline.Library.Services;
+﻿using Shared.Services;
 using System;
 using System.ComponentModel.DataAnnotations;
 

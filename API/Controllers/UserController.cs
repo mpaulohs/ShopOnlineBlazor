@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ShopOnline.API.Models;
-using ShopOnline.Library;
+using ShopOnline.API.Services;
 using ShopOnline.Library.Models.Identities;
-using ShopOnline.Library.Services;
 using System;
 using System.Threading.Tasks;
 

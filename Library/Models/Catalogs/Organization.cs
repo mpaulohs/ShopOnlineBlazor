@@ -1,4 +1,4 @@
-﻿using ShopOnline.Library.Services;
+﻿using Shared.Services;
 using System;
 
 namespace ShopOnline.Library.Models.Catalogs

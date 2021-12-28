@@ -1,8 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using ShopOnline.API.Models;
-using ShopOnline.Library;
+using ShopOnline.API.Services;
 using ShopOnline.Library.Models.Documents;
-using ShopOnline.Library.Services;
 using System;
 
 namespace ShopOnline.API.Repositories
@@ -11,7 +10,7 @@ namespace ShopOnline.API.Repositories
     {
         public SaleRepository(ApplicationDbContext RepositoryContext, ILogger<DocumentSale> Logger) : base(RepositoryContext, Logger)
         {
-            
+
         }
     }
 }

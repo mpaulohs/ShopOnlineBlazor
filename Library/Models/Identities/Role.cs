@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using ShopOnline.Library.Services;
+using Shared.Services;
 using System;
 using System.Collections.Generic;
 

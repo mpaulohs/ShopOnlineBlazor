@@ -9,11 +9,11 @@ using ShopOnline.API.Models;
 
 #nullable disable
 
-namespace ShopOnline.API.Migrations
+namespace Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211222220527_CreateInitial")]
-    partial class CreateInitial
+    [Migration("20211228210311_Create")]
+    partial class Create
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace ShopOnline.API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ShopOnline.Library.AdditionalInformation", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.AdditionalInformation", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -34,6 +34,7 @@ namespace ShopOnline.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAt")
@@ -62,7 +63,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("AdditionalInformations", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Bank", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.Bank", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -72,6 +73,7 @@ namespace ShopOnline.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAt")
@@ -91,7 +93,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("Banks", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.BankAccount", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.BankAccount", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -104,6 +106,7 @@ namespace ShopOnline.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAt")
@@ -125,7 +128,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("BankAccounts", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.CashDesk", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.CashDesk", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -135,6 +138,7 @@ namespace ShopOnline.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAt")
@@ -154,7 +158,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("CashDesks", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.ClientContactInformation", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ClientContactInformation", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -170,6 +174,7 @@ namespace ShopOnline.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAt")
@@ -196,7 +201,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("ClientContackInformations", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.ClientContactInformationType", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ClientContactInformationType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -206,6 +211,7 @@ namespace ShopOnline.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAt")
@@ -225,7 +231,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("ClientContactInformationTypes", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.ClientContract", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ClientContract", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -238,6 +244,7 @@ namespace ShopOnline.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAt")
@@ -264,7 +271,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("ClientContracts", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Currency", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.Currency", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -277,6 +284,7 @@ namespace ShopOnline.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAt")
@@ -299,7 +307,371 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("Currencyes", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.DocumentPayment", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.Item", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Article")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExchangeId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("ItemCharacteristicId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ItemQualityId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ItemSerieId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ItemTypeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ItemUnitMeasurementId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ItemCharacteristicId");
+
+                    b.HasIndex("ItemQualityId");
+
+                    b.HasIndex("ItemSerieId");
+
+                    b.HasIndex("ItemTypeId");
+
+                    b.HasIndex("ItemUnitMeasurementId");
+
+                    b.ToTable("Items", (string)null);
+                });
+
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ItemCharacteristic", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ExchangeId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ItemCharacteristics", (string)null);
+                });
+
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ItemQuality", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ExchangeId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ItmeQualityes", (string)null);
+                });
+
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ItemSerie", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ExchangeId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ItemSeries", (string)null);
+                });
+
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ItemType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ExchangeId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ItemTypes", (string)null);
+                });
+
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ItemUnitClassifier", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ExchangeId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ItemUnitClassifiers", (string)null);
+                });
+
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ItemUnitMeasurement", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ExchangeId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ItemUnitMeasuraments", (string)null);
+                });
+
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.Organization", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ExchangeId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Organizations", (string)null);
+                });
+
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.PriceType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ExchangeId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PriceType");
+                });
+
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.Storage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ExchangeId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Storages", (string)null);
+                });
+
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.Subdivision", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ExchangeId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Subdivisions", (string)null);
+                });
+
+            modelBuilder.Entity("ShopOnline.Library.Models.Documents.DocumentPayment", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -315,6 +687,7 @@ namespace ShopOnline.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("ContractAmount")
@@ -386,7 +759,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("Payments", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.DocumentSale", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Documents.DocumentSale", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -402,6 +775,7 @@ namespace ShopOnline.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("ContractAmount")
@@ -487,244 +861,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("Documents", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Item", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Article")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ExchangeId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FullName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("ItemCharacteristicId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ItemQualityId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ItemSerieId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ItemTypeId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ItemUnitMeasurementId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ItemCharacteristicId");
-
-                    b.HasIndex("ItemQualityId");
-
-                    b.HasIndex("ItemSerieId");
-
-                    b.HasIndex("ItemTypeId");
-
-                    b.HasIndex("ItemUnitMeasurementId");
-
-                    b.ToTable("Items", (string)null);
-                });
-
-            modelBuilder.Entity("ShopOnline.Library.ItemCharacteristic", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ExchangeId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ItemCharacteristics", (string)null);
-                });
-
-            modelBuilder.Entity("ShopOnline.Library.ItemQuality", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ExchangeId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ItmeQualityes", (string)null);
-                });
-
-            modelBuilder.Entity("ShopOnline.Library.ItemSerie", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ExchangeId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ItemSeries", (string)null);
-                });
-
-            modelBuilder.Entity("ShopOnline.Library.ItemType", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ExchangeId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ItemTypes", (string)null);
-                });
-
-            modelBuilder.Entity("ShopOnline.Library.ItemUnitClassifier", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ExchangeId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ItemUnitClassifiers", (string)null);
-                });
-
-            modelBuilder.Entity("ShopOnline.Library.ItemUnitMeasurement", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ExchangeId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ItemUnitMeasuraments", (string)null);
-                });
-
-            modelBuilder.Entity("ShopOnline.Library.Mesage", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Documents.Mesage", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -747,65 +884,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("Mesages", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Organization", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ExchangeId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Organizations", (string)null);
-                });
-
-            modelBuilder.Entity("ShopOnline.Library.PriceType", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ExchangeId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PriceType");
-                });
-
-            modelBuilder.Entity("ShopOnline.Library.Role", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Identities.Role", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -847,8 +926,8 @@ namespace ShopOnline.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2d3bb7d1-2405-480b-9900-fb037f35f553"),
-                            ConcurrencyStamp = "c75e17c0-c6c9-4aed-9b2a-0a5fee7711e1",
+                            Id = new Guid("c287615f-1497-4fa0-9748-93d694c8429c"),
+                            ConcurrencyStamp = "264c3c18-f3ab-4e36-b65c-81876068b56d",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Administrators of application",
                             Name = "Administrators",
@@ -857,8 +936,8 @@ namespace ShopOnline.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c4006dfe-1566-4685-996f-babe13ad2b44"),
-                            ConcurrencyStamp = "1b3ed4b3-582b-4f40-9835-2629f824997c",
+                            Id = new Guid("c4b21581-2eea-4fb5-a1ac-817a9fdc13a7"),
+                            ConcurrencyStamp = "b2b41c42-587f-4c73-87a4-913c6b7cd186",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Managers of application",
                             Name = "Managers",
@@ -867,8 +946,8 @@ namespace ShopOnline.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("732b6e8e-b651-490f-a2a9-d730991e3904"),
-                            ConcurrencyStamp = "bc7644f7-47e4-45f6-9c4f-bd9f150c5eeb",
+                            Id = new Guid("ff5d539d-fbfd-4a66-8920-550c88e2b7c6"),
+                            ConcurrencyStamp = "37e6282d-98f0-4018-84cb-d7ba4b0d3c2c",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Clients of application",
                             Name = "Clients",
@@ -877,8 +956,8 @@ namespace ShopOnline.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a6b3eb13-4acb-4cde-becf-8df64492b86c"),
-                            ConcurrencyStamp = "0e1718d4-0025-419a-be4d-356a027d610e",
+                            Id = new Guid("65a751a6-6caa-4f6c-8231-3a2f9e75bffa"),
+                            ConcurrencyStamp = "6ac260df-184d-4e68-ab53-2ad1f6609ba1",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Public users of application",
                             Name = "Public",
@@ -887,7 +966,7 @@ namespace ShopOnline.API.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.RoleClaim", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Identities.RoleClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -911,65 +990,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("RoleClaims", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Storage", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ExchangeId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Storages", (string)null);
-                });
-
-            modelBuilder.Entity("ShopOnline.Library.Subdivision", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ExchangeId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Subdivisions", (string)null);
-                });
-
-            modelBuilder.Entity("ShopOnline.Library.User", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Identities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -1055,64 +1076,64 @@ namespace ShopOnline.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8b861189-1354-4104-88d9-e611ac548004"),
+                            Id = new Guid("c4dd3b41-ffa1-4745-ab28-ada68863a823"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "23.12.2021 0:05:27",
+                            ConcurrencyStamp = "28.12.2021 23:03:11",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "Admitistrator@ShopOnline.API.com",
+                            Email = "Admitistrator@Api.com",
                             EmailConfirmed = true,
-                            FirstName = "Admitistrator@ShopOnline.API.com",
+                            FirstName = "Admitistrator@Api.com",
                             LockoutEnabled = false,
-                            NormalizedEmail = "ADMITISTRATOR@ShopOnline.API.COM",
-                            NormalizedUserName = "ADMITISTRATOR@ShopOnline.API.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKwRIewKyaLvaS2F9eYqhkMcD4BIJS2MSEpjzklSez/jVkl8G7Nz34agKGP2rIUbAg==",
+                            NormalizedEmail = "ADMITISTRATOR@API.COM",
+                            NormalizedUserName = "ADMITISTRATOR@API.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOobl+86EmIVrxU2D94ZSIsV6XWAqwznwOVf0Mjf0SkBwQYJFQgS5qIfAbJfxMio7Q==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "23.12.2021 0:05:27",
+                            SecurityStamp = "28.12.2021 23:03:11",
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserName = "Admitistrator@ShopOnline.API.com"
+                            UserName = "Admitistrator@Api.com"
                         },
                         new
                         {
-                            Id = new Guid("88dcb55b-e9fc-43dc-9b08-a1963edd5243"),
+                            Id = new Guid("568d9257-9786-4266-ba62-2b794f178ce8"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "23.12.2021 0:05:27",
+                            ConcurrencyStamp = "28.12.2021 23:03:11",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "Manager@ShopOnline.API.com",
+                            Email = "Manager@Api.com",
                             EmailConfirmed = true,
-                            FirstName = "Manager@ShopOnline.API.com",
+                            FirstName = "Manager@Api.com",
                             LockoutEnabled = false,
-                            NormalizedEmail = "MANAGER@ShopOnline.API.COM",
-                            NormalizedUserName = "MANAGER@ShopOnline.API.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEP9f7f+/JbSyKAI7p2WRClv9R3K3Gh7iSjepxlwUGNnV/LG/sixiRaTkXJUj78FVkQ==",
+                            NormalizedEmail = "MANAGER@API.COM",
+                            NormalizedUserName = "MANAGER@API.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAECAtrnoYYt2oPPuiSJEIgxPGGdVsdNQCERE7si/fpxLlQEoK72csigzn/6+kWn0Bzw==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "23.12.2021 0:05:27",
+                            SecurityStamp = "28.12.2021 23:03:11",
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserName = "Manager@ShopOnline.API.com"
+                            UserName = "Manager@Api.com"
                         },
                         new
                         {
-                            Id = new Guid("e2411384-2136-4371-b742-7415c09ee807"),
+                            Id = new Guid("035a633f-40b8-4bb5-950a-4c864d9d62f3"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "23.12.2021 0:05:27",
+                            ConcurrencyStamp = "28.12.2021 23:03:11",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "Client@ShopOnline.API.com",
+                            Email = "Client@Api.com",
                             EmailConfirmed = true,
-                            FirstName = "Client@ShopOnline.API.com",
+                            FirstName = "Client@Api.com",
                             LockoutEnabled = false,
-                            NormalizedEmail = "CLIENT@ShopOnline.API.COM",
-                            NormalizedUserName = "CLIENT@ShopOnline.API.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIvUhp+WBIUF+Hi776e0++x2jFWJGPdmEGKW3sRYzlJrX961kLXzW3TbjoKfLYBZ4Q==",
+                            NormalizedEmail = "CLIENT@API.COM",
+                            NormalizedUserName = "CLIENT@API.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGnuyL0Ckge0jCWLGe/CEm23LZip17+KOh99aNc6NwCksekvkz2iGXqN75zmKpBgfw==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "23.12.2021 0:05:27",
+                            SecurityStamp = "28.12.2021 23:03:11",
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserName = "Client@ShopOnline.API.com"
+                            UserName = "Client@Api.com"
                         });
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.UserClaim", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Identities.UserClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1136,7 +1157,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("UserClaims", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.UserLogin", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Identities.UserLogin", b =>
                 {
                     b.Property<string>("LoginProvider")
                         .HasColumnType("nvarchar(450)");
@@ -1157,7 +1178,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("UserLogins", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.UserRole", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Identities.UserRole", b =>
                 {
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -1172,7 +1193,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("UserRoles", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.UserToken", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Identities.UserToken", b =>
                 {
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -1191,22 +1212,22 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("UserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.BankAccount", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.BankAccount", b =>
                 {
-                    b.HasOne("ShopOnline.Library.Bank", "Bank")
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.Bank", "Bank")
                         .WithMany()
                         .HasForeignKey("BankId");
 
                     b.Navigation("Bank");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.ClientContactInformation", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ClientContactInformation", b =>
                 {
-                    b.HasOne("ShopOnline.Library.ClientContactInformationType", "ClientContactInformationType")
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.ClientContactInformationType", "ClientContactInformationType")
                         .WithMany()
                         .HasForeignKey("ClientContactInformationTypeId");
 
-                    b.HasOne("ShopOnline.Library.User", "Client")
+                    b.HasOne("ShopOnline.Library.Models.Identities.User", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
 
@@ -1215,13 +1236,13 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("ClientContactInformationType");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.ClientContract", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ClientContract", b =>
                 {
-                    b.HasOne("ShopOnline.Library.User", "Client")
+                    b.HasOne("ShopOnline.Library.Models.Identities.User", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
 
-                    b.HasOne("ShopOnline.Library.Currency", "Currency")
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.Currency", "Currency")
                         .WithMany()
                         .HasForeignKey("CurrencyId");
 
@@ -1230,37 +1251,70 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("Currency");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.DocumentPayment", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.Item", b =>
                 {
-                    b.HasOne("ShopOnline.Library.ClientContract", "ClientContract")
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.ItemCharacteristic", "ItemCharacteristic")
+                        .WithMany()
+                        .HasForeignKey("ItemCharacteristicId");
+
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.ItemQuality", "ItemQuality")
+                        .WithMany()
+                        .HasForeignKey("ItemQualityId");
+
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.ItemSerie", "ItemSerie")
+                        .WithMany()
+                        .HasForeignKey("ItemSerieId");
+
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.ItemType", "ItemType")
+                        .WithMany()
+                        .HasForeignKey("ItemTypeId");
+
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.ItemUnitMeasurement", "ItemUnitMeasurement")
+                        .WithMany()
+                        .HasForeignKey("ItemUnitMeasurementId");
+
+                    b.Navigation("ItemCharacteristic");
+
+                    b.Navigation("ItemQuality");
+
+                    b.Navigation("ItemSerie");
+
+                    b.Navigation("ItemType");
+
+                    b.Navigation("ItemUnitMeasurement");
+                });
+
+            modelBuilder.Entity("ShopOnline.Library.Models.Documents.DocumentPayment", b =>
+                {
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.ClientContract", "ClientContract")
                         .WithMany()
                         .HasForeignKey("ClientContractId");
 
-                    b.HasOne("ShopOnline.Library.User", "Client")
+                    b.HasOne("ShopOnline.Library.Models.Identities.User", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
 
-                    b.HasOne("ShopOnline.Library.Currency", "Currency")
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.Currency", "Currency")
                         .WithMany()
                         .HasForeignKey("CurrencyId");
 
-                    b.HasOne("ShopOnline.Library.Currency", "DocumentCurrency")
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.Currency", "DocumentCurrency")
                         .WithMany()
                         .HasForeignKey("DocumentCurrencyId");
 
-                    b.HasOne("ShopOnline.Library.Organization", "Organization")
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.Organization", "Organization")
                         .WithMany()
                         .HasForeignKey("OrganizationId");
 
-                    b.HasOne("ShopOnline.Library.PriceType", "PriceType")
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.PriceType", "PriceType")
                         .WithMany()
                         .HasForeignKey("PriceTypeId");
 
-                    b.HasOne("ShopOnline.Library.User", "Responsible")
+                    b.HasOne("ShopOnline.Library.Models.Identities.User", "Responsible")
                         .WithMany()
                         .HasForeignKey("ResponsibleId");
 
-                    b.HasOne("ShopOnline.Library.Subdivision", "Subdivision")
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.Subdivision", "Subdivision")
                         .WithMany()
                         .HasForeignKey("SubdivisionId");
 
@@ -1281,41 +1335,41 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("Subdivision");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.DocumentSale", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Documents.DocumentSale", b =>
                 {
-                    b.HasOne("ShopOnline.Library.ClientContract", "ClientContract")
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.ClientContract", "ClientContract")
                         .WithMany()
                         .HasForeignKey("ClientContractId");
 
-                    b.HasOne("ShopOnline.Library.User", "Client")
+                    b.HasOne("ShopOnline.Library.Models.Identities.User", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
 
-                    b.HasOne("ShopOnline.Library.Currency", "DocumentCurrency")
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.Currency", "DocumentCurrency")
                         .WithMany()
                         .HasForeignKey("DocumentCurrencyId");
 
-                    b.HasOne("ShopOnline.Library.Organization", "Organization")
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.Organization", "Organization")
                         .WithMany()
                         .HasForeignKey("OrganizationId");
 
-                    b.HasOne("ShopOnline.Library.PriceType", "PriceType")
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.PriceType", "PriceType")
                         .WithMany()
                         .HasForeignKey("PriceTypeId");
 
-                    b.HasOne("ShopOnline.Library.User", "Reciver")
+                    b.HasOne("ShopOnline.Library.Models.Identities.User", "Reciver")
                         .WithMany()
                         .HasForeignKey("ReciverId");
 
-                    b.HasOne("ShopOnline.Library.User", "Responsible")
+                    b.HasOne("ShopOnline.Library.Models.Identities.User", "Responsible")
                         .WithMany()
                         .HasForeignKey("ResponsibleId");
 
-                    b.HasOne("ShopOnline.Library.Storage", "Storage")
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.Storage", "Storage")
                         .WithMany()
                         .HasForeignKey("StorageId");
 
-                    b.HasOne("ShopOnline.Library.Subdivision", "Subdivision")
+                    b.HasOne("ShopOnline.Library.Models.Catalogs.Subdivision", "Subdivision")
                         .WithMany()
                         .HasForeignKey("SubdivisionId");
 
@@ -1338,42 +1392,9 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("Subdivision");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Item", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Identities.RoleClaim", b =>
                 {
-                    b.HasOne("ShopOnline.Library.ItemCharacteristic", "ItemCharacteristic")
-                        .WithMany()
-                        .HasForeignKey("ItemCharacteristicId");
-
-                    b.HasOne("ShopOnline.Library.ItemQuality", "ItemQuality")
-                        .WithMany()
-                        .HasForeignKey("ItemQualityId");
-
-                    b.HasOne("ShopOnline.Library.ItemSerie", "ItemSerie")
-                        .WithMany()
-                        .HasForeignKey("ItemSerieId");
-
-                    b.HasOne("ShopOnline.Library.ItemType", "ItemType")
-                        .WithMany()
-                        .HasForeignKey("ItemTypeId");
-
-                    b.HasOne("ShopOnline.Library.ItemUnitMeasurement", "ItemUnitMeasurement")
-                        .WithMany()
-                        .HasForeignKey("ItemUnitMeasurementId");
-
-                    b.Navigation("ItemCharacteristic");
-
-                    b.Navigation("ItemQuality");
-
-                    b.Navigation("ItemSerie");
-
-                    b.Navigation("ItemType");
-
-                    b.Navigation("ItemUnitMeasurement");
-                });
-
-            modelBuilder.Entity("ShopOnline.Library.RoleClaim", b =>
-                {
-                    b.HasOne("ShopOnline.Library.Role", "Role")
+                    b.HasOne("ShopOnline.Library.Models.Identities.Role", "Role")
                         .WithMany("RoleClaims")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1382,9 +1403,9 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.UserClaim", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Identities.UserClaim", b =>
                 {
-                    b.HasOne("ShopOnline.Library.User", "User")
+                    b.HasOne("ShopOnline.Library.Models.Identities.User", "User")
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1393,9 +1414,9 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.UserLogin", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Identities.UserLogin", b =>
                 {
-                    b.HasOne("ShopOnline.Library.User", "User")
+                    b.HasOne("ShopOnline.Library.Models.Identities.User", "User")
                         .WithMany("Logins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1404,15 +1425,15 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.UserRole", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Identities.UserRole", b =>
                 {
-                    b.HasOne("ShopOnline.Library.Role", "Role")
+                    b.HasOne("ShopOnline.Library.Models.Identities.Role", "Role")
                         .WithMany("UserRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ShopOnline.Library.User", "User")
+                    b.HasOne("ShopOnline.Library.Models.Identities.User", "User")
                         .WithMany("UserRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1423,9 +1444,9 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.UserToken", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Identities.UserToken", b =>
                 {
-                    b.HasOne("ShopOnline.Library.User", "User")
+                    b.HasOne("ShopOnline.Library.Models.Identities.User", "User")
                         .WithMany("Tokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1434,14 +1455,14 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Role", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Identities.Role", b =>
                 {
                     b.Navigation("RoleClaims");
 
                     b.Navigation("UserRoles");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.User", b =>
+            modelBuilder.Entity("ShopOnline.Library.Models.Identities.User", b =>
                 {
                     b.Navigation("Claims");
 

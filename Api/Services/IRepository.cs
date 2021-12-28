@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
+using Shared.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ShopOnline.Library.Services
+namespace ShopOnline.API.Services
 {
     public interface IRepository<TEntity, TKey, TContext>
         where TEntity : class, IApplicationEntity<TKey>

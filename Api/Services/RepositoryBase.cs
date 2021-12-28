@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Shared.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ShopOnline.Library.Services
+namespace ShopOnline.API.Services
 {
     public abstract class RepositoryBase<TEntity, TKey, TContext> :
         IDisposable,
@@ -138,12 +139,12 @@ namespace ShopOnline.Library.Services
 
             var entities = Entities;
 
-            if (entities != null)
+            if (entities == null)
             {
                 return null; 
             }
 
-            if (filters != null)
+            if (filters.Length != 0)
             {
                 foreach (var filter in filters)
                 {
