@@ -9,9 +9,9 @@ namespace ShopOnline.Library.Models.Catalogs
 
         public Guid EntityGuid { get; set; }
 
-        public string EntityType { get; set; }
+        public string? EntityType { get; set; }
 
-        public string Path { get; set; }
+        public string? Path { get; set; }
     }
 
 }

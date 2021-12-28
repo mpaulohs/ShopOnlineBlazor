@@ -3208,7 +3208,7 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "Library/1.0.0": {
+      "Shared/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -3218,10 +3218,10 @@
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.1"
         },
         "compile": {
-          "bin/placeholder/Library.dll": {}
+          "bin/placeholder/Shared.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Library.dll": {}
+          "bin/placeholder/Shared.dll": {}
         }
       }
     }
@@ -9912,20 +9912,20 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "Library/1.0.0": {
+    "Shared/1.0.0": {
       "type": "project",
-      "path": "../Library/Library.csproj",
-      "msbuildProject": "../Library/Library.csproj"
+      "path": "../Library/Shared.csproj",
+      "msbuildProject": "../Library/Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Library >= 1.0.0",
       "Microsoft.AspNetCore.JsonPatch >= 6.0.1",
       "Microsoft.EntityFrameworkCore >= 6.0.1",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.1",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.1",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.1",
+      "Shared >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -9964,8 +9964,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Library\\Library.csproj": {
-              "projectPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Library\\Library.csproj"
+            "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Library\\Shared.csproj": {
+              "projectPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Library\\Shared.csproj"
             }
           }
         }

@@ -10,7 +10,7 @@ namespace ShopOnline.Library.Models.Registers
         [Column(TypeName = "date")]
         public DateTime Date { get; set; }
 
-        public Currency Currency { get; set; }
+        public Currency? Currency { get; set; }
 
         public decimal Multiplisity { get; set; }
 

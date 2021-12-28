@@ -6,7 +6,7 @@ namespace ShopOnline.Library.Models.Documents
 {
     public class DocumentPayment : DocumentBase<Guid>
     {
-        public Currency Currency { get; set; }
+        public Currency? Currency { get; set; }
 
 
         //ToDo

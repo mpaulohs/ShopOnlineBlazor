@@ -5,6 +5,6 @@ namespace ShopOnline.Library.Models.Identities
 {
     public class UserLogin : IdentityUserLogin<Guid>
     {
-        public virtual User User { get; set; }
+        public virtual User? User { get; set; }
     }
 }

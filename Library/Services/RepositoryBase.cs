@@ -100,7 +100,7 @@ namespace ShopOnline.Library.Services
             if (entity == null)
             {
                 //ToDo Change results to Action results /return StatusCode
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new ArgumentNullException(nameof(entity));
             }
 
@@ -118,7 +118,7 @@ namespace ShopOnline.Library.Services
             }
             catch (Exception exception)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new Exception(exception.Message, exception);
             }
             return result.Entity.Id;
@@ -140,9 +140,14 @@ namespace ShopOnline.Library.Services
 
             if (entities != null)
             {
+                return null; 
+            }
+
+            if (filters != null)
+            {
                 foreach (var filter in filters)
                 {
-                    entities = entities.Where(filter);
+                    entities = entities?.Where(filter);
                 }
             }
             return await entities.ToListAsync<TEntity>();
@@ -155,14 +160,14 @@ namespace ShopOnline.Library.Services
 
             if (newEntity == null)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new ArgumentNullException(nameof(newEntity));
             }
 
             var origEntity = await GetByIdAsync(id, cancellationToken);
             if (origEntity == null)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new NullReferenceException(nameof(origEntity));
             }
 
@@ -181,7 +186,7 @@ namespace ShopOnline.Library.Services
             }
             catch (Exception exception)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new Exception(exception.Message, exception);
             }
             return true;
@@ -194,7 +199,7 @@ namespace ShopOnline.Library.Services
 
             if (entity == null)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new ArgumentNullException(nameof(entity));
             }
 
@@ -203,7 +208,7 @@ namespace ShopOnline.Library.Services
 
             if (origEntity == null)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new NullReferenceException(nameof(origEntity));
             }
 
@@ -217,7 +222,7 @@ namespace ShopOnline.Library.Services
             }
             catch (Exception exception)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new Exception(exception.Message, exception);
             }
             return true;
@@ -239,7 +244,7 @@ namespace ShopOnline.Library.Services
             }
             catch (Exception exception)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new Exception(exception.Message, exception);
             }
             return true;
@@ -252,7 +257,7 @@ namespace ShopOnline.Library.Services
 
             if (id == null)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new ArgumentNullException(nameof(id));
             }
 
@@ -260,7 +265,7 @@ namespace ShopOnline.Library.Services
 
             if (entity==null)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new ArgumentNullException(nameof(entity));
             }
 
@@ -274,7 +279,7 @@ namespace ShopOnline.Library.Services
 
             if (entity == null)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new ArgumentNullException(nameof(entity));
             }
 
@@ -286,7 +291,7 @@ namespace ShopOnline.Library.Services
             }
             catch (Exception exception)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new Exception(exception.Message, exception);
             }
             return true;

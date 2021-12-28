@@ -5,9 +5,12 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{373C2973-FFB5-4B8C-A1E8-27C4157D809A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library", "Library\Library.csproj", "{5F9E35A6-0CF5-4197-93DE-11A78472170B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Library\Shared.csproj", "{5F9E35A6-0CF5-4197-93DE-11A78472170B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csproj", "{6D879DF5-72B3-40C8-BF39-BD9DFFDD2B0D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5F9E35A6-0CF5-4197-93DE-11A78472170B} = {5F9E35A6-0CF5-4197-93DE-11A78472170B}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server", "Server\Server.csproj", "{6F17B282-09ED-4470-931E-F37DB23E1F12}"
 EndProject

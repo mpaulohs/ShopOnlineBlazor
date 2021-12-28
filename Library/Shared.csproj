@@ -2,13 +2,10 @@
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<Compile Remove="Helpers\Mappings\**" />
-		<EmbeddedResource Remove="Helpers\Mappings\**" />
-		<None Remove="Helpers\Mappings\**" />
-	</ItemGroup>
 
 	<ItemGroup>
 		<SupportedPlatform Include="browser" />
