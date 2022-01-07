@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Api.Migrations
 {
-    public partial class Create : Migration
+    public partial class CreateInit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -727,10 +727,10 @@ namespace Api.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "CreatedAt", "Description", "ExchangeId", "Name", "NormalizedName", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { new Guid("65a751a6-6caa-4f6c-8231-3a2f9e75bffa"), "6ac260df-184d-4e68-ab53-2ad1f6609ba1", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Public users of application", null, "Public", "PUBLIC", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("c287615f-1497-4fa0-9748-93d694c8429c"), "264c3c18-f3ab-4e36-b65c-81876068b56d", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Administrators of application", null, "Administrators", "ADMINISTRATORS", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("c4b21581-2eea-4fb5-a1ac-817a9fdc13a7"), "b2b41c42-587f-4c73-87a4-913c6b7cd186", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Managers of application", null, "Managers", "MANAGERS", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("ff5d539d-fbfd-4a66-8920-550c88e2b7c6"), "37e6282d-98f0-4018-84cb-d7ba4b0d3c2c", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Clients of application", null, "Clients", "CLIENTS", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { new Guid("1af707e3-86be-4904-881a-d0df5a9178ff"), "828972b3-be53-4853-842a-64b3ccdb9f4c", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Managers of application", null, "Managers", "MANAGERS", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("66b1f9aa-09b3-424f-b0bb-182aa29e3cdc"), "fa3e98b2-9ffd-467c-8a55-77a98c164fd1", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Administrators of application", null, "Administrators", "ADMINISTRATORS", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("9ff5b4cc-6ad7-472c-ad6a-1e6d2116636f"), "3c8fd7a7-ea69-4f7d-865e-b4c1a5bcbf39", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Clients of application", null, "Clients", "CLIENTS", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("b442c734-f697-4b45-920c-03706194ca5a"), "221b4c25-9396-4ce3-9ff7-f87c806c0af3", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Public users of application", null, "Public", "PUBLIC", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
@@ -738,9 +738,9 @@ namespace Api.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreatedAt", "Email", "EmailConfirmed", "ExchangeId", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "MiddleName", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UpdatedAt", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("035a633f-40b8-4bb5-950a-4c864d9d62f3"), 0, "28.12.2021 23:03:11", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Client@Api.com", true, null, "Client@Api.com", null, false, null, null, "CLIENT@API.COM", "CLIENT@API.COM", "AQAAAAEAACcQAAAAEGnuyL0Ckge0jCWLGe/CEm23LZip17+KOh99aNc6NwCksekvkz2iGXqN75zmKpBgfw==", null, true, "28.12.2021 23:03:11", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Client@Api.com" },
-                    { new Guid("568d9257-9786-4266-ba62-2b794f178ce8"), 0, "28.12.2021 23:03:11", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Manager@Api.com", true, null, "Manager@Api.com", null, false, null, null, "MANAGER@API.COM", "MANAGER@API.COM", "AQAAAAEAACcQAAAAECAtrnoYYt2oPPuiSJEIgxPGGdVsdNQCERE7si/fpxLlQEoK72csigzn/6+kWn0Bzw==", null, true, "28.12.2021 23:03:11", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Manager@Api.com" },
-                    { new Guid("c4dd3b41-ffa1-4745-ab28-ada68863a823"), 0, "28.12.2021 23:03:11", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admitistrator@Api.com", true, null, "Admitistrator@Api.com", null, false, null, null, "ADMITISTRATOR@API.COM", "ADMITISTRATOR@API.COM", "AQAAAAEAACcQAAAAEOobl+86EmIVrxU2D94ZSIsV6XWAqwznwOVf0Mjf0SkBwQYJFQgS5qIfAbJfxMio7Q==", null, true, "28.12.2021 23:03:11", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admitistrator@Api.com" }
+                    { new Guid("0f11060d-a99c-46d8-9bf1-96c5eb7155bd"), 0, "07.01.2022 10:34:19", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Client@Api.com", true, null, "Client@Api.com", null, false, null, null, "CLIENT@API.COM", "CLIENT@API.COM", "AQAAAAEAACcQAAAAELa2CQj9JuNqY//QMOJuxKKvjgraV82K8hLP334KGThtmHtsVAXKi/z8qLzXf8tGDw==", null, true, "07.01.2022 10:34:19", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Client@Api.com" },
+                    { new Guid("5a8f8e12-a102-4690-9fe5-3bbe68a6f45f"), 0, "07.01.2022 10:34:19", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Manager@Api.com", true, null, "Manager@Api.com", null, false, null, null, "MANAGER@API.COM", "MANAGER@API.COM", "AQAAAAEAACcQAAAAEDIf7GlsfRUA7YOKk51r4oPugFNMI9BOxPa2SY5A6A5pz8XgSdX8fqnuZqUcy58BFQ==", null, true, "07.01.2022 10:34:19", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Manager@Api.com" },
+                    { new Guid("82d5f360-b27e-4c33-a752-2bed0c7dc82c"), 0, "07.01.2022 10:34:19", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admitistrator@Api.com", true, null, "Admitistrator@Api.com", null, false, null, null, "ADMITISTRATOR@API.COM", "ADMITISTRATOR@API.COM", "AQAAAAEAACcQAAAAELjWDvCVUbof6iLovtZK0+3hh/TLhJGXQvhSv4SbNKT129p5/Ed8YYV5F//0GHLvcQ==", null, true, "07.01.2022 10:34:19", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admitistrator@Api.com" }
                 });
 
             migrationBuilder.CreateIndex(

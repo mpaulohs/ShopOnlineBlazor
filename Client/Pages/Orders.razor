@@ -1,0 +1,73 @@
+﻿@page "/orders"
+@inject HttpClient Http
+@using ShopOnline.Library.Models.Documents
+
+<PageTitle>Orders</PageTitle>
+
+<h1>Orders list</h1>
+
+<p>This is the list off all orders</p>
+
+@if (orders == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{ 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>DateTime</th>
+                <th>Client</th>
+                <th>Reciver</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in orders)
+            {
+                <tr>
+                    <td>@order.Id.ToString()</td>
+                    <td>@order.DateTime</td>
+                    <td>@order.Client</td>
+                    <td>@order.Reciver</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+
+    private IEnumerable<DocumentSale>? orders;
+
+    protected override async Task OnInitializedAsync() {
+
+        var result = GetByFiltersAsync();
+
+
+
+
+        //var result = await Http.GetFromJsonAsync<IEnumerable<DocumentSale>>("order");
+
+        var a = result;
+    }
+    //protected override async Task OnInitializedAsync() => orders = await Http.GetFromJsonAsync<IEnumerable<DocumentSale>>("orders");
+
+    public IEnumerable<DocumentSale> GetByFiltersAsync(CancellationToken cancellationToken = default)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+
+        IEnumerable<DocumentSale> documents = new List<DocumentSale>();
+        var result1 = Http.GetFromJsonAsync<IEnumerable<DocumentSale>>("order");
+         string url = "order";
+        var response = Http.GetAsync("https://localhost:5001/api/order");
+        //var result = response.Content.ReadAsStringAsync();
+
+            
+            return documents;
+        }
+
+
+
+}

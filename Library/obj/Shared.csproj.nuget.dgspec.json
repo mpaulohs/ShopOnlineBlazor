@@ -1,27 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Library\\Shared.csproj": {}
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\Source\\Repos\\developmentservice\\ShopOnlinePWA\\Library\\Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Library\\Shared.csproj": {
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\Source\\Repos\\developmentservice\\ShopOnlinePWA\\Library\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Library\\Shared.csproj",
+        "projectUniqueName": "C:\\Users\\melnik.igor.CORPUZSERVICE\\Source\\Repos\\developmentservice\\ShopOnlinePWA\\Library\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Library\\Shared.csproj",
+        "projectPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\Source\\Repos\\developmentservice\\ShopOnlinePWA\\Library\\Shared.csproj",
         "packagesPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\Documents\\ShopOnline\\Library\\obj\\",
+        "outputPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\Source\\Repos\\developmentservice\\ShopOnlinePWA\\Library\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
           "C:\\Users\\melnik.igor.CORPUZSERVICE\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
