@@ -29,9 +29,19 @@ namespace ShopOnline.API
         {
 
             services.AddControllers().AddNewtonsoftJson();
+
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
+            });
+
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -40,11 +50,11 @@ namespace ShopOnline.API
             });
 
             services.AddIdentity<User, Role>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
-            //services.AddIdentity<User, Role>().AddDefaultTokenProviders();
-
 
             services.AddScoped<IRepository<DocumentSale, Guid, ApplicationDbContext>, SaleRepository>();
+
             services.AddScoped<IRepository<User, Guid, ApplicationDbContext>, UserRepository>();
+
             //services.AddAutoMapper(typeof(Startup));
         }
 
@@ -58,6 +68,8 @@ namespace ShopOnline.API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
 
             }
+
+            app.UseCors();
 
             app.UseHttpsRedirection();
 

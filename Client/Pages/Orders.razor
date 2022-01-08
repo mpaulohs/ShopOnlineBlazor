@@ -1,6 +1,7 @@
 ﻿@page "/orders"
-@inject HttpClient Http
+@inject HttpClient httpClient
 @using ShopOnline.Library.Models.Documents
+@using System.Reflection
 
 <PageTitle>Orders</PageTitle>
 
@@ -13,24 +14,38 @@
     <p><em>Loading...</em></p>
 }
 else
-{ 
+{
+    var properties = typeof(DocumentSale).GetProperties(BindingFlags.Instance | BindingFlags.Public)
+         .Where(ø => ø.CanRead && ø.CanWrite)
+         //.Where(ø => ø.PropertyType == typeof(string))
+         .Where(ø => ø.GetGetMethod(true).IsPublic);
+    // .Where(ø => ø.GetSetMethod(true).IsPublic);
+
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                @foreach (var property in properties)
+               {
+                   <th>@property.Name</th>
+               }
+                @*<th>Id</th>
                 <th>DateTime</th>
                 <th>Client</th>
-                <th>Reciver</th>
+                <th>Reciver</th>*@
             </tr>
         </thead>
-        <tbody>
+      <tbody>
             @foreach (var order in orders)
             {
                 <tr>
-                    <td>@order.Id.ToString()</td>
+                     @foreach (var property in properties)
+               {
+                   <th>@property.GetValue(order)?.ToString()</th>
+               }
+                   @* <td>@order.Id.ToString()</td>
                     <td>@order.DateTime</td>
                     <td>@order.Client</td>
-                    <td>@order.Reciver</td>
+                    <td>@order.Reciver</td>*@
                 </tr>
             }
         </tbody>
@@ -43,31 +58,28 @@ else
 
     protected override async Task OnInitializedAsync() {
 
-        var result = GetByFiltersAsync();
+        orders = await GetByFiltersAsync();
 
-
-
-
-        //var result = await Http.GetFromJsonAsync<IEnumerable<DocumentSale>>("order");
-
-        var a = result;
     }
     //protected override async Task OnInitializedAsync() => orders = await Http.GetFromJsonAsync<IEnumerable<DocumentSale>>("orders");
 
-    public IEnumerable<DocumentSale> GetByFiltersAsync(CancellationToken cancellationToken = default)
+    public async Task<IEnumerable<DocumentSale>> GetByFiltersAsync(CancellationToken cancellationToken = default)
     {
         cancellationToken.ThrowIfCancellationRequested();
 
-        IEnumerable<DocumentSale> documents = new List<DocumentSale>();
-        var result1 = Http.GetFromJsonAsync<IEnumerable<DocumentSale>>("order");
-         string url = "order";
-        var response = Http.GetAsync("https://localhost:5001/api/order");
-        //var result = response.Content.ReadAsStringAsync();
+        string url = "https://localhost:5001/api/order";
 
-            
-            return documents;
+        var request = new HttpRequestMessage(HttpMethod.Get, url);
+
+        HttpResponseMessage responseMessage = await httpClient.SendAsync(request);
+
+        if (responseMessage.IsSuccessStatusCode)
+        {
+            return await responseMessage.Content.ReadFromJsonAsync<IEnumerable<DocumentSale>>();
         }
 
+        return null;
 
+        }
 
 }

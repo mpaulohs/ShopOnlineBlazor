@@ -11,7 +11,7 @@ builder.Services.AddScoped(ServiceProvider => new HttpClient
    // BaseAddress = new Uri(builder.HostEnvironment.BaseAddress),
     BaseAddress = new Uri("https://localhost:5001/api/"),
     Timeout = new TimeSpan(0, 0, 30000)
-}); 
+});
 
 builder.Services.AddOidcAuthentication(options =>
 {
