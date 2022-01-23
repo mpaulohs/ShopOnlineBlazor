@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ShopOnline.Library.Models.Catalogs
+﻿namespace ShopOnline.Library.Models.Catalogs
 {
     public enum DocumentStatus
     {

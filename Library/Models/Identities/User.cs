@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Shared.Services;
+using ShopOnline.Library.Modesl;
 
 namespace ShopOnline.Library.Models.Identities
 {

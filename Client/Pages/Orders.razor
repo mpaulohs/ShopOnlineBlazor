@@ -28,10 +28,6 @@ else
                {
                    <th>@property.Name</th>
                }
-                @*<th>Id</th>
-                <th>DateTime</th>
-                <th>Client</th>
-                <th>Reciver</th>*@
             </tr>
         </thead>
       <tbody>
@@ -42,11 +38,7 @@ else
                {
                    <th>@property.GetValue(order)?.ToString()</th>
                }
-                   @* <td>@order.Id.ToString()</td>
-                    <td>@order.DateTime</td>
-                    <td>@order.Client</td>
-                    <td>@order.Reciver</td>*@
-                </tr>
+                 </tr>
             }
         </tbody>
     </table>

@@ -1,6 +1,4 @@
 ﻿using ShopOnline.Library.Models.Catalogs;
-using System;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopOnline.Library.Models.Registers

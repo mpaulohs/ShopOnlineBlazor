@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ShopOnline.API.Models;
-using ShopOnline.API.Services;
 using ShopOnline.Library.Models.Identities;
+using ShopOnline.Library.Services;
 using System;
 using System.Threading.Tasks;
 
@@ -12,11 +11,11 @@ namespace ShopOnline.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IRepository<User, Guid, ApplicationDbContext> _repository;
+        private readonly IRepository<User, Guid> _repository;
 
         private readonly ILogger<UserController> _logger;
 
-        public UserController(IRepository<User, Guid, ApplicationDbContext> repository, ILogger<UserController> loger)
+        public UserController(IRepository<User, Guid> repository, ILogger<UserController> loger)
         {
             _repository = repository;
             _logger = loger;

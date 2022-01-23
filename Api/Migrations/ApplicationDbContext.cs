@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace ShopOnline.API.Models
+namespace ShopOnline.API.Migrations
 {
 
     public class ApplicationDbContext : IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
@@ -180,7 +180,7 @@ namespace ShopOnline.API.Models
             foreach (var role in roles)
             {
                 // if (this.Roles.AnyAsync<Role>(r => r.NormalizedName == role.NormalizedName) == null)
-               modelBuilder.Entity<Role>().HasData(role);
+                modelBuilder.Entity<Role>().HasData(role);
             }
 
 

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Net.Http;
+﻿using System.Linq.Expressions;
 using System.Net.Http.Json;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace Client.Services
+namespace ShopOnline.Client.Services
 {
     public class EntityService<TEntity, TKey> : IEntityService<TEntity, TKey>
         where TEntity : class
@@ -63,5 +58,5 @@ namespace Client.Services
 
         }
 
-      }
+    }
 }

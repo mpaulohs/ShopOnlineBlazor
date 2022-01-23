@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Shared.Services;
+using ShopOnline.Library.Modesl;
+using ShopOnline.Library.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,22 +12,21 @@ using System.Threading.Tasks;
 
 namespace ShopOnline.API.Services
 {
-    public abstract class RepositoryBase<TEntity, TKey, TContext> :
+    public abstract class RepositoryBase<TEntity, TKey> :
         IDisposable,
-        IRepository<TEntity, TKey, TContext>
+        IRepository<TEntity, TKey>
         where TEntity : class, IApplicationEntity<TKey>
         where TKey : IEquatable<TKey>
-        where TContext : DbContext
     {
 
-        public RepositoryBase(TContext context, ILogger<TEntity> logger)
+        public RepositoryBase(DbContext context, ILogger<TEntity> logger)
         {
             Context = context ?? throw new ArgumentNullException(nameof(context));
             Logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
 
-        protected TContext Context { get; private set; }
+        protected DbContext Context { get; private set; }
 
         protected ILogger<TEntity> Logger { get; set; }
 
@@ -111,7 +111,7 @@ namespace ShopOnline.API.Services
             entity.UpdatedAt = default;
 
             //Before Context.Set<TEntity>().AddAsync(entity);
-            var result = await Context.AddAsync<TEntity>(entity, cancellationToken); 
+            var result = await Context.AddAsync<TEntity>(entity, cancellationToken);
 
             try
             {
@@ -141,7 +141,7 @@ namespace ShopOnline.API.Services
 
             if (entities == null)
             {
-                return null; 
+                return null;
             }
 
             if (filters.Length != 0)

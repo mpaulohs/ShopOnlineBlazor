@@ -1,6 +1,4 @@
 ﻿using ShopOnline.Library.Models.Identities;
-using Shared.Services;
-using System;
 
 
 namespace ShopOnline.Library.Models.Catalogs

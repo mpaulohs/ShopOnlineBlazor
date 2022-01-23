@@ -2,13 +2,10 @@
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ShopOnline.API.Models;
-using ShopOnline.Library;
 using ShopOnline.Library.Models.Documents;
-using Shared.Services;
+using ShopOnline.Library.Services;
 using System;
 using System.Threading.Tasks;
-using ShopOnline.API.Services;
 
 namespace ShopOnline.API.Controllers
 {
@@ -16,11 +13,11 @@ namespace ShopOnline.API.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
-        private readonly IRepository<DocumentSale, Guid, ApplicationDbContext> _repository;
+        private readonly IRepository<DocumentSale, Guid> _repository;
 
         private readonly ILogger<OrderController> _logger;
 
-        public OrderController(IRepository<DocumentSale, Guid, ApplicationDbContext> repository, ILogger<OrderController> loger)
+        public OrderController(IRepository<DocumentSale, Guid> repository, ILogger<OrderController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -36,7 +33,7 @@ namespace ShopOnline.API.Controllers
                 if (result == null)
                 {
                     return StatusCode(404);
-                }     
+                }
                 return StatusCode(200, result);
             }
             catch (Exception exception)
@@ -103,7 +100,7 @@ namespace ShopOnline.API.Controllers
             {
                 if (id==Guid.Empty||entity==null)
                 {
-                      return StatusCode(400, "Bad Request");
+                    return StatusCode(400, "Bad Request");
                 }
 
                 var result = await _repository.UpdateAsync(id, entity);

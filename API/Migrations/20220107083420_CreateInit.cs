@@ -1,9 +1,8 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 
 #nullable disable
-
-namespace Api.Migrations
+namespace ShopOnline.API.Migrations
 {
     public partial class CreateInit : Migration
     {

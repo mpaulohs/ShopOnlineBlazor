@@ -1,7 +1,6 @@
 ﻿using ShopOnline.Library.Models.Catalogs;
 using ShopOnline.Library.Models.Documents;
-using Shared.Services;
-using System;
+using ShopOnline.Library.Modesl;
 
 namespace ShopOnline.Library.Models.Registers
 {

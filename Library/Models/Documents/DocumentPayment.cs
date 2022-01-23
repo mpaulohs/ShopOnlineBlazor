@@ -1,6 +1,4 @@
 ﻿using ShopOnline.Library.Models.Catalogs;
-using Shared.Services;
-using System;
 
 namespace ShopOnline.Library.Models.Documents
 {

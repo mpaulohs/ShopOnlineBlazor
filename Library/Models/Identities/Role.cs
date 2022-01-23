@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Shared.Services;
-using System;
-using System.Collections.Generic;
+using ShopOnline.Library.Modesl;
 
 namespace ShopOnline.Library.Models.Identities
 {

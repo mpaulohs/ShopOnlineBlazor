@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Linq.Expressions;
 
-namespace Client.Services
+namespace ShopOnline.Client.Services
 {
-    public interface IEntityService<TEntity, TKey> where TEntity : class 
+    public interface IEntityService<TEntity, TKey> where TEntity : class
 
     {
         public Task<TKey> CreateAsync(TEntity entity, CancellationToken cancellationToken = default);

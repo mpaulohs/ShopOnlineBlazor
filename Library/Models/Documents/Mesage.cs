@@ -1,6 +1,4 @@
-﻿using Shared.Services;
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using ShopOnline.Library.Modesl;
 
 namespace ShopOnline.Library.Models.Documents
 {

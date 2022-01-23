@@ -1,11 +1,14 @@
 is_global = true
 build_property.TargetFramework = net6.0
 build_property.TargetPlatformMinVersion = 
-build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = 
 build_property.ProjectTypeGuids = 
-build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = false
 build_property.PlatformNeutralAssembly = 
-build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = browser
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = true
+build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = Server
 build_property.RootNamespace = Server
 build_property.ProjectDir = C:\Users\melnik.igor.CORPUZSERVICE\source\repos\developmentservice\ShopOnlinePWA\Server\
@@ -15,6 +18,38 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\melnik.igor.CORPUZSERVICE\source\repos\developmentservice\ShopOnlinePWA\Server
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/Server/Pages/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+[C:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/Server/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/Server/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/Server/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/Server/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/Server/Pages/OrdersList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJzTGlzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/Server/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/Server/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/Server/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-kkt30o18ti
+
+[C:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/Server/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-nl6y4qj04c

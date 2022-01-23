@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ShopOnline.API.Models;
+
 
 #nullable disable
 
-namespace Api.Migrations
+namespace ShopOnline.API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20220107083420_CreateInit")]

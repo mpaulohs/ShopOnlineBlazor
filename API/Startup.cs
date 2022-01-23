@@ -6,11 +6,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using ShopOnline.API.Models;
-using ShopOnline.API.Repositories;
+using ShopOnline.API.Migrations;
 using ShopOnline.API.Services;
 using ShopOnline.Library.Models.Documents;
 using ShopOnline.Library.Models.Identities;
+using ShopOnline.Library.Services;
 using System;
 
 namespace ShopOnline.API
@@ -51,9 +51,9 @@ namespace ShopOnline.API
 
             services.AddIdentity<User, Role>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
-            services.AddScoped<IRepository<DocumentSale, Guid, ApplicationDbContext>, SaleRepository>();
+            services.AddScoped<IRepository<DocumentSale, Guid>, SaleRepository>();
 
-            services.AddScoped<IRepository<User, Guid, ApplicationDbContext>, UserRepository>();
+            services.AddScoped<IRepository<User, Guid>, UserRepository>();
 
             //services.AddAutoMapper(typeof(Startup));
         }
