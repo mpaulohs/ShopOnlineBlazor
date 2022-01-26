@@ -80,7 +80,17 @@
       "ProjectGuid": "6f17b282-09ed-4470-931e-f37db23e1f12",
       "DisplayName": "Server",
       "ColorIndex": 14
+    },
+    "431d6157-aabe-4b03-b05e-4bf5740c1dbe": {
+      "ProjectGuid": "431d6157-aabe-4b03-b05e-4bf5740c1dbe",
+      "DisplayName": "Server",
+      "ColorIndex": 15
+    },
+    "fea901b7-7cdf-4869-a265-7c5a8b13349a": {
+      "ProjectGuid": "fea901b7-7cdf-4869-a265-7c5a8b13349a",
+      "DisplayName": "UseCases",
+      "ColorIndex": 0
     }
   },
-  "NextColorIndex": 15
+  "NextColorIndex": 1
 }
