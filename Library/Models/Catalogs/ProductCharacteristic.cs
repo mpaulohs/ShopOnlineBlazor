@@ -1,8 +1,7 @@
 ﻿namespace ShopOnline.Shared.Models.Catalogs
 {
-    public class ItemSerie : CatalogBase<Guid>
+    public class ProductCharacteristic : CatalogBase<Guid>
     {
-
 
     }
 }

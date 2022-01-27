@@ -1,6 +1,7 @@
 ﻿namespace ShopOnline.Shared.Models.Catalogs
 {
-    public class ItemCharacteristic : CatalogBase<Guid>
+    public class ProductQuality : CatalogBase<Guid>
+
     {
 
     }

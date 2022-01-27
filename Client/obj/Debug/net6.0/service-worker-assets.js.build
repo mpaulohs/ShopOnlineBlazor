@@ -5,11 +5,11 @@
       "url": "css\/app.css"
     },
     {
-      "hash": "sha256-SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7\/p4nS6D\/0=",
+      "hash": "sha256-VzBn3uZwfBVKq2BJDaRrr85UkujSS4a9ccoK+BWyLHQ=",
       "url": "css\/bootstrap\/bootstrap.min.css"
     },
     {
-      "hash": "sha256-gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=",
+      "hash": "sha256-H4goqvytCYndXkS2unNxECxz+\/tHoBPXmvLgS+wAntU=",
       "url": "css\/bootstrap\/bootstrap.min.css.map"
     },
     {
@@ -45,7 +45,7 @@
       "url": "css\/open-iconic\/ICON-LICENSE"
     },
     {
-      "hash": "sha256-p\/oxU91iBE+uaDr3kYOyZPuulf4YcPAMNIz6PRA\/tb0=",
+      "hash": "sha256-g87MBxcNe8OXsCJ4mkpdDbG6BUpbnCLGYipgi43URTU=",
       "url": "css\/open-iconic\/README.md"
     },
     {
@@ -73,7 +73,7 @@
       "url": "sample-data\/weather.json"
     },
     {
-      "hash": "sha256-Wm\/W3u6RWoY+IQCXQ\/Za9y6LG59GUMalY5Y8m0D8AgY=",
+      "hash": "sha256-OxKoO19hmNvtTtGtZNrskKHKduJXlrypvVMYuyx4Zc0=",
       "url": "Client.styles.css"
     },
     {
@@ -929,19 +929,19 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-hbB7IdEQDa4FhrH7qDLpCxLIEcT4tBCe88PgE+NCJ7M=",
+      "hash": "sha256-UQFCLkx8JIU1nvi0+Xfu18zavlpAXTioho9xMozM7KY=",
       "url": "_framework\/Shared.dll"
     },
     {
-      "hash": "sha256-crETAoFScBE1pu2NoJsOYa3xJp+xBipPSv2M4ysCumw=",
+      "hash": "sha256-5jiyT7Dkf0\/7+CIAUmqGwaIDSLOuTQHpGkZMeopYV7M=",
       "url": "_framework\/Shared.pdb"
     },
     {
-      "hash": "sha256-PHzXTh0yCGht3x0jx6wko4Bf1leI9cLiYcrW9UWwuvw=",
+      "hash": "sha256-2M99TloDgInLB\/m4fppAP0YJzFfn3xLxTRTH9VxKjrg=",
       "url": "_framework\/Client.dll"
     },
     {
-      "hash": "sha256-bbQAQnbAgA16k81KbtY39\/ESXouyLcKRsHVuYqlaPR4=",
+      "hash": "sha256-FnIW2By5DLSWffaM+Rc4aBWshsQZwtj7KkCeJP9a8zg=",
       "url": "_framework\/Client.pdb"
     },
     {
@@ -949,7 +949,7 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-ZJoyldD\/iuJG4tM5CcoBGHqRHZiC2SBzPJR7+pRj8BM=",
+      "hash": "sha256-lRz1kNmP6yf+0hk4RpFheTCFlF1\/4k30UJcxxExPVng=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -957,5 +957,5 @@
       "url": "_content\/Microsoft.AspNetCore.Components.WebAssembly.Authentication\/AuthenticationService.js"
     }
   ],
-  "version": "4VABsYfV"
+  "version": "uKl8ithe"
 };

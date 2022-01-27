@@ -1,8 +1,8 @@
 ﻿using ShopOnline.Shared.Models.Documents;
 
-namespace ShopOnline.UseCases.SearchItemsScreen
+namespace ShopOnline.UseCases.SearchProductsScreen
 {
-    public class ViewItem
+    public class ViewProduct
     {
         public DocumentSale Execute(string filter)
         {

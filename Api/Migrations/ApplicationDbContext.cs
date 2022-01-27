@@ -100,19 +100,19 @@ namespace ShopOnline.API.Migrations
 
             modelBuilder.Entity<Currency>(b => b.ToTable("Currencyes"));
 
-            modelBuilder.Entity<Item>(b => b.ToTable("Items"));
+            modelBuilder.Entity<Product>(b => b.ToTable("Products"));
 
-            modelBuilder.Entity<ItemCharacteristic>(b => b.ToTable("ItemCharacteristics"));
+            modelBuilder.Entity<ProductCharacteristic>(b => b.ToTable("ProductCharacteristics"));
 
-            modelBuilder.Entity<ItemQuality>(b => b.ToTable("ItmeQualityes"));
+            modelBuilder.Entity<ProductQuality>(b => b.ToTable("ItmeQualityes"));
 
-            modelBuilder.Entity<ItemSerie>(b => b.ToTable("ItemSeries"));
+            modelBuilder.Entity<ProductSerie>(b => b.ToTable("ProductSeries"));
 
-            modelBuilder.Entity<ItemType>(b => b.ToTable("ItemTypes"));
+            modelBuilder.Entity<ProductType>(b => b.ToTable("ProductTypes"));
 
-            modelBuilder.Entity<ItemUnitClassifier>(b => b.ToTable("ItemUnitClassifiers"));
+            modelBuilder.Entity<ProductUnitClassifier>(b => b.ToTable("ProductUnitClassifiers"));
 
-            modelBuilder.Entity<ItemUnitMeasurement>(b => b.ToTable("ItemUnitMeasuraments"));
+            modelBuilder.Entity<ProductUnitMeasurement>(b => b.ToTable("ProductUnitMeasuraments"));
 
             modelBuilder.Entity<Organization>(b => b.ToTable("Organizations"));
 
@@ -246,14 +246,14 @@ namespace ShopOnline.API.Migrations
                 modelBuilder.Entity<User>().HasData(user);
             }
 
-            List<Item> items = new List<Item>()
+            List<Product> Products = new List<Product>()
             {
-                new Item()
+                new Product()
                 {
                     Id = Guid.NewGuid(),
                     Article = new Random().Next(0, 1000).ToString(),
-                    Name = "Name Item1",
-                    FullName = "Full name Item1",
+                    Name = "Name Product1",
+                    FullName = "Full name Product1",
                     Description = "Description"
                 }
             };
@@ -273,23 +273,23 @@ namespace ShopOnline.API.Migrations
                 }
             };
 
-            List<SaleItem> saleItems = new List<SaleItem>()
+            List<SaleProduct> saleProducts = new List<SaleProduct>()
             {
-                new SaleItem()
+                new SaleProduct()
                 {
                     Id= Guid.NewGuid(),
-                    Item=items[0],
+                    Product=Products[0],
                     Price =  500,
                     Discount = 10,
-                    Serie = new ItemSerie()
+                    Serie = new ProductSerie()
                     {
                         Id = Guid.NewGuid(),
-                        Name = "SerieForItem"
+                        Name = "SerieForProduct"
                     },
-                    Quality = new ItemQuality()
+                    Quality = new ProductQuality()
                     {
                         Id = Guid.NewGuid(),
-                        Name = "QualityForItem"
+                        Name = "QualityForProduct"
                     }
 
                 }
@@ -297,8 +297,8 @@ namespace ShopOnline.API.Migrations
 
             //Curency
             //var Curensy = new HashSet<Currency>();
-            //foreach (CultureInfo item in CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures))
-            //    Curensy.Add(new Currency(item.Name, item.ToString(), item.NumberFormat.CurrencySymbol));
+            //foreach (CultureInfo Product in CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures))
+            //    Curensy.Add(new Currency(Product.Name, Product.ToString(), Product.NumberFormat.CurrencySymbol));
 
             //foreach (Currency currency in Curensy)
             //    modelBuilder.Entity<Currency>().HasData(currency);

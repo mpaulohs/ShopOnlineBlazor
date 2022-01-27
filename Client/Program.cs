@@ -1,6 +1,7 @@
 using Client;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using ShopOnline.Shared.Models.Catalogs;
 using ShopOnline.Shared.Models.Documents;
 using ShopOnline.Shared.Services;
 
@@ -15,7 +16,8 @@ builder.Services.AddTransient(ServiceProvider => new HttpClient
 });
 
 
-builder.Services.AddTransient(typeof(IRepository<DocumentSale, Guid>), typeof(RepositoryBaseClient<DocumentSale, Guid>));
+builder.Services.AddScoped(typeof(IRepository<DocumentSale, Guid>), typeof(RepositoryBaseClient<DocumentSale, Guid>));
+builder.Services.AddScoped(typeof(IRepository<Product, Guid>), typeof(RepositoryBaseClient<Product, Guid>));
 
 builder.Services.AddOidcAuthentication(options =>
 {

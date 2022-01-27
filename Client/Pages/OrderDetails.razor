@@ -1,56 +1,36 @@
-﻿@page "/order"
+﻿@page "/orders/{id:guid}"
 
 @inject IRepository<DocumentSale, Guid> repository
 
-<PageTitle>Orders</PageTitle>
+<PageTitle>Order</PageTitle>
 
-<h1>Orders list</h1>
+<h1>Order detail</h1>
 
-<p>This is the list off all orders</p>
+<p>This is the page off order detail</p>
 
-@if (orders == null)
+@if (order == null)
 {
     <p><em>Loading...</em></p>
 }
 else
 {
-    var properties = typeof(DocumentSale).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
-         .Where(ø => ø.CanRead && ø.CanWrite)
-         //.Where(ø => ø.PropertyType == typeof(string))
-         .Where(ø => ø.GetGetMethod(true).IsPublic);
-    // .Where(ø => ø.GetSetMethod(true).IsPublic);
+    <div class="media">
 
-    <table class="table">
-        <thead>
-            <tr>
-                @foreach (var property in properties)
-               {
-                   <th>@property.Name</th>
-               }
-            </tr>
-        </thead>
-      <tbody>
-            @foreach (var order in orders)
-            {
-                <tr>
-                     @foreach (var property in properties)
-               {
-                   <th>@property.GetValue(order)?.ToString()</th>
-               }
-                 </tr>
-            }
-        </tbody>
-    </table>
+    </div>
 }
 
 @code {
 
-    private IEnumerable<DocumentSale>? orders;
+    private DocumentSale order = null;
 
-    protected override async Task OnInitializedAsync() {
+    [Parameter]
+    public Guid Id{ get; set; }
 
-        orders = await repository.GetByFiltersAsync();
-
+    protected override async Task OnParametersSetAsync()
+    {
+        order = await repository.GetByIdAsync(Id);
     }
+
+  
 }
 

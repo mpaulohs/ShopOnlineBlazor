@@ -305,7 +305,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("Currencyes", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.Item", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -333,19 +333,19 @@ namespace ShopOnline.API.Migrations
                     b.Property<string>("FullName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("ItemCharacteristicId")
+                    b.Property<Guid?>("ProductCharacteristicId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ItemQualityId")
+                    b.Property<Guid?>("ProductQualityId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ItemSerieId")
+                    b.Property<Guid?>("ProductSerieId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ItemTypeId")
+                    b.Property<Guid?>("ProductTypeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ItemUnitMeasurementId")
+                    b.Property<Guid?>("ProductUnitMeasurementId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
@@ -356,20 +356,20 @@ namespace ShopOnline.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ItemCharacteristicId");
+                    b.HasIndex("ProductCharacteristicId");
 
-                    b.HasIndex("ItemQualityId");
+                    b.HasIndex("ProductQualityId");
 
-                    b.HasIndex("ItemSerieId");
+                    b.HasIndex("ProductSerieId");
 
-                    b.HasIndex("ItemTypeId");
+                    b.HasIndex("ProductTypeId");
 
-                    b.HasIndex("ItemUnitMeasurementId");
+                    b.HasIndex("ProductUnitMeasurementId");
 
-                    b.ToTable("Items", (string)null);
+                    b.ToTable("Products", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ItemCharacteristic", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ProductCharacteristic", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -396,10 +396,10 @@ namespace ShopOnline.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ItemCharacteristics", (string)null);
+                    b.ToTable("ProductCharacteristics", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ItemQuality", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ProductQuality", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -429,7 +429,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("ItmeQualityes", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ItemSerie", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ProductSerie", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -456,10 +456,10 @@ namespace ShopOnline.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ItemSeries", (string)null);
+                    b.ToTable("ProductSeries", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ItemType", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ProductType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -486,10 +486,10 @@ namespace ShopOnline.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ItemTypes", (string)null);
+                    b.ToTable("ProductTypes", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ItemUnitClassifier", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ProductUnitClassifier", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -516,10 +516,10 @@ namespace ShopOnline.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ItemUnitClassifiers", (string)null);
+                    b.ToTable("ProductUnitClassifiers", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ItemUnitMeasurement", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ProductUnitMeasurement", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -546,7 +546,7 @@ namespace ShopOnline.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ItemUnitMeasuraments", (string)null);
+                    b.ToTable("ProductUnitMeasuraments", (string)null);
                 });
 
             modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.Organization", b =>
@@ -1249,37 +1249,37 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("Currency");
                 });
 
-            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.Item", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.Product", b =>
                 {
-                    b.HasOne("ShopOnline.Shared.Models.Catalogs.ItemCharacteristic", "ItemCharacteristic")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.ProductCharacteristic", "ProductCharacteristic")
                         .WithMany()
-                        .HasForeignKey("ItemCharacteristicId");
+                        .HasForeignKey("ProductCharacteristicId");
 
-                    b.HasOne("ShopOnline.Shared.Models.Catalogs.ItemQuality", "ItemQuality")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.ProductQuality", "ProductQuality")
                         .WithMany()
-                        .HasForeignKey("ItemQualityId");
+                        .HasForeignKey("ProductQualityId");
 
-                    b.HasOne("ShopOnline.Shared.Models.Catalogs.ItemSerie", "ItemSerie")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.ProductSerie", "ProductSerie")
                         .WithMany()
-                        .HasForeignKey("ItemSerieId");
+                        .HasForeignKey("ProductSerieId");
 
-                    b.HasOne("ShopOnline.Shared.Models.Catalogs.ItemType", "ItemType")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.ProductType", "ProductType")
                         .WithMany()
-                        .HasForeignKey("ItemTypeId");
+                        .HasForeignKey("ProductTypeId");
 
-                    b.HasOne("ShopOnline.Shared.Models.Catalogs.ItemUnitMeasurement", "ItemUnitMeasurement")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.ProductUnitMeasurement", "ProductUnitMeasurement")
                         .WithMany()
-                        .HasForeignKey("ItemUnitMeasurementId");
+                        .HasForeignKey("ProductUnitMeasurementId");
 
-                    b.Navigation("ItemCharacteristic");
+                    b.Navigation("ProductCharacteristic");
 
-                    b.Navigation("ItemQuality");
+                    b.Navigation("ProductQuality");
 
-                    b.Navigation("ItemSerie");
+                    b.Navigation("ProductSerie");
 
-                    b.Navigation("ItemType");
+                    b.Navigation("ProductType");
 
-                    b.Navigation("ItemUnitMeasurement");
+                    b.Navigation("ProductUnitMeasurement");
                 });
 
             modelBuilder.Entity("ShopOnline.Shared.Models.Documents.DocumentPayment", b =>

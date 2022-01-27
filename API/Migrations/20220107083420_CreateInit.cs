@@ -99,7 +99,7 @@ namespace ShopOnline.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ItemCharacteristics",
+                name: "ProductCharacteristics",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -112,11 +112,11 @@ namespace ShopOnline.API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ItemCharacteristics", x => x.Id);
+                    table.PrimaryKey("PK_ProductCharacteristics", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ItemSeries",
+                name: "ProductSeries",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -129,11 +129,11 @@ namespace ShopOnline.API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ItemSeries", x => x.Id);
+                    table.PrimaryKey("PK_ProductSeries", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ItemTypes",
+                name: "ProductTypes",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -146,11 +146,11 @@ namespace ShopOnline.API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ItemTypes", x => x.Id);
+                    table.PrimaryKey("PK_ProductTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ItemUnitClassifiers",
+                name: "ProductUnitClassifiers",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -163,11 +163,11 @@ namespace ShopOnline.API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ItemUnitClassifiers", x => x.Id);
+                    table.PrimaryKey("PK_ProductUnitClassifiers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ItemUnitMeasuraments",
+                name: "ProductUnitMeasuraments",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -180,7 +180,7 @@ namespace ShopOnline.API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ItemUnitMeasuraments", x => x.Id);
+                    table.PrimaryKey("PK_ProductUnitMeasuraments", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -356,17 +356,17 @@ namespace ShopOnline.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Items",
+                name: "Products",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Article = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ItemTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    ItemCharacteristicId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    ItemQualityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    ItemSerieId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    ItemUnitMeasurementId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ProductTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ProductCharacteristicId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ProductQualityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ProductSerieId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ProductUnitMeasurementId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ExchangeId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -377,30 +377,30 @@ namespace ShopOnline.API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Items", x => x.Id);
+                    table.PrimaryKey("PK_Products", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Items_ItemCharacteristics_ItemCharacteristicId",
-                        column: x => x.ItemCharacteristicId,
-                        principalTable: "ItemCharacteristics",
+                        name: "FK_Products_ProductCharacteristics_ProductCharacteristicId",
+                        column: x => x.ProductCharacteristicId,
+                        principalTable: "ProductCharacteristics",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Items_ItemSeries_ItemSerieId",
-                        column: x => x.ItemSerieId,
-                        principalTable: "ItemSeries",
+                        name: "FK_Products_ProductSeries_ProductSerieId",
+                        column: x => x.ProductSerieId,
+                        principalTable: "ProductSeries",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Items_ItemTypes_ItemTypeId",
-                        column: x => x.ItemTypeId,
-                        principalTable: "ItemTypes",
+                        name: "FK_Products_ProductTypes_ProductTypeId",
+                        column: x => x.ProductTypeId,
+                        principalTable: "ProductTypes",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Items_ItemUnitMeasuraments_ItemUnitMeasurementId",
-                        column: x => x.ItemUnitMeasurementId,
-                        principalTable: "ItemUnitMeasuraments",
+                        name: "FK_Products_ProductUnitMeasuraments_ProductUnitMeasurementId",
+                        column: x => x.ProductUnitMeasurementId,
+                        principalTable: "ProductUnitMeasuraments",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Items_ItmeQualityes_ItemQualityId",
-                        column: x => x.ItemQualityId,
+                        name: "FK_Products_ItmeQualityes_ProductQualityId",
+                        column: x => x.ProductQualityId,
                         principalTable: "ItmeQualityes",
                         principalColumn: "Id");
                 });
@@ -813,29 +813,29 @@ namespace ShopOnline.API.Migrations
                 column: "SubdivisionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Items_ItemCharacteristicId",
-                table: "Items",
-                column: "ItemCharacteristicId");
+                name: "IX_Products_ProductCharacteristicId",
+                table: "Products",
+                column: "ProductCharacteristicId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Items_ItemQualityId",
-                table: "Items",
-                column: "ItemQualityId");
+                name: "IX_Products_ProductQualityId",
+                table: "Products",
+                column: "ProductQualityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Items_ItemSerieId",
-                table: "Items",
-                column: "ItemSerieId");
+                name: "IX_Products_ProductSerieId",
+                table: "Products",
+                column: "ProductSerieId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Items_ItemTypeId",
-                table: "Items",
-                column: "ItemTypeId");
+                name: "IX_Products_ProductTypeId",
+                table: "Products",
+                column: "ProductTypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Items_ItemUnitMeasurementId",
-                table: "Items",
-                column: "ItemUnitMeasurementId");
+                name: "IX_Products_ProductUnitMeasurementId",
+                table: "Products",
+                column: "ProductUnitMeasurementId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Payments_ClientContractId",
@@ -935,10 +935,10 @@ namespace ShopOnline.API.Migrations
                 name: "Documents");
 
             migrationBuilder.DropTable(
-                name: "Items");
+                name: "Products");
 
             migrationBuilder.DropTable(
-                name: "ItemUnitClassifiers");
+                name: "ProductUnitClassifiers");
 
             migrationBuilder.DropTable(
                 name: "Mesages");
@@ -971,16 +971,16 @@ namespace ShopOnline.API.Migrations
                 name: "Storages");
 
             migrationBuilder.DropTable(
-                name: "ItemCharacteristics");
+                name: "ProductCharacteristics");
 
             migrationBuilder.DropTable(
-                name: "ItemSeries");
+                name: "ProductSeries");
 
             migrationBuilder.DropTable(
-                name: "ItemTypes");
+                name: "ProductTypes");
 
             migrationBuilder.DropTable(
-                name: "ItemUnitMeasuraments");
+                name: "ProductUnitMeasuraments");
 
             migrationBuilder.DropTable(
                 name: "ItmeQualityes");

@@ -1,6 +1,6 @@
 ﻿namespace ShopOnline.Shared.Models.Catalogs
 {
-    public class ItemUnitClassifier : CatalogBase<Guid>
+    public class ProductUnitMeasurement : CatalogBase<Guid>
     {
 
     }
