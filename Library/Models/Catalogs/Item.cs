@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ShopOnline.Library.Models.Catalogs
+namespace ShopOnline.Shared.Models.Catalogs
 {
     public class Item : CatalogBase<Guid>
     {

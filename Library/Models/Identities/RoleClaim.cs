@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace ShopOnline.Library.Models.Identities
+namespace ShopOnline.Shared.Models.Identities
 {
     public class RoleClaim : IdentityRoleClaim<Guid>
     {

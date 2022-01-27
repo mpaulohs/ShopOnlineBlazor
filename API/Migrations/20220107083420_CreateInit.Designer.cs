@@ -24,7 +24,7 @@ namespace ShopOnline.API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.AdditionalInformation", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.AdditionalInformation", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -63,7 +63,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("AdditionalInformations", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.Bank", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.Bank", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -93,7 +93,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("Banks", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.BankAccount", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.BankAccount", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -128,7 +128,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("BankAccounts", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.CashDesk", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.CashDesk", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -158,7 +158,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("CashDesks", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ClientContactInformation", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ClientContactInformation", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -201,7 +201,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("ClientContackInformations", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ClientContactInformationType", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ClientContactInformationType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -231,7 +231,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("ClientContactInformationTypes", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ClientContract", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ClientContract", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -271,7 +271,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("ClientContracts", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.Currency", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.Currency", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -307,7 +307,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("Currencyes", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.Item", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.Item", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -371,7 +371,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("Items", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ItemCharacteristic", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ItemCharacteristic", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -401,7 +401,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("ItemCharacteristics", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ItemQuality", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ItemQuality", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -431,7 +431,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("ItmeQualityes", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ItemSerie", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ItemSerie", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -461,7 +461,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("ItemSeries", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ItemType", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ItemType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -491,7 +491,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("ItemTypes", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ItemUnitClassifier", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ItemUnitClassifier", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -521,7 +521,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("ItemUnitClassifiers", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ItemUnitMeasurement", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ItemUnitMeasurement", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -551,7 +551,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("ItemUnitMeasuraments", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.Organization", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.Organization", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -581,7 +581,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("Organizations", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.PriceType", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.PriceType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -611,7 +611,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("PriceType");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.Storage", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.Storage", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -641,7 +641,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("Storages", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.Subdivision", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.Subdivision", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -671,7 +671,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("Subdivisions", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Documents.DocumentPayment", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Documents.DocumentPayment", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -759,7 +759,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("Payments", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Documents.DocumentSale", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Documents.DocumentSale", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -861,7 +861,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("Documents", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Documents.Mesage", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Documents.Mesage", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -884,7 +884,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("Mesages", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Identities.Role", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Identities.Role", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -966,7 +966,7 @@ namespace ShopOnline.API.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Identities.RoleClaim", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Identities.RoleClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -990,7 +990,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("RoleClaims", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Identities.User", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Identities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -1133,7 +1133,7 @@ namespace ShopOnline.API.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Identities.UserClaim", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Identities.UserClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1157,7 +1157,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("UserClaims", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Identities.UserLogin", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Identities.UserLogin", b =>
                 {
                     b.Property<string>("LoginProvider")
                         .HasColumnType("nvarchar(450)");
@@ -1178,7 +1178,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("UserLogins", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Identities.UserRole", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Identities.UserRole", b =>
                 {
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -1193,7 +1193,7 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("UserRoles", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Identities.UserToken", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Identities.UserToken", b =>
                 {
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -1212,22 +1212,22 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("UserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.BankAccount", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.BankAccount", b =>
                 {
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.Bank", "Bank")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.Bank", "Bank")
                         .WithMany()
                         .HasForeignKey("BankId");
 
                     b.Navigation("Bank");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ClientContactInformation", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ClientContactInformation", b =>
                 {
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.ClientContactInformationType", "ClientContactInformationType")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.ClientContactInformationType", "ClientContactInformationType")
                         .WithMany()
                         .HasForeignKey("ClientContactInformationTypeId");
 
-                    b.HasOne("ShopOnline.Library.Models.Identities.User", "Client")
+                    b.HasOne("ShopOnline.Shared.Models.Identities.User", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
 
@@ -1236,13 +1236,13 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("ClientContactInformationType");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.ClientContract", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.ClientContract", b =>
                 {
-                    b.HasOne("ShopOnline.Library.Models.Identities.User", "Client")
+                    b.HasOne("ShopOnline.Shared.Models.Identities.User", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
 
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.Currency", "Currency")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.Currency", "Currency")
                         .WithMany()
                         .HasForeignKey("CurrencyId");
 
@@ -1251,25 +1251,25 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("Currency");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Catalogs.Item", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.Item", b =>
                 {
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.ItemCharacteristic", "ItemCharacteristic")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.ItemCharacteristic", "ItemCharacteristic")
                         .WithMany()
                         .HasForeignKey("ItemCharacteristicId");
 
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.ItemQuality", "ItemQuality")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.ItemQuality", "ItemQuality")
                         .WithMany()
                         .HasForeignKey("ItemQualityId");
 
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.ItemSerie", "ItemSerie")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.ItemSerie", "ItemSerie")
                         .WithMany()
                         .HasForeignKey("ItemSerieId");
 
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.ItemType", "ItemType")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.ItemType", "ItemType")
                         .WithMany()
                         .HasForeignKey("ItemTypeId");
 
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.ItemUnitMeasurement", "ItemUnitMeasurement")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.ItemUnitMeasurement", "ItemUnitMeasurement")
                         .WithMany()
                         .HasForeignKey("ItemUnitMeasurementId");
 
@@ -1284,37 +1284,37 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("ItemUnitMeasurement");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Documents.DocumentPayment", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Documents.DocumentPayment", b =>
                 {
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.ClientContract", "ClientContract")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.ClientContract", "ClientContract")
                         .WithMany()
                         .HasForeignKey("ClientContractId");
 
-                    b.HasOne("ShopOnline.Library.Models.Identities.User", "Client")
+                    b.HasOne("ShopOnline.Shared.Models.Identities.User", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
 
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.Currency", "Currency")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.Currency", "Currency")
                         .WithMany()
                         .HasForeignKey("CurrencyId");
 
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.Currency", "DocumentCurrency")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.Currency", "DocumentCurrency")
                         .WithMany()
                         .HasForeignKey("DocumentCurrencyId");
 
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.Organization", "Organization")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.Organization", "Organization")
                         .WithMany()
                         .HasForeignKey("OrganizationId");
 
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.PriceType", "PriceType")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.PriceType", "PriceType")
                         .WithMany()
                         .HasForeignKey("PriceTypeId");
 
-                    b.HasOne("ShopOnline.Library.Models.Identities.User", "Responsible")
+                    b.HasOne("ShopOnline.Shared.Models.Identities.User", "Responsible")
                         .WithMany()
                         .HasForeignKey("ResponsibleId");
 
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.Subdivision", "Subdivision")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.Subdivision", "Subdivision")
                         .WithMany()
                         .HasForeignKey("SubdivisionId");
 
@@ -1335,41 +1335,41 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("Subdivision");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Documents.DocumentSale", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Documents.DocumentSale", b =>
                 {
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.ClientContract", "ClientContract")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.ClientContract", "ClientContract")
                         .WithMany()
                         .HasForeignKey("ClientContractId");
 
-                    b.HasOne("ShopOnline.Library.Models.Identities.User", "Client")
+                    b.HasOne("ShopOnline.Shared.Models.Identities.User", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
 
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.Currency", "DocumentCurrency")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.Currency", "DocumentCurrency")
                         .WithMany()
                         .HasForeignKey("DocumentCurrencyId");
 
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.Organization", "Organization")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.Organization", "Organization")
                         .WithMany()
                         .HasForeignKey("OrganizationId");
 
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.PriceType", "PriceType")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.PriceType", "PriceType")
                         .WithMany()
                         .HasForeignKey("PriceTypeId");
 
-                    b.HasOne("ShopOnline.Library.Models.Identities.User", "Reciver")
+                    b.HasOne("ShopOnline.Shared.Models.Identities.User", "Reciver")
                         .WithMany()
                         .HasForeignKey("ReciverId");
 
-                    b.HasOne("ShopOnline.Library.Models.Identities.User", "Responsible")
+                    b.HasOne("ShopOnline.Shared.Models.Identities.User", "Responsible")
                         .WithMany()
                         .HasForeignKey("ResponsibleId");
 
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.Storage", "Storage")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.Storage", "Storage")
                         .WithMany()
                         .HasForeignKey("StorageId");
 
-                    b.HasOne("ShopOnline.Library.Models.Catalogs.Subdivision", "Subdivision")
+                    b.HasOne("ShopOnline.Shared.Models.Catalogs.Subdivision", "Subdivision")
                         .WithMany()
                         .HasForeignKey("SubdivisionId");
 
@@ -1392,9 +1392,9 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("Subdivision");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Identities.RoleClaim", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Identities.RoleClaim", b =>
                 {
-                    b.HasOne("ShopOnline.Library.Models.Identities.Role", "Role")
+                    b.HasOne("ShopOnline.Shared.Models.Identities.Role", "Role")
                         .WithMany("RoleClaims")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1403,9 +1403,9 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Identities.UserClaim", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Identities.UserClaim", b =>
                 {
-                    b.HasOne("ShopOnline.Library.Models.Identities.User", "User")
+                    b.HasOne("ShopOnline.Shared.Models.Identities.User", "User")
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1414,9 +1414,9 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Identities.UserLogin", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Identities.UserLogin", b =>
                 {
-                    b.HasOne("ShopOnline.Library.Models.Identities.User", "User")
+                    b.HasOne("ShopOnline.Shared.Models.Identities.User", "User")
                         .WithMany("Logins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1425,15 +1425,15 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Identities.UserRole", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Identities.UserRole", b =>
                 {
-                    b.HasOne("ShopOnline.Library.Models.Identities.Role", "Role")
+                    b.HasOne("ShopOnline.Shared.Models.Identities.Role", "Role")
                         .WithMany("UserRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ShopOnline.Library.Models.Identities.User", "User")
+                    b.HasOne("ShopOnline.Shared.Models.Identities.User", "User")
                         .WithMany("UserRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1444,9 +1444,9 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Identities.UserToken", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Identities.UserToken", b =>
                 {
-                    b.HasOne("ShopOnline.Library.Models.Identities.User", "User")
+                    b.HasOne("ShopOnline.Shared.Models.Identities.User", "User")
                         .WithMany("Tokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1455,14 +1455,14 @@ namespace ShopOnline.API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Identities.Role", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Identities.Role", b =>
                 {
                     b.Navigation("RoleClaims");
 
                     b.Navigation("UserRoles");
                 });
 
-            modelBuilder.Entity("ShopOnline.Library.Models.Identities.User", b =>
+            modelBuilder.Entity("ShopOnline.Shared.Models.Identities.User", b =>
                 {
                     b.Navigation("Claims");
 

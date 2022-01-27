@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using ShopOnline.Library.Modesl;
-using ShopOnline.Library.Services;
+using ShopOnline.Shared.Modesl;
+using ShopOnline.Shared.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,21 +12,22 @@ using System.Threading.Tasks;
 
 namespace ShopOnline.API.Services
 {
-    public abstract class RepositoryBase<TEntity, TKey> :
+    public class RepositoryBaseApi<TEntity, TKey, TDbContext> :
         IDisposable,
         IRepository<TEntity, TKey>
         where TEntity : class, IApplicationEntity<TKey>
+        where TDbContext: DbContext
         where TKey : IEquatable<TKey>
     {
 
-        public RepositoryBase(DbContext context, ILogger<TEntity> logger)
+        public RepositoryBaseApi(TDbContext context, ILogger<TEntity> logger)
         {
             Context = context ?? throw new ArgumentNullException(nameof(context));
             Logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
 
-        protected DbContext Context { get; private set; }
+        protected TDbContext Context { get; private set; }
 
         protected ILogger<TEntity> Logger { get; set; }
 

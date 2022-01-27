@@ -1,4 +1,4 @@
-﻿namespace ShopOnline.Library.Models.Documents
+﻿namespace ShopOnline.Shared.Models.Documents
 {
     public class DocumentAdjustment : DocumentBase<Guid>
     {

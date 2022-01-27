@@ -1,4 +1,4 @@
-﻿using ShopOnline.Library.Models.Documents;
+﻿using ShopOnline.Shared.Models.Documents;
 
 namespace ShopOnline.UseCases.SearchItemsScreen
 {

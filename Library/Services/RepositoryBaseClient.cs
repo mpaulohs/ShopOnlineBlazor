@@ -1,20 +1,20 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using ShopOnline.Library.Modesl;
+using ShopOnline.Shared.Modesl;
 using System.Linq.Expressions;
 using System.Net.Http.Json;
 
-namespace ShopOnline.Library.Services
+namespace ShopOnline.Shared.Services
 {
-    public abstract class RepositoryBase<TEntity, TKey> :
+    public abstract class RepositoryBaseClient<TEntity, TKey> :
         IDisposable,
         IRepository<TEntity, TKey>
         where TEntity : class, IApplicationEntity<TKey>
         where TKey : IEquatable<TKey>
     {
 
-        public RepositoryBase(HttpClient httpClient, ILogger<TEntity> logger)
+        public RepositoryBaseClient(HttpClient httpClient, ILogger<TEntity> logger)
         {
             HttpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
             Logger = logger ?? throw new ArgumentNullException(nameof(logger));

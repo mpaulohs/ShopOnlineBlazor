@@ -1,6 +1,6 @@
-﻿using ShopOnline.Library.Modesl;
+﻿using ShopOnline.Shared.Modesl;
 
-namespace ShopOnline.Library.Models.Documents
+namespace ShopOnline.Shared.Models.Documents
 {
     public class Mesage : IApplicationEntity<Guid>
     {

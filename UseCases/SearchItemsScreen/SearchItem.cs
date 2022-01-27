@@ -1,5 +1,5 @@
-﻿using ShopOnline.Library.Models.Documents;
-using ShopOnline.Library.Services;
+﻿using ShopOnline.Shared.Models.Documents;
+using ShopOnline.Shared.Services;
 
 namespace ShopOnline.UseCases.SearchItemsScreen
 {

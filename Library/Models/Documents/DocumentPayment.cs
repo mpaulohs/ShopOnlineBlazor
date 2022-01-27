@@ -1,6 +1,6 @@
-﻿using ShopOnline.Library.Models.Catalogs;
+﻿using ShopOnline.Shared.Models.Catalogs;
 
-namespace ShopOnline.Library.Models.Documents
+namespace ShopOnline.Shared.Models.Documents
 {
     public class DocumentPayment : DocumentBase<Guid>
     {

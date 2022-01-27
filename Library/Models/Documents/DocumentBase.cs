@@ -1,9 +1,9 @@
-﻿using ShopOnline.Library.Models.Catalogs;
-using ShopOnline.Library.Models.Identities;
-using ShopOnline.Library.Modesl;
+﻿using ShopOnline.Shared.Models.Catalogs;
+using ShopOnline.Shared.Models.Identities;
+using ShopOnline.Shared.Modesl;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ShopOnline.Library.Models.Documents
+namespace ShopOnline.Shared.Models.Documents
 {
     public abstract class DocumentBase<TKey> : IApplicationEntity<TKey>
     {

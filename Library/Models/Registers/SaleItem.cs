@@ -1,8 +1,8 @@
-﻿using ShopOnline.Library.Models.Catalogs;
-using ShopOnline.Library.Models.Documents;
-using ShopOnline.Library.Modesl;
+﻿using ShopOnline.Shared.Models.Catalogs;
+using ShopOnline.Shared.Models.Documents;
+using ShopOnline.Shared.Modesl;
 
-namespace ShopOnline.Library.Models.Registers
+namespace ShopOnline.Shared.Models.Registers
 {
     public class SaleItem : IApplicationEntity<Guid>
     {

@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ShopOnline.Library.Models.Documents;
-using ShopOnline.Library.Services;
+using ShopOnline.Shared.Models.Documents;
+using ShopOnline.Shared.Services;
 using System;
 using System.Threading.Tasks;
 

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using ShopOnline.Library.Modesl;
+using ShopOnline.Shared.Modesl;
 
-namespace ShopOnline.Library.Models.Identities
+namespace ShopOnline.Shared.Models.Identities
 {
 
     public class Role : IdentityRole<Guid>, IApplicationEntity<Guid>

@@ -1,7 +1,7 @@
-﻿using ShopOnline.Library.Models.Catalogs;
+﻿using ShopOnline.Shared.Models.Catalogs;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ShopOnline.Library.Models.Registers
+namespace ShopOnline.Shared.Models.Registers
 {
     public class ItemPrice
     {

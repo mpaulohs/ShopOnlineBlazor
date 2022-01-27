@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
-using ShopOnline.Library.Modesl;
+using ShopOnline.Shared.Modesl;
 using System.Linq.Expressions;
 
-namespace ShopOnline.Library.Services
+namespace ShopOnline.Shared.Services
 {
     public interface IRepository<TEntity, TKey>
         where TEntity : class, IApplicationEntity<TKey>

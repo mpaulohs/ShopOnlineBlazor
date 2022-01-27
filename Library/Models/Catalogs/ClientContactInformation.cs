@@ -1,6 +1,6 @@
-﻿using ShopOnline.Library.Models.Identities;
+﻿using ShopOnline.Shared.Models.Identities;
 
-namespace ShopOnline.Library.Models.Catalogs
+namespace ShopOnline.Shared.Models.Catalogs
 {
     public class ClientContactInformation : CatalogBase<Guid>
     {

@@ -8,9 +8,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using ShopOnline.API.Migrations;
 using ShopOnline.API.Services;
-using ShopOnline.Library.Models.Documents;
-using ShopOnline.Library.Models.Identities;
-using ShopOnline.Library.Services;
+using ShopOnline.Shared.Models.Documents;
+using ShopOnline.Shared.Models.Identities;
+using ShopOnline.Shared.Services;
 using System;
 
 namespace ShopOnline.API
@@ -51,9 +51,13 @@ namespace ShopOnline.API
 
             services.AddIdentity<User, Role>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
-            services.AddScoped<IRepository<DocumentSale, Guid>, SaleRepository>();
+            services.AddScoped(typeof(IRepository<DocumentSale, Guid>), typeof(RepositoryBaseApi<DocumentSale, Guid, ApplicationDbContext>));
 
-            services.AddScoped<IRepository<User, Guid>, UserRepository>();
+            services.AddScoped(typeof(IRepository<User, Guid>), typeof(RepositoryBaseApi<User, Guid, ApplicationDbContext>));
+
+            //services.AddScoped<IRepository<DocumentSale, Guid>, SaleRepository> ();
+
+            //services.AddScoped<IRepository<User, Guid>, RepositoryBaseApi<User, Guid>>();
 
             //services.AddAutoMapper(typeof(Startup));
         }
@@ -66,7 +70,6 @@ namespace ShopOnline.API
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
-
             }
 
             app.UseCors();

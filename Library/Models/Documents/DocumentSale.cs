@@ -1,7 +1,7 @@
-﻿using ShopOnline.Library.Models.Catalogs;
-using ShopOnline.Library.Models.Identities;
+﻿using ShopOnline.Shared.Models.Catalogs;
+using ShopOnline.Shared.Models.Identities;
 
-namespace ShopOnline.Library.Models.Documents
+namespace ShopOnline.Shared.Models.Documents
 {
     public class DocumentSale : DocumentBase<Guid>
     {

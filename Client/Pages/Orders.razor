@@ -1,6 +1,8 @@
 ﻿@page "/orders"
 @inject HttpClient httpClient
-@using ShopOnline.Library.Models.Documents
+@using System.Net.Http
+@using System.Net.Http.Json
+@using ShopOnline.Shared.Models.Documents
 @using System.Reflection
 
 <PageTitle>Orders</PageTitle>
@@ -50,12 +52,14 @@ else
 
     protected override async Task OnInitializedAsync() {
 
-        orders = await GetByFiltersAsync();
+        //orders = await GetByFiltersAsync();
+
+        orders = await httpClient.GetFromJsonAsync<List<DocumentSale>>("api/order");
 
     }
     //protected override async Task OnInitializedAsync() => orders = await Http.GetFromJsonAsync<IEnumerable<DocumentSale>>("orders");
 
-    public async Task<IEnumerable<DocumentSale>> GetByFiltersAsync(CancellationToken cancellationToken = default)
+    public async Task<IEnumerable<DocumentSale>> GetByFiltersAsync2(CancellationToken cancellationToken = default)
     {
         cancellationToken.ThrowIfCancellationRequested();
 
@@ -72,6 +76,32 @@ else
 
         return null;
 
-        }
+    }
+
+    //public async Task<IEnumerable<DocumentSale>> GetByFiltersAsync(CancellationToken cancellationToken = default)
+    //{
+    //    var HttpClient = new HttpClient
+    //        {
+    //            BaseAddress = new Uri("https://localhost:5001/")
+    //        };
+
+    //    return await HttpClient.GetFromJsonAsync<IEnumerable<DocumentSale>>("api/order/42491fc1-75c2-46bd-eed0-08d9d1b8bc05", cancellationToken);
+    //}
+
+    public async Task<List<DocumentSale>> GetByFiltersAsync(CancellationToken cancellationToken = default)
+    {
+        var HttpClient = new HttpClient
+            {
+                BaseAddress = new Uri("https://localhost:5001/")
+            };
+
+        var doc =  await HttpClient.GetFromJsonAsync<IEnumerable<DocumentSale>>("api/order/42491fc1-75c2-46bd-eed0-08d9d1b8bc05", cancellationToken) as DocumentSale;
+
+       return new List<DocumentSale> { doc};
+
+
+    }
 
 }
+
+ 
