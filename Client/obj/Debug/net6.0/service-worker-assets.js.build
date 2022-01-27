@@ -937,11 +937,11 @@
       "url": "_framework\/Shared.pdb"
     },
     {
-      "hash": "sha256-2M99TloDgInLB\/m4fppAP0YJzFfn3xLxTRTH9VxKjrg=",
+      "hash": "sha256-HepF6WSXoeo9dbK9X8yFs\/R4Pa\/ZWkJvotOWrr9bGmw=",
       "url": "_framework\/Client.dll"
     },
     {
-      "hash": "sha256-FnIW2By5DLSWffaM+Rc4aBWshsQZwtj7KkCeJP9a8zg=",
+      "hash": "sha256-T4ttHnNGGtA8VQIpyiyzRBE8oAm5u7rxN7jRPNxgL6k=",
       "url": "_framework\/Client.pdb"
     },
     {
@@ -949,7 +949,7 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-lRz1kNmP6yf+0hk4RpFheTCFlF1\/4k30UJcxxExPVng=",
+      "hash": "sha256-02RtGArgJ8Fl+su+ISfLXN7Da\/AKj+Oky4MABKOIvnw=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -957,5 +957,5 @@
       "url": "_content\/Microsoft.AspNetCore.Components.WebAssembly.Authentication\/AuthenticationService.js"
     }
   ],
-  "version": "uKl8ithe"
+  "version": "xsHwT9Ns"
 };

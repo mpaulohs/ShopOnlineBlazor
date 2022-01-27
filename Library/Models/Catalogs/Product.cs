@@ -21,7 +21,7 @@ namespace ShopOnline.Shared.Models.Catalogs
 
         public string? Description { get; set; }
 
-        public string MainImageUrl { get; set; }
+        public string? MainImageUrl { get; set; }
 
     }
 }

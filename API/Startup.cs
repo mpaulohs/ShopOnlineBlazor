@@ -6,8 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using ShopOnline.API.Migrations;
+using ShopOnline.API.Data;
 using ShopOnline.API.Services;
+using ShopOnline.Shared.Models.Catalogs;
 using ShopOnline.Shared.Models.Documents;
 using ShopOnline.Shared.Models.Identities;
 using ShopOnline.Shared.Services;
@@ -54,6 +55,9 @@ namespace ShopOnline.API
             services.AddScoped(typeof(IRepository<DocumentSale, Guid>), typeof(RepositoryBaseApi<DocumentSale, Guid, ApplicationDbContext>));
 
             services.AddScoped(typeof(IRepository<User, Guid>), typeof(RepositoryBaseApi<User, Guid, ApplicationDbContext>));
+
+            services.AddScoped(typeof(IRepository<Product, Guid>), typeof(RepositoryBaseApi<Product, Guid, ApplicationDbContext>));
+
 
             //services.AddAutoMapper(typeof(Startup));
         }

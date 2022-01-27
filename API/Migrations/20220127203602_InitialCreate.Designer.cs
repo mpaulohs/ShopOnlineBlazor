@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShopOnline.API.Data;
 
@@ -11,9 +12,10 @@ using ShopOnline.API.Data;
 namespace Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220127203602_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -394,6 +396,7 @@ namespace Api.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MainImageUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -927,8 +930,8 @@ namespace Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("62c51371-e728-4f01-a40c-e975a7d9beaf"),
-                            ConcurrencyStamp = "7f0fc941-6858-4dc5-b526-54e7b16484b3",
+                            Id = new Guid("ae34ddb6-66ee-4909-bf66-e9a764c24ad0"),
+                            ConcurrencyStamp = "81f70abf-7c96-4374-a594-fa60ffcc5654",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Administrators of application",
                             Name = "Administrators",
@@ -937,8 +940,8 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ef94cdbd-9dad-4569-a9c2-c68e98100ffd"),
-                            ConcurrencyStamp = "6c0acc84-23fb-4fe5-a7c3-267b9b305237",
+                            Id = new Guid("40f1b166-ac22-4d1b-905d-e2d3c1911da7"),
+                            ConcurrencyStamp = "38efe5a9-9f43-4f5a-be91-db647068be7d",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Managers of application",
                             Name = "Managers",
@@ -947,8 +950,8 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("6db903cf-b97b-4a32-a2d2-b6fe7cad2af5"),
-                            ConcurrencyStamp = "255f559b-3ba6-46c5-8833-436d99911ccb",
+                            Id = new Guid("4ac8cad2-ab38-42c7-96c9-3b325f0dfb3d"),
+                            ConcurrencyStamp = "1543ac48-a9ad-4a60-a643-d93c966deb48",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Clients of application",
                             Name = "Clients",
@@ -957,8 +960,8 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1b9fa6ab-fe77-4d95-8726-948de53000cc"),
-                            ConcurrencyStamp = "e66e255c-1b75-408c-93b8-0df0ed2d13be",
+                            Id = new Guid("f86502d6-679f-4bd1-acc3-ec2bcb935940"),
+                            ConcurrencyStamp = "bc678355-c1a6-4eb1-8de5-f54b33b9a2de",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Public users of application",
                             Name = "Public",
@@ -1077,9 +1080,9 @@ namespace Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8cd768c9-941c-4fc1-ac92-460d0ebd8195"),
+                            Id = new Guid("0d6e294f-a4df-4dda-a403-ef2f037a751f"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "27.01.2022 22:50:06",
+                            ConcurrencyStamp = "27.01.2022 22:36:01",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "Admitistrator@Api.com",
                             EmailConfirmed = true,
@@ -1087,18 +1090,18 @@ namespace Api.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMITISTRATOR@API.COM",
                             NormalizedUserName = "ADMITISTRATOR@API.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKOmMxtiYcITrtUG3gqOjRuuWLHFuzsV8SWu0LBJi1f6ligwDDCfkklJClQtXRmQyg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEN16AKhJDaYGoZJBfYTeDrGUVuNqMRP17T+4H7CFornWPhMdXzuo52IXUt9zN80JNw==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "27.01.2022 22:50:06",
+                            SecurityStamp = "27.01.2022 22:36:01",
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserName = "Admitistrator@Api.com"
                         },
                         new
                         {
-                            Id = new Guid("60304778-cc55-420e-bcb9-277ff5d9de51"),
+                            Id = new Guid("dcda7ac6-cf02-462d-a778-cfdbd3475161"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "27.01.2022 22:50:06",
+                            ConcurrencyStamp = "27.01.2022 22:36:01",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "Manager@Api.com",
                             EmailConfirmed = true,
@@ -1106,18 +1109,18 @@ namespace Api.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "MANAGER@API.COM",
                             NormalizedUserName = "MANAGER@API.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEuU+HoCRBlJLfe+oG7OUpb1YvvRQ44E9JN4SNTcN1vv+n92U26js92siSNvHPgtdA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEB3wdUicK15THbgHTJlOsE2dy2hlN47BMFMZH1iLj23WH6oO5j0xI+sMDxfNVsA6LQ==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "27.01.2022 22:50:06",
+                            SecurityStamp = "27.01.2022 22:36:01",
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserName = "Manager@Api.com"
                         },
                         new
                         {
-                            Id = new Guid("22c8f150-a2f4-413e-9c3a-3ab4c7eb923d"),
+                            Id = new Guid("ba853b97-24ea-42e0-bf6f-6b5aba60f45b"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "27.01.2022 22:50:06",
+                            ConcurrencyStamp = "27.01.2022 22:36:01",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "Client@Api.com",
                             EmailConfirmed = true,
@@ -1125,9 +1128,9 @@ namespace Api.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CLIENT@API.COM",
                             NormalizedUserName = "CLIENT@API.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPir/eAIHl8AaNwlIqZj7jly3aMME2k9NA2kj0PzFNn/BR3zelrPuK8h8/cn2rkMHQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGoHpdG6BcKdy0UJm6E76OyDfnRxOsiHi3OMae+Uqslrjo27FJSFiqZiETOxfP/MXQ==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "27.01.2022 22:50:06",
+                            SecurityStamp = "27.01.2022 22:36:01",
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserName = "Client@Api.com"

@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
-namespace ShopOnline.API.Migrations
+
+namespace Api.Migrations
 {
-    public partial class CreateInit : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -99,6 +100,72 @@ namespace ShopOnline.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ItmeQualityes",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ExchangeId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ItmeQualityes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Mesages",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ExchangeId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Mesages", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Organizations",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ExchangeId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Organizations", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PriceType",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ExchangeId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PriceType", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ProductCharacteristics",
                 columns: table => new
                 {
@@ -181,72 +248,6 @@ namespace ShopOnline.API.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ProductUnitMeasuraments", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ItmeQualityes",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ExchangeId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ItmeQualityes", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Mesages",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ExchangeId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Mesages", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Organizations",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ExchangeId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Organizations", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "PriceType",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ExchangeId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PriceType", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -368,6 +369,7 @@ namespace ShopOnline.API.Migrations
                     ProductSerieId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     ProductUnitMeasurementId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MainImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ExchangeId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -378,6 +380,11 @@ namespace ShopOnline.API.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Products_ItmeQualityes_ProductQualityId",
+                        column: x => x.ProductQualityId,
+                        principalTable: "ItmeQualityes",
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Products_ProductCharacteristics_ProductCharacteristicId",
                         column: x => x.ProductCharacteristicId,
@@ -397,11 +404,6 @@ namespace ShopOnline.API.Migrations
                         name: "FK_Products_ProductUnitMeasuraments_ProductUnitMeasurementId",
                         column: x => x.ProductUnitMeasurementId,
                         principalTable: "ProductUnitMeasuraments",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Products_ItmeQualityes_ProductQualityId",
-                        column: x => x.ProductQualityId,
-                        principalTable: "ItmeQualityes",
                         principalColumn: "Id");
                 });
 
@@ -726,10 +728,10 @@ namespace ShopOnline.API.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "CreatedAt", "Description", "ExchangeId", "Name", "NormalizedName", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { new Guid("1af707e3-86be-4904-881a-d0df5a9178ff"), "828972b3-be53-4853-842a-64b3ccdb9f4c", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Managers of application", null, "Managers", "MANAGERS", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("66b1f9aa-09b3-424f-b0bb-182aa29e3cdc"), "fa3e98b2-9ffd-467c-8a55-77a98c164fd1", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Administrators of application", null, "Administrators", "ADMINISTRATORS", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("9ff5b4cc-6ad7-472c-ad6a-1e6d2116636f"), "3c8fd7a7-ea69-4f7d-865e-b4c1a5bcbf39", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Clients of application", null, "Clients", "CLIENTS", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("b442c734-f697-4b45-920c-03706194ca5a"), "221b4c25-9396-4ce3-9ff7-f87c806c0af3", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Public users of application", null, "Public", "PUBLIC", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { new Guid("40f1b166-ac22-4d1b-905d-e2d3c1911da7"), "38efe5a9-9f43-4f5a-be91-db647068be7d", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Managers of application", null, "Managers", "MANAGERS", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("4ac8cad2-ab38-42c7-96c9-3b325f0dfb3d"), "1543ac48-a9ad-4a60-a643-d93c966deb48", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Clients of application", null, "Clients", "CLIENTS", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("ae34ddb6-66ee-4909-bf66-e9a764c24ad0"), "81f70abf-7c96-4374-a594-fa60ffcc5654", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Administrators of application", null, "Administrators", "ADMINISTRATORS", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("f86502d6-679f-4bd1-acc3-ec2bcb935940"), "bc678355-c1a6-4eb1-8de5-f54b33b9a2de", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Public users of application", null, "Public", "PUBLIC", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
@@ -737,9 +739,9 @@ namespace ShopOnline.API.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreatedAt", "Email", "EmailConfirmed", "ExchangeId", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "MiddleName", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UpdatedAt", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("0f11060d-a99c-46d8-9bf1-96c5eb7155bd"), 0, "07.01.2022 10:34:19", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Client@Api.com", true, null, "Client@Api.com", null, false, null, null, "CLIENT@API.COM", "CLIENT@API.COM", "AQAAAAEAACcQAAAAELa2CQj9JuNqY//QMOJuxKKvjgraV82K8hLP334KGThtmHtsVAXKi/z8qLzXf8tGDw==", null, true, "07.01.2022 10:34:19", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Client@Api.com" },
-                    { new Guid("5a8f8e12-a102-4690-9fe5-3bbe68a6f45f"), 0, "07.01.2022 10:34:19", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Manager@Api.com", true, null, "Manager@Api.com", null, false, null, null, "MANAGER@API.COM", "MANAGER@API.COM", "AQAAAAEAACcQAAAAEDIf7GlsfRUA7YOKk51r4oPugFNMI9BOxPa2SY5A6A5pz8XgSdX8fqnuZqUcy58BFQ==", null, true, "07.01.2022 10:34:19", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Manager@Api.com" },
-                    { new Guid("82d5f360-b27e-4c33-a752-2bed0c7dc82c"), 0, "07.01.2022 10:34:19", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admitistrator@Api.com", true, null, "Admitistrator@Api.com", null, false, null, null, "ADMITISTRATOR@API.COM", "ADMITISTRATOR@API.COM", "AQAAAAEAACcQAAAAELjWDvCVUbof6iLovtZK0+3hh/TLhJGXQvhSv4SbNKT129p5/Ed8YYV5F//0GHLvcQ==", null, true, "07.01.2022 10:34:19", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admitistrator@Api.com" }
+                    { new Guid("0d6e294f-a4df-4dda-a403-ef2f037a751f"), 0, "27.01.2022 22:36:01", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admitistrator@Api.com", true, null, "Admitistrator@Api.com", null, false, null, null, "ADMITISTRATOR@API.COM", "ADMITISTRATOR@API.COM", "AQAAAAEAACcQAAAAEN16AKhJDaYGoZJBfYTeDrGUVuNqMRP17T+4H7CFornWPhMdXzuo52IXUt9zN80JNw==", null, true, "27.01.2022 22:36:01", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Admitistrator@Api.com" },
+                    { new Guid("ba853b97-24ea-42e0-bf6f-6b5aba60f45b"), 0, "27.01.2022 22:36:01", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Client@Api.com", true, null, "Client@Api.com", null, false, null, null, "CLIENT@API.COM", "CLIENT@API.COM", "AQAAAAEAACcQAAAAEGoHpdG6BcKdy0UJm6E76OyDfnRxOsiHi3OMae+Uqslrjo27FJSFiqZiETOxfP/MXQ==", null, true, "27.01.2022 22:36:01", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Client@Api.com" },
+                    { new Guid("dcda7ac6-cf02-462d-a778-cfdbd3475161"), 0, "27.01.2022 22:36:01", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Manager@Api.com", true, null, "Manager@Api.com", null, false, null, null, "MANAGER@API.COM", "MANAGER@API.COM", "AQAAAAEAACcQAAAAEB3wdUicK15THbgHTJlOsE2dy2hlN47BMFMZH1iLj23WH6oO5j0xI+sMDxfNVsA6LQ==", null, true, "27.01.2022 22:36:01", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Manager@Api.com" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -813,31 +815,6 @@ namespace ShopOnline.API.Migrations
                 column: "SubdivisionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_ProductCharacteristicId",
-                table: "Products",
-                column: "ProductCharacteristicId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Products_ProductQualityId",
-                table: "Products",
-                column: "ProductQualityId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Products_ProductSerieId",
-                table: "Products",
-                column: "ProductSerieId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Products_ProductTypeId",
-                table: "Products",
-                column: "ProductTypeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Products_ProductUnitMeasurementId",
-                table: "Products",
-                column: "ProductUnitMeasurementId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Payments_ClientContractId",
                 table: "Payments",
                 column: "ClientContractId");
@@ -876,6 +853,31 @@ namespace ShopOnline.API.Migrations
                 name: "IX_Payments_SubdivisionId",
                 table: "Payments",
                 column: "SubdivisionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_ProductCharacteristicId",
+                table: "Products",
+                column: "ProductCharacteristicId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_ProductQualityId",
+                table: "Products",
+                column: "ProductQualityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_ProductSerieId",
+                table: "Products",
+                column: "ProductSerieId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_ProductTypeId",
+                table: "Products",
+                column: "ProductTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_ProductUnitMeasurementId",
+                table: "Products",
+                column: "ProductUnitMeasurementId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RoleClaims_RoleId",
@@ -935,16 +937,16 @@ namespace ShopOnline.API.Migrations
                 name: "Documents");
 
             migrationBuilder.DropTable(
-                name: "Products");
-
-            migrationBuilder.DropTable(
-                name: "ProductUnitClassifiers");
-
-            migrationBuilder.DropTable(
                 name: "Mesages");
 
             migrationBuilder.DropTable(
                 name: "Payments");
+
+            migrationBuilder.DropTable(
+                name: "Products");
+
+            migrationBuilder.DropTable(
+                name: "ProductUnitClassifiers");
 
             migrationBuilder.DropTable(
                 name: "RoleClaims");
@@ -971,21 +973,6 @@ namespace ShopOnline.API.Migrations
                 name: "Storages");
 
             migrationBuilder.DropTable(
-                name: "ProductCharacteristics");
-
-            migrationBuilder.DropTable(
-                name: "ProductSeries");
-
-            migrationBuilder.DropTable(
-                name: "ProductTypes");
-
-            migrationBuilder.DropTable(
-                name: "ProductUnitMeasuraments");
-
-            migrationBuilder.DropTable(
-                name: "ItmeQualityes");
-
-            migrationBuilder.DropTable(
                 name: "ClientContracts");
 
             migrationBuilder.DropTable(
@@ -996,6 +983,21 @@ namespace ShopOnline.API.Migrations
 
             migrationBuilder.DropTable(
                 name: "Subdivisions");
+
+            migrationBuilder.DropTable(
+                name: "ItmeQualityes");
+
+            migrationBuilder.DropTable(
+                name: "ProductCharacteristics");
+
+            migrationBuilder.DropTable(
+                name: "ProductSeries");
+
+            migrationBuilder.DropTable(
+                name: "ProductTypes");
+
+            migrationBuilder.DropTable(
+                name: "ProductUnitMeasuraments");
 
             migrationBuilder.DropTable(
                 name: "Roles");

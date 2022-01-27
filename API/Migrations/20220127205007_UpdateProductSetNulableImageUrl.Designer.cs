@@ -5,15 +5,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-
+using ShopOnline.API.Data;
 
 #nullable disable
 
-namespace ShopOnline.API.Migrations
+namespace Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220107083420_CreateInit")]
-    partial class CreateInit
+    [Migration("20220127205007_UpdateProductSetNulableImageUrl")]
+    partial class UpdateProductSetNulableImageUrl
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -307,6 +307,66 @@ namespace ShopOnline.API.Migrations
                     b.ToTable("Currencyes", (string)null);
                 });
 
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.Organization", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ExchangeId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Organizations", (string)null);
+                });
+
+            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.PriceType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ExchangeId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PriceType");
+                });
+
             modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.Product", b =>
                 {
                     b.Property<Guid>("Id")
@@ -335,6 +395,12 @@ namespace ShopOnline.API.Migrations
                     b.Property<string>("FullName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("MainImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid?>("ProductCharacteristicId")
                         .HasColumnType("uniqueidentifier");
 
@@ -349,9 +415,6 @@ namespace ShopOnline.API.Migrations
 
                     b.Property<Guid?>("ProductUnitMeasurementId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -549,66 +612,6 @@ namespace ShopOnline.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ProductUnitMeasuraments", (string)null);
-                });
-
-            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.Organization", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ExchangeId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Organizations", (string)null);
-                });
-
-            modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.PriceType", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ExchangeId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PriceType");
                 });
 
             modelBuilder.Entity("ShopOnline.Shared.Models.Catalogs.Storage", b =>
@@ -926,8 +929,8 @@ namespace ShopOnline.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("66b1f9aa-09b3-424f-b0bb-182aa29e3cdc"),
-                            ConcurrencyStamp = "fa3e98b2-9ffd-467c-8a55-77a98c164fd1",
+                            Id = new Guid("62c51371-e728-4f01-a40c-e975a7d9beaf"),
+                            ConcurrencyStamp = "7f0fc941-6858-4dc5-b526-54e7b16484b3",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Administrators of application",
                             Name = "Administrators",
@@ -936,8 +939,8 @@ namespace ShopOnline.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1af707e3-86be-4904-881a-d0df5a9178ff"),
-                            ConcurrencyStamp = "828972b3-be53-4853-842a-64b3ccdb9f4c",
+                            Id = new Guid("ef94cdbd-9dad-4569-a9c2-c68e98100ffd"),
+                            ConcurrencyStamp = "6c0acc84-23fb-4fe5-a7c3-267b9b305237",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Managers of application",
                             Name = "Managers",
@@ -946,8 +949,8 @@ namespace ShopOnline.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("9ff5b4cc-6ad7-472c-ad6a-1e6d2116636f"),
-                            ConcurrencyStamp = "3c8fd7a7-ea69-4f7d-865e-b4c1a5bcbf39",
+                            Id = new Guid("6db903cf-b97b-4a32-a2d2-b6fe7cad2af5"),
+                            ConcurrencyStamp = "255f559b-3ba6-46c5-8833-436d99911ccb",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Clients of application",
                             Name = "Clients",
@@ -956,8 +959,8 @@ namespace ShopOnline.API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b442c734-f697-4b45-920c-03706194ca5a"),
-                            ConcurrencyStamp = "221b4c25-9396-4ce3-9ff7-f87c806c0af3",
+                            Id = new Guid("1b9fa6ab-fe77-4d95-8726-948de53000cc"),
+                            ConcurrencyStamp = "e66e255c-1b75-408c-93b8-0df0ed2d13be",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Public users of application",
                             Name = "Public",
@@ -1076,9 +1079,9 @@ namespace ShopOnline.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("82d5f360-b27e-4c33-a752-2bed0c7dc82c"),
+                            Id = new Guid("8cd768c9-941c-4fc1-ac92-460d0ebd8195"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "07.01.2022 10:34:19",
+                            ConcurrencyStamp = "27.01.2022 22:50:06",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "Admitistrator@Api.com",
                             EmailConfirmed = true,
@@ -1086,18 +1089,18 @@ namespace ShopOnline.API.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMITISTRATOR@API.COM",
                             NormalizedUserName = "ADMITISTRATOR@API.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAELjWDvCVUbof6iLovtZK0+3hh/TLhJGXQvhSv4SbNKT129p5/Ed8YYV5F//0GHLvcQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKOmMxtiYcITrtUG3gqOjRuuWLHFuzsV8SWu0LBJi1f6ligwDDCfkklJClQtXRmQyg==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "07.01.2022 10:34:19",
+                            SecurityStamp = "27.01.2022 22:50:06",
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserName = "Admitistrator@Api.com"
                         },
                         new
                         {
-                            Id = new Guid("5a8f8e12-a102-4690-9fe5-3bbe68a6f45f"),
+                            Id = new Guid("60304778-cc55-420e-bcb9-277ff5d9de51"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "07.01.2022 10:34:19",
+                            ConcurrencyStamp = "27.01.2022 22:50:06",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "Manager@Api.com",
                             EmailConfirmed = true,
@@ -1105,18 +1108,18 @@ namespace ShopOnline.API.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "MANAGER@API.COM",
                             NormalizedUserName = "MANAGER@API.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDIf7GlsfRUA7YOKk51r4oPugFNMI9BOxPa2SY5A6A5pz8XgSdX8fqnuZqUcy58BFQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEuU+HoCRBlJLfe+oG7OUpb1YvvRQ44E9JN4SNTcN1vv+n92U26js92siSNvHPgtdA==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "07.01.2022 10:34:19",
+                            SecurityStamp = "27.01.2022 22:50:06",
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserName = "Manager@Api.com"
                         },
                         new
                         {
-                            Id = new Guid("0f11060d-a99c-46d8-9bf1-96c5eb7155bd"),
+                            Id = new Guid("22c8f150-a2f4-413e-9c3a-3ab4c7eb923d"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "07.01.2022 10:34:19",
+                            ConcurrencyStamp = "27.01.2022 22:50:06",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "Client@Api.com",
                             EmailConfirmed = true,
@@ -1124,9 +1127,9 @@ namespace ShopOnline.API.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CLIENT@API.COM",
                             NormalizedUserName = "CLIENT@API.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAELa2CQj9JuNqY//QMOJuxKKvjgraV82K8hLP334KGThtmHtsVAXKi/z8qLzXf8tGDw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPir/eAIHl8AaNwlIqZj7jly3aMME2k9NA2kj0PzFNn/BR3zelrPuK8h8/cn2rkMHQ==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "07.01.2022 10:34:19",
+                            SecurityStamp = "27.01.2022 22:50:06",
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserName = "Client@Api.com"
