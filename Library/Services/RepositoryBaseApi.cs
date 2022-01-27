@@ -3,12 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using ShopOnline.Shared.Modesl;
 using ShopOnline.Shared.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace ShopOnline.API.Services
 {
@@ -16,7 +11,7 @@ namespace ShopOnline.API.Services
         IDisposable,
         IRepository<TEntity, TKey>
         where TEntity : class, IApplicationEntity<TKey>
-        where TDbContext: DbContext
+        where TDbContext : DbContext
         where TKey : IEquatable<TKey>
     {
 

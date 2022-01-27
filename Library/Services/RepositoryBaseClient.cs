@@ -7,7 +7,7 @@ using System.Net.Http.Json;
 
 namespace ShopOnline.Shared.Services
 {
-    public abstract class RepositoryBaseClient<TEntity, TKey> :
+    public class RepositoryBaseClient<TEntity, TKey> :
         IDisposable,
         IRepository<TEntity, TKey>
         where TEntity : class, IApplicationEntity<TKey>
@@ -52,8 +52,7 @@ namespace ShopOnline.Shared.Services
 
         public async Task<IEnumerable<TEntity>> GetByFiltersAsync(CancellationToken cancellationToken = default, params Expression<Func<TEntity, bool>>[] filters)
         {
-            string url = "https://localhost:5001/api/order";
-            return await HttpClient.GetFromJsonAsync<IEnumerable<TEntity>>(url, cancellationToken);
+            return await HttpClient.GetFromJsonAsync<IEnumerable<TEntity>>("api/order", cancellationToken);
         }
 
         public async Task<TEntity> GetByIdAsync(TKey id, CancellationToken cancellationToken = default)

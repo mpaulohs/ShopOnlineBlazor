@@ -55,10 +55,6 @@ namespace ShopOnline.API
 
             services.AddScoped(typeof(IRepository<User, Guid>), typeof(RepositoryBaseApi<User, Guid, ApplicationDbContext>));
 
-            //services.AddScoped<IRepository<DocumentSale, Guid>, SaleRepository> ();
-
-            //services.AddScoped<IRepository<User, Guid>, RepositoryBaseApi<User, Guid>>();
-
             //services.AddAutoMapper(typeof(Startup));
         }
 
