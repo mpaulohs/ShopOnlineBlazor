@@ -918,8 +918,8 @@
     },
     "Shared/1.0.0": {
       "type": "project",
-      "path": "../Library/Shared.csproj",
-      "msbuildProject": "../Library/Shared.csproj"
+      "path": "../Shared/Shared.csproj",
+      "msbuildProject": "../Shared/Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -954,8 +954,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Library\\Shared.csproj": {
-              "projectPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Library\\Shared.csproj"
+            "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj": {
+              "projectPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj"
             }
           }
         }

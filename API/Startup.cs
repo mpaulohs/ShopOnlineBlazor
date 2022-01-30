@@ -7,7 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using ShopOnline.API.Data;
-using ShopOnline.API.Services;
 using ShopOnline.Shared.Models.Catalogs;
 using ShopOnline.Shared.Models.Documents;
 using ShopOnline.Shared.Models.Identities;

@@ -14,9 +14,17 @@
 }
 else
 {
-    <div class="media">
+    var properties = typeof(DocumentSale).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
+         .Where(ø => ø.CanRead && ø.CanWrite)
+         //.Where(ø => ø.PropertyType == typeof(string))
+         .Where(ø => ø.GetGetMethod(true).IsPublic);
+    // .Where(ø => ø.GetSetMethod(true).IsPublic);
 
-    </div>
+
+    @foreach (var property in properties)
+    {
+        <p>@property.Name: @property.GetValue(order)?.ToString()</p>
+    }
 }
 
 @code {
@@ -24,13 +32,13 @@ else
     private DocumentSale order = null;
 
     [Parameter]
-    public Guid Id{ get; set; }
+    public Guid Id { get; set; }
 
     protected override async Task OnParametersSetAsync()
     {
         order = await repository.GetByIdAsync(Id);
     }
 
-  
+
 }
 

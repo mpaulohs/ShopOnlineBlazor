@@ -90,7 +90,17 @@
       "ProjectGuid": "fea901b7-7cdf-4869-a265-7c5a8b13349a",
       "DisplayName": "UseCases",
       "ColorIndex": 0
+    },
+    "39ed8c16-179f-481e-b737-d277c513e906": {
+      "ProjectGuid": "39ed8c16-179f-481e-b737-d277c513e906",
+      "DisplayName": "UseCases",
+      "ColorIndex": 1
+    },
+    "5ede8b1c-9c1f-4949-b9c7-de19b2422c54": {
+      "ProjectGuid": "5ede8b1c-9c1f-4949-b9c7-de19b2422c54",
+      "DisplayName": "Shared",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 3
 }

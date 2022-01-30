@@ -1,0 +1,59 @@
+﻿@page "/orders"
+
+@inject IRepository<DocumentSale, Guid> repository
+
+<PageTitle>Orders</PageTitle>
+
+<h1>Orders list</h1>
+
+<p>This is the list off all orders</p>
+
+@if (orders == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    var properties = typeof(DocumentSale).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
+         .Where(ø => ø.CanRead && ø.CanWrite)
+         //.Where(ø => ø.PropertyType == typeof(string))
+         .Where(ø => ø.GetGetMethod(true).IsPublic);
+    // .Where(ø => ø.GetSetMethod(true).IsPublic);
+
+    <table class="table">
+        <thead>
+            <tr>
+                @foreach (var property in properties)
+                {
+                    <th>@property.Name</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in orders)
+            {
+                <tr>
+                    @foreach (var property in properties)
+                    {
+                        <td>@property.GetValue(order)?.ToString()</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+
+    public IEnumerable<DocumentSale>? orders = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        orders = await repository.GetByFiltersAsync();
+
+    }
+
+}
+
+
