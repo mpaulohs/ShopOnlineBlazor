@@ -59,7 +59,7 @@ namespace ShopOnline.Shared.Services
 
         public async Task<TEntity> GetByIdAsync(TKey id, CancellationToken cancellationToken = default)
         {
-                  return await HttpClient.GetFromJsonAsync<TEntity>(Url, cancellationToken);
+                  return await HttpClient.GetFromJsonAsync<TEntity>(Url + id.ToString(), cancellationToken);
 
         }
 

@@ -30,12 +30,24 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var order in orders)
+            @foreach (var item in orders)
             {
                 <tr>
                     @foreach (var property in properties)
                     {
-                        <td>@property.GetValue(order)?.ToString()</td>
+                       string tData = @property.GetValue(item)?.ToString();
+                        if (property.Name == "Id")
+                        {
+                            <td>
+                                <NavLink href=@($"orders/{tData}")>@tData</NavLink>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                @property.GetValue(item)?.ToString()
+                            </td>
+                        }
                     }
                 </tr>
             }
