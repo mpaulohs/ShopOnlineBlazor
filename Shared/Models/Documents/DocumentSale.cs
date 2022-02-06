@@ -5,7 +5,9 @@ namespace ShopOnline.Shared.Models.Documents
 {
     public class DocumentSale : DocumentBase<Guid>
     {
-        public Storage? Storage { get; set; }
+        public virtual Storage? Storage { get; set; }
+
+        public Guid StorageId { get; set; }
 
         public User? Reciver { get; set; }
 

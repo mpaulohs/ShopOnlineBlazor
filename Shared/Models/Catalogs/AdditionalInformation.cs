@@ -1,13 +1,16 @@
-﻿namespace ShopOnline.Shared.Models.Catalogs
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ShopOnline.Shared.Models.Catalogs
 {
     public class AdditionalInformation : CatalogBase<Guid>
     {
-        // public virtual IEntityBase<Guid> Entity { get; set; }
-
         public Guid EntityGuid { get; set; }
 
+        [MaxLength(100)]
         public string? EntityType { get; set; }
 
+        [MaxLength(500)]
         public string? Path { get; set; }
     }
 
