@@ -14,11 +14,11 @@ namespace ShopOnline.API.Controllers
     [ApiController]
     public class ProductUnitClassifierController : ControllerBase
     {
-        private readonly IRepository<ProductUnitClassifier, Guid> _repository;
+        private readonly IRepository<ProductUnitClassifier<Guid>, Guid> _repository;
 
         private readonly ILogger<ProductUnitClassifierController> _logger;
 
-        public ProductUnitClassifierController(IRepository<ProductUnitClassifier, Guid> repository, ILogger<ProductUnitClassifierController> loger)
+        public ProductUnitClassifierController(IRepository<ProductUnitClassifier<Guid>, Guid> repository, ILogger<ProductUnitClassifierController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -72,7 +72,7 @@ namespace ShopOnline.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] ProductUnitClassifier entity)
+        public async Task<ActionResult> Post([FromBody] ProductUnitClassifier<Guid> entity)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace ShopOnline.API.Controllers
 
 
         [HttpPut("{id:Guid}")]
-        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] ProductUnitClassifier entity)
+        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] ProductUnitClassifier<Guid> entity)
         {
             try
             {

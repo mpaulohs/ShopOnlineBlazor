@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Shared.Services;
 using ShopOnline.Shared.Modesl;
 using System.Linq.Expressions;
 using System.Net.Http.Json;
@@ -51,7 +52,7 @@ namespace ShopOnline.Shared.Services
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<TEntity>> GetByFiltersAsync(CancellationToken cancellationToken = default, params Expression<Func<TEntity, bool>>[] filters)
+        public async Task<IEnumerable<TEntity>> GetByFiltersAsync(CancellationToken cancellationToken = default, IPagination? pagination = default, params Expression<Func<TEntity, bool>>[] filters)
         {
             
             return await HttpClient.GetFromJsonAsync<IEnumerable<TEntity>>(Url, cancellationToken);

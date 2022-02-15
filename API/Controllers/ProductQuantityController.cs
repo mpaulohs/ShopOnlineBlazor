@@ -14,11 +14,11 @@ namespace ShopOnline.API.Controllers
     [ApiController]
     public class ProductQuantityController : ControllerBase
     {
-        private readonly IRepository<ProductQuantity, Guid> _repository;
+        private readonly IRepository<ProductQuantity<Guid>, Guid> _repository;
 
-        private readonly ILogger<ProductQuantity> _logger;
+        private readonly ILogger<ProductQuantity<Guid>> _logger;
 
-        public ProductQuantityController(IRepository<ProductQuantity, Guid> repository, ILogger<ProductQuantity> loger)
+        public ProductQuantityController(IRepository<ProductQuantity<Guid>, Guid> repository, ILogger<ProductQuantity<Guid>> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -72,7 +72,7 @@ namespace ShopOnline.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] ProductQuantity entity)
+        public async Task<ActionResult> Post([FromBody] ProductQuantity<Guid> entity)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace ShopOnline.API.Controllers
 
 
         [HttpPut("{id:Guid}")]
-        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] ProductQuantity entity)
+        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] ProductQuantity<Guid> entity)
         {
             try
             {

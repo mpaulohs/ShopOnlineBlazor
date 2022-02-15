@@ -1,8 +1,8 @@
 ﻿namespace ShopOnline.Shared.Models.Catalogs
 {
-    public class BankAccount : CatalogBase<Guid>
+    public class BankAccount<TKey> : CatalogBase<TKey>
     {
-        public virtual Bank? Bank { get; set; }
+        public Bank<TKey>? Bank { get; set; }
 
     }
 }

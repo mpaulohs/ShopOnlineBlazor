@@ -7,8 +7,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace ShopOnline.Shared.Models.Documents
 {
     public abstract class DocumentBase<TKey> : IApplicationEntity<TKey>
+        where TKey : IEquatable<TKey>
     {
-        [MaxLength(50)]
         public TKey? Id { get; set; }
 
         [MaxLength(50)]
@@ -24,15 +24,15 @@ namespace ShopOnline.Shared.Models.Documents
 
         public DateTime ExchangeDateTime { get; set; }
 
-        public Organization? Organization { get; set; }
+        public Organization<TKey>? Organization { get; set; }
 
-        public User? Client { get; set; }
+        public User<TKey>? Client { get; set; }
 
-        public ClientContract? ClientContract { get; set; }
+        public ClientContract<TKey>? ClientContract { get; set; }
 
-        public PriceType? PriceType { get; set; }
+        public PriceType<TKey>? PriceType { get; set; }
 
-        public Currency? DocumentCurrency { get; set; }
+        public Currency<TKey>? DocumentCurrency { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal DocumentCurrencyValue { get; set; }
@@ -46,12 +46,12 @@ namespace ShopOnline.Shared.Models.Documents
         [Column(TypeName = "decimal(18,2)")]
         public decimal ContractAmount { get; set; }
 
-        public User? Responsible { get; set; }
+        public User<Guid>? Responsible { get; set; }
 
-        [MaxLength(200)]
+        [MaxLength(255)]
         public string? Comment { get; set; }
 
-        public Subdivision? Subdivision { get; set; }
+        public Subdivision<TKey>? Subdivision { get; set; }
 
         [MaxLength(50)]
         public string ConcurrencyStamp { get; set; } = Guid.NewGuid().ToString();

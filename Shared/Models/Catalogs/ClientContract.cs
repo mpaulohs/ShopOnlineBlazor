@@ -3,11 +3,11 @@
 
 namespace ShopOnline.Shared.Models.Catalogs
 {
-    public class ClientContract : CatalogBase<Guid>
+    public class ClientContract<TKey> : CatalogBase<TKey>
     {
-        public User? Client { get; set; }
+        public User<Guid>? Client { get; set; }
 
-        public Currency? Currency { get; set; }
+        public Currency<Guid>? Currency { get; set; }
 
     }
 }

@@ -14,11 +14,11 @@ namespace ShopOnline.API.Controllers
     [ApiController]
     public class ProductCharacteristicController : ControllerBase
     {
-        private readonly IRepository<ProductCharacteristic, Guid> _repository;
+        private readonly IRepository<ProductCharacteristic<Guid>, Guid> _repository;
 
         private readonly ILogger<ProductCharacteristicController> _logger;
 
-        public ProductCharacteristicController(IRepository<ProductCharacteristic, Guid> repository, ILogger<ProductCharacteristicController> loger)
+        public ProductCharacteristicController(IRepository<ProductCharacteristic<Guid>, Guid> repository, ILogger<ProductCharacteristicController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -72,7 +72,7 @@ namespace ShopOnline.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] ProductCharacteristic entity)
+        public async Task<ActionResult> Post([FromBody] ProductCharacteristic<Guid> entity)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace ShopOnline.API.Controllers
 
 
         [HttpPut("{id:Guid}")]
-        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] ProductCharacteristic entity)
+        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] ProductCharacteristic<Guid> entity)
         {
             try
             {

@@ -14,11 +14,11 @@ namespace ShopOnline.API.Controllers
     [ApiController]
     public class DocumentPaymentController : ControllerBase
     {
-        private readonly IRepository<DocumentPayment, Guid> _repository;
+        private readonly IRepository<DocumentPayment<Guid>, Guid> _repository;
 
         private readonly ILogger<DocumentPaymentController> _logger;
 
-        public DocumentPaymentController(IRepository<DocumentPayment, Guid> repository, ILogger<DocumentPaymentController> loger)
+        public DocumentPaymentController(IRepository<DocumentPayment<Guid>, Guid> repository, ILogger<DocumentPaymentController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -72,7 +72,7 @@ namespace ShopOnline.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] DocumentPayment entity)
+        public async Task<ActionResult> Post([FromBody] DocumentPayment<Guid> entity)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace ShopOnline.API.Controllers
 
 
         [HttpPut("{id:Guid}")]
-        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] DocumentPayment entity)
+        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] DocumentPayment<Guid> entity)
         {
             try
             {

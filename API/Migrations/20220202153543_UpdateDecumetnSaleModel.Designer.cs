@@ -11,7 +11,7 @@ using ShopOnline.API.Data;
 
 namespace Api.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(ApplicationDbContext<Guid>))]
     [Migration("20220202153543_UpdateDecumetnSaleModel")]
     partial class UpdateDecumetnSaleModel
     {

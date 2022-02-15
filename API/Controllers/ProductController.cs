@@ -12,11 +12,11 @@ namespace ShopOnline.API.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IRepository<Product, Guid> _repository;
+        private readonly IRepository<Product<Guid>, Guid> _repository;
 
         private readonly ILogger<UserController> _logger;
 
-        public ProductController(IRepository<Product, Guid> repository, ILogger<UserController> loger)
+        public ProductController(IRepository<Product<Guid>, Guid> repository, ILogger<UserController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -65,7 +65,7 @@ namespace ShopOnline.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] Product item)
+        public async Task<ActionResult> Post([FromBody] Product<Guid> item)
         {
             try
             {

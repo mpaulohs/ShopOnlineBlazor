@@ -1,5 +1,5 @@
 ﻿@page "/products"
-@inject IRepository<Product,Guid> Repository
+@inject IRepository<Product<Guid>,Guid> Repository
 
 <h3>ProductList</h3>
 
@@ -14,7 +14,7 @@
 }
 else
 {
-    var properties = typeof(Product).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
+    var properties = typeof(Product<Guid>).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
          .Where(ø => ø.CanRead && ø.CanWrite)
          //.Where(ø => ø.PropertyType == typeof(string))
          .Where(ø => ø.GetGetMethod(true).IsPublic);
@@ -58,7 +58,7 @@ else
 
 @code {
 
-    public IEnumerable<Product> products { get; set; } = null;
+    public IEnumerable<Product<Guid>> products { get; set; } = null;
 
     protected override async Task OnInitializedAsync()
     {

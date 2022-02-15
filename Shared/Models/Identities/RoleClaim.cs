@@ -2,8 +2,9 @@
 
 namespace ShopOnline.Shared.Models.Identities
 {
-    public class RoleClaim : IdentityRoleClaim<Guid>
+    public class RoleClaim<TKey> : IdentityRoleClaim<TKey>
+         where TKey : IEquatable<TKey>
     {
-        public virtual Role? Role { get; set; }
+        public virtual Role<TKey>? Role { get; set; }
     }
 }

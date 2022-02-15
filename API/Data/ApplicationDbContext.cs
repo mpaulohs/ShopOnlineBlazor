@@ -12,9 +12,10 @@ using System.Reflection;
 namespace ShopOnline.API.Data
 {
 
-    public class ApplicationDbContext : IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
+    public class ApplicationDbContext<TKey> : IdentityDbContext<User<TKey>, Role<TKey>, TKey, UserClaim<TKey>, UserRole<TKey>, UserLogin<TKey>, RoleClaim<TKey>, UserToken<TKey>>
+    where TKey : IEquatable<TKey>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext<TKey>> options)
         : base(options)
         {
 
@@ -24,7 +25,7 @@ namespace ShopOnline.API.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<User>(b =>
+            modelBuilder.Entity<User<TKey>>(b =>
             {
                 // Table name
                 b.ToTable("Users");
@@ -54,7 +55,7 @@ namespace ShopOnline.API.Data
                     .IsRequired();
             });
 
-            modelBuilder.Entity<Role>(b =>
+            modelBuilder.Entity<Role<TKey>>(b =>
             {
                 // Table name
                 b.ToTable("Roles");
@@ -72,63 +73,63 @@ namespace ShopOnline.API.Data
                     .IsRequired();
             });
 
-            modelBuilder.Entity<UserRole>(b => b.ToTable("UserRoles"));
+            modelBuilder.Entity<UserRole<TKey>>(b => b.ToTable("UserRoles"));
 
-            modelBuilder.Entity<UserClaim>(b => b.ToTable("UserClaims"));
+            modelBuilder.Entity<UserClaim<TKey>>(b => b.ToTable("UserClaims"));
 
-            modelBuilder.Entity<UserLogin>(b => b.ToTable("UserLogins"));
+            modelBuilder.Entity<UserLogin<TKey>>(b => b.ToTable("UserLogins"));
 
-            modelBuilder.Entity<UserToken>(b => b.ToTable("UserTokens"));
+            modelBuilder.Entity<UserToken<TKey>>(b => b.ToTable("UserTokens"));
 
-            modelBuilder.Entity<RoleClaim>(b => b.ToTable("RoleClaims"));
+            modelBuilder.Entity<RoleClaim<TKey>>(b => b.ToTable("RoleClaims"));
 
             //Catalogs
 
-            modelBuilder.Entity<AdditionalInformation>(b => b.ToTable("AdditionalInformations"));
+            modelBuilder.Entity<AdditionalInformation<TKey>>(b => b.ToTable("AdditionalInformations"));
 
-            modelBuilder.Entity<Bank>(b => b.ToTable("Banks"));
+            modelBuilder.Entity<Bank<TKey>>(b => b.ToTable("Banks"));
 
-            modelBuilder.Entity<BankAccount>(b => b.ToTable("BankAccounts"));
+            modelBuilder.Entity<BankAccount<TKey>>(b => b.ToTable("BankAccounts"));
 
-            modelBuilder.Entity<CashDesk>(b => b.ToTable("CashDesks"));
+            modelBuilder.Entity<CashDesk<TKey>>(b => b.ToTable("CashDesks"));
 
-            modelBuilder.Entity<ClientContactInformation>(b => b.ToTable("ClientContackInformations"));
+            modelBuilder.Entity<ClientContactInformation<TKey>>(b => b.ToTable("ClientContackInformations"));
 
-            modelBuilder.Entity<ClientContactInformationType>(b => b.ToTable("ClientContactInformationTypes"));
+            modelBuilder.Entity<ClientContactInformationType<TKey>>(b => b.ToTable("ClientContactInformationTypes"));
 
-            modelBuilder.Entity<ClientContract>(b => b.ToTable("ClientContracts"));
+            modelBuilder.Entity<ClientContract<TKey>>(b => b.ToTable("ClientContracts"));
 
-            modelBuilder.Entity<Currency>(b => b.ToTable("Currencyes"));
+            modelBuilder.Entity<Currency<TKey>>(b => b.ToTable("Currencyes"));
 
-            modelBuilder.Entity<Product>(b => b.ToTable("Products"));
+            modelBuilder.Entity<Product<TKey>>(b => b.ToTable("Products"));
 
-            modelBuilder.Entity<ProductCharacteristic>(b => b.ToTable("ProductCharacteristics"));
+            modelBuilder.Entity<ProductCharacteristic<TKey>>(b => b.ToTable("ProductCharacteristics"));
 
-            modelBuilder.Entity<ProductQuality>(b => b.ToTable("ItmeQualityes"));
+            modelBuilder.Entity<ProductQuality<TKey>>(b => b.ToTable("ItmeQualityes"));
 
-            modelBuilder.Entity<ProductSerie>(b => b.ToTable("ProductSeries"));
+            modelBuilder.Entity<ProductSerie<TKey>>(b => b.ToTable("ProductSeries"));
 
-            modelBuilder.Entity<ProductType>(b => b.ToTable("ProductTypes"));
+            modelBuilder.Entity<ProductType<TKey>>(b => b.ToTable("ProductTypes"));
 
-            modelBuilder.Entity<ProductUnitClassifier>(b => b.ToTable("ProductUnitClassifiers"));
+            modelBuilder.Entity<ProductUnitClassifier<TKey>>(b => b.ToTable("ProductUnitClassifiers"));
 
-            modelBuilder.Entity<ProductUnitMeasurement>(b => b.ToTable("ProductUnitMeasuraments"));
+            modelBuilder.Entity<ProductUnitMeasurement<TKey>>(b => b.ToTable("ProductUnitMeasuraments"));
 
-            modelBuilder.Entity<Organization>(b => b.ToTable("Organizations"));
+            modelBuilder.Entity<Organization<TKey>>(b => b.ToTable("Organizations"));
 
-            modelBuilder.Entity<Storage>(b => b.ToTable("Storages"));
+            modelBuilder.Entity<Storage<TKey>>(b => b.ToTable("Storages"));
 
-            modelBuilder.Entity<Subdivision>(b => b.ToTable("Subdivisions"));
+            modelBuilder.Entity<Subdivision<TKey>>(b => b.ToTable("Subdivisions"));
 
             //Documents
 
-            modelBuilder.Entity<DocumentSale>(b => b.ToTable("Documents"));
+            modelBuilder.Entity<DocumentSale<TKey>>(b => b.ToTable("Documents"));
 
-            modelBuilder.Entity<DocumentPayment>(b => b.ToTable("Payments"));
+            modelBuilder.Entity<DocumentPayment<TKey>>(b => b.ToTable("Payments"));
 
             //modelBuilder.Entity<DocumentAdjustment>(b => b.ToTable("Adjustments"));
 
-            modelBuilder.Entity<Mesage>(b => b.ToTable("Mesages"));
+            modelBuilder.Entity<Mesage<Guid>>(b => b.ToTable("Mesages"));
 
             //Seed data
 
@@ -144,32 +145,31 @@ namespace ShopOnline.API.Data
             string roleClients = "Clients";
             string rolePublic = "Public";
 
-            List<Role> roles = new List<Role>
+            List<Role<TKey>> roles = new List<Role<TKey>>
             {
-                    new Role()
+                    new Role<TKey>()
                      {
-                        Id = Guid.NewGuid(),
                         Name = roleAdministrators,
                         NormalizedName = roleAdministrators.ToUpper(),
                         Description = "Administrators of application"
                     },
-                    new Role()
+                    new Role<TKey>()
                     {
-                        Id = Guid.NewGuid(),
+
                         Name = roleManagers,
                         NormalizedName = roleManagers.ToUpper(),
                         Description = "Managers of application"
                     },
-                    new Role()
+                    new Role<TKey>()
                     {
-                        Id = Guid.NewGuid(),
+
                         Name = roleClients,
                         NormalizedName = roleClients.ToUpper(),
                         Description = "Clients of application"
                     },
-                     new Role()
+                     new Role<TKey>()
                     {
-                        Id = Guid.NewGuid(),
+
                         Name =rolePublic,
                         NormalizedName = rolePublic.ToUpper(),
                         Description = "Public users of application"
@@ -180,7 +180,7 @@ namespace ShopOnline.API.Data
             foreach (var role in roles)
             {
                 // if (this.Roles.AnyAsync<Role>(r => r.NormalizedName == role.NormalizedName) == null)
-                modelBuilder.Entity<Role>().HasData(role);
+                modelBuilder.Entity<Role<TKey>>().HasData(role);
             }
 
 
@@ -188,13 +188,13 @@ namespace ShopOnline.API.Data
             string userAdministrator = $"Admitistrator@{Assembly.GetCallingAssembly().GetName().Name}.com";
             string userManager = $"Manager@{Assembly.GetCallingAssembly().GetName().Name}.com";
             string userClient = $"Client@{Assembly.GetCallingAssembly().GetName().Name}.com";
-            var password = new PasswordHasher<User>();
+            var password = new PasswordHasher<User<TKey>>();
 
-            var users = new List<User>
+            var users = new List<User<TKey>>
             {
-                new User()
+                new User<TKey>()
                 {
-                    Id = Guid.NewGuid(),
+
                     FirstName = userAdministrator,
                     UserName = userAdministrator,
                     NormalizedUserName = userAdministrator.ToUpper(),
@@ -207,9 +207,9 @@ namespace ShopOnline.API.Data
                     TwoFactorEnabled = false,
                     LockoutEnabled = false
                 },
-                new User()
+                new User<TKey>()
                 {
-                    Id = Guid.NewGuid(),
+
                     FirstName = userManager,
                     UserName = userManager,
                     NormalizedUserName = userManager.ToUpper(),
@@ -222,9 +222,9 @@ namespace ShopOnline.API.Data
                     TwoFactorEnabled = false,
                     LockoutEnabled = false
                 },
-                new User()
+                new User<TKey>()
                 {
-                    Id = Guid.NewGuid(),
+
                     FirstName = userClient,
                     UserName = userClient,
                     NormalizedUserName = userClient.ToUpper(),
@@ -243,14 +243,14 @@ namespace ShopOnline.API.Data
             foreach (var user in users)
             {
                 user.PasswordHash = password.HashPassword(user, "K1DvesCS");
-                modelBuilder.Entity<User>().HasData(user);
+                modelBuilder.Entity<User<TKey>>().HasData(user);
             }
 
-            List<Product> Products = new List<Product>()
+            List<Product<TKey>> Products = new List<Product<TKey>>()
             {
-                new Product()
+                new Product<TKey>()
                 {
-                    Id = Guid.NewGuid(),
+
                     Article = new Random().Next(0, 1000).ToString(),
                     Name = "Name Product1",
                     FullName = "Full name Product1",
@@ -259,11 +259,11 @@ namespace ShopOnline.API.Data
             };
 
 
-            List<DocumentSale> sales = new List<DocumentSale>()
+            List<DocumentSale<TKey>> sales = new List<DocumentSale<TKey>>()
             {
-                new DocumentSale()
+                new DocumentSale<TKey>()
                 {
-                    Id = Guid.NewGuid(),
+
                     DateTime = DateTime.Now,
                     Client = users[0],
                     Reciver = users[0],
@@ -273,22 +273,22 @@ namespace ShopOnline.API.Data
                 }
             };
 
-            List<SaleProduct> saleProducts = new List<SaleProduct>()
+            List<SaleProduct<TKey>> saleProducts = new List<SaleProduct<TKey>>()
             {
-                new SaleProduct()
+                new SaleProduct<TKey>()
                 {
-                    Id= Guid.NewGuid(),
+          
                     Product=Products[0],
                     Price =  500,
                     Discount = 10,
-                    Serie = new ProductSerie()
+                    Serie = new ProductSerie<TKey>()
                     {
-                        Id = Guid.NewGuid(),
+
                         Name = "SerieForProduct"
                     },
-                    Quality = new ProductQuality()
+                    Quality = new ProductQuality<TKey>()
                     {
-                        Id = Guid.NewGuid(),
+
                         Name = "QualityForProduct"
                     }
 

@@ -14,11 +14,11 @@ namespace ShopOnline.API.Controllers
     [ApiController]
     public class CashDeskController : ControllerBase
     {
-        private readonly IRepository<CashDesk, Guid> _repository;
+        private readonly IRepository<CashDesk<Guid>, Guid> _repository;
 
         private readonly ILogger<CashDeskController> _logger;
 
-        public CashDeskController(IRepository<CashDesk, Guid> repository, ILogger<CashDeskController> loger)
+        public CashDeskController(IRepository<CashDesk<Guid>, Guid> repository, ILogger<CashDeskController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -72,7 +72,7 @@ namespace ShopOnline.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] CashDesk entity)
+        public async Task<ActionResult> Post([FromBody] CashDesk<Guid> entity)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace ShopOnline.API.Controllers
 
 
         [HttpPut("{id:Guid}")]
-        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] CashDesk entity)
+        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] CashDesk<Guid> entity)
         {
             try
             {

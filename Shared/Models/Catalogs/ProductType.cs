@@ -1,6 +1,6 @@
 ﻿namespace ShopOnline.Shared.Models.Catalogs
 {
-    public class ProductType : CatalogBase<Guid>
+    public class ProductType<TKey> : CatalogBase<TKey>
     {
 
     }

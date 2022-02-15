@@ -14,11 +14,11 @@ namespace ShopOnline.API.Controllers
     [ApiController]
     public class PriceTypeController : ControllerBase
     {
-        private readonly IRepository<PriceType, Guid> _repository;
+        private readonly IRepository<PriceType<Guid>, Guid> _repository;
 
         private readonly ILogger<PriceTypeController> _logger;
 
-        public PriceTypeController(IRepository<PriceType, Guid> repository, ILogger<PriceTypeController> loger)
+        public PriceTypeController(IRepository<PriceType<Guid>, Guid> repository, ILogger<PriceTypeController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -72,7 +72,7 @@ namespace ShopOnline.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] PriceType entity)
+        public async Task<ActionResult> Post([FromBody] PriceType<Guid> entity)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace ShopOnline.API.Controllers
 
 
         [HttpPut("{id:Guid}")]
-        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] PriceType entity)
+        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] PriceType<Guid> entity)
         {
             try
             {

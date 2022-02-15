@@ -2,22 +2,23 @@
 
 namespace ShopOnline.Shared.Models.Catalogs
 {
-    public class Product : CatalogBase<Guid>
+    public class Product<TKey> : CatalogBase<TKey>
     {
         public string? Article { get; set; }
 
+        [MaxLength(255)]
         [Display(Name = "Full name")]
         public string? FullName { get; set; }
 
-        public ProductType? ProductType { get; set; }
+        public ProductType<TKey>? ProductType { get; set; }
 
-        public ProductCharacteristic? ProductCharacteristic { get; set; }
+        public ProductCharacteristic<TKey>? ProductCharacteristic { get; set; }
 
-        public ProductQuality? ProductQuality { get; set; }
+        public ProductQuality<TKey>? ProductQuality { get; set; }
 
-        public ProductSerie? ProductSerie { get; set; }
+        public ProductSerie<TKey>? ProductSerie { get; set; }
 
-        public ProductUnitMeasurement? ProductUnitMeasurement { get; set; }
+        public ProductUnitMeasurement<TKey>? ProductUnitMeasurement { get; set; }
 
         public string? Description { get; set; }
 

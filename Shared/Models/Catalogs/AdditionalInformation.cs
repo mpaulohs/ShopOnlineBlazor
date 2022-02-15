@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopOnline.Shared.Models.Catalogs
 {
-    public class AdditionalInformation : CatalogBase<Guid>
+    public class AdditionalInformation<TKey> : CatalogBase<TKey>
     {
-        public Guid EntityGuid { get; set; }
+        public TKey EntityId { get; set; }
 
         [MaxLength(100)]
         public string? EntityType { get; set; }

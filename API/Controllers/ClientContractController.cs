@@ -14,11 +14,11 @@ namespace ShopOnline.API.Controllers
     [ApiController]
     public class ClientContractController : ControllerBase
     {
-        private readonly IRepository<ClientContract, Guid> _repository;
+        private readonly IRepository<ClientContract<Guid>, Guid> _repository;
 
         private readonly ILogger<ClientContractController> _logger;
 
-        public ClientContractController(IRepository<ClientContract, Guid> repository, ILogger<ClientContractController> loger)
+        public ClientContractController(IRepository<ClientContract<Guid>, Guid> repository, ILogger<ClientContractController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -72,7 +72,7 @@ namespace ShopOnline.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] ClientContract entity)
+        public async Task<ActionResult> Post([FromBody] ClientContract<Guid> entity)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace ShopOnline.API.Controllers
 
 
         [HttpPut("{id:Guid}")]
-        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] ClientContract entity)
+        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] ClientContract<Guid> entity)
         {
             try
             {

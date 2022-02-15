@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Shared.Services;
 using ShopOnline.Shared.Modesl;
 using ShopOnline.Shared.Services;
 using System.Linq.Expressions;
@@ -128,7 +129,7 @@ namespace ShopOnline.Shared.Services
             return await Entities.AsNoTracking().SingleOrDefaultAsync(e => e.Id.Equals(id), cancellationToken);
         }
 
-        public virtual async Task<IEnumerable<TEntity>> GetByFiltersAsync(CancellationToken cancellationToken = default, params Expression<Func<TEntity, bool>>[] filters)
+        public virtual async Task<IEnumerable<TEntity>> GetByFiltersAsync(CancellationToken cancellationToken = default, IPagination? pagination = default, params Expression<Func<TEntity, bool>>[] filters)
         {
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
@@ -147,6 +148,16 @@ namespace ShopOnline.Shared.Services
                     entities = entities?.Where(filter);
                 }
             }
+
+            //Pagination
+            if (pagination!=null)
+            {
+                entities = entities?
+               .Skip((pagination.PageNumber-1)*pagination.PageSize)
+               .Take(pagination.PageSize);
+            }
+           
+
             return await entities.ToListAsync<TEntity>();
         }
 

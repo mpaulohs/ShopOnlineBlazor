@@ -11,7 +11,7 @@ using ShopOnline.API.Data;
 
 namespace Api.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(ApplicationDbContext<Guid>))]
     [Migration("20220206172034_UpdateLength")]
     partial class UpdateLength
     {

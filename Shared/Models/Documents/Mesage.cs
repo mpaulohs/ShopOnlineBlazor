@@ -1,13 +1,20 @@
 ﻿using ShopOnline.Shared.Modesl;
+using System.ComponentModel.DataAnnotations;
 
 namespace ShopOnline.Shared.Models.Documents
 {
-    public class Mesage : IApplicationEntity<Guid>
+    public class Mesage<TKey> : IApplicationEntity<TKey>
     {
-        public Guid Id { get; set; }
+        public TKey Id { get; set; }
+
+        [MaxLength(50)]
         public string? ExchangeId { get; set; }
+
         public DateTime CreatedAt { get; set; }
+
         public DateTime UpdatedAt { get; set; }
+
+        [MaxLength(50)]
         public string? ConcurrencyStamp { get; set; }
     }
 }

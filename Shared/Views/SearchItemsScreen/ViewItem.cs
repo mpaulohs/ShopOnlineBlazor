@@ -4,7 +4,7 @@ namespace ShopOnline.UseCases.SearchProductsScreen
 {
     public class ViewProduct
     {
-        public DocumentSale Execute(string filter)
+        public DocumentSale<Guid> Execute(string filter)
         {
             return null;
         }

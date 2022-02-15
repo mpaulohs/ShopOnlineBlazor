@@ -14,11 +14,11 @@ namespace ShopOnline.API.Controllers
     [ApiController]
     public class BankController : ControllerBase
     {
-        private readonly IRepository<Bank, Guid> _repository;
+        private readonly IRepository<Bank<Guid>, Guid> _repository;
 
         private readonly ILogger<BankController> _logger;
 
-        public BankController(IRepository<Bank, Guid> repository, ILogger<BankController> loger)
+        public BankController(IRepository<Bank<Guid>, Guid> repository, ILogger<BankController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -72,7 +72,7 @@ namespace ShopOnline.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] Bank entity)
+        public async Task<ActionResult> Post([FromBody] Bank<Guid> entity)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace ShopOnline.API.Controllers
 
 
         [HttpPut("{id:Guid}")]
-        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] Bank entity)
+        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] Bank<Guid> entity)
         {
             try
             {

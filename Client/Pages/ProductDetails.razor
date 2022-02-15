@@ -1,6 +1,6 @@
 ﻿@page "/products/{id:guid}"
 
-@inject IRepository<Product,Guid> repository
+@inject IRepository<Product<Guid>,Guid> repository
 
 <PageTitle>Product details...</PageTitle>
 
@@ -46,7 +46,7 @@ else
 
 
 @code {
-    public Product? Product = null;
+    public Product<Guid>? Product = null;
 
     public Decimal? Price = null;
 
@@ -61,7 +61,7 @@ else
     {
         Product = await repository.GetByIdAsync(Id);
 
-        Properties = typeof(Product).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
+        Properties = typeof(Product<Guid>).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
         .Where(ø => ø.CanRead && ø.CanWrite)
         //.Where(ø => ø.PropertyType == typeof(string))
         .Where(ø => ø.GetGetMethod(true).IsPublic);

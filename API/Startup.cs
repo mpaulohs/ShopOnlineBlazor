@@ -44,60 +44,60 @@ namespace ShopOnline.API
 
             });
 
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<ApplicationDbContext<Guid>>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("AppConnectionString"));
             });
 
-            services.AddIdentity<User, Role>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+            services.AddIdentity<User<Guid>, Role<Guid>>().AddEntityFrameworkStores<ApplicationDbContext<Guid>>().AddDefaultTokenProviders();
 
-            services.AddScoped(typeof(IRepository<AdditionalInformation, Guid>), typeof(RepositoryBaseApi<AdditionalInformation, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<AdditionalInformation<Guid>, Guid>), typeof(RepositoryBaseApi<AdditionalInformation<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<BankAccount, Guid>), typeof(RepositoryBaseApi<BankAccount, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<BankAccount<Guid>, Guid>), typeof(RepositoryBaseApi<BankAccount<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<Bank, Guid>), typeof(RepositoryBaseApi<Bank, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<Bank<Guid>, Guid>), typeof(RepositoryBaseApi<Bank<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<CashDesk, Guid>), typeof(RepositoryBaseApi<CashDesk, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<CashDesk<Guid>, Guid>), typeof(RepositoryBaseApi<CashDesk<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<ClientContactInformation, Guid>), typeof(RepositoryBaseApi<ClientContactInformation, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<ClientContactInformation<Guid>, Guid>), typeof(RepositoryBaseApi<ClientContactInformation<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<ClientContactInformationType, Guid>), typeof(RepositoryBaseApi<ClientContactInformationType, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<ClientContactInformationType<Guid>, Guid>), typeof(RepositoryBaseApi<ClientContactInformationType<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<ClientContract, Guid>), typeof(RepositoryBaseApi<ClientContract, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<ClientContract<Guid>, Guid>), typeof(RepositoryBaseApi<ClientContract<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<Currency, Guid>), typeof(RepositoryBaseApi<Currency, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<Currency<Guid>, Guid>), typeof(RepositoryBaseApi<Currency<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<DocumentPayment, Guid>), typeof(RepositoryBaseApi<DocumentPayment, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<DocumentPayment<Guid>, Guid>), typeof(RepositoryBaseApi<DocumentPayment<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<DocumentSale, Guid>), typeof(RepositoryBaseApi<DocumentSale, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<DocumentSale<Guid>, Guid>), typeof(RepositoryBaseApi<DocumentSale<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<Mesage, Guid>), typeof(RepositoryBaseApi<Mesage, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<Mesage<Guid>, Guid>), typeof(RepositoryBaseApi<Mesage<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<Organization, Guid>), typeof(RepositoryBaseApi<Organization, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<Organization<Guid>, Guid>), typeof(RepositoryBaseApi<Organization<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<PriceType, Guid>), typeof(RepositoryBaseApi<PriceType, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<PriceType<Guid>, Guid>), typeof(RepositoryBaseApi<PriceType<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<ProductCharacteristic, Guid>), typeof(RepositoryBaseApi<ProductCharacteristic, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<ProductCharacteristic<Guid>, Guid>), typeof(RepositoryBaseApi<ProductCharacteristic<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<Product, Guid>), typeof(RepositoryBaseApi<Product, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<Product<Guid>, Guid>), typeof(RepositoryBaseApi<Product<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<ProductQuality, Guid>), typeof(RepositoryBaseApi<ProductQuality, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<ProductQuality<Guid>, Guid>), typeof(RepositoryBaseApi<ProductQuality<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<ProductQuantity, Guid>), typeof(RepositoryBaseApi<ProductQuantity, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<ProductQuantity<Guid>, Guid>), typeof(RepositoryBaseApi<ProductQuantity<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<ProductSerie, Guid>), typeof(RepositoryBaseApi<ProductSerie, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<ProductSerie<Guid>, Guid>), typeof(RepositoryBaseApi<ProductSerie<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<ProductType, Guid>), typeof(RepositoryBaseApi<ProductType, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<ProductType<Guid>, Guid>), typeof(RepositoryBaseApi<ProductType<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<ProductUnitClassifier, Guid>), typeof(RepositoryBaseApi<ProductUnitClassifier, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<ProductUnitClassifier<Guid>, Guid>), typeof(RepositoryBaseApi<ProductUnitClassifier<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<ProductUnitMeasurement, Guid>), typeof(RepositoryBaseApi<ProductUnitMeasurement, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<ProductUnitMeasurement<Guid>, Guid>), typeof(RepositoryBaseApi<ProductUnitMeasurement<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<Storage, Guid>), typeof(RepositoryBaseApi<Storage, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<Storage<Guid>, Guid>), typeof(RepositoryBaseApi<Storage<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<Subdivision, Guid>), typeof(RepositoryBaseApi<Subdivision, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<Subdivision<Guid>, Guid>), typeof(RepositoryBaseApi<Subdivision<Guid>, Guid, ApplicationDbContext<Guid>>));
 
-            services.AddScoped(typeof(IRepository<User, Guid>), typeof(RepositoryBaseApi<User, Guid, ApplicationDbContext>));
+            services.AddScoped(typeof(IRepository<User<Guid>, Guid>), typeof(RepositoryBaseApi<User<Guid>, Guid, ApplicationDbContext<Guid>>));
 
         }
 

@@ -16,8 +16,8 @@ builder.Services.AddTransient(ServiceProvider => new HttpClient
 });
 
 
-builder.Services.AddScoped(typeof(IRepository<DocumentSale, Guid>), typeof(RepositoryBaseClient<DocumentSale, Guid>));
-builder.Services.AddScoped(typeof(IRepository<Product, Guid>), typeof(RepositoryBaseClient<Product, Guid>));
+builder.Services.AddScoped(typeof(IRepository<DocumentSale<Guid>, Guid>), typeof(RepositoryBaseClient<DocumentSale<Guid>, Guid>));
+builder.Services.AddScoped(typeof(IRepository<Product<Guid>, Guid>), typeof(RepositoryBaseClient<Product<Guid>, Guid>));
 
 builder.Services.AddOidcAuthentication(options =>
 {

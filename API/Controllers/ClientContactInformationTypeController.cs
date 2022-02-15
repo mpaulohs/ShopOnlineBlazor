@@ -14,11 +14,11 @@ namespace ShopOnline.API.Controllers
     [ApiController]
     public class ClientContactInformationTypeController : ControllerBase
     {
-        private readonly IRepository<ClientContactInformationType, Guid> _repository;
+        private readonly IRepository<ClientContactInformationType<Guid>, Guid> _repository;
 
         private readonly ILogger<ClientContactInformationTypeController> _logger;
 
-        public ClientContactInformationTypeController(IRepository<ClientContactInformationType, Guid> repository, ILogger<ClientContactInformationTypeController> loger)
+        public ClientContactInformationTypeController(IRepository<ClientContactInformationType<Guid>, Guid> repository, ILogger<ClientContactInformationTypeController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -72,7 +72,7 @@ namespace ShopOnline.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] ClientContactInformationType entity)
+        public async Task<ActionResult> Post([FromBody] ClientContactInformationType<Guid> entity)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace ShopOnline.API.Controllers
 
 
         [HttpPut("{id:Guid}")]
-        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] ClientContactInformationType entity)
+        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] ClientContactInformationType<Guid> entity)
         {
             try
             {

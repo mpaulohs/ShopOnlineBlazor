@@ -14,11 +14,11 @@ namespace ShopOnline.API.Controllers
     [ApiController]
     public class AdditionalInformationController : ControllerBase
     {
-        private readonly IRepository<AdditionalInformation, Guid> _repository;
+        private readonly IRepository<AdditionalInformation<Guid>, Guid> _repository;
 
         private readonly ILogger<AdditionalInformationController> _logger;
 
-        public AdditionalInformationController(IRepository<AdditionalInformation, Guid> repository, ILogger<AdditionalInformationController> loger)
+        public AdditionalInformationController(IRepository<AdditionalInformation<Guid>, Guid> repository, ILogger<AdditionalInformationController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -72,7 +72,7 @@ namespace ShopOnline.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] AdditionalInformation entity)
+        public async Task<ActionResult> Post([FromBody] AdditionalInformation<Guid> entity)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace ShopOnline.API.Controllers
 
 
         [HttpPut("{id:Guid}")]
-        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] AdditionalInformation entity)
+        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] AdditionalInformation<Guid> entity)
         {
             try
             {

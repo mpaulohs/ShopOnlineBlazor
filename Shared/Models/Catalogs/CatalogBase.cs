@@ -5,7 +5,6 @@ namespace ShopOnline.Shared.Models.Catalogs
 {
     public abstract class CatalogBase<TKey> : IApplicationEntity<TKey>
     {
-        [MaxLength(50)]
         public TKey Id { get; set; }
 
         [MaxLength(50)]
@@ -21,7 +20,8 @@ namespace ShopOnline.Shared.Models.Catalogs
         [MaxLength(50)]
         public string ConcurrencyStamp { get; set; } = Guid.NewGuid().ToString();
 
-        [MaxLength(200)]
+        [MaxLength(255)]
         public string? Comment { get; set; }
+
     }
 }

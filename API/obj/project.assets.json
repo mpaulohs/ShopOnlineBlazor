@@ -3221,19 +3221,6 @@
         "runtime": {
           "bin/placeholder/Shared.dll": {}
         }
-      },
-      "UseCases/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Shared": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/UseCases.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/UseCases.dll": {}
-        }
       }
     }
   },
@@ -9918,11 +9905,6 @@
       "type": "project",
       "path": "../Shared/Shared.csproj",
       "msbuildProject": "../Shared/Shared.csproj"
-    },
-    "UseCases/1.0.0": {
-      "type": "project",
-      "path": "../UseCases/UseCases.csproj",
-      "msbuildProject": "../UseCases/UseCases.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -9934,8 +9916,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.1",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.1",
       "Shared >= 1.0.0",
-      "Swashbuckle.AspNetCore >= 6.2.3",
-      "UseCases >= 1.0.0"
+      "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
   "packageFolders": {
@@ -9967,9 +9948,6 @@
           "projectReferences": {
             "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj": {
               "projectPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj"
-            },
-            "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\UseCases\\UseCases.csproj": {
-              "projectPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\UseCases\\UseCases.csproj"
             }
           }
         }

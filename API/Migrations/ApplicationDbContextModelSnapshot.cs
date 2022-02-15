@@ -10,7 +10,7 @@ using ShopOnline.API.Data;
 
 namespace Api.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(ApplicationDbContext<Guid>))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -30,8 +30,8 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -76,8 +76,8 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -114,8 +114,8 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -151,8 +151,8 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -192,8 +192,8 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -215,7 +215,8 @@ namespace Api.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("Id");
 
@@ -234,8 +235,8 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -272,8 +273,8 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -314,11 +315,12 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Code")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -337,7 +339,8 @@ namespace Api.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Symbol")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -355,8 +358,8 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -390,8 +393,8 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -428,8 +431,8 @@ namespace Api.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -447,7 +450,8 @@ namespace Api.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("FullName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<bool>("IsPublic")
                         .HasColumnType("bit");
@@ -500,8 +504,8 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -535,8 +539,8 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -570,8 +574,8 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -605,8 +609,8 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -640,8 +644,8 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -675,8 +679,8 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -710,8 +714,8 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -745,8 +749,8 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -786,8 +790,8 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -878,8 +882,8 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
@@ -927,13 +931,15 @@ namespace Api.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ReciverAddres")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<Guid?>("ReciverId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ReciverPhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<Guid?>("ResponsibleId")
                         .HasColumnType("uniqueidentifier");
@@ -974,16 +980,19 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ExchangeId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -1007,10 +1016,12 @@ namespace Api.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("ExchangeId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Name")
                         .HasMaxLength(256)
@@ -1035,8 +1046,8 @@ namespace Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("dcec59a0-f01d-488a-8b75-39d5ecead70f"),
-                            ConcurrencyStamp = "42ec819a-8696-41b6-849d-46e8acd63a41",
+                            Id = new Guid("47960184-91d1-4071-a462-8c56f78363fd"),
+                            ConcurrencyStamp = "9b3bcfa1-9531-483d-b033-bdfa0e7989ac",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Administrators of application",
                             Name = "Administrators",
@@ -1045,8 +1056,8 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e1b833c3-d891-42fb-bb19-0701893bbf53"),
-                            ConcurrencyStamp = "e88e065f-6c37-4adc-a5ab-ded15e71a76d",
+                            Id = new Guid("bace559f-d1df-4969-88ed-126655ce70b2"),
+                            ConcurrencyStamp = "f645a209-0b11-4a6e-8c25-dcebfc3afcae",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Managers of application",
                             Name = "Managers",
@@ -1055,8 +1066,8 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("40b1d930-1eef-4c6f-81be-5c74a6cbb999"),
-                            ConcurrencyStamp = "6ddad178-ae78-40dd-bde7-fbdee0910e37",
+                            Id = new Guid("0a4b5633-5df6-4335-8744-3c98b10e3cf9"),
+                            ConcurrencyStamp = "2be878f1-9a97-4388-be9e-6987192d84a0",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Clients of application",
                             Name = "Clients",
@@ -1065,8 +1076,8 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("cb6cef73-2677-47b1-a8c6-a35c5dc972e8"),
-                            ConcurrencyStamp = "abbcc177-fc4e-43fc-8ea4-63231fce37ea",
+                            Id = new Guid("0a51e957-fee8-49b3-8bc3-7e5842b87d3b"),
+                            ConcurrencyStamp = "542e1d30-51bc-4281-90d0-60d2017cc4bf",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Public users of application",
                             Name = "Public",
@@ -1126,10 +1137,12 @@ namespace Api.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -1138,7 +1151,8 @@ namespace Api.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("MiddleName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -1185,9 +1199,9 @@ namespace Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("a6153a27-0510-4730-bd70-10c5ef07c5bd"),
+                            Id = new Guid("c0e24ea1-1a33-4ff3-9c2a-141f34377699"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "06.02.2022 19:20:34",
+                            ConcurrencyStamp = "15.02.2022 21:11:35",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "Admitistrator@Api.com",
                             EmailConfirmed = true,
@@ -1195,18 +1209,18 @@ namespace Api.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMITISTRATOR@API.COM",
                             NormalizedUserName = "ADMITISTRATOR@API.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPAOWPNhBLIX6AT+QV4ILD5o9BvvTbrRS/2yIxopumZ2Z+lnlKDByYmbKoHu47dx1w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGyaddcnBmdxIOJdfZIwI/VBRZGSY7TggDZGaZXSFYNsoLCj5ZGSzb11hFm1v6OKLA==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "06.02.2022 19:20:34",
+                            SecurityStamp = "15.02.2022 21:11:35",
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserName = "Admitistrator@Api.com"
                         },
                         new
                         {
-                            Id = new Guid("07046fd9-9fc6-4b46-928b-dd7ddd8814ad"),
+                            Id = new Guid("303a01f3-d64d-4391-8b3a-4b44d488c5f9"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "06.02.2022 19:20:34",
+                            ConcurrencyStamp = "15.02.2022 21:11:35",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "Manager@Api.com",
                             EmailConfirmed = true,
@@ -1214,18 +1228,18 @@ namespace Api.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "MANAGER@API.COM",
                             NormalizedUserName = "MANAGER@API.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEL4NLv1VOO3ABgfm46NOOSs4iTUaQv26TwVwqwic/xHUzE5q2QFNXcceKMKr5+EsFA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEA9gyJ+vRmkiSd9N7kRo8V2FPQI7FzhK5kyrcae45lp/hVMMi+kAR1VTjs5aXjPIkg==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "06.02.2022 19:20:34",
+                            SecurityStamp = "15.02.2022 21:11:35",
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserName = "Manager@Api.com"
                         },
                         new
                         {
-                            Id = new Guid("f70d7e30-04c5-4c1b-a7c3-27fe1953d41d"),
+                            Id = new Guid("361cf1f5-035e-4fd0-b3e1-86c6f3acb490"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "06.02.2022 19:20:34",
+                            ConcurrencyStamp = "15.02.2022 21:11:35",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "Client@Api.com",
                             EmailConfirmed = true,
@@ -1233,9 +1247,9 @@ namespace Api.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CLIENT@API.COM",
                             NormalizedUserName = "CLIENT@API.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFRvjVdbl/42wkshEmhJPbD31+vvvINbdnEim9xASVOfJlj+7DxiWSlW3kS56+siYg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDFZ/qaVrUevrif+iTKxDg9f6G2AXiLdL5RPuFfKtMAL9rpy8o/b2fKZXDW/5MnNuA==",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "06.02.2022 19:20:34",
+                            SecurityStamp = "15.02.2022 21:11:35",
                             TwoFactorEnabled = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserName = "Client@Api.com"

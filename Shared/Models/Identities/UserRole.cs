@@ -2,10 +2,11 @@
 
 namespace ShopOnline.Shared.Models.Identities
 {
-    public class UserRole : IdentityUserRole<Guid>
+    public class UserRole<TKey> : IdentityUserRole<TKey>
+        where TKey : IEquatable<TKey>
     {
-        public virtual User? User { get; set; }
-        public virtual Role? Role { get; set; }
+        public virtual User<TKey>? User { get; set; }
+        public virtual Role<TKey>? Role { get; set; }
 
     }
 }

@@ -1,6 +1,6 @@
 ﻿@page "/orders"
 
-@inject IRepository<DocumentSale, Guid> repository
+@inject IRepository<DocumentSale<Guid>, Guid> repository
 
 <PageTitle>Orders</PageTitle>
 
@@ -14,7 +14,7 @@
 }
 else
 {
-    var properties = typeof(DocumentSale).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
+    var properties = typeof(DocumentSale<Guid>).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
          .Where(ø => ø.CanRead && ø.CanWrite)
          //.Where(ø => ø.PropertyType == typeof(string))
          .Where(ø => ø.GetGetMethod(true).IsPublic);
@@ -57,7 +57,7 @@ else
 
 @code {
 
-    public IEnumerable<DocumentSale>? orders = null;
+    public IEnumerable<DocumentSale<Guid>>? orders = null;
 
     protected override async Task OnInitializedAsync()
     {

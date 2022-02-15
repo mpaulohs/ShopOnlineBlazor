@@ -16,4 +16,9 @@
 
 	</ItemGroup>
 
+
+	<ItemGroup>
+	  <Folder Include="Views\ViewItemScreen\" />
+	</ItemGroup>
+
 </Project>
