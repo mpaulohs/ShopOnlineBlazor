@@ -2,7 +2,7 @@
 
 namespace ShopOnline.Shared.Models.Catalogs
 {
-    public class Currency<TKey> : CatalogBase<TKey>
+    public class Currency : CatalogBase<Guid>
     {
         [MaxLength(20)]
         public string? Code { get; set; }

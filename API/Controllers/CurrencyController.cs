@@ -14,11 +14,11 @@ namespace ShopOnline.API.Controllers
     [ApiController]
     public class CurrencyController : ControllerBase
     {
-        private readonly IRepository<Currency<Guid>, Guid> _repository;
+        private readonly IRepository<Currency, Guid> _repository;
 
         private readonly ILogger<CurrencyController> _logger;
 
-        public CurrencyController(IRepository<Currency<Guid>, Guid> repository, ILogger<CurrencyController> loger)
+        public CurrencyController(IRepository<Currency, Guid> repository, ILogger<CurrencyController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -72,7 +72,7 @@ namespace ShopOnline.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] Currency<Guid> entity)
+        public async Task<ActionResult> Post([FromBody] Currency entity)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace ShopOnline.API.Controllers
 
 
         [HttpPut("{id:Guid}")]
-        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] Currency<Guid> entity)
+        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] Currency entity)
         {
             try
             {

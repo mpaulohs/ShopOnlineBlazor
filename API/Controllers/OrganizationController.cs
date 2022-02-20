@@ -14,11 +14,11 @@ namespace ShopOnline.API.Controllers
     [ApiController]
     public class OrganizationController : ControllerBase
     {
-        private readonly IRepository<Organization<Guid>, Guid> _repository;
+        private readonly IRepository<Organization, Guid> _repository;
 
         private readonly ILogger<OrganizationController> _logger;
 
-        public OrganizationController(IRepository<Organization<Guid>, Guid> repository, ILogger<OrganizationController> loger)
+        public OrganizationController(IRepository<Organization, Guid> repository, ILogger<OrganizationController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -72,7 +72,7 @@ namespace ShopOnline.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] Organization<Guid> entity)
+        public async Task<ActionResult> Post([FromBody] Organization entity)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace ShopOnline.API.Controllers
 
 
         [HttpPut("{id:Guid}")]
-        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] Organization<Guid> entity)
+        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] Organization entity)
         {
             try
             {

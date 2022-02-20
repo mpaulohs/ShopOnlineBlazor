@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ShopOnline.Shared.Models.Documents
 {
-    public class Mesage<TKey> : IApplicationEntity<TKey>
+    public class Mesage : IApplicationEntity<Guid>
     {
-        public TKey Id { get; set; }
+        public Guid Id { get; set; }
 
         [MaxLength(50)]
         public string? ExchangeId { get; set; }

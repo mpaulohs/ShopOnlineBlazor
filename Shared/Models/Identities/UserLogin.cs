@@ -2,9 +2,9 @@
 
 namespace ShopOnline.Shared.Models.Identities
 {
-    public class UserLogin<TKey> : IdentityUserLogin<TKey>
-        where TKey: IEquatable<TKey>
+    public class UserLogin : IdentityUserLogin<Guid>
+
     {
-        public virtual User<TKey>? User { get; set; }
+        public virtual User? User { get; set; }
     }
 }

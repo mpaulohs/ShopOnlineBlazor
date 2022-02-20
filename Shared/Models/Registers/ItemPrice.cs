@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopOnline.Shared.Models.Registers
 {
-    public class ProductPrice<TKey>
+    public class ProductPrice
     {
-        public TKey Id { get; set; }
-        public PriceType<TKey>? PriceType { get; set; }
-        public Product<TKey>? Product { get; set; }
-        public Currency<TKey>? Currency { get; set; }
+        public Guid Id { get; set; }
+        public PriceType? PriceType { get; set; }
+        public Product? Product { get; set; }
+        public Currency? Currency { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }

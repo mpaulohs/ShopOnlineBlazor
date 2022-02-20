@@ -3,18 +3,22 @@ using ShopOnline.Shared.Services;
 
 namespace ShopOnline.UseCases.SearchProductsScreen
 {
-    public class SearchProduct<TKey>
-        where TKey : IEquatable<TKey>
-    {
-        private readonly IRepository<DocumentSale<TKey>, TKey> repository;
+    public class SearchProduct
 
-        public SearchProduct(IRepository<DocumentSale<TKey>, TKey> repository)
+   
+ 
+    {
+        private readonly IRepository<DocumentSale, Guid> repository;
+      
+
+        public SearchProduct(IRepository<DocumentSale, Guid> repository)
         {
             this.repository=repository;
         }
 
-        public async Task<IEnumerable<DocumentSale<TKey>>> Execute(string filter)
+        public async Task< (IEnumerable<DocumentSale>, int)?> Execute(string filter)
         {
+         
             return await repository.GetByFiltersAsync();
         }
     }

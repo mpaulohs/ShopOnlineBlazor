@@ -2,10 +2,10 @@
 
 namespace ShopOnline.Shared.Models.Documents
 {
-    public class DocumentPayment<TKey> : DocumentBase<TKey>
-        where TKey : IEquatable<TKey>
+    public class DocumentPayment : DocumentBase<Guid>
+
     {
-        public Currency<TKey>? Currency { get; set; }
+        public Currency? Currency { get; set; }
 
 
         //ToDo

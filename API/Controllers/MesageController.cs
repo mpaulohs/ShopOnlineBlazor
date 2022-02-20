@@ -14,11 +14,11 @@ namespace ShopOnline.API.Controllers
     [ApiController]
     public class MesageController : ControllerBase
     {
-        private readonly IRepository<Mesage<Guid>, Guid> _repository;
+        private readonly IRepository<Mesage, Guid> _repository;
 
         private readonly ILogger<MesageController> _logger;
 
-        public MesageController(IRepository<Mesage<Guid>, Guid> repository, ILogger<MesageController> loger)
+        public MesageController(IRepository<Mesage, Guid> repository, ILogger<MesageController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -72,7 +72,7 @@ namespace ShopOnline.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] Mesage<Guid> entity)
+        public async Task<ActionResult> Post([FromBody] Mesage entity)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace ShopOnline.API.Controllers
 
 
         [HttpPut("{id:Guid}")]
-        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] Mesage<Guid> entity)
+        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] Mesage entity)
         {
             try
             {

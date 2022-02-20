@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "UK3z/HOvKGf4gJfYMHYZangj5dUUbMB0YWrrme4VYvNHySxP5QYcbDSpo6sltiq8EXfRHz8FfnMkbqigARmIpQ==",
+  "dgSpecHash": "jl1V0iGdmNX0Rabq4XpVUCzzRM9Xr2omARxhEpvgDQUBgZ0rhak8Szy3JXghtJ+Vy8fSNrviBvtA34wabaupOQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Client\\Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
-    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.1\\microsoft.aspnetcore.authorization.6.0.1.nupkg.sha512",
-    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.1\\microsoft.aspnetcore.components.6.0.1.nupkg.sha512",
-    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.1\\microsoft.aspnetcore.components.analyzers.6.0.1.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.2\\microsoft.aspnetcore.authorization.6.0.2.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.2\\microsoft.aspnetcore.components.6.0.2.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.2\\microsoft.aspnetcore.components.analyzers.6.0.2.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components.authorization\\6.0.1\\microsoft.aspnetcore.components.authorization.6.0.1.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\6.0.1\\microsoft.aspnetcore.components.forms.6.0.1.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.1\\microsoft.aspnetcore.components.web.6.0.1.nupkg.sha512",
@@ -18,7 +18,8 @@
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.1\\microsoft.aspnetcore.cryptography.keyderivation.6.0.1.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.1\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.1.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\6.0.1\\microsoft.aspnetcore.jsonpatch.6.0.1.nupkg.sha512",
-    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.1\\microsoft.aspnetcore.metadata.6.0.1.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.2\\microsoft.aspnetcore.metadata.6.0.2.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.1\\microsoft.entityframeworkcore.6.0.1.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.1\\microsoft.entityframeworkcore.abstractions.6.0.1.nupkg.sha512",
@@ -44,14 +45,16 @@
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.jsinterop\\6.0.1\\microsoft.jsinterop.6.0.1.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.jsinterop.webassembly\\6.0.1\\microsoft.jsinterop.webassembly.6.0.1.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.io.pipelines\\6.0.1\\system.io.pipelines.6.0.1.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
-    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.1\\microsoft.netcore.app.runtime.mono.browser-wasm.6.0.1.nupkg.sha512"
+    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.2\\microsoft.netcore.app.runtime.mono.browser-wasm.6.0.2.nupkg.sha512"
   ],
   "logs": []
 }

@@ -10,7 +10,7 @@ using ShopOnline.API.Data;
 
 namespace Api.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext<Guid>))]
+    [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -26,7 +26,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
@@ -41,7 +40,7 @@ namespace Api.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("EntityGuid")
+                    b.Property<Guid>("EntityId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("EntityType")
@@ -72,7 +71,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
@@ -107,7 +105,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("BankId")
@@ -147,7 +144,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
@@ -182,7 +178,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("ClientContactInformationTypeId")
@@ -231,7 +226,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
@@ -266,7 +260,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("ClientId")
@@ -311,7 +304,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Code")
@@ -354,7 +346,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
@@ -389,7 +380,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
@@ -424,7 +414,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Article")
@@ -500,7 +489,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
@@ -535,7 +523,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
@@ -570,7 +557,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
@@ -605,7 +591,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
@@ -640,7 +625,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
@@ -675,7 +659,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
@@ -710,7 +693,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
@@ -745,7 +727,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comment")
@@ -780,7 +761,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("ClientContractId")
@@ -872,7 +852,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("ClientContractId")
@@ -944,7 +923,7 @@ namespace Api.Migrations
                     b.Property<Guid?>("ResponsibleId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("StorageId")
+                    b.Property<Guid?>("StorageId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("SubdivisionId")
@@ -980,7 +959,6 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -1042,48 +1020,6 @@ namespace Api.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("Roles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("47960184-91d1-4071-a462-8c56f78363fd"),
-                            ConcurrencyStamp = "9b3bcfa1-9531-483d-b033-bdfa0e7989ac",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Administrators of application",
-                            Name = "Administrators",
-                            NormalizedName = "ADMINISTRATORS",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = new Guid("bace559f-d1df-4969-88ed-126655ce70b2"),
-                            ConcurrencyStamp = "f645a209-0b11-4a6e-8c25-dcebfc3afcae",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Managers of application",
-                            Name = "Managers",
-                            NormalizedName = "MANAGERS",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = new Guid("0a4b5633-5df6-4335-8744-3c98b10e3cf9"),
-                            ConcurrencyStamp = "2be878f1-9a97-4388-be9e-6987192d84a0",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Clients of application",
-                            Name = "Clients",
-                            NormalizedName = "CLIENTS",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = new Guid("0a51e957-fee8-49b3-8bc3-7e5842b87d3b"),
-                            ConcurrencyStamp = "542e1d30-51bc-4281-90d0-60d2017cc4bf",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Public users of application",
-                            Name = "Public",
-                            NormalizedName = "PUBLIC",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("ShopOnline.Shared.Models.Identities.RoleClaim", b =>
@@ -1195,65 +1131,6 @@ namespace Api.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("Users", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("c0e24ea1-1a33-4ff3-9c2a-141f34377699"),
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "15.02.2022 21:11:35",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "Admitistrator@Api.com",
-                            EmailConfirmed = true,
-                            FirstName = "Admitistrator@Api.com",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMITISTRATOR@API.COM",
-                            NormalizedUserName = "ADMITISTRATOR@API.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGyaddcnBmdxIOJdfZIwI/VBRZGSY7TggDZGaZXSFYNsoLCj5ZGSzb11hFm1v6OKLA==",
-                            PhoneNumberConfirmed = true,
-                            SecurityStamp = "15.02.2022 21:11:35",
-                            TwoFactorEnabled = false,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserName = "Admitistrator@Api.com"
-                        },
-                        new
-                        {
-                            Id = new Guid("303a01f3-d64d-4391-8b3a-4b44d488c5f9"),
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "15.02.2022 21:11:35",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "Manager@Api.com",
-                            EmailConfirmed = true,
-                            FirstName = "Manager@Api.com",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "MANAGER@API.COM",
-                            NormalizedUserName = "MANAGER@API.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEA9gyJ+vRmkiSd9N7kRo8V2FPQI7FzhK5kyrcae45lp/hVMMi+kAR1VTjs5aXjPIkg==",
-                            PhoneNumberConfirmed = true,
-                            SecurityStamp = "15.02.2022 21:11:35",
-                            TwoFactorEnabled = false,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserName = "Manager@Api.com"
-                        },
-                        new
-                        {
-                            Id = new Guid("361cf1f5-035e-4fd0-b3e1-86c6f3acb490"),
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "15.02.2022 21:11:35",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "Client@Api.com",
-                            EmailConfirmed = true,
-                            FirstName = "Client@Api.com",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "CLIENT@API.COM",
-                            NormalizedUserName = "CLIENT@API.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDFZ/qaVrUevrif+iTKxDg9f6G2AXiLdL5RPuFfKtMAL9rpy8o/b2fKZXDW/5MnNuA==",
-                            PhoneNumberConfirmed = true,
-                            SecurityStamp = "15.02.2022 21:11:35",
-                            TwoFactorEnabled = false,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserName = "Client@Api.com"
-                        });
                 });
 
             modelBuilder.Entity("ShopOnline.Shared.Models.Identities.UserClaim", b =>
@@ -1490,9 +1367,7 @@ namespace Api.Migrations
 
                     b.HasOne("ShopOnline.Shared.Models.Catalogs.Storage", "Storage")
                         .WithMany()
-                        .HasForeignKey("StorageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("StorageId");
 
                     b.HasOne("ShopOnline.Shared.Models.Catalogs.Subdivision", "Subdivision")
                         .WithMany()

@@ -1,6 +1,6 @@
 ﻿namespace ShopOnline.Shared.Models.Catalogs
 {
-    public class ClientContactInformationType<TKey> : CatalogBase<TKey>
+    public class ClientContactInformationType : CatalogBase<Guid>
     {
 
     }

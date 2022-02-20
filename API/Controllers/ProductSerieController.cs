@@ -14,11 +14,11 @@ namespace ShopOnline.API.Controllers
     [ApiController]
     public class ProductSerieController : ControllerBase
     {
-        private readonly IRepository<ProductSerie<Guid>, Guid> _repository;
+        private readonly IRepository<ProductSerie, Guid> _repository;
 
         private readonly ILogger<ProductSerieController> _logger;
 
-        public ProductSerieController(IRepository<ProductSerie<Guid>, Guid> repository, ILogger<ProductSerieController> loger)
+        public ProductSerieController(IRepository<ProductSerie, Guid> repository, ILogger<ProductSerieController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -72,7 +72,7 @@ namespace ShopOnline.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] ProductSerie<Guid> entity)
+        public async Task<ActionResult> Post([FromBody] ProductSerie entity)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace ShopOnline.API.Controllers
 
 
         [HttpPut("{id:Guid}")]
-        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] ProductSerie<Guid> entity)
+        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] ProductSerie entity)
         {
             try
             {

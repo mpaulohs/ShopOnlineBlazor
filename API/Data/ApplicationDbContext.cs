@@ -1,21 +1,17 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ShopOnline.Shared.Models.Catalogs;
 using ShopOnline.Shared.Models.Documents;
 using ShopOnline.Shared.Models.Identities;
-using ShopOnline.Shared.Models.Registers;
 using System;
-using System.Collections.Generic;
-using System.Reflection;
 
 namespace ShopOnline.API.Data
 {
 
-    public class ApplicationDbContext<TKey> : IdentityDbContext<User<TKey>, Role<TKey>, TKey, UserClaim<TKey>, UserRole<TKey>, UserLogin<TKey>, RoleClaim<TKey>, UserToken<TKey>>
-    where TKey : IEquatable<TKey>
+    public class ApplicationDbContext : IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
+
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext<TKey>> options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
         {
 
@@ -25,7 +21,7 @@ namespace ShopOnline.API.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<User<TKey>>(b =>
+            modelBuilder.Entity<User>(b =>
             {
                 // Table name
                 b.ToTable("Users");
@@ -55,7 +51,7 @@ namespace ShopOnline.API.Data
                     .IsRequired();
             });
 
-            modelBuilder.Entity<Role<TKey>>(b =>
+            modelBuilder.Entity<Role>(b =>
             {
                 // Table name
                 b.ToTable("Roles");
@@ -73,236 +69,236 @@ namespace ShopOnline.API.Data
                     .IsRequired();
             });
 
-            modelBuilder.Entity<UserRole<TKey>>(b => b.ToTable("UserRoles"));
+            modelBuilder.Entity<UserRole>(b => b.ToTable("UserRoles"));
 
-            modelBuilder.Entity<UserClaim<TKey>>(b => b.ToTable("UserClaims"));
+            modelBuilder.Entity<UserClaim>(b => b.ToTable("UserClaims"));
 
-            modelBuilder.Entity<UserLogin<TKey>>(b => b.ToTable("UserLogins"));
+            modelBuilder.Entity<UserLogin>(b => b.ToTable("UserLogins"));
 
-            modelBuilder.Entity<UserToken<TKey>>(b => b.ToTable("UserTokens"));
+            modelBuilder.Entity<UserToken>(b => b.ToTable("UserTokens"));
 
-            modelBuilder.Entity<RoleClaim<TKey>>(b => b.ToTable("RoleClaims"));
+            modelBuilder.Entity<RoleClaim>(b => b.ToTable("RoleClaims"));
 
             //Catalogs
 
-            modelBuilder.Entity<AdditionalInformation<TKey>>(b => b.ToTable("AdditionalInformations"));
+            modelBuilder.Entity<AdditionalInformation>(b => b.ToTable("AdditionalInformations"));
 
-            modelBuilder.Entity<Bank<TKey>>(b => b.ToTable("Banks"));
+            modelBuilder.Entity<Bank>(b => b.ToTable("Banks"));
 
-            modelBuilder.Entity<BankAccount<TKey>>(b => b.ToTable("BankAccounts"));
+            modelBuilder.Entity<BankAccount>(b => b.ToTable("BankAccounts"));
 
-            modelBuilder.Entity<CashDesk<TKey>>(b => b.ToTable("CashDesks"));
+            modelBuilder.Entity<CashDesk>(b => b.ToTable("CashDesks"));
 
-            modelBuilder.Entity<ClientContactInformation<TKey>>(b => b.ToTable("ClientContackInformations"));
+            modelBuilder.Entity<ClientContactInformation>(b => b.ToTable("ClientContackInformations"));
 
-            modelBuilder.Entity<ClientContactInformationType<TKey>>(b => b.ToTable("ClientContactInformationTypes"));
+            modelBuilder.Entity<ClientContactInformationType>(b => b.ToTable("ClientContactInformationTypes"));
 
-            modelBuilder.Entity<ClientContract<TKey>>(b => b.ToTable("ClientContracts"));
+            modelBuilder.Entity<ClientContract>(b => b.ToTable("ClientContracts"));
 
-            modelBuilder.Entity<Currency<TKey>>(b => b.ToTable("Currencyes"));
+            modelBuilder.Entity<Currency>(b => b.ToTable("Currencyes"));
 
-            modelBuilder.Entity<Product<TKey>>(b => b.ToTable("Products"));
+            modelBuilder.Entity<Product>(b => b.ToTable("Products"));
 
-            modelBuilder.Entity<ProductCharacteristic<TKey>>(b => b.ToTable("ProductCharacteristics"));
+            modelBuilder.Entity<ProductCharacteristic>(b => b.ToTable("ProductCharacteristics"));
 
-            modelBuilder.Entity<ProductQuality<TKey>>(b => b.ToTable("ItmeQualityes"));
+            modelBuilder.Entity<ProductQuality>(b => b.ToTable("ItmeQualityes"));
 
-            modelBuilder.Entity<ProductSerie<TKey>>(b => b.ToTable("ProductSeries"));
+            modelBuilder.Entity<ProductSerie>(b => b.ToTable("ProductSeries"));
 
-            modelBuilder.Entity<ProductType<TKey>>(b => b.ToTable("ProductTypes"));
+            modelBuilder.Entity<ProductType>(b => b.ToTable("ProductTypes"));
 
-            modelBuilder.Entity<ProductUnitClassifier<TKey>>(b => b.ToTable("ProductUnitClassifiers"));
+            modelBuilder.Entity<ProductUnitClassifier>(b => b.ToTable("ProductUnitClassifiers"));
 
-            modelBuilder.Entity<ProductUnitMeasurement<TKey>>(b => b.ToTable("ProductUnitMeasuraments"));
+            modelBuilder.Entity<ProductUnitMeasurement>(b => b.ToTable("ProductUnitMeasuraments"));
 
-            modelBuilder.Entity<Organization<TKey>>(b => b.ToTable("Organizations"));
+            modelBuilder.Entity<Organization>(b => b.ToTable("Organizations"));
 
-            modelBuilder.Entity<Storage<TKey>>(b => b.ToTable("Storages"));
+            modelBuilder.Entity<Storage>(b => b.ToTable("Storages"));
 
-            modelBuilder.Entity<Subdivision<TKey>>(b => b.ToTable("Subdivisions"));
+            modelBuilder.Entity<Subdivision>(b => b.ToTable("Subdivisions"));
 
             //Documents
 
-            modelBuilder.Entity<DocumentSale<TKey>>(b => b.ToTable("Documents"));
+            modelBuilder.Entity<DocumentSale>(b => b.ToTable("Documents"));
 
-            modelBuilder.Entity<DocumentPayment<TKey>>(b => b.ToTable("Payments"));
+            modelBuilder.Entity<DocumentPayment>(b => b.ToTable("Payments"));
 
             //modelBuilder.Entity<DocumentAdjustment>(b => b.ToTable("Adjustments"));
 
-            modelBuilder.Entity<Mesage<Guid>>(b => b.ToTable("Mesages"));
+            modelBuilder.Entity<Mesage>(b => b.ToTable("Mesages"));
 
             //Seed data
 
-            Seed(modelBuilder);
+            //Seed(modelBuilder);
         }
 
 
-        private void Seed(ModelBuilder modelBuilder)
-        {
-            //Role
-            string roleAdministrators = "Administrators";
-            string roleManagers = "Managers";
-            string roleClients = "Clients";
-            string rolePublic = "Public";
+        //private void Seed(ModelBuilder modelBuilder)
+        //{
+        //    //Role
+        //    string roleAdministrators = "Administrators";
+        //    string roleManagers = "Managers";
+        //    string roleClients = "Clients";
+        //    string rolePublic = "Public";
 
-            List<Role<TKey>> roles = new List<Role<TKey>>
-            {
-                    new Role<TKey>()
-                     {
-                        Name = roleAdministrators,
-                        NormalizedName = roleAdministrators.ToUpper(),
-                        Description = "Administrators of application"
-                    },
-                    new Role<TKey>()
-                    {
+        //    List<Role<TKey>> roles = new List<Role<TKey>>
+        //    {
+        //            new Role<TKey>()
+        //             {
+        //                Name = roleAdministrators,
+        //                NormalizedName = roleAdministrators.ToUpper(),
+        //                Description = "Administrators of application"
+        //            },
+        //            new Role<TKey>()
+        //            {
 
-                        Name = roleManagers,
-                        NormalizedName = roleManagers.ToUpper(),
-                        Description = "Managers of application"
-                    },
-                    new Role<TKey>()
-                    {
+        //                Name = roleManagers,
+        //                NormalizedName = roleManagers.ToUpper(),
+        //                Description = "Managers of application"
+        //            },
+        //            new Role<TKey>()
+        //            {
 
-                        Name = roleClients,
-                        NormalizedName = roleClients.ToUpper(),
-                        Description = "Clients of application"
-                    },
-                     new Role<TKey>()
-                    {
+        //                Name = roleClients,
+        //                NormalizedName = roleClients.ToUpper(),
+        //                Description = "Clients of application"
+        //            },
+        //             new Role<TKey>()
+        //            {
 
-                        Name =rolePublic,
-                        NormalizedName = rolePublic.ToUpper(),
-                        Description = "Public users of application"
-                    }
-            };
-
-
-            foreach (var role in roles)
-            {
-                // if (this.Roles.AnyAsync<Role>(r => r.NormalizedName == role.NormalizedName) == null)
-                modelBuilder.Entity<Role<TKey>>().HasData(role);
-            }
+        //                Name =rolePublic,
+        //                NormalizedName = rolePublic.ToUpper(),
+        //                Description = "Public users of application"
+        //            }
+        //    };
 
 
-            //User
-            string userAdministrator = $"Admitistrator@{Assembly.GetCallingAssembly().GetName().Name}.com";
-            string userManager = $"Manager@{Assembly.GetCallingAssembly().GetName().Name}.com";
-            string userClient = $"Client@{Assembly.GetCallingAssembly().GetName().Name}.com";
-            var password = new PasswordHasher<User<TKey>>();
-
-            var users = new List<User<TKey>>
-            {
-                new User<TKey>()
-                {
-
-                    FirstName = userAdministrator,
-                    UserName = userAdministrator,
-                    NormalizedUserName = userAdministrator.ToUpper(),
-                    Email = userAdministrator,
-                    NormalizedEmail = userAdministrator.ToUpper(),
-                    EmailConfirmed = true,
-                    SecurityStamp = DateTime.Now.ToString(),
-                    ConcurrencyStamp = DateTime.Now.ToString(),
-                    PhoneNumberConfirmed = true,
-                    TwoFactorEnabled = false,
-                    LockoutEnabled = false
-                },
-                new User<TKey>()
-                {
-
-                    FirstName = userManager,
-                    UserName = userManager,
-                    NormalizedUserName = userManager.ToUpper(),
-                    Email = userManager,
-                    NormalizedEmail = userManager.ToUpper(),
-                    EmailConfirmed = true,
-                    SecurityStamp = DateTime.Now.ToString(),
-                    ConcurrencyStamp = DateTime.Now.ToString(),
-                    PhoneNumberConfirmed = true,
-                    TwoFactorEnabled = false,
-                    LockoutEnabled = false
-                },
-                new User<TKey>()
-                {
-
-                    FirstName = userClient,
-                    UserName = userClient,
-                    NormalizedUserName = userClient.ToUpper(),
-                    Email = userClient,
-                    NormalizedEmail = userClient.ToUpper(),
-                    EmailConfirmed = true,
-                    SecurityStamp = DateTime.Now.ToString(),
-                    ConcurrencyStamp = DateTime.Now.ToString(),
-                    PhoneNumberConfirmed = true,
-                    TwoFactorEnabled = false,
-                    LockoutEnabled = false
-                }
-            };
+        //    foreach (var role in roles)
+        //    {
+        //        // if (this.Roles.AnyAsync<Role>(r => r.NormalizedName == role.NormalizedName) == null)
+        //        modelBuilder.Entity<Role<TKey>>().HasData(role);
+        //    }
 
 
-            foreach (var user in users)
-            {
-                user.PasswordHash = password.HashPassword(user, "K1DvesCS");
-                modelBuilder.Entity<User<TKey>>().HasData(user);
-            }
+        //    //User
+        //    string userAdministrator = $"Admitistrator@{Assembly.GetCallingAssembly().GetName().Name}.com";
+        //    string userManager = $"Manager@{Assembly.GetCallingAssembly().GetName().Name}.com";
+        //    string userClient = $"Client@{Assembly.GetCallingAssembly().GetName().Name}.com";
+        //    var password = new PasswordHasher<User<TKey>>();
 
-            List<Product<TKey>> Products = new List<Product<TKey>>()
-            {
-                new Product<TKey>()
-                {
+        //    var users = new List<User<TKey>>
+        //    {
+        //        new User<TKey>()
+        //        {
 
-                    Article = new Random().Next(0, 1000).ToString(),
-                    Name = "Name Product1",
-                    FullName = "Full name Product1",
-                    Description = "Description"
-                }
-            };
+        //            FirstName = userAdministrator,
+        //            UserName = userAdministrator,
+        //            NormalizedUserName = userAdministrator.ToUpper(),
+        //            Email = userAdministrator,
+        //            NormalizedEmail = userAdministrator.ToUpper(),
+        //            EmailConfirmed = true,
+        //            SecurityStamp = DateTime.Now.ToString(),
+        //            ConcurrencyStamp = DateTime.Now.ToString(),
+        //            PhoneNumberConfirmed = true,
+        //            TwoFactorEnabled = false,
+        //            LockoutEnabled = false
+        //        },
+        //        new User<TKey>()
+        //        {
+
+        //            FirstName = userManager,
+        //            UserName = userManager,
+        //            NormalizedUserName = userManager.ToUpper(),
+        //            Email = userManager,
+        //            NormalizedEmail = userManager.ToUpper(),
+        //            EmailConfirmed = true,
+        //            SecurityStamp = DateTime.Now.ToString(),
+        //            ConcurrencyStamp = DateTime.Now.ToString(),
+        //            PhoneNumberConfirmed = true,
+        //            TwoFactorEnabled = false,
+        //            LockoutEnabled = false
+        //        },
+        //        new User<TKey>()
+        //        {
+
+        //            FirstName = userClient,
+        //            UserName = userClient,
+        //            NormalizedUserName = userClient.ToUpper(),
+        //            Email = userClient,
+        //            NormalizedEmail = userClient.ToUpper(),
+        //            EmailConfirmed = true,
+        //            SecurityStamp = DateTime.Now.ToString(),
+        //            ConcurrencyStamp = DateTime.Now.ToString(),
+        //            PhoneNumberConfirmed = true,
+        //            TwoFactorEnabled = false,
+        //            LockoutEnabled = false
+        //        }
+        //    };
 
 
-            List<DocumentSale<TKey>> sales = new List<DocumentSale<TKey>>()
-            {
-                new DocumentSale<TKey>()
-                {
+        //    foreach (var user in users)
+        //    {
+        //        user.PasswordHash = password.HashPassword(user, "K1DvesCS");
+        //        modelBuilder.Entity<User<TKey>>().HasData(user);
+        //    }
 
-                    DateTime = DateTime.Now,
-                    Client = users[0],
-                    Reciver = users[0],
-                    DocumentType = DocumentType.Order,
-                    DocumentStatus = DocumentStatus.New,
+        //    List<Product<TKey>> Products = new List<Product<TKey>>()
+        //    {
+        //        new Product<TKey>()
+        //        {
 
-                }
-            };
+        //            Article = new Random().Next(0, 1000).ToString(),
+        //            Name = "Name Product1",
+        //            FullName = "Full name Product1",
+        //            Description = "Description"
+        //        }
+        //    };
 
-            List<SaleProduct<TKey>> saleProducts = new List<SaleProduct<TKey>>()
-            {
-                new SaleProduct<TKey>()
-                {
-          
-                    Product=Products[0],
-                    Price =  500,
-                    Discount = 10,
-                    Serie = new ProductSerie<TKey>()
-                    {
 
-                        Name = "SerieForProduct"
-                    },
-                    Quality = new ProductQuality<TKey>()
-                    {
+        //    List<DocumentSale<TKey>> sales = new List<DocumentSale<TKey>>()
+        //    {
+        //        new DocumentSale<TKey>()
+        //        {
 
-                        Name = "QualityForProduct"
-                    }
+        //            DateTime = DateTime.Now,
+        //            Client = users[0],
+        //            Reciver = users[0],
+        //            DocumentType = DocumentType.Order,
+        //            DocumentStatus = DocumentStatus.New,
 
-                }
-            };
+        //        }
+        //    };
 
-            //Curency
-            //var Curensy = new HashSet<Currency>();
-            //foreach (CultureInfo Product in CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures))
-            //    Curensy.Add(new Currency(Product.Name, Product.ToString(), Product.NumberFormat.CurrencySymbol));
+        //    List<SaleProduct<TKey>> saleProducts = new List<SaleProduct<TKey>>()
+        //    {
+        //        new SaleProduct<TKey>()
+        //        {
 
-            //foreach (Currency currency in Curensy)
-            //    modelBuilder.Entity<Currency>().HasData(currency);
+        //            Product=Products[0],
+        //            Price =  500,
+        //            Discount = 10,
+        //            Serie = new ProductSerie<TKey>()
+        //            {
 
-        }
+        //                Name = "SerieForProduct"
+        //            },
+        //            Quality = new ProductQuality<TKey>()
+        //            {
+
+        //                Name = "QualityForProduct"
+        //            }
+
+        //        }
+        //    };
+
+        //Curency
+        //var Curensy = new HashSet<Currency>();
+        //foreach (CultureInfo Product in CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures))
+        //    Curensy.Add(new Currency(Product.Name, Product.ToString(), Product.NumberFormat.CurrencySymbol));
+
+        //foreach (Currency currency in Curensy)
+        //    modelBuilder.Entity<Currency>().HasData(currency);
+
     }
 }
+

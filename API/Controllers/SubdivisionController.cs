@@ -13,11 +13,11 @@ namespace ShopOnline.API.Controllers
     [ApiController]
     public class SubdivisionController : ControllerBase
     {
-        private readonly IRepository<Subdivision<Guid>, Guid> _repository;
+        private readonly IRepository<Subdivision, Guid> _repository;
 
         private readonly ILogger<SubdivisionController> _logger;
 
-        public SubdivisionController(IRepository<Subdivision<Guid>, Guid> repository, ILogger<SubdivisionController> loger)
+        public SubdivisionController(IRepository<Subdivision, Guid> repository, ILogger<SubdivisionController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -71,7 +71,7 @@ namespace ShopOnline.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] Subdivision<Guid> entity)
+        public async Task<ActionResult> Post([FromBody] Subdivision entity)
         {
             try
             {
@@ -94,7 +94,7 @@ namespace ShopOnline.API.Controllers
 
 
         [HttpPut("{id:Guid}")]
-        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] Subdivision<Guid> entity)
+        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] Subdivision entity)
         {
             try
             {

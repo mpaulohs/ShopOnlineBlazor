@@ -14,11 +14,11 @@ namespace ShopOnline.API.Controllers
     [ApiController]
     public class StorageController : ControllerBase
     {
-        private readonly IRepository<Storage<Guid>, Guid> _repository;
+        private readonly IRepository<Storage, Guid> _repository;
 
         private readonly ILogger<StorageController> _logger;
 
-        public StorageController(IRepository<Storage<Guid>, Guid> repository, ILogger<StorageController> loger)
+        public StorageController(IRepository<Storage, Guid> repository, ILogger<StorageController> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -72,7 +72,7 @@ namespace ShopOnline.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] Storage<Guid> entity)
+        public async Task<ActionResult> Post([FromBody] Storage entity)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace ShopOnline.API.Controllers
 
 
         [HttpPut("{id:Guid}")]
-        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] Storage<Guid> entity)
+        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] Storage entity)
         {
             try
             {

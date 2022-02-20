@@ -1,6 +1,6 @@
 ﻿@page "/orders/{id:guid}"
 
-@inject IRepository<DocumentSale<Guid>, Guid> repository
+@inject IRepository<DocumentSale, Guid> repository
 
 <PageTitle>Order</PageTitle>
 
@@ -14,7 +14,7 @@
 }
 else
 {
-    var properties = typeof(DocumentSale<Guid>).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
+    var properties = typeof(DocumentSale).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
          .Where(ø => ø.CanRead && ø.CanWrite)
          //.Where(ø => ø.PropertyType == typeof(string))
          .Where(ø => ø.GetGetMethod(true).IsPublic);
@@ -29,7 +29,7 @@ else
 
 @code {
 
-    private DocumentSale<Guid> order = null;
+    private DocumentSale order = null;
 
     [Parameter]
     public Guid Id { get; set; }

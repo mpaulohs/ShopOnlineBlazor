@@ -3,9 +3,9 @@
 namespace ShopOnline.Shared.Models.Identities
 {
 
-    public class UserClaim<TKey> : IdentityUserClaim<TKey>
-        where TKey : IEquatable<TKey>
+    public class UserClaim : IdentityUserClaim<Guid>
+
     {
-        public virtual User<TKey>? User { get; set; }
+        public virtual User? User { get; set; }
     }
 }
