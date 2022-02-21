@@ -8,10 +8,22 @@ namespace Shared.Views.Pagination
 {
     public class PaginationPagesMetaData
     {
-        public int CurrentPage { get; private set; }
-        public int TotalPages { get; private set; }
-        public int Count { get; set; }
-        public int PageSize { get; private set; }
+        public int CurrentPage { get; set; }
+        public int TotalPages { get; set; }
+        public int TotalCount { get; set; }
+
+        private int pageSize;
+
+        public int PageSize
+        {
+            get { return pageSize; }
+            set
+            {
+                pageSize = value;
+                this.TotalPages =  (int)Math.Ceiling(this.TotalCount / (double)this.pageSize);
+            }
+        }
+
         public bool HasPrevious => CurrentPage > 1;
         public bool HasNext => CurrentPage < TotalPages;
 
@@ -22,14 +34,25 @@ namespace Shared.Views.Pagination
                 throw new ArgumentNullException();
             }
 
-            Count = count;
+            TotalCount = count;
 
             CurrentPage = curentPage;
 
-            TotalPages =  (int)Math.Ceiling(count / (double)pageSize);
-
             PageSize = pageSize;
 
+            //  TotalPages =  (int)Math.Ceiling(this.TotalCount / (double)this.PageSize);
+
+
+
+        }
+
+        public static PaginationPagesMetaData ToPaginationPagesMetaData(PaginationEntitiesMetaData paginationEntitiesMetaData)
+        {
+            return new PaginationPagesMetaData(
+                curentPage: paginationEntitiesMetaData.Offset/paginationEntitiesMetaData.Limit + 1,
+                count: paginationEntitiesMetaData.Count,
+                pageSize: paginationEntitiesMetaData.Limit
+                );
         }
 
     }

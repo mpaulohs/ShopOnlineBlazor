@@ -1,13 +1,12 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.JsonPatch;
-using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Shared.Views.Pagination;
 using ShopOnline.Shared.Modesl;
 using System.Linq.Expressions;
 using System.Net.Http.Json;
-using Shared.Views.Pagination;
-using System.Linq;
-using Newtonsoft.Json;
 
 namespace ShopOnline.Shared.Services
 {
@@ -22,13 +21,13 @@ namespace ShopOnline.Shared.Services
         {
             HttpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
             Logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            BaseUri = new Uri(HttpClient.BaseAddress + GetTypeName(typeof(TEntity)));
+            RequestUri = new Uri(HttpClient.BaseAddress + GetTypeName(typeof(TEntity)));
             Console.WriteLine(typeof(TEntity));
             //BaseUri = new Uri ("api/" + typeof(TEntity).Name.ToLower() + "/");
             //Url = "api/" + typeof(TEntity).Name.ToLower() + "/";
         }
 
-        protected Uri BaseUri { get; set; }
+        protected Uri RequestUri { get; set; }
         protected HttpClient HttpClient { get; private set; }
 
         protected ILogger<TEntity> Logger { get; set; }
@@ -68,28 +67,26 @@ namespace ShopOnline.Shared.Services
                 ["offset"] = offset.ToString(),
             };
 
+
             PaginationEntitiesMetaData? paginationEntitiesMetaData = null;
 
-            //var response = await HttpClient.GetAsync("https://localhost:5001/api/product");
+            var response = await HttpClient.GetAsync(QueryHelpers.AddQueryString(RequestUri.OriginalString, queryParams), cancellationToken);
 
-            var response = await HttpClient.GetAsync(QueryHelpers.AddQueryString(BaseUri.ToString(), queryParams), cancellationToken);
-
-            IEnumerable<TEntity>? entities = response.Content.ReadFromJsonAsync<IEnumerable<TEntity>>() as IEnumerable<TEntity>;
+            IEnumerable<TEntity>? entities = JsonConvert.DeserializeObject<IEnumerable<TEntity>>(await response.Content.ReadAsStringAsync());
 
             paginationEntitiesMetaData = JsonConvert.DeserializeObject<PaginationEntitiesMetaData>(response.Headers.GetValues("x-pagination").FirstOrDefault());
-
 
             if (paginationEntitiesMetaData == null)
             {
                 paginationEntitiesMetaData = new PaginationEntitiesMetaData(0, limit, offset);
             }
-           
-            return (entities, paginationEntitiesMetaData); 
+
+            return (entities, paginationEntitiesMetaData);
         }
 
         public async Task<TEntity> GetByIdAsync(TKey id, CancellationToken cancellationToken = default)
         {
-            return await HttpClient.GetFromJsonAsync<TEntity>(BaseUri + id.ToString(), cancellationToken);
+            return await HttpClient.GetFromJsonAsync<TEntity>(RequestUri + id.ToString(), cancellationToken);
 
         }
 
@@ -97,7 +94,7 @@ namespace ShopOnline.Shared.Services
         {
             try
             {
-                var result = await HttpClient.PutAsJsonAsync<TEntity>(BaseUri + id.ToString(), entity, cancellationToken);
+                var result = await HttpClient.PutAsJsonAsync<TEntity>(RequestUri + id.ToString(), entity, cancellationToken);
                 return true;
             }
             catch (Exception)

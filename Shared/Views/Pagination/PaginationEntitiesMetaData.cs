@@ -24,5 +24,14 @@
             Offset = offset;
 
         }
+
+        public static PaginationEntitiesMetaData ToPaginationEntitiesMetaData(PaginationPagesMetaData paginationPagesMetaData)
+        {
+            return new PaginationEntitiesMetaData(
+                count: paginationPagesMetaData.TotalCount,
+                limit: paginationPagesMetaData.PageSize,
+                offset: paginationPagesMetaData.PageSize * paginationPagesMetaData.CurrentPage - 1)
+                ;
+        }
     }
 }

@@ -57,7 +57,7 @@ namespace ShopOnline.API.Controllers
                 
 
                     Response.Headers.Add("x-pagination", JsonConvert.SerializeObject(PaginationEntitiesMetaData));
-                    return StatusCode(200, result.Value.Item1);
+                    return StatusCode(200, result.Value.entities);
 
                 }
                 return StatusCode(404);
