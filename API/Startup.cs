@@ -35,12 +35,16 @@ namespace ShopOnline.API
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
             });
 
+
+            // TODO: this should be limited only to specified sources
             services.AddCors(options =>
             {
                 options.AddDefaultPolicy(builder => builder
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
-                .AllowAnyHeader());
+                .AllowAnyHeader()
+                .WithExposedHeaders("x-pagination")
+                );
 
             });
 

@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.WebUtilities;
 using ShopOnline.Shared.Modesl;
 using System.Linq.Expressions;
 using System.Net.Http.Json;
+using Shared.Views.Pagination;
+using System.Linq;
+using Newtonsoft.Json;
 
 namespace ShopOnline.Shared.Services
 {
@@ -56,16 +59,32 @@ namespace ShopOnline.Shared.Services
         }
 
 
-        public async Task<(IEnumerable<TEntity> entities, int count)?> GetByFiltersAsync(CancellationToken cancellationToken = default, int limit = default, int offset = default, params Expression<Func<TEntity, bool>>[] filters)
+        public async Task<(IEnumerable<TEntity> entities, PaginationEntitiesMetaData paginationEntitiesMetaData)?> GetByFiltersAsync(CancellationToken cancellationToken = default, int limit = default, int offset = default, params Expression<Func<TEntity, bool>>[] filters)
         {
+
             var queryParams = new Dictionary<string, string>
             {
                 ["limit"] = limit.ToString(),
                 ["offset"] = offset.ToString(),
             };
 
-            var result = await HttpClient.GetFromJsonAsync<IEnumerable<TEntity>?>(QueryHelpers.AddQueryString(BaseUri.ToString(), queryParams), cancellationToken);
-            return (result, 0); 
+            PaginationEntitiesMetaData? paginationEntitiesMetaData = null;
+
+            //var response = await HttpClient.GetAsync("https://localhost:5001/api/product");
+
+            var response = await HttpClient.GetAsync(QueryHelpers.AddQueryString(BaseUri.ToString(), queryParams), cancellationToken);
+
+            IEnumerable<TEntity>? entities = response.Content.ReadFromJsonAsync<IEnumerable<TEntity>>() as IEnumerable<TEntity>;
+
+            paginationEntitiesMetaData = JsonConvert.DeserializeObject<PaginationEntitiesMetaData>(response.Headers.GetValues("x-pagination").FirstOrDefault());
+
+
+            if (paginationEntitiesMetaData == null)
+            {
+                paginationEntitiesMetaData = new PaginationEntitiesMetaData(0, limit, offset);
+            }
+           
+            return (entities, paginationEntitiesMetaData); 
         }
 
         public async Task<TEntity> GetByIdAsync(TKey id, CancellationToken cancellationToken = default)

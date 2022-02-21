@@ -53,12 +53,10 @@ namespace ShopOnline.API.Controllers
 
                 if (result != null)
                 {
-                    var XPagination = new
-                    {
-                        result.Value.count
-                    };
+                    var PaginationEntitiesMetaData = result.Value.paginationEntitiesMetaData;
+                
 
-                    Response.Headers.Add("x-pagination", JsonConvert.SerializeObject(XPagination));
+                    Response.Headers.Add("x-pagination", JsonConvert.SerializeObject(PaginationEntitiesMetaData));
                     return StatusCode(200, result.Value.Item1);
 
                 }

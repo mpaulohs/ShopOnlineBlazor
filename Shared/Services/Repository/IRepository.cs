@@ -16,7 +16,7 @@ namespace ShopOnline.Shared.Services
 
         //public Task<IEnumerable<TEntity>> GetByFiltersAsync(CancellationToken cancellationToken = default, params Expression<Func<TEntity, bool>>[] filters);
 
-        public Task<(IEnumerable<TEntity> entities, int count)?> GetByFiltersAsync(CancellationToken cancellationToken = default, int limit = default, int offset=default, params Expression<Func<TEntity, bool>>[] filters);
+        public Task<(IEnumerable<TEntity> entities, PaginationEntitiesMetaData paginationEntitiesMetaData)?> GetByFiltersAsync(CancellationToken cancellationToken = default, int limit = default, int offset=default, params Expression<Func<TEntity, bool>>[] filters);
 
         public Task<bool> UpdateAsync(TKey id, TEntity entity, CancellationToken cancellationToken = default);
 

@@ -63,7 +63,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         //ToDo update product value
-        var result = await Repository.GetByFiltersAsync();
+        var result = await Repository.GetByFiltersAsync(limit:10, offset:10);
         products = result.Value.entities;
 
     }

@@ -1,4 +1,5 @@
-﻿using ShopOnline.Shared.Models.Documents;
+﻿using Shared.Views.Pagination;
+using ShopOnline.Shared.Models.Documents;
 using ShopOnline.Shared.Services;
 
 namespace ShopOnline.UseCases.SearchProductsScreen
@@ -16,7 +17,7 @@ namespace ShopOnline.UseCases.SearchProductsScreen
             this.repository=repository;
         }
 
-        public async Task< (IEnumerable<DocumentSale>, int)?> Execute(string filter)
+        public async Task< (IEnumerable<DocumentSale>, PaginationEntitiesMetaData paginationEntitiesMetaData)?> Execute(string filter)
         {
          
             return await repository.GetByFiltersAsync();
