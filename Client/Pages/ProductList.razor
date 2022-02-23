@@ -1,5 +1,5 @@
 ﻿@page "/products"
-@using global::Shared.Views.Pagination
+
 @inject IRepository<Product,Guid> Repository
 
 <h3>ProductList</h3>
@@ -61,14 +61,14 @@ else
             {
                 if (i == paginationPagesMetaData.CurrentPage)
                 {
-                    <li @onclick=OnSelectedPage(i) style="cursor: pointer;" class="page-item">
+                    <li @onclick="()=>OnSelectedPage(i)" style="cursor: pointer;" class="page-item">
                         <span class="page-link" style="background-color: blue" href="#">@i</span>
                     </li>
                 }
                 else
                 {
-                    <li onclick=@OnSelectedPage(i) style="cursor: pointer;" class="page-item">
-                        <span class="page-link" href="#">@i</span>
+                    <li @onclick="()=>OnSelectedPage(i)" style="cursor: pointer;" class="page-item">
+                        <span class="page-link" href="#">i</span>
                     </li>
                 }
             }
@@ -107,11 +107,10 @@ else
 
     }
 
-    public void OnSelectedPage(int selectdPage)
+    public async Task OnSelectedPage(int selectdPage)
     {
         paginationPagesMetaData.CurrentPage = selectdPage;
         paginationEntitiesMetaData = PaginationEntitiesMetaData.ToPaginationEntitiesMetaData(paginationPagesMetaData);
-        NavigationManager
         var response = await Repository.GetByFiltersAsync(limit: paginationEntitiesMetaData.Limit, offset: paginationEntitiesMetaData.Offset);
         products = response.Value.entities;
         paginationEntitiesMetaData = response.Value.paginationEntitiesMetaData;

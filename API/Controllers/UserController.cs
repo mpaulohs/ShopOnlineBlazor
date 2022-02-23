@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ShopOnline.Shared.Models.Identities;
-using ShopOnline.Shared.Services;
+using Shared.Models.Identities;
+using Shared.Services.Repository;
 using System;
 using System.Threading.Tasks;
 
-namespace ShopOnline.API.Controllers
+namespace Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

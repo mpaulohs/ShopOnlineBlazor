@@ -1,7 +1,6 @@
-﻿using ShopOnline.Shared.Modesl;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace ShopOnline.Shared.Models.Catalogs
+namespace Shared.Models.Catalogs
 {
     public abstract class CatalogBase<TKey> : IApplicationEntity<TKey>
     {

@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Shared.Models;
 using Shared.Views.Pagination;
-using ShopOnline.Shared.Modesl;
 using System.Linq.Expressions;
 
-namespace ShopOnline.Shared.Services
+namespace Shared.Services.Repository
 {
     public class RepositoryBaseApi<TEntity, TKey, TDbContext> :
         IDisposable,
@@ -107,7 +107,7 @@ namespace ShopOnline.Shared.Services
             entity.UpdatedAt = default;
 
             //Before Context.Set<TEntity>().AddAsync(entity);
-            var result = await Context.AddAsync<TEntity>(entity, cancellationToken);
+            var result = await Context.AddAsync(entity, cancellationToken);
 
             try
             {
@@ -128,7 +128,7 @@ namespace ShopOnline.Shared.Services
             return await AllEntities.AsNoTracking().SingleOrDefaultAsync(e => e.Id.Equals(id), cancellationToken);
         }
 
-        public virtual async Task<String>? GetNameByIdAsync(TKey id, CancellationToken cancellationToken = default)
+        public virtual async Task<string>? GetNameByIdAsync(TKey id, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
@@ -174,12 +174,12 @@ namespace ShopOnline.Shared.Services
             entities = entities.Skip(offset);
 
             //Limit
-            if (limit!=0)
+            if (limit != 0)
             {
                 entities = entities.Take(limit);
             }
 
-            IEnumerable<TEntity> resEntities = await entities.ToListAsync<TEntity>();
+            IEnumerable<TEntity> resEntities = await entities.ToListAsync();
 
             var paginationEntitiesMetaData = new PaginationEntitiesMetaData(count, limit, offset);
 
@@ -299,7 +299,7 @@ namespace ShopOnline.Shared.Services
 
             var entity = await GetByIdAsync(id, cancellationToken);
 
-            if (entity==null)
+            if (entity == null)
             {
                 Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new ArgumentNullException(nameof(entity));

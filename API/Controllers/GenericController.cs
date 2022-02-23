@@ -2,12 +2,12 @@
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ShopOnline.Shared.Modesl;
-using ShopOnline.Shared.Services;
+using Shared.Models;
+using Shared.Services.Repository;
 using System;
 using System.Threading.Tasks;
 
-namespace ShopOnline.API.Controllers
+namespace Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -100,7 +100,7 @@ namespace ShopOnline.API.Controllers
         {
             try
             {
-                if (id==null||entity==null)
+                if (id == null || entity == null)
                 {
                     return StatusCode(400, "Bad Request");
                 }

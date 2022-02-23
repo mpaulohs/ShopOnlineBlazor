@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using ShopOnline.Shared.Models.Catalogs;
-using ShopOnline.Shared.Models.Identities;
-using ShopOnline.Shared.Services;
+using Shared.Models.Catalogs;
+using Shared.Services.Repository;
+using Shared.Models.Identities;
 using System;
 using System.Threading.Tasks;
 
-namespace ShopOnline.API.Controllers
+namespace Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -49,12 +49,12 @@ namespace ShopOnline.API.Controllers
         {
             try
             {
-                var result = await _repository.GetByFiltersAsync(limit:limit, offset:offset);
+                var result = await _repository.GetByFiltersAsync(limit: limit, offset: offset);
 
                 if (result != null)
                 {
                     var PaginationEntitiesMetaData = result.Value.paginationEntitiesMetaData;
-                
+
 
                     Response.Headers.Add("x-pagination", JsonConvert.SerializeObject(PaginationEntitiesMetaData));
                     return StatusCode(200, result.Value.entities);

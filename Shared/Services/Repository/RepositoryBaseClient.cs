@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Shared.Models;
 using Shared.Views.Pagination;
-using ShopOnline.Shared.Modesl;
 using System.Linq.Expressions;
 using System.Net.Http.Json;
 
-namespace ShopOnline.Shared.Services
+namespace Shared.Services.Repository
 {
     public class RepositoryBaseClient<TEntity, TKey> :
         IDisposable,
@@ -94,7 +94,7 @@ namespace ShopOnline.Shared.Services
         {
             try
             {
-                var result = await HttpClient.PutAsJsonAsync<TEntity>(RequestUri + id.ToString(), entity, cancellationToken);
+                var result = await HttpClient.PutAsJsonAsync(RequestUri + id.ToString(), entity, cancellationToken);
                 return true;
             }
             catch (Exception)

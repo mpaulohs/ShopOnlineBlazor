@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
+using Shared.Models;
 using Shared.Services;
 using Shared.Views.Pagination;
-using ShopOnline.Shared.Modesl;
 using System.Linq.Expressions;
 
-namespace ShopOnline.Shared.Services
+namespace Shared.Services.Repository
 {
     public interface IRepository<TEntity, TKey>
         where TEntity : class, IApplicationEntity<TKey>
@@ -16,7 +16,7 @@ namespace ShopOnline.Shared.Services
 
         //public Task<IEnumerable<TEntity>> GetByFiltersAsync(CancellationToken cancellationToken = default, params Expression<Func<TEntity, bool>>[] filters);
 
-        public Task<(IEnumerable<TEntity> entities, PaginationEntitiesMetaData paginationEntitiesMetaData)?> GetByFiltersAsync(CancellationToken cancellationToken = default, int limit = default, int offset=default, params Expression<Func<TEntity, bool>>[] filters);
+        public Task<(IEnumerable<TEntity> entities, PaginationEntitiesMetaData paginationEntitiesMetaData)?> GetByFiltersAsync(CancellationToken cancellationToken = default, int limit = default, int offset = default, params Expression<Func<TEntity, bool>>[] filters);
 
         public Task<bool> UpdateAsync(TKey id, TEntity entity, CancellationToken cancellationToken = default);
 

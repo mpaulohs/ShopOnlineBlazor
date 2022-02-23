@@ -1,6 +1,6 @@
-﻿using ShopOnline.Shared.Models.Documents;
+﻿using Shared.Models.Documents;
 
-namespace ShopOnline.UseCases.SearchProductsScreen
+namespace Shared.Views.SearchItemsScreen
 {
     public class ViewProduct
     {

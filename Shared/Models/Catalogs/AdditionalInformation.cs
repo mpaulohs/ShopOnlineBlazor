@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ShopOnline.Shared.Models.Catalogs
+namespace Shared.Models.Catalogs
 {
-    public class AdditionalInformation: CatalogBase<Guid>
+    public class AdditionalInformation : CatalogBase<Guid>
     {
         public Guid EntityId { get; set; }
 

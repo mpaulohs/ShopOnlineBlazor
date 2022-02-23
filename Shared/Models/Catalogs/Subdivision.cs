@@ -1,4 +1,4 @@
-﻿namespace ShopOnline.Shared.Models.Catalogs
+﻿namespace Shared.Models.Catalogs
 {
     public class Subdivision : CatalogBase<Guid>
     {

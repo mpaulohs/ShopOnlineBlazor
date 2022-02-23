@@ -2,13 +2,13 @@
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ShopOnline.Shared.Models.Catalogs;
-using ShopOnline.Shared.Models.Documents;
-using ShopOnline.Shared.Services;
+using Shared.Models.Catalogs;
+using Shared.Services.Repository;
+using Shared.Models.Documents;
 using System;
 using System.Threading.Tasks;
 
-namespace ShopOnline.API.Controllers
+namespace Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

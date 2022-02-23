@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Api\\Api.csproj": {}
+    "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Api\\Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Api\\Api.csproj": {
+    "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Api\\Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Api\\Api.csproj",
+        "projectUniqueName": "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Api\\Api.csproj",
         "projectName": "Api",
-        "projectPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Api\\Api.csproj",
-        "packagesPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Api\\obj\\",
+        "projectPath": "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Api\\Api.csproj",
+        "packagesPath": "C:\\Users\\igor.melnik\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\melnik.igor.CORPUZSERVICE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\igor.melnik\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj"
+              "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj"
               }
             }
           }
@@ -46,29 +46,29 @@
           "dependencies": {
             "Microsoft.AspNetCore.JsonPatch": {
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[6.0.2, )"
             },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[6.0.2, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[6.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[6.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[6.0.2, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[6.0.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -97,17 +97,17 @@
         }
       }
     },
-    "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj": {
+    "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj",
+        "projectUniqueName": "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj",
-        "packagesPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj",
+        "packagesPath": "C:\\Users\\igor.melnik\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\melnik.igor.CORPUZSERVICE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\igor.melnik\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -135,7 +135,7 @@
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
-              "version": "[11.0.0, )"
+              "version": "[11.0.1, )"
             },
             "Microsoft.AspNetCore.Components": {
               "target": "Package",
@@ -143,11 +143,11 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[6.0.2, )"
             },
             "Microsoft.AspNetCore.JsonPatch": {
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[6.0.2, )"
             },
             "Microsoft.AspNetCore.WebUtilities": {
               "target": "Package",

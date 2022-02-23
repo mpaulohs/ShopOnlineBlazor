@@ -1,4 +1,4 @@
-﻿namespace ShopOnline.Shared.Modesl
+﻿namespace Shared.Models
 {
     public interface IApplicationEntity<TKey>
     {

@@ -1,20 +1,16 @@
 using Client;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using ShopOnline.Shared.Models.Catalogs;
-using ShopOnline.Shared.Models.Documents;
-using ShopOnline.Shared.Services;
+using Shared.Models.Catalogs;
+using Shared.Models.Documents;
+using Shared.Services.Repository;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddTransient(ServiceProvider => new HttpClient
-{
-    // BaseAddress = new Uri(builder.HostEnvironment.BaseAddress),
-    BaseAddress = new Uri("https://localhost:5001/api/")
-});
-
+//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:5001/api/") });
 
 builder.Services.AddScoped(typeof(IRepository<DocumentSale, Guid>), typeof(RepositoryBaseClient<DocumentSale, Guid>));
 builder.Services.AddScoped(typeof(IRepository<Product, Guid>), typeof(RepositoryBaseClient<Product, Guid>));

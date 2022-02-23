@@ -1,0 +1,28 @@
+﻿@page   "/error/{errorCode:int}/{errorDescription}"
+
+<title>
+    Error report
+</title>
+
+<h3>
+    Error code @ErrorCode
+</h3>
+<p>
+     @ErrorDescription 
+</p>
+<p>
+    Description has been reported.
+</p>
+
+<p>
+    Click <a href="/">here</a> to navigate to Home page.
+</p>
+
+@code {
+    [Parameter]
+    public int ErrorCode { get; set; }
+
+    [Parameter]
+    public string ErrorDescription { get; set; }
+
+}

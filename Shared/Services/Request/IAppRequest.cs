@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shared.Services
+namespace Shared.Services.Request
 {
     public interface IAppRequest
     {

@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ShopOnline.Shared.Models.Catalogs;
-using ShopOnline.Shared.Services;
+using Shared.Models.Catalogs;
+using Shared.Services.Repository;
 using System;
 
-namespace ShopOnline.API.Controllers
+namespace Api.Controllers
 {
     public class AdditionalInformationController : GenericController<AdditionalInformation>
     {

@@ -1,7 +1,6 @@
-﻿using ShopOnline.Shared.Modesl;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace ShopOnline.Shared.Models.Documents
+namespace Shared.Models.Documents
 {
     public class Mesage : IApplicationEntity<Guid>
     {

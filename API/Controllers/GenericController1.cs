@@ -1,4 +1,4 @@
-﻿namespace ShopOnline.API.Controllers
+﻿namespace Api.Controllers
 {
     public class GenericController<T>
     {

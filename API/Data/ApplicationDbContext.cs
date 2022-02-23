@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ShopOnline.Shared.Models.Catalogs;
-using ShopOnline.Shared.Models.Documents;
-using ShopOnline.Shared.Models.Identities;
+using Shared.Models.Catalogs;
+using Shared.Models.Documents;
+using Shared.Models.Identities;
 using System;
 
-namespace ShopOnline.API.Data
+namespace Api.Data
 {
 
     public class ApplicationDbContext : IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>

@@ -1,10 +1,9 @@
-﻿using ShopOnline.Shared.Models.Catalogs;
-using ShopOnline.Shared.Models.Documents;
-using ShopOnline.Shared.Modesl;
+﻿using Shared.Models.Catalogs;
+using Shared.Models.Documents;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ShopOnline.Shared.Models.Registers
+namespace Shared.Models.Registers
 {
     public class SaleProduct : IApplicationEntity<Guid>
 
