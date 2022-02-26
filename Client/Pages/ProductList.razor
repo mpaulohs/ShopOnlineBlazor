@@ -1,4 +1,5 @@
-﻿@page "/products"
+﻿@page "/productlist"
+@using System.Reflection
 
 @inject IRepository<Product,Guid> Repository
 
@@ -9,22 +10,17 @@
     <p>
         <em>
             Loading...
-
         </em>
     </p>
 }
 else
 {
-    var properties = typeof(Product).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
-         .Where(ø => ø.CanRead && ø.CanWrite)
-         //.Where(ø => ø.PropertyType == typeof(string))
-         .Where(ø => ø.GetGetMethod(true).IsPublic);
-    // .Where(ø => ø.GetSetMethod(true).IsPublic);
+   
 
     <table class="table">
         <thead>
             <tr>
-                @foreach (var property in properties)
+                @foreach (var property in propertyInfos)
                 {
                     <th>@property.Name</th>
                 }
@@ -34,7 +30,7 @@ else
             @foreach (var item in products)
             {
                 <tr>
-                    @foreach (var property in properties)
+                    @foreach (var property in propertyInfos)
                     {
                         string tData = @property.GetValue(item)?.ToString();
                         if (property.Name == "Id")
@@ -82,9 +78,7 @@ else
             <li style="cursor: pointer;" class="page-item">
                 <span class="page-link" href="#">@paginationPagesMetaData.TotalPages</span>
             </li>
-
         </ul>
-
     </nav>
 
 }
@@ -97,6 +91,8 @@ else
 
     public PaginationPagesMetaData paginationPagesMetaData { get; set; } = null;
 
+    public IEnumerable<PropertyInfo>  propertyInfos;
+
     protected override async Task OnInitializedAsync()
     {
         //ToDo update product value
@@ -104,6 +100,12 @@ else
         products = response.Value.entities;
         paginationEntitiesMetaData = response.Value.paginationEntitiesMetaData;
         paginationPagesMetaData = PaginationPagesMetaData.ToPaginationPagesMetaData(paginationEntitiesMetaData);
+
+         propertyInfos = typeof(Product).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
+         .Where(ø => ø.CanRead && ø.CanWrite)
+         //.Where(ø => ø.PropertyType == typeof(string))
+         .Where(ø => ø.GetGetMethod(true).IsPublic);
+    // .Where(ø => ø.GetSetMethod(true).IsPublic);
 
     }
 

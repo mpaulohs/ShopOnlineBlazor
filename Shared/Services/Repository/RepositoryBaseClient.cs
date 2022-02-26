@@ -7,6 +7,7 @@ using Shared.Models;
 using Shared.Views.Pagination;
 using System.Linq.Expressions;
 using System.Net.Http.Json;
+using System.Text.Json;
 
 namespace Shared.Services.Repository
 {
@@ -23,6 +24,7 @@ namespace Shared.Services.Repository
             Logger = logger ?? throw new ArgumentNullException(nameof(logger));
             RequestUri = new Uri(HttpClient.BaseAddress + GetTypeName(typeof(TEntity)));
             Console.WriteLine(typeof(TEntity));
+            _options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             //BaseUri = new Uri ("api/" + typeof(TEntity).Name.ToLower() + "/");
             //Url = "api/" + typeof(TEntity).Name.ToLower() + "/";
         }
@@ -30,6 +32,7 @@ namespace Shared.Services.Repository
         protected Uri RequestUri { get; set; }
         protected HttpClient HttpClient { get; private set; }
 
+        private readonly JsonSerializerOptions _options;
         protected ILogger<TEntity> Logger { get; set; }
 
         public Task<TKey> CreateAsync(TEntity entity, CancellationToken cancellationToken = default)
@@ -70,11 +73,22 @@ namespace Shared.Services.Repository
 
             PaginationEntitiesMetaData? paginationEntitiesMetaData = null;
 
-            var response = await HttpClient.GetAsync(QueryHelpers.AddQueryString(RequestUri.OriginalString, queryParams), cancellationToken);
+            var uri = QueryHelpers.AddQueryString(RequestUri.OriginalString, queryParams);
 
-            IEnumerable<TEntity>? entities = JsonConvert.DeserializeObject<IEnumerable<TEntity>>(await response.Content.ReadAsStringAsync());
+            var response = await HttpClient.GetAsync(uri, cancellationToken);
 
-            paginationEntitiesMetaData = JsonConvert.DeserializeObject<PaginationEntitiesMetaData>(response.Headers.GetValues("x-pagination").FirstOrDefault());
+            var content = await response.Content.ReadAsStringAsync();
+
+            var contextHeaderPagination = response.Headers.GetValues("x-pagination").FirstOrDefault();
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ApplicationException(content);
+            }
+
+            IEnumerable<TEntity>? entities = JsonConvert.DeserializeObject<IEnumerable<TEntity>>(content);
+
+            paginationEntitiesMetaData = JsonConvert.DeserializeObject<PaginationEntitiesMetaData>(contextHeaderPagination);
 
             if (paginationEntitiesMetaData == null)
             {
