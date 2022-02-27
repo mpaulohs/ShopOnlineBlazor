@@ -6,6 +6,12 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <Compile Remove="Views\ViewItemScreen\**" />
+	  <EmbeddedResource Remove="Views\ViewItemScreen\**" />
+	  <None Remove="Views\ViewItemScreen\**" />
+	</ItemGroup>
+
 
 	<ItemGroup>
 		<SupportedPlatform Include="browser" />
@@ -20,9 +26,7 @@
 
 
 	<ItemGroup>
-	  <Folder Include="Services\Response\" />
 	  <Folder Include="Views\NotFound\" />
-	  <Folder Include="Views\ViewItemScreen\" />
 	</ItemGroup>
 
 </Project>

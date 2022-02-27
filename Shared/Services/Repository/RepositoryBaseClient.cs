@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Shared.Models;
-using Shared.Views.Pagination;
+using Shared.Services.Request.Pagination;
 using System.Linq.Expressions;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -60,18 +60,13 @@ namespace Shared.Services.Repository
             throw new NotImplementedException();
         }
 
-
-        public async Task<(IEnumerable<TEntity> entities, PaginationEntitiesMetaData paginationEntitiesMetaData)?> GetByFiltersAsync(CancellationToken cancellationToken = default, int limit = default, int offset = default, params Expression<Func<TEntity, bool>>[] filters)
+        public async Task<PaginationList<TEntity>> GetByFiltersAsync(PaginationParameters paginationParameters, CancellationToken cancellationToken = default, Expression<Func<TEntity, bool>>[] filters = default)
         {
 
             var queryParams = new Dictionary<string, string>
             {
-                ["limit"] = limit.ToString(),
-                ["offset"] = offset.ToString(),
+                ["pageNumber"] = paginationParameters.PageNumber.ToString()
             };
-
-
-            PaginationEntitiesMetaData? paginationEntitiesMetaData = null;
 
             var uri = QueryHelpers.AddQueryString(RequestUri.OriginalString, queryParams);
 
@@ -79,23 +74,21 @@ namespace Shared.Services.Repository
 
             var content = await response.Content.ReadAsStringAsync();
 
-            var contextHeaderPagination = response.Headers.GetValues("x-pagination").FirstOrDefault();
-
             if (!response.IsSuccessStatusCode)
             {
                 throw new ApplicationException(content);
             }
 
-            IEnumerable<TEntity>? entities = JsonConvert.DeserializeObject<IEnumerable<TEntity>>(content);
+            var contextHeaderPagination = response.Headers.GetValues("x-pagination").FirstOrDefault();
 
-            paginationEntitiesMetaData = JsonConvert.DeserializeObject<PaginationEntitiesMetaData>(contextHeaderPagination);
-
-            if (paginationEntitiesMetaData == null)
+            var PaginationList = new PaginationList<TEntity>
             {
-                paginationEntitiesMetaData = new PaginationEntitiesMetaData(0, limit, offset);
-            }
+                Entities = JsonConvert.DeserializeObject<IEnumerable<TEntity>>(content),
 
-            return (entities, paginationEntitiesMetaData);
+                MetaData = JsonConvert.DeserializeObject<PaginationMetaData>(contextHeaderPagination)
+            };
+
+            return PaginationList;
         }
 
         public async Task<TEntity> GetByIdAsync(TKey id, CancellationToken cancellationToken = default)

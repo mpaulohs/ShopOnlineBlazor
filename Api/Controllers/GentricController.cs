@@ -7,18 +7,19 @@ using Shared.Models.Identities;
 using System;
 using System.Threading.Tasks;
 using Shared.Services.Request.Pagination;
+using Shared.Models;
 
 namespace Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ProductController : ControllerBase
+
+    public class GenericController<TEntity> : ControllerBase
+        where TEntity : class, IApplicationEntity<Guid>
     {
-        private readonly IRepository<Product, Guid> _repository;
+        private readonly IRepository<TEntity, Guid> _repository;
 
-        private readonly ILogger<Product> _logger;
+        private readonly ILogger<TEntity> _logger;
 
-        public ProductController(IRepository<Product, Guid> repository, ILogger<Product> loger)
+        public GenericController(IRepository<TEntity, Guid> repository, ILogger<TEntity> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -29,7 +30,7 @@ namespace Api.Controllers
         {
             try
             {
-                var result = await _repository.GetByFiltersAsync(pagintaionParameters);
+                  var result = await _repository.GetByFiltersAsync(pagintaionParameters);
 
                 if (result != null)
                 {
@@ -67,7 +68,7 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] Product item)
+        public async Task<ActionResult> Post([FromBody] TEntity item)
         {
             try
             {

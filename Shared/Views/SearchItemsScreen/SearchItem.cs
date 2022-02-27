@@ -1,6 +1,7 @@
 ﻿using Shared.Models.Documents;
 using Shared.Services.Repository;
-using Shared.Views.Pagination;
+using Shared.Services.Request.Pagination;
+
 
 namespace Shared.Views.SearchItemsScreen
 {
@@ -17,10 +18,10 @@ namespace Shared.Views.SearchItemsScreen
             this.repository = repository;
         }
 
-        public async Task<(IEnumerable<DocumentSale>, PaginationEntitiesMetaData paginationEntitiesMetaData)?> Execute(string filter)
+        public async Task<IEnumerable<DocumentSale>> Execute(string filter, PaginationParameters paginationParameters)
         {
 
-            return await repository.GetByFiltersAsync();
+            return await repository.GetByFiltersAsync(paginationParameters);
         }
     }
 }

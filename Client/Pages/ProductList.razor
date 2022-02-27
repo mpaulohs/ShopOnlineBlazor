@@ -53,30 +53,30 @@ else
 
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
-            @for (var i = 1; i <= paginationPagesMetaData.TotalPages; i++)
+            @for (var i = 1; i <= MetaData.TotalPages; i++)
             {
-                if (i == paginationPagesMetaData.CurrentPage)
+                if (i == MetaData.CurrentPage)
                 {
-                    <li @onclick="()=>OnSelectedPage(i)" style="cursor: pointer;" class="page-item">
+                    <li style="cursor: pointer;" class="page-item">
                         <span class="page-link" style="background-color: blue" href="#">@i</span>
                     </li>
                 }
                 else
                 {
-                    <li @onclick="()=>OnSelectedPage(i)" style="cursor: pointer;" class="page-item">
+                    <li style="cursor: pointer;" class="page-item">
                         <span class="page-link" href="#">i</span>
                     </li>
                 }
             }
             <li style="cursor: pointer;" class="page-item">
-                <input @bind-value=paginationPagesMetaData.PageSize>
-                <span class="page-link" href="#">@paginationPagesMetaData.PageSize</span>
+                <input @bind-value=MetaData.PageSize>
+                <span class="page-link" href="#">@MetaData.PageSize</span>
             </li>
             <li style="cursor: pointer;" class="page-item">
-                <span class="page-link" href="#">@paginationPagesMetaData.CurrentPage</span>
+                <span class="page-link" href="#">@MetaData.CurrentPage</span>
             </li>
             <li style="cursor: pointer;" class="page-item">
-                <span class="page-link" href="#">@paginationPagesMetaData.TotalPages</span>
+                <span class="page-link" href="#">@MetaData.TotalPages</span>
             </li>
         </ul>
     </nav>
@@ -85,38 +85,38 @@ else
 
 @code {
 
-    public IEnumerable<Product> products { get; set; } = null;
+    public IEnumerable<Product>? products { get; set; } = null;
 
-    public PaginationEntitiesMetaData paginationEntitiesMetaData { get; set; } = null;
+    public PaginationMetaData? paginationEntitiesMetaData { get; set; } = null;
 
-    public PaginationPagesMetaData paginationPagesMetaData { get; set; } = null;
+    public PaginationMetaData? MetaData { get; set; } = null;
 
-    public IEnumerable<PropertyInfo>  propertyInfos;
+    public IEnumerable<PropertyInfo>? propertyInfos { get; set; } = null;
 
-    protected override async Task OnInitializedAsync()
-    {
-        //ToDo update product value
-        var response = await Repository.GetByFiltersAsync(limit: 10, offset: 0);
-        products = response.Value.entities;
-        paginationEntitiesMetaData = response.Value.paginationEntitiesMetaData;
-        paginationPagesMetaData = PaginationPagesMetaData.ToPaginationPagesMetaData(paginationEntitiesMetaData);
+    //protected override async Task OnInitializedAsync()
+    //{
+    //    //ToDo update product value
+    //    var response = await Repository.GetByFiltersAsync(limit: 10, offset: 0);
+    //    products = response.Value.entities;
+    //    paginationEntitiesMetaData = response.Value.paginationEntitiesMetaData;
+    //    MetaData = PaginationMetaData.(paginationEntitiesMetaData);
 
-         propertyInfos = typeof(Product).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
-         .Where(ø => ø.CanRead && ø.CanWrite)
-         //.Where(ø => ø.PropertyType == typeof(string))
-         .Where(ø => ø.GetGetMethod(true).IsPublic);
-    // .Where(ø => ø.GetSetMethod(true).IsPublic);
+    //     propertyInfos = typeof(Product).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
+    //     .Where(ø => ø.CanRead && ø.CanWrite)
+    //     //.Where(ø => ø.PropertyType == typeof(string))
+    //     .Where(ø => ø.GetGetMethod(true).IsPublic);
+    //// .Where(ø => ø.GetSetMethod(true).IsPublic);
 
     }
 
-    public async Task OnSelectedPage(int selectdPage)
-    {
-        paginationPagesMetaData.CurrentPage = selectdPage;
-        paginationEntitiesMetaData = PaginationEntitiesMetaData.ToPaginationEntitiesMetaData(paginationPagesMetaData);
-        var response = await Repository.GetByFiltersAsync(limit: paginationEntitiesMetaData.Limit, offset: paginationEntitiesMetaData.Offset);
-        products = response.Value.entities;
-        paginationEntitiesMetaData = response.Value.paginationEntitiesMetaData;
-        paginationPagesMetaData = PaginationPagesMetaData.ToPaginationPagesMetaData(paginationEntitiesMetaData);
-    }
+    //public async Task OnSelectedPage(int selectdPage)
+    //{
+    //    MetaData.CurrentPage = selectdPage;
+    //    paginationEntitiesMetaData = PaginationMetaData.ToPaginationEntitiesMetaData(MetaData);
+    //    var response = await Repository.GetByFiltersAsync(limit: paginationEntitiesMetaData.Limit, offset: paginationEntitiesMetaData.Offset);
+    //    products = response.Value.entities;
+    //    paginationEntitiesMetaData = response.Value.paginationEntitiesMetaData;
+    //    MetaData = MetaData.ToMetaData(paginationEntitiesMetaData);
+    //}
 
 }

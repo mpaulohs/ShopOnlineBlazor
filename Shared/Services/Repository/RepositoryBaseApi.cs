@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Shared.Models;
-using Shared.Views.Pagination;
+using Shared.Services.Request.Pagination;
 using System.Linq.Expressions;
 
 namespace Shared.Services.Repository
@@ -136,7 +136,7 @@ namespace Shared.Services.Repository
             return entity?.ToString();
         }
 
-        public virtual async Task<(IEnumerable<TEntity> entities, PaginationEntitiesMetaData paginationEntitiesMetaData)?> GetByFiltersAsync(CancellationToken cancellationToken = default, int limit = default, int offset = default, Expression<Func<TEntity, bool>>[] filters = null)
+        public virtual async Task<PaginationList<TEntity>>? GetByFiltersAsync(PaginationParameters paginationParameters, CancellationToken cancellationToken = default, Expression<Func<TEntity, bool>>[] filters = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
@@ -157,7 +157,7 @@ namespace Shared.Services.Repository
                 }
             }
 
-            int count = entities.Count();
+            //int count = entities.Count();
 
             //Pagination
             //if (pagination!=null)
@@ -170,20 +170,8 @@ namespace Shared.Services.Repository
             //OrderBy
             entities = entities.OrderBy(e => e.CreatedAt);
 
-            //Offset
-            entities = entities.Skip(offset);
 
-            //Limit
-            if (limit != 0)
-            {
-                entities = entities.Take(limit);
-            }
-
-            IEnumerable<TEntity> resEntities = await entities.ToListAsync();
-
-            var paginationEntitiesMetaData = new PaginationEntitiesMetaData(count, limit, offset);
-
-            return (resEntities, paginationEntitiesMetaData);
+            return PaginationList<TEntity>.ToPaginationList(entities, paginationParameters.PageNumber, paginationParameters.PageSize);
         }
 
 

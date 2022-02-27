@@ -7,6 +7,8 @@ using Shared.Services.Repository;
 using Shared.Models.Documents;
 using System;
 using System.Threading.Tasks;
+using Shared.Services.Request.Pagination;
+using Newtonsoft.Json;
 
 namespace Api.Controllers
 {
@@ -25,24 +27,26 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Get()
+        public async Task<ActionResult> Get([FromQuery] PaginationParameters pagintaionParameters)
         {
             try
             {
-                var result = await _repository.GetByFiltersAsync();
+                var result = await _repository.GetByFiltersAsync(pagintaionParameters);
 
-                if (result == null)
+                if (result != null)
                 {
-                    return StatusCode(404);
+                    Response.Headers.Add("x-pagination", JsonConvert.SerializeObject(result.MetaData));
+                    return StatusCode(200, result);
                 }
-                return StatusCode(200, result);
+                return StatusCode(404);
             }
             catch (Exception exception)
             {
                 _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                return StatusCode(500, "Internal server error");
             }
         }
+
 
         [HttpGet("{id:Guid}")]
         public async Task<ActionResult> Get([FromRoute] Guid id)

@@ -7,6 +7,31 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Controllers\AdditionalInformationController.cs" />
+	  <Compile Remove="Controllers\BankController.cs" />
+	  <Compile Remove="Controllers\CashDeskController.cs" />
+	  <Compile Remove="Controllers\ClientContactInformationController.cs" />
+	  <Compile Remove="Controllers\ClientContactInformationTypeController.cs" />
+	  <Compile Remove="Controllers\ClientContractController.cs" />
+	  <Compile Remove="Controllers\CurrencyController.cs" />
+	  <Compile Remove="Controllers\DocumentPaymentController.cs" />
+	  <Compile Remove="Controllers\DocumentSaleController.cs" />
+	  <Compile Remove="Controllers\MesageController.cs" />
+	  <Compile Remove="Controllers\OrganizationController.cs" />
+	  <Compile Remove="Controllers\PriceTypeController.cs" />
+	  <Compile Remove="Controllers\ProductCharacteristicController.cs" />
+	  <Compile Remove="Controllers\ProductQualityController.cs" />
+	  <Compile Remove="Controllers\ProductQuantityController.cs" />
+	  <Compile Remove="Controllers\ProductSerieController.cs" />
+	  <Compile Remove="Controllers\ProductTypeController.cs" />
+	  <Compile Remove="Controllers\ProductUnitClassifierController.cs" />
+	  <Compile Remove="Controllers\ProductUnitMeasurementController.cs" />
+	  <Compile Remove="Controllers\StorageController.cs" />
+	  <Compile Remove="Controllers\SubdivisionController.cs" />
+	  <Compile Remove="Controllers\UserController.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.2" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.2" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.2" />
