@@ -19,7 +19,7 @@
 </div>
 <div class="row">
     <div class="col">
-        @*Place for pagination*@
+        <Pagination MetaData="MetaData" SelectedPage="SelectedPage" Spread="2"></Pagination>
     </div>
 </div>
 
@@ -32,12 +32,19 @@
 
     protected async override Task OnInitializedAsync()
     {
+        await GetProducts();
+    }
+
+    private async Task SelectedPage(int page)
+    {
+        paginationParameters.PageNumber = page;
+        await GetProducts();
+    }
+
+    private async Task GetProducts()
+    {
         var paginatioList = await Repository.GetByFiltersAsync(paginationParameters);
         Enteties = paginatioList.Entities;
         MetaData = paginatioList.MetaData;
-        foreach (var item in Enteties)
-        {
-            Console.WriteLine(item.Name);
-        }
     }
 }
