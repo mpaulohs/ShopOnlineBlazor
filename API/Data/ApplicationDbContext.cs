@@ -134,11 +134,11 @@ namespace Api.Data
 
             int langth = 100;
 
-            if (modelBuilder.Entity<Product>()==null)
-            {
+
                 for (int i = 1; i < langth; i++)
                 {
                     var product = new Product();
+                    product.Id = Guid.NewGuid();
                     product.FullName = "FullName_" + i.ToString();
                     product.Name = "Name_" + i.ToString();
                     product.Comment = "Cometn_" + i.ToString();
@@ -149,7 +149,7 @@ namespace Api.Data
 
                     modelBuilder.Entity<Product>().HasData(product);
                 }
-            }
+            
         }
 
 
