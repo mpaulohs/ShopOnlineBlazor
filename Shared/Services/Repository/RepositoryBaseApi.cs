@@ -21,7 +21,6 @@ namespace Shared.Services.Repository
             Logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-
         protected TDbContext Context { get; private set; }
 
         protected ILogger<TEntity> Logger { get; set; }
@@ -149,7 +148,7 @@ namespace Shared.Services.Repository
             }
 
             //Filtering
-            if (filters.Length != 0)
+            if (filters!=null && filters?.Length > 0)
             {
                 foreach (var filter in filters)
                 {

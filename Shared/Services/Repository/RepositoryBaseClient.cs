@@ -79,7 +79,7 @@ namespace Shared.Services.Repository
                 throw new ApplicationException(content);
             }
 
-            var contextHeaderPagination = response.Headers.GetValues("x-pagination").FirstOrDefault();
+            string contextHeaderPagination = response.Headers.GetValues("x-pagination").FirstOrDefault();
 
             var PaginationList = new PaginationList<TEntity>
             {

@@ -24,7 +24,7 @@
             AddRange(items);
         }
 
-          public static PaginationList<TEntity> ToPaginationList(IEnumerable<TEntity> source, int pageNumber, int pageSize)
+        public static PaginationList<TEntity> ToPaginationList(IEnumerable<TEntity> source, int pageNumber, int pageSize)
         {
             var count = source.Count();
             var items = source

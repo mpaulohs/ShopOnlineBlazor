@@ -1,122 +1,43 @@
-﻿@page "/productlist"
-@using System.Reflection
-
+﻿@page "/products"
+@using Client.Components
 @inject IRepository<Product,Guid> Repository
 
-<h3>ProductList</h3>
+<PageTitle>Products</PageTitle>
 
-@if (products == null)
-{
-    <p>
-        <em>
-            Loading...
-        </em>
-    </p>
-}
-else
-{
-   
-
-    <table class="table">
-        <thead>
-            <tr>
-                @foreach (var property in propertyInfos)
-                {
-                    <th>@property.Name</th>
-                }
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in products)
-            {
-                <tr>
-                    @foreach (var property in propertyInfos)
-                    {
-                        string tData = @property.GetValue(item)?.ToString();
-                        if (property.Name == "Id")
-                        {
-                            <td>
-                                <NavLink href=@($"products/{tData}")>@tData</NavLink>
-                            </td>
-                        }
-                        else
-                        {
-                            <td>
-                                @property.GetValue(item)?.ToString()
-                            </td>
-                        }
-                    }
-                </tr>
-            }
-        </tbody>
-    </table>
-
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            @for (var i = 1; i <= MetaData.TotalPages; i++)
-            {
-                if (i == MetaData.CurrentPage)
-                {
-                    <li style="cursor: pointer;" class="page-item">
-                        <span class="page-link" style="background-color: blue" href="#">@i</span>
-                    </li>
-                }
-                else
-                {
-                    <li style="cursor: pointer;" class="page-item">
-                        <span class="page-link" href="#">i</span>
-                    </li>
-                }
-            }
-            <li style="cursor: pointer;" class="page-item">
-                <input @bind-value=MetaData.PageSize>
-                <span class="page-link" href="#">@MetaData.PageSize</span>
-            </li>
-            <li style="cursor: pointer;" class="page-item">
-                <span class="page-link" href="#">@MetaData.CurrentPage</span>
-            </li>
-            <li style="cursor: pointer;" class="page-item">
-                <span class="page-link" href="#">@MetaData.TotalPages</span>
-            </li>
-        </ul>
-    </nav>
-
-}
+<div class="row">
+    <div class="col-md-10">
+        @*Place for search and sort*@
+    </div>
+    <div class="col-md-2">
+        <a href="/createProduct">Create Product</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <ProductTable Products="Products"/>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        @*Place for pagination*@
+    </div>
+</div>
 
 @code {
+    public IEnumerable<Product>? Products { get; set; } = new List<Product>();
 
-    public IEnumerable<Product>? products { get; set; } = null;
+    public PaginationMetaData MetaData { get; set; } = new PaginationMetaData();
 
-    public PaginationMetaData? paginationEntitiesMetaData { get; set; } = null;
+    private PaginationParameters paginationParameters = new PaginationParameters();
 
-    public PaginationMetaData? MetaData { get; set; } = null;
-
-    public IEnumerable<PropertyInfo>? propertyInfos { get; set; } = null;
-
-    //protected override async Task OnInitializedAsync()
-    //{
-    //    //ToDo update product value
-    //    var response = await Repository.GetByFiltersAsync(limit: 10, offset: 0);
-    //    products = response.Value.entities;
-    //    paginationEntitiesMetaData = response.Value.paginationEntitiesMetaData;
-    //    MetaData = PaginationMetaData.(paginationEntitiesMetaData);
-
-    //     propertyInfos = typeof(Product).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
-    //     .Where(ø => ø.CanRead && ø.CanWrite)
-    //     //.Where(ø => ø.PropertyType == typeof(string))
-    //     .Where(ø => ø.GetGetMethod(true).IsPublic);
-    //// .Where(ø => ø.GetSetMethod(true).IsPublic);
-
+    protected async override Task OnInitializedAsync()
+    {
+        var paginatioList = await Repository.GetByFiltersAsync(paginationParameters);
+        Products = paginatioList.Entities;
+        MetaData = paginatioList.MetaData;
+        foreach (var item in Products)
+        {
+            Console.WriteLine(item.Name);
+        }
     }
-
-    //public async Task OnSelectedPage(int selectdPage)
-    //{
-    //    MetaData.CurrentPage = selectdPage;
-    //    paginationEntitiesMetaData = PaginationMetaData.ToPaginationEntitiesMetaData(MetaData);
-    //    var response = await Repository.GetByFiltersAsync(limit: paginationEntitiesMetaData.Limit, offset: paginationEntitiesMetaData.Offset);
-    //    products = response.Value.entities;
-    //    paginationEntitiesMetaData = response.Value.paginationEntitiesMetaData;
-    //    MetaData = MetaData.ToMetaData(paginationEntitiesMetaData);
-    //}
-
 }

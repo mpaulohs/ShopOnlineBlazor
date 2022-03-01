@@ -410,7 +410,7 @@ namespace Api.Migrations
                     b.ToTable("PriceType");
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.Product", b =>
+            modelBuilder.Entity("Client.Shared.Models.Catalogs.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -485,7 +485,7 @@ namespace Api.Migrations
                     b.ToTable("Products", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.ProductCharacteristic", b =>
+            modelBuilder.Entity("Client.Shared.Models.Catalogs.ProductCharacteristic", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -519,7 +519,7 @@ namespace Api.Migrations
                     b.ToTable("ProductCharacteristics", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.ProductQuality", b =>
+            modelBuilder.Entity("Client.Shared.Models.Catalogs.ProductQuality", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -553,7 +553,7 @@ namespace Api.Migrations
                     b.ToTable("ItmeQualityes", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.ProductSerie", b =>
+            modelBuilder.Entity("Client.Shared.Models.Catalogs.ProductSerie", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -587,7 +587,7 @@ namespace Api.Migrations
                     b.ToTable("ProductSeries", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.ProductType", b =>
+            modelBuilder.Entity("Client.Shared.Models.Catalogs.ProductType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -621,7 +621,7 @@ namespace Api.Migrations
                     b.ToTable("ProductTypes", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.ProductUnitClassifier", b =>
+            modelBuilder.Entity("Client.Shared.Models.Catalogs.ProductUnitClassifier", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -655,7 +655,7 @@ namespace Api.Migrations
                     b.ToTable("ProductUnitClassifiers", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.ProductUnitMeasurement", b =>
+            modelBuilder.Entity("Client.Shared.Models.Catalogs.ProductUnitMeasurement", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -1251,25 +1251,25 @@ namespace Api.Migrations
                     b.Navigation("Currency");
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.Product", b =>
+            modelBuilder.Entity("Client.Shared.Models.Catalogs.Product", b =>
                 {
-                    b.HasOne("Shared.Models.Catalogs.ProductCharacteristic", "ProductCharacteristic")
+                    b.HasOne("Client.Shared.Models.Catalogs.ProductCharacteristic", "ProductCharacteristic")
                         .WithMany()
                         .HasForeignKey("ProductCharacteristicId");
 
-                    b.HasOne("Shared.Models.Catalogs.ProductQuality", "ProductQuality")
+                    b.HasOne("Client.Shared.Models.Catalogs.ProductQuality", "ProductQuality")
                         .WithMany()
                         .HasForeignKey("ProductQualityId");
 
-                    b.HasOne("Shared.Models.Catalogs.ProductSerie", "ProductSerie")
+                    b.HasOne("Client.Shared.Models.Catalogs.ProductSerie", "ProductSerie")
                         .WithMany()
                         .HasForeignKey("ProductSerieId");
 
-                    b.HasOne("Shared.Models.Catalogs.ProductType", "ProductType")
+                    b.HasOne("Client.Shared.Models.Catalogs.ProductType", "ProductType")
                         .WithMany()
                         .HasForeignKey("ProductTypeId");
 
-                    b.HasOne("Shared.Models.Catalogs.ProductUnitMeasurement", "ProductUnitMeasurement")
+                    b.HasOne("Client.Shared.Models.Catalogs.ProductUnitMeasurement", "ProductUnitMeasurement")
                         .WithMany()
                         .HasForeignKey("ProductUnitMeasurementId");
 
