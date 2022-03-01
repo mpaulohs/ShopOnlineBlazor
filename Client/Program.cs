@@ -1,9 +1,9 @@
 using Client;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Shared.Models.Catalogs;
-using Shared.Models.Documents;
-using Shared.Services.Repository;
+using SharedLib.Models.Catalogs;
+using SharedLib.Models.Documents;
+using SharedLib.Services.Repository;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");

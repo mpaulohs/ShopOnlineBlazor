@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using Shared.Models.Catalogs;
-using Shared.Services.Repository;
-using Shared.Models.Identities;
+using SharedLib.Models.Catalogs;
+using SharedLib.Services.Repository;
+using SharedLib.Models.Identities;
 using System;
 using System.Threading.Tasks;
-using Shared.Services.Request.Pagination;
-using Shared.Models;
+using SharedLib.Services.Request.Pagination;
+using SharedLib.Models;
 
 namespace Api.Controllers
 {

@@ -17,12 +17,12 @@ namespace Api.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.1")
+                .HasAnnotation("ProductVersion", "6.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Shared.Models.Catalogs.AdditionalInformation", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.AdditionalInformation", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -67,7 +67,7 @@ namespace Api.Migrations
                     b.ToTable("AdditionalInformations", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.Bank", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.Bank", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -101,7 +101,7 @@ namespace Api.Migrations
                     b.ToTable("Banks", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.BankAccount", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.BankAccount", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -140,7 +140,7 @@ namespace Api.Migrations
                     b.ToTable("BankAccounts", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.CashDesk", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.CashDesk", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -174,7 +174,7 @@ namespace Api.Migrations
                     b.ToTable("CashDesks", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.ClientContactInformation", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.ClientContactInformation", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -222,7 +222,7 @@ namespace Api.Migrations
                     b.ToTable("ClientContackInformations", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.ClientContactInformationType", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.ClientContactInformationType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -256,7 +256,7 @@ namespace Api.Migrations
                     b.ToTable("ClientContactInformationTypes", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.ClientContract", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.ClientContract", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -300,7 +300,7 @@ namespace Api.Migrations
                     b.ToTable("ClientContracts", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.Currency", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.Currency", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -342,7 +342,7 @@ namespace Api.Migrations
                     b.ToTable("Currencyes", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.Organization", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.Organization", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -376,7 +376,7 @@ namespace Api.Migrations
                     b.ToTable("Organizations", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.PriceType", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.PriceType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -410,7 +410,7 @@ namespace Api.Migrations
                     b.ToTable("PriceType");
                 });
 
-            modelBuilder.Entity("Client.Shared.Models.Catalogs.Product", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -485,7 +485,7 @@ namespace Api.Migrations
                     b.ToTable("Products", (string)null);
                 });
 
-            modelBuilder.Entity("Client.Shared.Models.Catalogs.ProductCharacteristic", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.ProductCharacteristic", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -519,7 +519,7 @@ namespace Api.Migrations
                     b.ToTable("ProductCharacteristics", (string)null);
                 });
 
-            modelBuilder.Entity("Client.Shared.Models.Catalogs.ProductQuality", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.ProductQuality", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -553,7 +553,7 @@ namespace Api.Migrations
                     b.ToTable("ItmeQualityes", (string)null);
                 });
 
-            modelBuilder.Entity("Client.Shared.Models.Catalogs.ProductSerie", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.ProductSerie", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -587,7 +587,7 @@ namespace Api.Migrations
                     b.ToTable("ProductSeries", (string)null);
                 });
 
-            modelBuilder.Entity("Client.Shared.Models.Catalogs.ProductType", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.ProductType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -621,7 +621,7 @@ namespace Api.Migrations
                     b.ToTable("ProductTypes", (string)null);
                 });
 
-            modelBuilder.Entity("Client.Shared.Models.Catalogs.ProductUnitClassifier", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.ProductUnitClassifier", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -655,7 +655,7 @@ namespace Api.Migrations
                     b.ToTable("ProductUnitClassifiers", (string)null);
                 });
 
-            modelBuilder.Entity("Client.Shared.Models.Catalogs.ProductUnitMeasurement", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.ProductUnitMeasurement", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -689,7 +689,7 @@ namespace Api.Migrations
                     b.ToTable("ProductUnitMeasuraments", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.Storage", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.Storage", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -723,7 +723,7 @@ namespace Api.Migrations
                     b.ToTable("Storages", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.Subdivision", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.Subdivision", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -757,7 +757,7 @@ namespace Api.Migrations
                     b.ToTable("Subdivisions", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Documents.DocumentPayment", b =>
+            modelBuilder.Entity("SharedLib.Models.Documents.DocumentPayment", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -848,7 +848,7 @@ namespace Api.Migrations
                     b.ToTable("Payments", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Documents.DocumentSale", b =>
+            modelBuilder.Entity("SharedLib.Models.Documents.DocumentSale", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -955,7 +955,7 @@ namespace Api.Migrations
                     b.ToTable("Documents", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Documents.Mesage", b =>
+            modelBuilder.Entity("SharedLib.Models.Documents.Mesage", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -980,7 +980,7 @@ namespace Api.Migrations
                     b.ToTable("Mesages", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Identities.Role", b =>
+            modelBuilder.Entity("SharedLib.Models.Identities.Role", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -1022,7 +1022,7 @@ namespace Api.Migrations
                     b.ToTable("Roles", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Identities.RoleClaim", b =>
+            modelBuilder.Entity("SharedLib.Models.Identities.RoleClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1046,7 +1046,7 @@ namespace Api.Migrations
                     b.ToTable("RoleClaims", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Identities.User", b =>
+            modelBuilder.Entity("SharedLib.Models.Identities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -1133,7 +1133,7 @@ namespace Api.Migrations
                     b.ToTable("Users", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Identities.UserClaim", b =>
+            modelBuilder.Entity("SharedLib.Models.Identities.UserClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1157,7 +1157,7 @@ namespace Api.Migrations
                     b.ToTable("UserClaims", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Identities.UserLogin", b =>
+            modelBuilder.Entity("SharedLib.Models.Identities.UserLogin", b =>
                 {
                     b.Property<string>("LoginProvider")
                         .HasColumnType("nvarchar(450)");
@@ -1178,7 +1178,7 @@ namespace Api.Migrations
                     b.ToTable("UserLogins", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Identities.UserRole", b =>
+            modelBuilder.Entity("SharedLib.Models.Identities.UserRole", b =>
                 {
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -1193,7 +1193,7 @@ namespace Api.Migrations
                     b.ToTable("UserRoles", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Identities.UserToken", b =>
+            modelBuilder.Entity("SharedLib.Models.Identities.UserToken", b =>
                 {
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -1212,22 +1212,22 @@ namespace Api.Migrations
                     b.ToTable("UserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.BankAccount", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.BankAccount", b =>
                 {
-                    b.HasOne("Shared.Models.Catalogs.Bank", "Bank")
+                    b.HasOne("SharedLib.Models.Catalogs.Bank", "Bank")
                         .WithMany()
                         .HasForeignKey("BankId");
 
                     b.Navigation("Bank");
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.ClientContactInformation", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.ClientContactInformation", b =>
                 {
-                    b.HasOne("Shared.Models.Catalogs.ClientContactInformationType", "ClientContactInformationType")
+                    b.HasOne("SharedLib.Models.Catalogs.ClientContactInformationType", "ClientContactInformationType")
                         .WithMany()
                         .HasForeignKey("ClientContactInformationTypeId");
 
-                    b.HasOne("Shared.Models.Identities.User", "Client")
+                    b.HasOne("SharedLib.Models.Identities.User", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
 
@@ -1236,13 +1236,13 @@ namespace Api.Migrations
                     b.Navigation("ClientContactInformationType");
                 });
 
-            modelBuilder.Entity("Shared.Models.Catalogs.ClientContract", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.ClientContract", b =>
                 {
-                    b.HasOne("Shared.Models.Identities.User", "Client")
+                    b.HasOne("SharedLib.Models.Identities.User", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
 
-                    b.HasOne("Shared.Models.Catalogs.Currency", "Currency")
+                    b.HasOne("SharedLib.Models.Catalogs.Currency", "Currency")
                         .WithMany()
                         .HasForeignKey("CurrencyId");
 
@@ -1251,25 +1251,25 @@ namespace Api.Migrations
                     b.Navigation("Currency");
                 });
 
-            modelBuilder.Entity("Client.Shared.Models.Catalogs.Product", b =>
+            modelBuilder.Entity("SharedLib.Models.Catalogs.Product", b =>
                 {
-                    b.HasOne("Client.Shared.Models.Catalogs.ProductCharacteristic", "ProductCharacteristic")
+                    b.HasOne("SharedLib.Models.Catalogs.ProductCharacteristic", "ProductCharacteristic")
                         .WithMany()
                         .HasForeignKey("ProductCharacteristicId");
 
-                    b.HasOne("Client.Shared.Models.Catalogs.ProductQuality", "ProductQuality")
+                    b.HasOne("SharedLib.Models.Catalogs.ProductQuality", "ProductQuality")
                         .WithMany()
                         .HasForeignKey("ProductQualityId");
 
-                    b.HasOne("Client.Shared.Models.Catalogs.ProductSerie", "ProductSerie")
+                    b.HasOne("SharedLib.Models.Catalogs.ProductSerie", "ProductSerie")
                         .WithMany()
                         .HasForeignKey("ProductSerieId");
 
-                    b.HasOne("Client.Shared.Models.Catalogs.ProductType", "ProductType")
+                    b.HasOne("SharedLib.Models.Catalogs.ProductType", "ProductType")
                         .WithMany()
                         .HasForeignKey("ProductTypeId");
 
-                    b.HasOne("Client.Shared.Models.Catalogs.ProductUnitMeasurement", "ProductUnitMeasurement")
+                    b.HasOne("SharedLib.Models.Catalogs.ProductUnitMeasurement", "ProductUnitMeasurement")
                         .WithMany()
                         .HasForeignKey("ProductUnitMeasurementId");
 
@@ -1284,37 +1284,37 @@ namespace Api.Migrations
                     b.Navigation("ProductUnitMeasurement");
                 });
 
-            modelBuilder.Entity("Shared.Models.Documents.DocumentPayment", b =>
+            modelBuilder.Entity("SharedLib.Models.Documents.DocumentPayment", b =>
                 {
-                    b.HasOne("Shared.Models.Catalogs.ClientContract", "ClientContract")
+                    b.HasOne("SharedLib.Models.Catalogs.ClientContract", "ClientContract")
                         .WithMany()
                         .HasForeignKey("ClientContractId");
 
-                    b.HasOne("Shared.Models.Identities.User", "Client")
+                    b.HasOne("SharedLib.Models.Identities.User", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
 
-                    b.HasOne("Shared.Models.Catalogs.Currency", "Currency")
+                    b.HasOne("SharedLib.Models.Catalogs.Currency", "Currency")
                         .WithMany()
                         .HasForeignKey("CurrencyId");
 
-                    b.HasOne("Shared.Models.Catalogs.Currency", "DocumentCurrency")
+                    b.HasOne("SharedLib.Models.Catalogs.Currency", "DocumentCurrency")
                         .WithMany()
                         .HasForeignKey("DocumentCurrencyId");
 
-                    b.HasOne("Shared.Models.Catalogs.Organization", "Organization")
+                    b.HasOne("SharedLib.Models.Catalogs.Organization", "Organization")
                         .WithMany()
                         .HasForeignKey("OrganizationId");
 
-                    b.HasOne("Shared.Models.Catalogs.PriceType", "PriceType")
+                    b.HasOne("SharedLib.Models.Catalogs.PriceType", "PriceType")
                         .WithMany()
                         .HasForeignKey("PriceTypeId");
 
-                    b.HasOne("Shared.Models.Identities.User", "Responsible")
+                    b.HasOne("SharedLib.Models.Identities.User", "Responsible")
                         .WithMany()
                         .HasForeignKey("ResponsibleId");
 
-                    b.HasOne("Shared.Models.Catalogs.Subdivision", "Subdivision")
+                    b.HasOne("SharedLib.Models.Catalogs.Subdivision", "Subdivision")
                         .WithMany()
                         .HasForeignKey("SubdivisionId");
 
@@ -1335,41 +1335,41 @@ namespace Api.Migrations
                     b.Navigation("Subdivision");
                 });
 
-            modelBuilder.Entity("Shared.Models.Documents.DocumentSale", b =>
+            modelBuilder.Entity("SharedLib.Models.Documents.DocumentSale", b =>
                 {
-                    b.HasOne("Shared.Models.Catalogs.ClientContract", "ClientContract")
+                    b.HasOne("SharedLib.Models.Catalogs.ClientContract", "ClientContract")
                         .WithMany()
                         .HasForeignKey("ClientContractId");
 
-                    b.HasOne("Shared.Models.Identities.User", "Client")
+                    b.HasOne("SharedLib.Models.Identities.User", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
 
-                    b.HasOne("Shared.Models.Catalogs.Currency", "DocumentCurrency")
+                    b.HasOne("SharedLib.Models.Catalogs.Currency", "DocumentCurrency")
                         .WithMany()
                         .HasForeignKey("DocumentCurrencyId");
 
-                    b.HasOne("Shared.Models.Catalogs.Organization", "Organization")
+                    b.HasOne("SharedLib.Models.Catalogs.Organization", "Organization")
                         .WithMany()
                         .HasForeignKey("OrganizationId");
 
-                    b.HasOne("Shared.Models.Catalogs.PriceType", "PriceType")
+                    b.HasOne("SharedLib.Models.Catalogs.PriceType", "PriceType")
                         .WithMany()
                         .HasForeignKey("PriceTypeId");
 
-                    b.HasOne("Shared.Models.Identities.User", "Reciver")
+                    b.HasOne("SharedLib.Models.Identities.User", "Reciver")
                         .WithMany()
                         .HasForeignKey("ReciverId");
 
-                    b.HasOne("Shared.Models.Identities.User", "Responsible")
+                    b.HasOne("SharedLib.Models.Identities.User", "Responsible")
                         .WithMany()
                         .HasForeignKey("ResponsibleId");
 
-                    b.HasOne("Shared.Models.Catalogs.Storage", "Storage")
+                    b.HasOne("SharedLib.Models.Catalogs.Storage", "Storage")
                         .WithMany()
                         .HasForeignKey("StorageId");
 
-                    b.HasOne("Shared.Models.Catalogs.Subdivision", "Subdivision")
+                    b.HasOne("SharedLib.Models.Catalogs.Subdivision", "Subdivision")
                         .WithMany()
                         .HasForeignKey("SubdivisionId");
 
@@ -1392,9 +1392,9 @@ namespace Api.Migrations
                     b.Navigation("Subdivision");
                 });
 
-            modelBuilder.Entity("Shared.Models.Identities.RoleClaim", b =>
+            modelBuilder.Entity("SharedLib.Models.Identities.RoleClaim", b =>
                 {
-                    b.HasOne("Shared.Models.Identities.Role", "Role")
+                    b.HasOne("SharedLib.Models.Identities.Role", "Role")
                         .WithMany("RoleClaims")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1403,9 +1403,9 @@ namespace Api.Migrations
                     b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("Shared.Models.Identities.UserClaim", b =>
+            modelBuilder.Entity("SharedLib.Models.Identities.UserClaim", b =>
                 {
-                    b.HasOne("Shared.Models.Identities.User", "User")
+                    b.HasOne("SharedLib.Models.Identities.User", "User")
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1414,9 +1414,9 @@ namespace Api.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Shared.Models.Identities.UserLogin", b =>
+            modelBuilder.Entity("SharedLib.Models.Identities.UserLogin", b =>
                 {
-                    b.HasOne("Shared.Models.Identities.User", "User")
+                    b.HasOne("SharedLib.Models.Identities.User", "User")
                         .WithMany("Logins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1425,15 +1425,15 @@ namespace Api.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Shared.Models.Identities.UserRole", b =>
+            modelBuilder.Entity("SharedLib.Models.Identities.UserRole", b =>
                 {
-                    b.HasOne("Shared.Models.Identities.Role", "Role")
+                    b.HasOne("SharedLib.Models.Identities.Role", "Role")
                         .WithMany("UserRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Shared.Models.Identities.User", "User")
+                    b.HasOne("SharedLib.Models.Identities.User", "User")
                         .WithMany("UserRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1444,9 +1444,9 @@ namespace Api.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Shared.Models.Identities.UserToken", b =>
+            modelBuilder.Entity("SharedLib.Models.Identities.UserToken", b =>
                 {
-                    b.HasOne("Shared.Models.Identities.User", "User")
+                    b.HasOne("SharedLib.Models.Identities.User", "User")
                         .WithMany("Tokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1455,14 +1455,14 @@ namespace Api.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Shared.Models.Identities.Role", b =>
+            modelBuilder.Entity("SharedLib.Models.Identities.Role", b =>
                 {
                     b.Navigation("RoleClaims");
 
                     b.Navigation("UserRoles");
                 });
 
-            modelBuilder.Entity("Shared.Models.Identities.User", b =>
+            modelBuilder.Entity("SharedLib.Models.Identities.User", b =>
                 {
                     b.Navigation("Claims");
 

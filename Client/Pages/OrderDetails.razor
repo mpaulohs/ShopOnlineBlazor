@@ -1,5 +1,6 @@
 ﻿@page "/orders/{id:guid}"
 
+
 @inject IRepository<DocumentSale, Guid> repository
 
 <PageTitle>Order</PageTitle>
@@ -15,10 +16,10 @@
 else
 {
     var properties = typeof(DocumentSale).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
-         .Where(ø => ø.CanRead && ø.CanWrite)
-         //.Where(ø => ø.PropertyType == typeof(string))
-         .Where(ø => ø.GetGetMethod(true).IsPublic);
-    // .Where(ø => ø.GetSetMethod(true).IsPublic);
+         .Where(prop => prop.CanRead && prop.CanWrite)
+         //.Where(prop => prop.PropertyType == typeof(string))
+         .Where(prop => prop.GetGetMethod(true).IsPublic);
+    // .Where(prop => prop.GetSetMethod(true).IsPublic);
 
 
     @foreach (var property in properties)
@@ -29,7 +30,7 @@ else
 
 @code {
 
-    private DocumentSale order = null;
+    private DocumentSale? order = null;
 
     [Parameter]
     public Guid Id { get; set; }

@@ -1,9 +1,9 @@
-﻿using Shared.Models.Catalogs;
-using Shared.Models.Identities;
+﻿using SharedLib.Models.Catalogs;
+using SharedLib.Models.Identities;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Shared.Models.Documents
+namespace SharedLib.Models.Documents
 {
     public abstract class DocumentBase<TKey> : IApplicationEntity<TKey>
 

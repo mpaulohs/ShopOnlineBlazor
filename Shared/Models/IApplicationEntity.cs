@@ -1,4 +1,4 @@
-﻿namespace Shared.Models
+﻿namespace SharedLib.Models
 {
     public interface IApplicationEntity<TKey>
     {

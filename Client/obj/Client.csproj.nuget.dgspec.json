@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj"
+              "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\SharedLib.csproj": {
+                "projectPath": "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\SharedLib.csproj"
               }
             }
           }
@@ -88,12 +88,12 @@
         }
       }
     },
-    "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj": {
+    "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\SharedLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj",
-        "projectName": "Shared",
-        "projectPath": "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj",
+        "projectUniqueName": "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\SharedLib.csproj",
+        "projectName": "SharedLib",
+        "projectPath": "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\SharedLib.csproj",
         "packagesPath": "C:\\Users\\igor.melnik\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\igor.melnik\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\obj\\",
         "projectStyle": "PackageReference",
@@ -124,17 +124,13 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "AutoMapper": {
-              "target": "Package",
-              "version": "[11.0.1, )"
-            },
             "Microsoft.AspNetCore.Components": {
               "target": "Package",
               "version": "[6.0.2, )"
             },
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+            "Microsoft.AspNetCore.Identity": {
               "target": "Package",
-              "version": "[6.0.2, )"
+              "version": "[2.2.0, )"
             },
             "Microsoft.AspNetCore.JsonPatch": {
               "target": "Package",
@@ -143,6 +139,14 @@
             "Microsoft.AspNetCore.WebUtilities": {
               "target": "Package",
               "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[6.0.2, )"
             }
           },
           "imports": [

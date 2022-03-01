@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
-namespace Shared.Models.Identities
+namespace SharedLib.Models.Identities
 {
 
     public class Role : IdentityRole<Guid>, IApplicationEntity<Guid>

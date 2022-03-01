@@ -7,10 +7,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Shared.Models.Catalogs;
-using Shared.Models.Documents;
-using Shared.Models.Identities;
-using Shared.Services.Repository;
+using SharedLib.Models.Catalogs;
+using SharedLib.Models.Documents;
+using SharedLib.Models.Identities;
+using SharedLib.Services.Repository;
 using System;
 
 namespace Api

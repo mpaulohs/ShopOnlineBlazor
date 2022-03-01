@@ -1,7 +1,7 @@
-﻿using Shared.Models.Identities;
+﻿using SharedLib.Models.Identities;
 using System.ComponentModel.DataAnnotations;
 
-namespace Shared.Models.Catalogs
+namespace SharedLib.Models.Catalogs
 {
     public class ClientContactInformation : CatalogBase<Guid>
     {

@@ -1,4 +1,4 @@
-﻿namespace Shared.Models.Catalogs
+﻿namespace SharedLib.Models.Catalogs
 {
     public class CashDesk : CatalogBase<Guid>
     {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
-using Shared.Models;
-using Shared.Services.Request.Pagination;
+using SharedLib.Models;
+using SharedLib.Services.Request.Pagination;
 using System.Linq.Expressions;
 
-namespace Shared.Services.Repository
+namespace SharedLib.Services.Repository
 {
     public interface IRepository<TEntity, TKey>
         where TEntity : class, IApplicationEntity<TKey>

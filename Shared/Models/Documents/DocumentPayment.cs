@@ -1,6 +1,6 @@
-﻿using Shared.Models.Catalogs;
+﻿using SharedLib.Models.Catalogs;
 
-namespace Shared.Models.Documents
+namespace SharedLib.Models.Documents
 {
     public class DocumentPayment : DocumentBase<Guid>
 

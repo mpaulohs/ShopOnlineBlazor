@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Shared.Models;
-using Shared.Services.Request.Pagination;
+using SharedLib.Models;
+using SharedLib.Services.Request.Pagination;
 using System.Linq.Expressions;
 
-namespace Shared.Services.Repository
+namespace SharedLib.Services.Repository
 {
     public class RepositoryBaseApi<TEntity, TKey, TDbContext> :
         IDisposable,

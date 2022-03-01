@@ -1,8 +1,8 @@
-﻿using Shared.Models.Catalogs;
-using Shared.Models.Identities;
+﻿using SharedLib.Models.Catalogs;
+using SharedLib.Models.Identities;
 using System.ComponentModel.DataAnnotations;
 
-namespace Shared.Models.Documents
+namespace SharedLib.Models.Documents
 {
     public class DocumentSale : DocumentBase<Guid>
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Shared.Models.Catalogs
+namespace SharedLib.Models.Catalogs
 {
     public class Product : CatalogBase<Guid>
     {

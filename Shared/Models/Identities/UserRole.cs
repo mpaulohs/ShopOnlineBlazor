@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Shared.Models.Identities
+namespace SharedLib.Models.Identities
 {
     public class UserRole : IdentityUserRole<Guid>
     {

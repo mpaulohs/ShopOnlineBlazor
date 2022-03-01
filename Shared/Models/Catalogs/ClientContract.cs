@@ -1,6 +1,6 @@
-﻿using Shared.Models.Identities;
+﻿using SharedLib.Models.Identities;
 
-namespace Shared.Models.Catalogs
+namespace SharedLib.Models.Catalogs
 {
     public class ClientContract : CatalogBase<Guid>
     {

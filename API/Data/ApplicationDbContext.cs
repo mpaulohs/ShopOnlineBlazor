@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Shared.Models.Catalogs;
-using Shared.Models.Documents;
-using Shared.Models.Identities;
+using SharedLib.Models.Catalogs;
+using SharedLib.Models.Documents;
+using SharedLib.Models.Identities;
 using System;
 
 namespace Api.Data
@@ -130,6 +131,25 @@ namespace Api.Data
             //Seed data
 
             //Seed(modelBuilder);
+
+            int langth = 100;
+
+            if (modelBuilder.Entity<Product>()==null)
+            {
+                for (int i = 1; i < langth; i++)
+                {
+                    var product = new Product();
+                    product.FullName = "FullName_" + i.ToString();
+                    product.Name = "Name_" + i.ToString();
+                    product.Comment = "Cometn_" + i.ToString();
+                    product.IsPublic = true;
+                    product.Article = "Article_" + i.ToString();
+                    product.CreatedAt = DateTime.Now;
+                    product.Description = "Description_" + i.ToString();
+
+                    modelBuilder.Entity<Product>().HasData(product);
+                }
+            }
         }
 
 

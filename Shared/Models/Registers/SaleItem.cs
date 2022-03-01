@@ -1,9 +1,9 @@
-﻿using Shared.Models.Catalogs;
-using Shared.Models.Documents;
+﻿using SharedLib.Models.Catalogs;
+using SharedLib.Models.Documents;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Shared.Models.Registers
+namespace SharedLib.Models.Registers
 {
     public class SaleProduct : IApplicationEntity<Guid>
 

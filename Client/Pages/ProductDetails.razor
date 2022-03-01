@@ -23,22 +23,25 @@ else
             <h3 class="card-title">@Product?.FullName</h3>
             <span class="d-block h3 mb-0">$399</span>
             <div>
-                <h4 class="text-base text-muted font-semibold mb-3">@Product.FullName</h4>
-                <h4 class="text-base text-muted font-semibold mb-3">@Product.ProductType</h4>
-                <h4 class="text-base text-muted font-semibold mb-3">@Product.ProductCharacteristic</h4>
-                <h4 class="text-base text-muted font-semibold mb-3">@Product.ProductQuality</h4>
-                <h4 class="text-base text-muted font-semibold mb-3">@Product.ProductSerie</h4>
-                <h4 class="text-base text-muted font-semibold mb-3">@Product.ProductUnitMeasurement</h4>
-                <h4 class="text-base text-muted font-semibold mb-3">@Product.Description</h4>
+                <h4 class="text-base text-muted font-semibold mb-3">@Product?.FullName</h4>
+                <h4 class="text-base text-muted font-semibold mb-3">@Product?.ProductType</h4>
+                <h4 class="text-base text-muted font-semibold mb-3">@Product?.ProductCharacteristic</h4>
+                <h4 class="text-base text-muted font-semibold mb-3">@Product?.ProductQuality</h4>
+                <h4 class="text-base text-muted font-semibold mb-3">@Product?.ProductSerie</h4>
+                <h4 class="text-base text-muted font-semibold mb-3">@Product?.ProductUnitMeasurement</h4>
+                <h4 class="text-base text-muted font-semibold mb-3">@Product?.Description</h4>
             </div>
         </div>
     </div>
 
     <div class="card-footer">
-
-        @foreach (var property in Properties)
+        @if (Properties != null)
         {
-            <p>@property.Name: @property.GetValue(Product)?.ToString()</p>
+            @foreach (var property in Properties)
+            {
+                <p>@property.Name: @property.GetValue(Product)?.ToString()</p>
+            }
+
         }
     </div>
 }
@@ -50,8 +53,6 @@ else
 
     public Decimal? Price = null;
 
-
-
     public IEnumerable<System.Reflection.PropertyInfo>? Properties = null;
 
     [Parameter]
@@ -62,10 +63,10 @@ else
         Product = await repository.GetByIdAsync(Id);
 
         Properties = typeof(Product).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
-        .Where(ø => ø.CanRead && ø.CanWrite)
-        //.Where(ø => ø.PropertyType == typeof(string))
-        .Where(ø => ø.GetGetMethod(true).IsPublic);
-        // .Where(ø => ø.GetSetMethod(true).IsPublic);
+        .Where(prop => prop.CanRead && prop.CanWrite)
+        //.Where(prop => prop.PropertyType == typeof(string))
+        .Where(prop =>prop.GetGetMethod(true).IsPublic);
+        // .Where(prop => prop.GetSetMethod(true).IsPublic);
     }
 
 }

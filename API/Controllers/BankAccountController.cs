@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Shared.Models.Catalogs;
-using Shared.Services.Repository;
-using Shared.Models.Documents;
+using SharedLib.Models.Catalogs;
+using SharedLib.Services.Repository;
+using SharedLib.Models.Documents;
 using System;
 using System.Threading.Tasks;
 

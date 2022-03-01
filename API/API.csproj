@@ -32,6 +32,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.2" />
 		<PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.2" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.2" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.2" />
@@ -46,11 +47,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Shared\Shared.csproj" />
+	  <Folder Include="Migrations\" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Migrations\" />
+	  <ProjectReference Include="..\Shared\SharedLib.csproj" />
 	</ItemGroup>
 
 </Project>

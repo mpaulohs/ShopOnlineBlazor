@@ -1,4 +1,4 @@
-﻿namespace Shared.Models.Reports
+﻿namespace SharedLib.Models.Reports
 {
     public class StatementOfSettlementsWithConterparties
     {

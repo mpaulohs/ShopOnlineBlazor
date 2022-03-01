@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Shared.Models.Catalogs
+namespace SharedLib.Models.Catalogs
 {
     public abstract class CatalogBase<TKey> : IApplicationEntity<TKey>
     {
+        [Key]
         public TKey Id { get; set; }
 
         [MaxLength(50)]

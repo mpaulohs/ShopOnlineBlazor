@@ -14,7 +14,7 @@
 </div>
 <div class="row">
     <div class="col">
-        <ProductTable Products="Products"/>
+        <ProductTable Products="Enteties"/>
     </div>
 </div>
 <div class="row">
@@ -24,7 +24,7 @@
 </div>
 
 @code {
-    public IEnumerable<Product>? Products { get; set; } = new List<Product>();
+    public IEnumerable<Product>? Enteties { get; set; } = new List<Product>();
 
     public PaginationMetaData MetaData { get; set; } = new PaginationMetaData();
 
@@ -33,9 +33,9 @@
     protected async override Task OnInitializedAsync()
     {
         var paginatioList = await Repository.GetByFiltersAsync(paginationParameters);
-        Products = paginatioList.Entities;
+        Enteties = paginatioList.Entities;
         MetaData = paginatioList.MetaData;
-        foreach (var item in Products)
+        foreach (var item in Enteties)
         {
             Console.WriteLine(item.Name);
         }

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Shared.Models.Documents
+namespace SharedLib.Models.Documents
 {
     public class Mesage : IApplicationEntity<Guid>
     {

@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using Shared.Models;
-using Shared.Services.Request.Pagination;
+using SharedLib.Models;
+using SharedLib.Services.Request.Pagination;
 using System.Linq.Expressions;
 using System.Net.Http.Json;
 using System.Text.Json;
 
-namespace Shared.Services.Repository
+namespace SharedLib.Services.Repository
 {
     public class RepositoryBaseClient<TEntity, TKey> :
         IDisposable,

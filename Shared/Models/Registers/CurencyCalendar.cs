@@ -1,7 +1,7 @@
-﻿using Shared.Models.Catalogs;
+﻿using SharedLib.Models.Catalogs;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Shared.Models.Registers
+namespace SharedLib.Models.Registers
 {
     public class CurencyCalendar
     {
