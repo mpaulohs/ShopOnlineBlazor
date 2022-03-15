@@ -3,7 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SharedLib.Models;
 using SharedLib.Services.Request.Pagination;
+using SharedLib.Services.Request.Search;
 using System.Linq.Expressions;
+using SharedLib.Services.Repository.RepositoryExtentions;
+using SharedLib.Models.Catalogs;
 
 namespace SharedLib.Services.Repository
 {
@@ -135,7 +138,7 @@ namespace SharedLib.Services.Repository
             return entity?.ToString();
         }
 
-        public virtual async Task<PaginationList<TEntity>>? GetByFiltersAsync(PaginationParameters paginationParameters, CancellationToken cancellationToken = default, Expression<Func<TEntity, bool>>[] filters = default)
+        public virtual async Task<PaginationList<TEntity>>? GetByFiltersAsync(PaginationParameters paginationParameters, SearchParameters searchParameters = default, CancellationToken cancellationToken = default, Expression<Func<TEntity, bool>>[] filters = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
@@ -145,6 +148,14 @@ namespace SharedLib.Services.Repository
             if (entities == null)
             {
                 return null;
+            }
+
+            //Search
+            if (searchParameters!=default && typeof(TEntity).Equals(typeof(CatalogBase<Guid>)))
+            {
+                //ToDo implement generic search
+                //entities = entities.Search<TEntity>(searchParameters.Name);
+                entities = entities.Where(e=>e.Id.ToString().Contains(searchParameters.SearchTerm));
             }
 
             //Filtering

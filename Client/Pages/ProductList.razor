@@ -1,12 +1,13 @@
 ﻿@page "/products"
 @using Client.Components
+@using SharedLib.Services.Request.Search
 @inject IRepository<Product,Guid> Repository
 
 <PageTitle>Products</PageTitle>
 
 <div class="row">
     <div class="col-md-10">
-        @*Place for search and sort*@
+        <Search OnSearchChanged=SearchChanged></Search>
     </div>
     <div class="col-md-2">
         <a href="/createProduct">Create Product</a>
@@ -14,7 +15,7 @@
 </div>
 <div class="row">
     <div class="col">
-        <ProductTable Products="Enteties"/>
+        <ProductTable Products="Enteties" />
     </div>
 </div>
 <div class="row">
@@ -30,6 +31,8 @@
 
     private PaginationParameters paginationParameters = new PaginationParameters();
 
+    private SearchParameters searchParameters = new SearchParameters();
+
     protected async override Task OnInitializedAsync()
     {
         await GetProducts();
@@ -41,9 +44,17 @@
         await GetProducts();
     }
 
+    private async Task SearchChanged(string searchTerm)
+    {
+        Console.WriteLine(searchTerm);
+        paginationParameters.PageNumber = 1;
+        searchParameters.SearchTerm = searchTerm;
+        await GetProducts();
+    }
+
     private async Task GetProducts()
     {
-        var paginatioList = await Repository.GetByFiltersAsync(paginationParameters);
+        var paginatioList = await Repository.GetByFiltersAsync(paginationParameters, searchParameters);
         Enteties = paginatioList.Entities;
         MetaData = paginatioList.MetaData;
     }

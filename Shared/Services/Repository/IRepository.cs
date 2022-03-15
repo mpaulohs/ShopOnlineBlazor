@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
 using SharedLib.Models;
 using SharedLib.Services.Request.Pagination;
+using SharedLib.Services.Request.Search;
 using System.Linq.Expressions;
 
 namespace SharedLib.Services.Repository
@@ -13,7 +14,7 @@ namespace SharedLib.Services.Repository
 
         public Task<TEntity> GetByIdAsync(TKey id, CancellationToken cancellationToken = default);
 
-        public Task<PaginationList<TEntity>> GetByFiltersAsync(PaginationParameters paginationParameters, CancellationToken cancellationToken = default, Expression<Func<TEntity, bool>>[] filters = default);
+        public Task<PaginationList<TEntity>> GetByFiltersAsync(PaginationParameters paginationParameters, SearchParameters searchParameters = default, CancellationToken cancellationToken = default, Expression<Func<TEntity, bool>>[] filters = default);
 
         public Task<bool> UpdateAsync(TKey id, TEntity entity, CancellationToken cancellationToken = default);
 

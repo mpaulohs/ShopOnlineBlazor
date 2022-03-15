@@ -7,6 +7,7 @@ using SharedLib.Models.Identities;
 using System;
 using System.Threading.Tasks;
 using SharedLib.Services.Request.Pagination;
+using SharedLib.Services.Request.Search;
 
 namespace Api.Controllers
 {
@@ -25,11 +26,12 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Get([FromQuery] PaginationParameters pagintaionParameters)
+        public async Task<ActionResult> Get([FromQuery] PaginationParameters pagintaionParameters, [FromQuery] 
+        SearchParameters searchParameters)
         {
             try
             {
-                var result = await _repository.GetByFiltersAsync(pagintaionParameters);
+                var result = await _repository.GetByFiltersAsync(pagintaionParameters, searchParameters);
 
                 if (result != null)
                 {

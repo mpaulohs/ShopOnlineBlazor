@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using SharedLib.Models;
 using SharedLib.Services.Request.Pagination;
+using SharedLib.Services.Request.Search;
 using System.Linq.Expressions;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -60,12 +61,13 @@ namespace SharedLib.Services.Repository
             throw new NotImplementedException();
         }
 
-        public async Task<PaginationList<TEntity>> GetByFiltersAsync(PaginationParameters paginationParameters, CancellationToken cancellationToken = default, Expression<Func<TEntity, bool>>[] filters = default)
-        {
+        public async Task<PaginationList<TEntity>> GetByFiltersAsync(PaginationParameters paginationParameters, SearchParameters searchParameters = default, CancellationToken cancellationToken = default, Expression<Func<TEntity, bool>>[] filters = default)
 
+        {
             var queryParams = new Dictionary<string, string>
             {
-                ["pageNumber"] = paginationParameters.PageNumber.ToString()
+                ["pageNumber"] = paginationParameters.PageNumber.ToString(),
+                ["searchTerm"] = searchParameters.SearchTerm == null ? "" : searchParameters.SearchTerm
             };
 
             var uri = QueryHelpers.AddQueryString(RequestUri.OriginalString, queryParams);
