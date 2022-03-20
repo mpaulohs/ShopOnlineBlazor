@@ -151,9 +151,10 @@ namespace SharedLib.Services.Repository
             }
 
             //Search
-            if (searchParameters!=default && typeof(TEntity).Equals(typeof(CatalogBase<Guid>)))
+            if (searchParameters!=default && typeof(TEntity).IsSubclassOf(typeof(CatalogBase<Guid>)))
             {
-                //ToDo implement generic search
+                //ToDo using Extention Search
+                //entities = entities.Search();
                 //entities = entities.Search<TEntity>(searchParameters.Name);
                 entities = entities.Where(e=>e.Id.ToString().Contains(searchParameters.SearchTerm));
             }
