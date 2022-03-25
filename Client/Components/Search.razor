@@ -1,6 +1,6 @@
 ﻿<section style="margin-bottom: 10px">
-    <input type="text" class="form-control" placeholder="Search by product name" 
-           @bind-value="@SearchTerm" @bind-value:event="oninput" @onkeyup="async () => await OnSearchChanged.InvokeAsync(SearchTerm)" />
+    <input type="text" class="form-control" placeholder="Search" 
+           @bind-value="@SearchTerm" @bind-value:event="oninput" @onfocusout="async () => await OnSearchChanged.InvokeAsync(SearchTerm)" />
 </section>
 
 @code {
@@ -9,5 +9,4 @@
 
     [Parameter]
     public EventCallback<String> OnSearchChanged { get; set; }
-
 }

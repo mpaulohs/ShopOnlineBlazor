@@ -176,7 +176,7 @@ namespace SharedLib.Services.Repository
             //}
 
             //OrderBy
-            entities = entities.OrderBy(e => e.CreatedAt);
+            //entities = entities.OrderBy(e => e.CreatedAt);
 
 
             return PaginationList<TEntity>.ToPaginationList(entities, paginationParameters.PageNumber, paginationParameters.PageSize);

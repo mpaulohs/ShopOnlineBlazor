@@ -26,5 +26,9 @@ namespace SharedLib.Models.Catalogs
 
         public bool IsPublic { get; set; }
 
+        public override string ToString()
+        {
+            return Name?.ToString();
+        }
     }
 }
