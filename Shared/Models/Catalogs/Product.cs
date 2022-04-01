@@ -28,6 +28,7 @@ namespace SharedLib.Models.Catalogs
 
         public override string ToString()
         {
+
             return Name?.ToString();
         }
     }
