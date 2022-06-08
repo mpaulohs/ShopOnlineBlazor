@@ -1,0 +1,614 @@
+[33mcommit 9ce35a7d7aeccb13dcaab654270ddd58f9850a74[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Wed Jun 8 23:15:10 2022 +0300
+
+    reorganization of directory structure
+
+[33mcommit 0593441b58e47942240f54e2c15530eb1ddb826b[m
+Merge: c51f55d 3f4e747
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Wed Jun 8 22:33:57 2022 +0300
+
+    change server to webserver
+
+[33mcommit c51f55d9079ca4aa84f2bb4e9d254917a14bfac3[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Wed Jun 8 19:35:51 2022 +0300
+
+    fix client menu problem
+
+[33mcommit 99e92c28f2a89b281138a2b32e8dd73f5f6ad805[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Wed Apr 6 18:57:02 2022 +0300
+
+    update index page
+
+[33mcommit 3f4e747cffed9382ac9e63de484260daaeff6560[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Fri Apr 1 20:53:47 2022 +0200
+
+    update last modification
+
+[33mcommit 6a873b20c5291a91ca394c302b19eda1fc0d6e44[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Fri Mar 25 19:42:19 2022 +0100
+
+    update search component
+
+[33mcommit d84002525fcf6b98777a6615e21b5bfb547ec7b7[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Tue Mar 22 12:43:58 2022 +0100
+
+    update search extention
+
+[33mcommit 57f6178bfca9509005382904080e73a7b5d8b68f[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Sun Mar 20 12:02:01 2022 +0100
+
+    Update
+
+[33mcommit 91377b7aed2c65abb4e2d070b4193ab64adc3ec9[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Tue Mar 15 08:39:56 2022 +0100
+
+    Update
+
+[33mcommit 56ad17c34d0d6d2418366d0356716c8605efd2dc[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Tue Mar 1 22:06:34 2022 +0100
+
+    Finish Pagination
+
+[33mcommit fb377760298d7825ba8dcc26cf2729bf50f35cbe[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Tue Mar 1 14:38:37 2022 +0100
+
+    Product Page Updated
+
+[33mcommit 3cff7e19ed754709324787642c5b18048fcd52ff[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Tue Mar 1 13:53:55 2022 +0100
+
+    Updated Pages
+
+[33mcommit 61a3a8daac6a3d0c9c8743f40f6ce29ca571eb54[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Tue Mar 1 10:19:44 2022 +0100
+
+    Update
+
+[33mcommit fdc9b69438bb8e002392393ec50f2afde9c7c8bd[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Sun Feb 27 17:04:03 2022 +0100
+
+    Update Pagination classes
+
+[33mcommit 467c1e2a77cb8a84733437f4b16b2945e372d69d[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Sat Feb 26 11:01:19 2022 +0100
+
+    ProducnListPage finish
+
+[33mcommit 23d3026ecf72a0b9e91b9ca7ea81a793be2e24de[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Fri Feb 25 10:47:05 2022 +0100
+
+    Update
+
+[33mcommit 2e77f4a3a0a66772924f326b9dd97099b41baadc[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Wed Feb 23 23:49:49 2022 +0100
+
+    Updated Client
+
+[33mcommit 214a0e12844fcb66bbb0c98cbb3d9f779c5129a4[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Wed Feb 23 17:44:06 2022 +0100
+
+    Update
+
+[33mcommit d218a753b8348001f1667dae5870586016329a58[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Tue Feb 22 00:13:49 2022 +0200
+
+    Product
+
+[33mcommit 748ea2d5ead524ae5fc82069edcc66d0b6bbb8c0[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Mon Feb 21 19:19:48 2022 +0200
+
+    Update Repository Base Client
+    Add PaginationEntitesMetaData to Header
+
+[33mcommit ffbf9425b4a855c07eb97c73107c34f1ebe78d6c[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Sun Feb 20 23:20:18 2022 +0200
+
+    Update All Solution
+
+[33mcommit e9c07314ac22e7b53107d3eb8d9a91b7a60d5900[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Tue Feb 15 23:15:47 2022 +0200
+
+    Update Generic TKey
+
+[33mcommit 084edb98fd741019fcb9d54a6a9b43b159a7093e[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Sun Feb 6 19:54:27 2022 +0200
+
+    Change MaxLanght on
+    model propertyes
+
+[33mcommit 993161e11ebbdb4f7ea2c15bb67b725333eed830[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Wed Feb 2 17:18:21 2022 +0200
+
+    Create Controllers
+
+[33mcommit 786621a3fe3c6458f352d849934fae0f6e7559b5[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Sun Jan 30 22:42:52 2022 +0200
+
+    Updated ProductDetails
+
+[33mcommit be34a33af16cddfa64e31afafe2e586f786f23f0[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Sun Jan 30 17:51:25 2022 +0200
+
+    Create ProductCard
+
+[33mcommit cc839d1f158e7943f2cd174c5e661b33be22bfe3[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Thu Jan 27 22:55:20 2022 +0200
+
+    Update Product
+
+[33mcommit 0f8c65a198d42d891f4c778f54185ad91dc0d768[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Thu Jan 27 22:14:19 2022 +0200
+
+    Rename Item to Product
+
+[33mcommit 689f2a54f6e4b0a059d457bf899beeb0dfd64bae[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Thu Jan 27 20:52:28 2022 +0200
+
+    Update Generic RepositoryBaseClient
+
+[33mcommit e5e2d76a411f2c0de55209627699ce9ebe2d839b[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Thu Jan 27 19:02:03 2022 +0200
+
+    Update Generic services
+    IRepository
+    RepositoryBaseApi
+    RepositoryBaseClient
+
+[33mcommit 9da7b709066c36fada35301a1a245af27a997bbf[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Wed Jan 26 13:46:20 2022 +0200
+
+    Updated
+
+[33mcommit a542b4793a74aefd97aba3c1259a84ed0ddcbbf0[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Sun Jan 23 14:26:15 2022 +0200
+
+    Change services posititon in solution
+
+[33mcommit 5fcb55e20a5cf77b113318c510f69682979ee3d6[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Sat Jan 8 14:40:38 2022 +0200
+
+    Enable CORS - request in API
+    Update Order view
+
+[33mcommit 487d5ce999239790adc5dd0bac700ba9b8ecd94f[m
+Author: Igor Melnik <igor.melnik.it@gmail.com>
+Date:   Fri Jan 7 18:22:20 2022 +0200
+
+    Update Client
+    created Order.razor
+
+[33mcommit 4534fb522bbd1368f7e391032246ce1757f8bec6[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Tue Dec 28 23:19:19 2021 +0200
+
+    Update Solution
+    move Servises from share to Api
+    update Solution refferences
+    remove db from project fodler
+    add new clear migration
+    update database
+
+[33mcommit f158ed68dc7e0424734dd6bb179369f7cb39a966[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Tue Dec 28 21:56:02 2021 +0200
+
+    Created Client services
+    IEntityService
+    EntityService
+
+[33mcommit ab27d3d1836983c30aad04b68b8547d0a2cfbfc4[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Tue Dec 28 13:28:07 2021 +0200
+
+    Updated Namespaces
+    Make more discrete names in library
+
+[33mcommit 9a44805a411fe99814b51adfa65ab0e967dde1d0[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Mon Dec 27 00:11:09 2021 +0200
+
+    Changed Client project
+    Updated namespace
+
+[33mcommit 29123ef00337b405e5cebd118de6e131a9b34ecb[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Sun Dec 26 21:38:56 2021 +0200
+
+    Updated Projects references
+
+[33mcommit 2878eaca194bc909808d13dd8a5c777406410cd4[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Sun Dec 26 13:04:05 2021 +0200
+
+    Update Client project referencies
+
+[33mcommit 7964baf83dbeab1836d62cc594e3c7941556600c[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Dec 23 21:37:05 2021 +0200
+
+    Create Patch Action
+
+[33mcommit 5abac7e23f44cdca7ea92dc198b641f54f183a93[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Dec 23 08:57:05 2021 +0200
+
+    Mace abstract helpers methods to virtual
+
+[33mcommit 9bfb0f9c0ec2604d7234f3db8d00a4457f46f757[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Dec 23 00:58:11 2021 +0200
+
+    Deleted Interfaces in Helper
+
+[33mcommit b460a4dc880f4503043711a91ae2a12fa0837a20[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Dec 23 00:07:51 2021 +0200
+
+    Remove old migratons and added new one
+
+[33mcommit e6d228e55140fa2a9f2f47bb62839825db8db8bd[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Wed Dec 22 23:35:55 2021 +0200
+
+    Updated Repositories
+
+[33mcommit 511dea5b86f1910260c0e32805b8edf85cda0419[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Wed Dec 22 22:35:04 2021 +0200
+
+    Add AutoMapper
+
+[33mcommit 58e84a0ec1793fe165f1d4ceeb5654518431fe2e[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Wed Dec 22 13:24:10 2021 +0200
+
+    Document sale repo
+
+[33mcommit 44e0544b9cd882f33182eb54f4a67412b9af3f34[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Wed Dec 22 12:47:57 2021 +0200
+
+    No errors.
+
+[33mcommit a0c0bd90556dbfa4e78d4b47c7e2bfd33b28fc50[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Tue Dec 21 23:42:11 2021 +0200
+
+    Change EntityStorage classes
+
+[33mcommit a1526c11b81ee4f002c29f4af33de991517d271b[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Sun Dec 19 10:38:26 2021 +0200
+
+    Add property ConcurrencyStamp
+
+[33mcommit b150a76aa6a7e736b58a85a0414c43cff5a1a9fb[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Fri Dec 17 23:23:47 2021 +0200
+
+    Fix DocumentBase Timestamp property
+
+[33mcommit d3907ab022362806e3f6136f04fb4bd3b18907fc[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Fri Dec 17 21:14:06 2021 +0200
+
+    Updated API 2
+
+[33mcommit 9f4e55de8203c186f4464719aeb39151d50df817[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Dec 16 21:03:03 2021 +0200
+
+    Updated API
+
+[33mcommit 507d55c7c35e376944daec36411f38d8091af51b[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Wed Dec 15 12:37:04 2021 +0200
+
+    Fix API
+
+[33mcommit c7031593381db5aff763b1666aa2d06d37c99958[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Sun Dec 5 12:19:37 2021 +0200
+
+    Library create one namespase
+
+[33mcommit 5c16bc06b822fd4a0a836ccb54a55e7c3da517ba[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Mon Nov 29 14:46:03 2021 +0200
+
+    Update API Library structure
+
+[33mcommit 97f038a38ffcc45e6ed3d9264f4e9385d49605b1[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Mon Nov 22 20:30:27 2021 +0200
+
+    Add all entities to AppDbContext
+
+[33mcommit fc4d4cf19a43ec3a15c2c9ec18d8f699fafaab53[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Sun Nov 21 19:41:05 2021 +0200
+
+    Seed Role & User
+
+[33mcommit 2539a7ab629632bc979129870aafd3f3001123aa[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Sun Nov 21 14:31:19 2021 +0200
+
+    Fix migration
+
+[33mcommit 6fb0bc7778770eec05963f1e29fb1fa91c8a964f[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Nov 18 12:32:46 2021 +0200
+
+    Rebuild Solution
+
+[33mcommit 8b08e185152fffcc63bbae3c0811e02a2149e3f7[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Nov 18 12:31:08 2021 +0200
+
+    Code CleanUp all solution
+
+[33mcommit d01b0067e7c6ea432a14e9518afa90a286258cde[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Nov 18 12:25:59 2021 +0200
+
+    Created IUserRepository, UserRepository,
+    IOrderRepository, OrderRepository
+
+[33mcommit 4a69dfb10ae1df22f07e3575d396d49d70787bce[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Nov 18 11:16:48 2021 +0200
+
+    Refactoring IRepository class
+    split dbContexts
+
+[33mcommit 2dbb2be8f7a99c24ae2a438398884adeb77944e3[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Wed Nov 17 15:22:25 2021 +0200
+
+    Deleted Shared project
+
+[33mcommit 04fd3d07315ba2c1196981090756ff72f993c56d[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Mon Nov 15 08:32:16 2021 +0200
+
+    Clear Build
+
+[33mcommit 253e1255fa451be7557a4ccc6952b8e132fb7646[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Mon Nov 15 00:02:25 2021 +0200
+
+    Created Reques Helper
+
+[33mcommit cdf9b30c745106c9cc8ce0e41db80a96445c8b56[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Sat Nov 13 23:51:41 2021 +0200
+
+    Updated READ.me
+
+[33mcommit 23c1aed3a95797cb84b2623bb08070dd5d6814e3[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Sat Nov 13 23:21:29 2021 +0200
+
+    RESTful API User created method Update
+
+[33mcommit 29505e04043369c850106664e38805a18ee23688[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Nov 11 21:12:24 2021 +0200
+
+    Rebuild Project
+
+[33mcommit c7af8ac6085071a2fd2c67cf9ed6e69ee52a4eb5[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Nov 11 21:05:40 2021 +0200
+
+    Created UserRepository
+
+[33mcommit dbb359747f9c5f971fbb15fdd878a3e1458c63c2[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Nov 11 14:12:39 2021 +0200
+
+    Update README.md
+
+[33mcommit 93051e6d9df8d895c0d9af2fb3c4d86d11a657e8[m
+Merge: 338b57c 636b9bb
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Nov 11 14:09:21 2021 +0200
+
+    Merge branch 'master' of https://github.com/developmentservice/ShopOnlinePWA
+
+[33mcommit 338b57c311843dab8213ceeb580f0fa09225ac14[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Nov 11 14:09:03 2021 +0200
+
+    Added image project structure
+
+[33mcommit 636b9bbf90c4fa8b4497d2f29f6518efc9c0ed87[m
+Author: Igor Melnik <39656800+developmentservice@users.noreply.github.com>
+Date:   Thu Nov 11 13:55:16 2021 +0200
+
+    Update PWA Structure.drawio.png
+
+[33mcommit fc6cd536e02c89f9407daa6074f8a932370ef62e[m
+Author: Igor Melnik <39656800+developmentservice@users.noreply.github.com>
+Date:   Thu Nov 11 13:54:34 2021 +0200
+
+    Update PWA Structure.drawio.png
+
+[33mcommit 4aa943850112fff0a6e6e6d348d709f9355a68e1[m
+Author: Igor Melnik <39656800+developmentservice@users.noreply.github.com>
+Date:   Thu Nov 11 13:54:21 2021 +0200
+
+    Update PWA Structure.drawio.png
+
+[33mcommit 7ac05146ba5fac822c16c93c758c25de839b6d2b[m
+Author: Igor Melnik <39656800+developmentservice@users.noreply.github.com>
+Date:   Thu Nov 11 13:53:09 2021 +0200
+
+    Update PWA Structure.drawio.png
+
+[33mcommit 6baa72136e130e02ba0b76adbb8ae4e48fc7afea[m
+Author: Igor Melnik <39656800+developmentservice@users.noreply.github.com>
+Date:   Thu Nov 11 13:52:55 2021 +0200
+
+    Added PWA Structure.drawio.png
+
+[33mcommit e47d387076e46d0f8ea18c684c4a4b50cebc91af[m
+Author: Igor Melnik <39656800+developmentservice@users.noreply.github.com>
+Date:   Thu Nov 11 13:51:09 2021 +0200
+
+    Update PWA Structure
+
+[33mcommit 6e050263356834d6b43cef104f1c2db6b21b3851[m
+Author: Igor Melnik <39656800+developmentservice@users.noreply.github.com>
+Date:   Thu Nov 11 13:40:27 2021 +0200
+
+    Update PWA Structure
+
+[33mcommit 308282f0f470fb5d6482f73f79e661271444b198[m
+Author: Igor Melnik <39656800+developmentservice@users.noreply.github.com>
+Date:   Thu Nov 11 13:36:22 2021 +0200
+
+    Added PWA Structure
+
+[33mcommit 40534ae042529496f653e5adac2a60afdec0b9cf[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Nov 11 13:35:00 2021 +0200
+
+    Deleted Sources.hlsl
+
+[33mcommit e969a676dcfa2edb20bb2f66eb536b66d0978f6b[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Nov 11 13:33:43 2021 +0200
+
+    Delete Resources
+
+[33mcommit 5d9b0e7a03ea6edee325971c84a3fc1ac3fbf8b2[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Nov 11 13:32:17 2021 +0200
+
+    Remove Sorce
+
+[33mcommit 7358116a94aded6135a1a5e9aa498d3efc2ba364[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Nov 11 13:29:12 2021 +0200
+
+    Added Source Folder
+
+[33mcommit c9c93e8f09ad0725f31a50329f6e78f9c2cda213[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Nov 11 13:26:56 2021 +0200
+
+    Updated README.MD
+
+[33mcommit c9703843a487ffee4f83a644a9a022bcf205ef51[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Nov 11 12:28:55 2021 +0200
+
+    Updated README.md
+
+[33mcommit b5f2a9ba7c9be3dc67bb4b67b3dfe50a3b26c47e[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Thu Nov 11 11:55:52 2021 +0200
+
+    Updated ReadMe.md
+
+[33mcommit 562fc9c845e9c0275261744cee9400c4c7d58f8e[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Wed Nov 10 23:06:10 2021 +0200
+
+    Updated
+
+[33mcommit d76b8eb0dc2dc973163d21d1c61487b20e79be7a[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Wed Nov 10 23:05:40 2021 +0200
+
+    Updated Db Connection
+
+[33mcommit 341cf8834e7fb05b6ac6e8960315f26dc8366f75[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Wed Nov 10 22:54:48 2021 +0200
+
+    Updated Library Identity Classes
+    Created new DbContext for Identity entityes
+
+[33mcommit e637e6cd9d5ec52c843c203eea01556cbd95c6dd[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Wed Nov 10 13:44:11 2021 +0200
+
+    Change Main in API to async
+
+[33mcommit 1e7159d5dd9036e15e5ac324a3edda1a44f6e074[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Tue Nov 9 23:55:39 2021 +0200
+
+    Build Secceeded
+
+[33mcommit bd2afa16075c15feeba722995695831ddbf5e167[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Tue Nov 9 23:37:03 2021 +0200
+
+    Apdated userManager and roleManager
+
+[33mcommit 2ba293e5b406ae90cb2e6716adc7beaeadeb124a[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Tue Nov 9 16:04:35 2021 +0200
+
+    Added Migrations
+
+[33mcommit 96a98aa392a791bd227af33993fbd5484c672780[m
+Author: Igor Melnik <39656800+developmentservice@users.noreply.github.com>
+Date:   Tue Nov 9 00:14:42 2021 +0200
+
+    Create README.md
+
+[33mcommit 8c058e515573f8b657b0e56462cafbae7257a6a6[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Tue Nov 9 00:09:59 2021 +0200
+
+    Updated Solution structure
+
+[33mcommit c608dcbca96ab14d6949b8d21fac64ed6493f4b2[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Mon Nov 8 23:46:58 2021 +0200
+
+    Changed Client, Server, Shared project
+
+[33mcommit 1cb07614ffa5d83264eed3a7732ca83b000632fb[m
+Author: developmentservice <igor.melnik.it@gmail.com>
+Date:   Sun Nov 7 12:43:03 2021 +0200
+
+    Create
