@@ -1,3 +1,4 @@
+using Api.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -6,14 +7,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using ShopOnline.API.Data;
-using ShopOnline.Shared.Models.Catalogs;
-using ShopOnline.Shared.Models.Documents;
-using ShopOnline.Shared.Models.Identities;
-using ShopOnline.Shared.Services;
+using Shared.Models.Catalogs;
+using Shared.Models.Documents;
+using Shared.Models.Identities;
+using Shared.Services.Repository;
 using System;
 
-namespace ShopOnline.API
+namespace Api
 {
     public class Startup
     {

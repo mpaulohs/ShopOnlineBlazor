@@ -1,11 +1,14 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Shared.Views.Pagination;
-using ShopOnline.Shared.Modesl;
+using Shared.Models;
+using Shared.Services.Request.Pagination;
+using Shared.Services.Request.Search;
 using System.Linq.Expressions;
+using Shared.Services.Repository.RepositoryExtentions;
+using Shared.Models.Catalogs;
 
-namespace ShopOnline.Shared.Services
+namespace Shared.Services.Repository
 {
     public class RepositoryBaseApi<TEntity, TKey, TDbContext> :
         IDisposable,
@@ -20,7 +23,6 @@ namespace ShopOnline.Shared.Services
             Context = context ?? throw new ArgumentNullException(nameof(context));
             Logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
-
 
         protected TDbContext Context { get; private set; }
 
@@ -107,7 +109,7 @@ namespace ShopOnline.Shared.Services
             entity.UpdatedAt = default;
 
             //Before Context.Set<TEntity>().AddAsync(entity);
-            var result = await Context.AddAsync<TEntity>(entity, cancellationToken);
+            var result = await Context.AddAsync(entity, cancellationToken);
 
             try
             {
@@ -128,7 +130,7 @@ namespace ShopOnline.Shared.Services
             return await AllEntities.AsNoTracking().SingleOrDefaultAsync(e => e.Id.Equals(id), cancellationToken);
         }
 
-        public virtual async Task<String>? GetNameByIdAsync(TKey id, CancellationToken cancellationToken = default)
+        public virtual async Task<string>? GetNameByIdAsync(TKey id, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
@@ -136,7 +138,7 @@ namespace ShopOnline.Shared.Services
             return entity?.ToString();
         }
 
-        public virtual async Task<(IEnumerable<TEntity> entities, PaginationEntitiesMetaData paginationEntitiesMetaData)?> GetByFiltersAsync(CancellationToken cancellationToken = default, int limit = default, int offset = default, Expression<Func<TEntity, bool>>[] filters = null)
+        public virtual async Task<PaginationList<TEntity>>? GetByFiltersAsync(PaginationParameters paginationParameters, SearchParameters searchParameters = default, CancellationToken cancellationToken = default, Expression<Func<TEntity, bool>>[] filters = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
@@ -148,8 +150,14 @@ namespace ShopOnline.Shared.Services
                 return null;
             }
 
+            //Search
+            if (searchParameters!=default && typeof(TEntity).IsSubclassOf(typeof(CatalogBase<TKey>)))
+            {
+                entities = entities.Search<TEntity, TKey>(searchParameters.SearchTerm);     
+            }
+
             //Filtering
-            if (filters.Length != 0)
+            if (filters!=null && filters?.Length > 0)
             {
                 foreach (var filter in filters)
                 {
@@ -157,7 +165,7 @@ namespace ShopOnline.Shared.Services
                 }
             }
 
-            int count = entities.Count();
+            //int count = entities.Count();
 
             //Pagination
             //if (pagination!=null)
@@ -168,22 +176,10 @@ namespace ShopOnline.Shared.Services
             //}
 
             //OrderBy
-            entities = entities.OrderBy(e => e.CreatedAt);
+            //entities = entities.OrderBy(e => e.CreatedAt);
 
-            //Offset
-            entities = entities.Skip(offset);
 
-            //Limit
-            if (limit!=0)
-            {
-                entities = entities.Take(limit);
-            }
-
-            IEnumerable<TEntity> resEntities = await entities.ToListAsync<TEntity>();
-
-            var paginationEntitiesMetaData = new PaginationEntitiesMetaData(count, limit, offset);
-
-            return (resEntities, paginationEntitiesMetaData);
+            return PaginationList<TEntity>.ToPaginationList(entities, paginationParameters.PageNumber, paginationParameters.PageSize);
         }
 
 
@@ -299,7 +295,7 @@ namespace ShopOnline.Shared.Services
 
             var entity = await GetByIdAsync(id, cancellationToken);
 
-            if (entity==null)
+            if (entity == null)
             {
                 Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new ArgumentNullException(nameof(entity));

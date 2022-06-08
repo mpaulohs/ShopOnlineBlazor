@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ShopOnline.Shared.Models.Catalogs
+namespace Shared.Models.Catalogs
 {
     public class Currency : CatalogBase<Guid>
     {

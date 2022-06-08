@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ShopOnline.Shared.Models.Catalogs
+namespace Shared.Models.Catalogs
 {
     public class Product : CatalogBase<Guid>
     {
@@ -26,5 +26,10 @@ namespace ShopOnline.Shared.Models.Catalogs
 
         public bool IsPublic { get; set; }
 
+        public override string ToString()
+        {
+
+            return Name?.ToString();
+        }
     }
 }

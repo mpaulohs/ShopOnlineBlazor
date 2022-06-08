@@ -1,7 +1,6 @@
-﻿using ShopOnline.Shared.Models.Identities;
+﻿using Shared.Models.Identities;
 
-
-namespace ShopOnline.Shared.Models.Catalogs
+namespace Shared.Models.Catalogs
 {
     public class ClientContract : CatalogBase<Guid>
     {

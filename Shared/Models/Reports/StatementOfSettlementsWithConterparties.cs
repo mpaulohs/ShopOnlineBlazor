@@ -1,4 +1,4 @@
-﻿namespace ShopOnline.Shared.Modesl.Reports
+﻿namespace Shared.Models.Reports
 {
     public class StatementOfSettlementsWithConterparties
     {

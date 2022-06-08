@@ -1,13 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using ShopOnline.Shared.Models.Catalogs;
-using ShopOnline.Shared.Models.Identities;
-using ShopOnline.Shared.Services;
+using Shared.Models.Catalogs;
+using Shared.Services.Repository;
+using Shared.Models.Identities;
 using System;
 using System.Threading.Tasks;
+using Shared.Services.Request.Pagination;
+using Shared.Services.Request.Search;
 
-namespace ShopOnline.API.Controllers
+namespace Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -15,56 +17,31 @@ namespace ShopOnline.API.Controllers
     {
         private readonly IRepository<Product, Guid> _repository;
 
-        private readonly ILogger<UserController> _logger;
+        private readonly ILogger<Product> _logger;
 
-        public ProductController(IRepository<Product, Guid> repository, ILogger<UserController> loger)
+        public ProductController(IRepository<Product, Guid> repository, ILogger<Product> loger)
         {
             _repository = repository;
             _logger = loger;
         }
 
-        //[HttpGet]
-        //public async Task<ActionResult> Get()
-        //{
-        //    try
-        //    {
-        //        var result = await _repository.GetByFiltersAsync();
-
-        //        if (result != null)
-        //        {
-        //            return StatusCode(200, result);
-        //        }
-        //        return StatusCode(404);
-        //    }
-        //    catch (Exception exception)
-        //    {
-
-        //        _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
-        //        return StatusCode(500, "Internal server error");
-        //    }
-        //}
-
         [HttpGet]
-        public async Task<ActionResult> Get([FromQuery] int limit, int offset)
+        public async Task<ActionResult> Get([FromQuery] PaginationParameters pagintaionParameters, [FromQuery] 
+        SearchParameters searchParameters)
         {
             try
             {
-                var result = await _repository.GetByFiltersAsync(limit:limit, offset:offset);
+                var result = await _repository.GetByFiltersAsync(pagintaionParameters, searchParameters);
 
                 if (result != null)
                 {
-                    var PaginationEntitiesMetaData = result.Value.paginationEntitiesMetaData;
-                
-
-                    Response.Headers.Add("x-pagination", JsonConvert.SerializeObject(PaginationEntitiesMetaData));
-                    return StatusCode(200, result.Value.entities);
-
+                    Response.Headers.Add("x-pagination", JsonConvert.SerializeObject(result.MetaData));
+                    return StatusCode(200, result);
                 }
                 return StatusCode(404);
             }
             catch (Exception exception)
             {
-
                 _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return StatusCode(500, "Internal server error");
             }

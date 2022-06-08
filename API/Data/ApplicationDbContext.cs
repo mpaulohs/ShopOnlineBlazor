@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ShopOnline.Shared.Models.Catalogs;
-using ShopOnline.Shared.Models.Documents;
-using ShopOnline.Shared.Models.Identities;
+using Shared.Models.Catalogs;
+using Shared.Models.Documents;
+using Shared.Models.Identities;
 using System;
 
-namespace ShopOnline.API.Data
+namespace Api.Data
 {
 
     public class ApplicationDbContext : IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
@@ -130,6 +131,25 @@ namespace ShopOnline.API.Data
             //Seed data
 
             //Seed(modelBuilder);
+
+            int langth = 100;
+
+
+                for (int i = 1; i < langth; i++)
+                {
+                    var product = new Product();
+                    product.Id = Guid.NewGuid();
+                    product.FullName = "FullName_" + i.ToString();
+                    product.Name = "Name_" + i.ToString();
+                    product.Comment = "Cometn_" + i.ToString();
+                    product.IsPublic = true;
+                    product.Article = "Article_" + i.ToString();
+                    product.CreatedAt = DateTime.Now;
+                    product.Description = "Description_" + i.ToString();
+
+                    modelBuilder.Entity<Product>().HasData(product);
+                }
+            
         }
 
 

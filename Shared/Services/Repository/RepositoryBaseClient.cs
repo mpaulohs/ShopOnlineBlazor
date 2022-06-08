@@ -3,12 +3,14 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using Shared.Views.Pagination;
-using ShopOnline.Shared.Modesl;
+using Shared.Models;
+using Shared.Services.Request.Pagination;
+using Shared.Services.Request.Search;
 using System.Linq.Expressions;
 using System.Net.Http.Json;
+using System.Text.Json;
 
-namespace ShopOnline.Shared.Services
+namespace Shared.Services.Repository
 {
     public class RepositoryBaseClient<TEntity, TKey> :
         IDisposable,
@@ -23,6 +25,7 @@ namespace ShopOnline.Shared.Services
             Logger = logger ?? throw new ArgumentNullException(nameof(logger));
             RequestUri = new Uri(HttpClient.BaseAddress + GetTypeName(typeof(TEntity)));
             Console.WriteLine(typeof(TEntity));
+            _options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             //BaseUri = new Uri ("api/" + typeof(TEntity).Name.ToLower() + "/");
             //Url = "api/" + typeof(TEntity).Name.ToLower() + "/";
         }
@@ -30,6 +33,7 @@ namespace ShopOnline.Shared.Services
         protected Uri RequestUri { get; set; }
         protected HttpClient HttpClient { get; private set; }
 
+        private readonly JsonSerializerOptions _options;
         protected ILogger<TEntity> Logger { get; set; }
 
         public Task<TKey> CreateAsync(TEntity entity, CancellationToken cancellationToken = default)
@@ -57,31 +61,36 @@ namespace ShopOnline.Shared.Services
             throw new NotImplementedException();
         }
 
+        public async Task<PaginationList<TEntity>> GetByFiltersAsync(PaginationParameters paginationParameters, SearchParameters searchParameters = default, CancellationToken cancellationToken = default, Expression<Func<TEntity, bool>>[] filters = default)
 
-        public async Task<(IEnumerable<TEntity> entities, PaginationEntitiesMetaData paginationEntitiesMetaData)?> GetByFiltersAsync(CancellationToken cancellationToken = default, int limit = default, int offset = default, params Expression<Func<TEntity, bool>>[] filters)
         {
-
             var queryParams = new Dictionary<string, string>
             {
-                ["limit"] = limit.ToString(),
-                ["offset"] = offset.ToString(),
+                ["pageNumber"] = paginationParameters.PageNumber.ToString(),
+                ["searchTerm"] = searchParameters.SearchTerm == null ? "" : searchParameters.SearchTerm
             };
 
+            var uri = QueryHelpers.AddQueryString(RequestUri.OriginalString, queryParams);
 
-            PaginationEntitiesMetaData? paginationEntitiesMetaData = null;
+            var response = await HttpClient.GetAsync(uri, cancellationToken);
 
-            var response = await HttpClient.GetAsync(QueryHelpers.AddQueryString(RequestUri.OriginalString, queryParams), cancellationToken);
+            var content = await response.Content.ReadAsStringAsync();
 
-            IEnumerable<TEntity>? entities = JsonConvert.DeserializeObject<IEnumerable<TEntity>>(await response.Content.ReadAsStringAsync());
-
-            paginationEntitiesMetaData = JsonConvert.DeserializeObject<PaginationEntitiesMetaData>(response.Headers.GetValues("x-pagination").FirstOrDefault());
-
-            if (paginationEntitiesMetaData == null)
+            if (!response.IsSuccessStatusCode)
             {
-                paginationEntitiesMetaData = new PaginationEntitiesMetaData(0, limit, offset);
+                throw new ApplicationException(content);
             }
 
-            return (entities, paginationEntitiesMetaData);
+            string contextHeaderPagination = response.Headers.GetValues("x-pagination").FirstOrDefault();
+
+            var PaginationList = new PaginationList<TEntity>
+            {
+                Entities = JsonConvert.DeserializeObject<IEnumerable<TEntity>>(content),
+
+                MetaData = JsonConvert.DeserializeObject<PaginationPagesMetaData>(contextHeaderPagination)
+            };
+
+            return PaginationList;
         }
 
         public async Task<TEntity> GetByIdAsync(TKey id, CancellationToken cancellationToken = default)
@@ -94,7 +103,7 @@ namespace ShopOnline.Shared.Services
         {
             try
             {
-                var result = await HttpClient.PutAsJsonAsync<TEntity>(RequestUri + id.ToString(), entity, cancellationToken);
+                var result = await HttpClient.PutAsJsonAsync(RequestUri + id.ToString(), entity, cancellationToken);
                 return true;
             }
             catch (Exception)

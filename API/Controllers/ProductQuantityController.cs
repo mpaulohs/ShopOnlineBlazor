@@ -2,13 +2,15 @@
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ShopOnline.Shared.Models.Catalogs;
-using ShopOnline.Shared.Models.Documents;
-using ShopOnline.Shared.Services;
+using Shared.Models.Catalogs;
+using Shared.Services.Repository;
+using Shared.Models.Documents;
 using System;
 using System.Threading.Tasks;
+using Shared.Services.Request.Pagination;
+using Newtonsoft.Json;
 
-namespace ShopOnline.API.Controllers
+namespace Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -25,24 +27,26 @@ namespace ShopOnline.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Get()
+        public async Task<ActionResult> Get([FromQuery] PaginationParameters pagintaionParameters)
         {
             try
             {
-                var result = await _repository.GetByFiltersAsync();
+                var result = await _repository.GetByFiltersAsync(pagintaionParameters);
 
-                if (result == null)
+                if (result != null)
                 {
-                    return StatusCode(404);
+                    Response.Headers.Add("x-pagination", JsonConvert.SerializeObject(result.MetaData));
+                    return StatusCode(200, result);
                 }
-                return StatusCode(200, result);
+                return StatusCode(404);
             }
             catch (Exception exception)
             {
                 _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                return StatusCode(500, "Internal server error");
             }
         }
+
 
         [HttpGet("{id:Guid}")]
         public async Task<ActionResult> Get([FromRoute] Guid id)
@@ -99,7 +103,7 @@ namespace ShopOnline.API.Controllers
         {
             try
             {
-                if (id==Guid.Empty||entity==null)
+                if (id == Guid.Empty || entity == null)
                 {
                     return StatusCode(400, "Bad Request");
                 }
