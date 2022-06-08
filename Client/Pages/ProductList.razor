@@ -61,13 +61,13 @@ else
             {
                 if (i == paginationPagesMetaData.CurrentPage)
                 {
-                    <li @onclick=OnSelectedPage(i) style="cursor: pointer;" class="page-item">
+                    <li @onclick="()=>OnSelectedPage(i)" style="cursor: pointer;" class="page-item">
                         <span class="page-link" style="background-color: blue" href="#">@i</span>
                     </li>
                 }
                 else
                 {
-                    <li onclick=@OnSelectedPage(i) style="cursor: pointer;" class="page-item">
+                    <li @onclick="()=>OnSelectedPage(i)" style="cursor: pointer;" class="page-item">
                         <span class="page-link" href="#">@i</span>
                     </li>
                 }
@@ -111,10 +111,9 @@ else
     {
         paginationPagesMetaData.CurrentPage = selectdPage;
         paginationEntitiesMetaData = PaginationEntitiesMetaData.ToPaginationEntitiesMetaData(paginationPagesMetaData);
-        NavigationManager
-        var response = await Repository.GetByFiltersAsync(limit: paginationEntitiesMetaData.Limit, offset: paginationEntitiesMetaData.Offset);
-        products = response.Value.entities;
-        paginationEntitiesMetaData = response.Value.paginationEntitiesMetaData;
+        var response = Repository.GetByFiltersAsync(limit: paginationEntitiesMetaData.Limit, offset: paginationEntitiesMetaData.Offset);
+        products = response.Result.Value.entities;
+        paginationEntitiesMetaData = response.Result.Value.paginationEntitiesMetaData;
         paginationPagesMetaData = PaginationPagesMetaData.ToPaginationPagesMetaData(paginationEntitiesMetaData);
     }
 
