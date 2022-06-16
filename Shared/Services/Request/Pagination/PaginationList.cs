@@ -5,7 +5,7 @@
     {
         public IEnumerable<TEntity> Entities { get; set; }
 
-        public PaginationPagesMetaData MetaData { get; set; }
+        public PaginationMetaData MetaData { get; set; }
 
         public PaginationList()
         {
@@ -14,7 +14,7 @@
 
         public PaginationList(List<TEntity> items, int count, int pageNumber, int pageSize)
         {
-            MetaData = new PaginationPagesMetaData
+            MetaData = new PaginationMetaData
             {
                 TotalCount = count,
                 PageSize = pageSize,

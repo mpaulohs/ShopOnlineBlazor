@@ -1,11 +1,6 @@
 {
-<<<<<<< HEAD
-  "name": "BlazorApp01",
-  "short_name": "BlazorApp01",
-=======
-  "name": "Client",
-  "short_name": "Client",
->>>>>>> 3f4e747cffed9382ac9e63de484260daaeff6560
+  "name": "WebClient",
+  "short_name": "WebClient",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",

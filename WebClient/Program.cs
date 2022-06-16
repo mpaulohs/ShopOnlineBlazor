@@ -1,17 +1,17 @@
-using WebClient;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Shared.Models.Catalogs;
-using Shared.Models.Documents;
-using Shared.Services.Repository;
+using global::Shared.Models.Catalogs;
+using global::Shared.Models.Documents;
+using global::Shared.Services.Repository;
+using WebClient;
+
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+//todo clean builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:5001/api/") });
-
 builder.Services.AddScoped(typeof(IRepository<DocumentSale, Guid>), typeof(RepositoryBaseClient<DocumentSale, Guid>));
 builder.Services.AddScoped(typeof(IRepository<Product, Guid>), typeof(RepositoryBaseClient<Product, Guid>));
 

@@ -151,13 +151,13 @@ namespace Shared.Services.Repository
             }
 
             //Search
-            if (searchParameters!=default && typeof(TEntity).IsSubclassOf(typeof(CatalogBase<TKey>)))
+            if (searchParameters != default && typeof(TEntity).IsSubclassOf(typeof(CatalogBase<TKey>)))
             {
-                entities = entities.Search<TEntity, TKey>(searchParameters.SearchTerm);     
+                entities = entities.Search<TEntity, TKey>(searchParameters.SearchTerm);
             }
 
             //Filtering
-            if (filters!=null && filters?.Length > 0)
+            if (filters != null && filters?.Length > 0)
             {
                 foreach (var filter in filters)
                 {
@@ -181,6 +181,8 @@ namespace Shared.Services.Repository
 
             return PaginationList<TEntity>.ToPaginationList(entities, paginationParameters.PageNumber, paginationParameters.PageSize);
         }
+
+        public 
 
 
 

@@ -87,7 +87,7 @@ namespace Shared.Services.Repository
             {
                 Entities = JsonConvert.DeserializeObject<IEnumerable<TEntity>>(content),
 
-                MetaData = JsonConvert.DeserializeObject<PaginationPagesMetaData>(contextHeaderPagination)
+                MetaData = JsonConvert.DeserializeObject<PaginationMetaData>(contextHeaderPagination)
             };
 
             return PaginationList;
