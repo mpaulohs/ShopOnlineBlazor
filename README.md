@@ -149,16 +149,24 @@ otherwise no single quotes are required.
 
 The following logical operations are supported:
 
-| Operation | Description           | Example                                       |
-|-----------|-----------------------|-----------------------------------------------|
-| and       | And                   | Field1 eq 'abc' and Field2 eq 'def'           |
-| or        | Or                    | Field1 eq 'abc' or Field1 eq 'def'            |
-| eq        | Equals                | BuyerEmailAddress eq 'first.last@example.com' |
-| ne        | Not Equals            | BuyerEmailAddress ne 'first.last@example.com' |
-| gt        | Greater Than          | CreatedDateUtc gt 2016-03-02                  |
-| gte       | Greater Than Or Equal | CreatedDateUtc ge 2016-03-02                  |
-| lt        | Less Than             | Quantity lt 1500                              |
-| lte       | Less Than Or Equal    | Quantity le 1500                              |
+filters=[field]:[operator]:[value];filters=[field]:[operator]:[value]
+
+?filters=is_closed:eq:false;title:ct:hello+world
+
+| Operator | Description                                                            |
+|----------|------------------------------------------------------------------------|
+| ct       | Returns entries where the field contains the value.                    |
+| nct      | Returns entries where the field does not contain the value.            |
+| bw       | Returns entries where the field begins with the value.                 |
+| nbw      | Returns entries where the field does not begin with the value.         |
+| ev       | Returns entries where the field ends with the value.                   |
+| nev      | Returns entries where the field does not end with the value.           |
+| eq       | Returns entries where the field is equal to the value.                 |
+| neq      | Returns entries where the field is not equal to the value.             |
+| gt       | Returns entries where the field is greater than the value.             |
+| gte      | Returns entries where the field is greater than or equal to the value. |
+| lt       | Returns entries where the field is lower than the value.               |
+| lte      | Returns entries where the field is lower than or equal to the value.   |
 
 Additionally, there are several functions that can be used to help
 filter specific data types.
@@ -174,6 +182,20 @@ filter specific data types.
 | Floor    | Rounds the input numeric parameter down to the nearest numeric value with no decimal component | Decimal   | floor(Freight) eq 32    |
 | Ceiling  | Rounds the input numeric parameter up to the nearest numeric value with no decimal component   | Decimal   | ceiling(Freight) eq 32  |
 
+
+Pagination
+=========
+
+"pagination": {
+  "current_page": 1,
+  "total_pages": 127,
+  "entries_per_page": 500,
+  "total_entries": 63512,
+  "order": {
+    "field": "date_creation",
+    "direction": "asc"
+  }   
+}
 
 Notes
 
