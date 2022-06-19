@@ -66,7 +66,7 @@ namespace Shared.Services.Repository
         {
             var queryParams = new Dictionary<string, string>
             {
-                ["pageNumber"] = paginationParameters.PageNumber.ToString(),
+                ["pageCerent"] = paginationParameters.pageCerent.ToString(),
                 ["searchTerm"] = searchParameters.SearchTerm == null ? "" : searchParameters.SearchTerm
             };
 
@@ -130,6 +130,11 @@ namespace Shared.Services.Repository
                      + $"<{genericArguments}>").ToLower();
             }
             return type.Name.ToLower();
+        }
+
+        public async Task<List<TEntity>>? GetAsync(string fields = null, string search = null, string filter = null, string sorts = null, int pageSize = 0, int pageCurrent = 0, CancellationToken cancellationToken = default)
+        {
+           return await HttpClient.GetFromJsonAsync<List<TEntity>>(RequestUri, cancellationToken);
         }
     }
 }

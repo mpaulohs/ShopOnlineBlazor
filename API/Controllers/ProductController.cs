@@ -26,7 +26,35 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Get([FromQuery] PaginationParameters pagintaionParameters, [FromQuery] 
+        [Route("get")]
+        public async Task<ActionResult> Get(
+                [FromQuery] string fields = default,
+                [FromQuery] string search = default,
+                [FromQuery] string filter = default,
+                [FromQuery] string sorts = default,
+                [FromQuery] int pageSize = default,
+                [FromQuery] int pageCerent = default)
+        {
+            try
+            {
+                var result = await _repository.GetAsync(fields, search, filter, sorts, pageSize, pageCerent);
+
+                if (result != null)
+                {
+                    //Response.Headers.Add("x-pagination", JsonConvert.SerializeObject(result.MetaData));
+                    return StatusCode(200, result);
+                }
+                return StatusCode(404);
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Get([FromQuery] PaginationParameters pagintaionParameters, [FromQuery]
         SearchParameters searchParameters)
         {
             try

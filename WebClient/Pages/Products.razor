@@ -5,23 +5,49 @@
 
 <h3>Products</h3>
 
+@if (ProductsList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+@for (int i = 1; i < @ProductsList.Count<Product>(); i++)
+{
+
+    <tr>
+        <td>@i.ToString()</td>
+        <td>@(ProductsList.ElementAt<@Product>(i).Id.ToString())</td>
+        <td>@(ProductsList.ElementAt<@Product>(i).Article.ToString())</td>
+        <td>@(ProductsList.ElementAt<@Product>(i).Name.ToString())</td>
+        <td>@(ProductsList.ElementAt<@Product>(i).FullName.ToString())</td>
+        <td>@(ProductsList.ElementAt<@Product>(i).CreatedAt.ToString())</td>
+        <td>@(ProductsList.ElementAt<@Product>(i).UpdatedAt.ToString())</td>
+    </tr>
+}
+}
+
+
+
+
 @code {
     public IEnumerable<Product> ProductsList { get; set; }
 
-    private int currentPage = 1;
+    private int pageCurrent = 1;
 
-    private int itemsOnPage = 25;
+    private int pageSize = 25;
 
-    private int tottalPages = 1;
+    private int tottalItems = 1;
 
 
     protected override Task OnInitializedAsync()
     {
-        return base.OnInitializedAsync();
+        GetProducts();
+        return null;
     }
 
-    private async Task GetProduct()
+    private async Task GetProducts()
     {
-        var response = Repository.GetByFiltersAsync(limit: itemsOnPage, offset: 10);
+        var sorts = "name";
+        ProductsList = await Repository.GetAsync(sorts: sorts, pageSize: pageSize, pageCurrent: pageCurrent);
     }
 }

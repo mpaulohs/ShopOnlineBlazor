@@ -7,6 +7,7 @@ using Shared.Services.Request.Search;
 using System.Linq.Expressions;
 using Shared.Services.Repository.RepositoryExtentions;
 using Shared.Models.Catalogs;
+using Shared.Services.Request.Sort;
 
 namespace Shared.Services.Repository
 {
@@ -171,7 +172,7 @@ namespace Shared.Services.Repository
             //if (pagination!=null)
             //{
             //    entities = entities?
-            //   .Skip((pagination.PageNumber-1)*pagination.PageSize)
+            //   .Skip((pagination.pageCerent-1)*pagination.PageSize)
             //   .Take(pagination.PageSize);
             //}
 
@@ -179,10 +180,41 @@ namespace Shared.Services.Repository
             //entities = entities.OrderBy(e => e.CreatedAt);
 
 
-            return PaginationList<TEntity>.ToPaginationList(entities, paginationParameters.PageNumber, paginationParameters.PageSize);
+            return PaginationList<TEntity>.ToPaginationList(entities, paginationParameters.pageCerent, paginationParameters.PageSize);
         }
 
-        public 
+        public virtual async Task<List<TEntity>>? GetAsync(
+            string fields = default,
+            string search = default,
+            string filter = default,
+            string sorts = default,
+            int pageSize = default,
+            int pageCerent = default,
+            CancellationToken cancellationToken = default)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            ThrowIfDisposed();
+
+            var entities = AllEntities;
+
+            if (entities == null)
+            {
+                return null;
+            }
+            //search
+
+            //filter
+
+            //sort
+
+            if (entities == default || sorts == default)
+            {
+                return entities.ToList<TEntity>();
+            }
+
+            return entities.OrderBy<TEntity, TKey>(sorts: sorts).ToList<TEntity>();
+        }
 
 
 
@@ -330,7 +362,5 @@ namespace Shared.Services.Repository
             }
             return true;
         }
-
-
     }
 }

@@ -12,25 +12,25 @@
 
         }
 
-        public PaginationList(List<TEntity> items, int count, int pageNumber, int pageSize)
+        public PaginationList(List<TEntity> items, int count, int pageCerent, int pageSize)
         {
             MetaData = new PaginationMetaData
             {
                 TotalCount = count,
                 PageSize = pageSize,
-                CurrentPage = pageNumber,
+                CurrentPage = pageCerent,
                 TotalPages = (int)Math.Ceiling(count / (double)pageSize)
             };
             AddRange(items);
         }
 
-        public static PaginationList<TEntity> ToPaginationList(IEnumerable<TEntity> source, int pageNumber, int pageSize)
+        public static PaginationList<TEntity> ToPaginationList(IEnumerable<TEntity> source, int pageCerent, int pageSize)
         {
             var count = source.Count();
             var items = source
-              .Skip((pageNumber - 1) * pageSize)
+              .Skip((pageCerent - 1) * pageSize)
               .Take(pageSize).ToList();
-            return new PaginationList<TEntity>(items, count, pageNumber, pageSize);
+            return new PaginationList<TEntity>(items, count, pageCerent, pageSize);
         }
     }
 
