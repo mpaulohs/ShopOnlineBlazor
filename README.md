@@ -158,7 +158,7 @@ filters=[field]:[operator]:[value];filters=[field]:[operator]:[value]
 | AndAlso             | and        | &&            | Logical and.                                                           |
 | OrElse              | or         | \|\|          | Logical or.                                                            |
 | Not                 | not        | !             | Logical not.                                                           |
-| Equal               | eq         | !=            | Returns entries where the field is equal to the value.                 |
+| Equal               | eq         | ==            | Returns entries where the field is equal to the value.                 |
 | NotEqual            | neq        | !=            | Returns entries where the field is not equal to the value.             |
 | LessThan            | lt         | <             | Returns entries where the field is lower than the value.               |
 | LessThanOrEqual     | lte        | <=            | Returns entries where the field is lower than or equal to the value.   |
