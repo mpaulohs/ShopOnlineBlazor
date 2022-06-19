@@ -153,23 +153,23 @@ filters=[field]:[operator]:[value];filters=[field]:[operator]:[value]
 
 ?filters=is_closed:eq:false;title:ct:hello+world
 
-| Operator            | Short form | Symbol | Description                                                            |
-|---------------------|------------|--------|------------------------------------------------------------------------|
-| AndAlso             | and        | &&     | Logical and.                                                           |
-| OrElse              | or         | \|\|   | Logical or.                                                            |
-| Not                 | not        | !      | Logical not.                                                           |
-| Equal               | eq         | ==     | Returns entries where the field is equal to the value.                 |
-| NotEqual            | neq        | !=     | Returns entries where the field is not equal to the value.             |
-| LessThan            | lt         | <      | Returns entries where the field is lower than the value.               |
-| LessThanOrEqual     | lte        | <=     | Returns entries where the field is lower than or equal to the value.   |
-| GreaterThan         | gt         | >      | Returns entries where the field is greater than the value.             |
-| GreaterThanOrEqual  | gte        | >=     | Returns entries where the field is greater than or equal to the value. |
-| Contains            | ct         | ct     | Returns entries where the field contains the value.                    |
-| NotContains         | nct        | nct    | Returns entries where the field does not contain the value.            |
-| EndsWith            | ev         | ev     | Returns entries where the field ends with the value.                   |
-| NotEndsWith         | ne         | ne     | Returns entries where the field does not end with the value.           |
-| StartsWith          | bw         | bw     | Returns entries where the field begins with the value.                 |
-| NotStartsWith       | nbw        | nbw    | Returns entries where the field does not begin with the value.         |
+| Operator            | Short form | Symbol        | Description                                                            |
+|---------------------|------------|---------------|------------------------------------------------------------------------|
+| AndAlso             | and        | &&            | Logical and.                                                           |
+| OrElse              | or         | \|\|          | Logical or.                                                            |
+| Not                 | not        | !             | Logical not.                                                           |
+| Equal               | eq         | !=            | Returns entries where the field is equal to the value.                 |
+| NotEqual            | neq        | !=            | Returns entries where the field is not equal to the value.             |
+| LessThan            | lt         | <             | Returns entries where the field is lower than the value.               |
+| LessThanOrEqual     | lte        | <=            | Returns entries where the field is lower than or equal to the value.   |
+| GreaterThan         | gt         | >             | Returns entries where the field is greater than the value.             |
+| GreaterThanOrEqual  | gte        | >=            | Returns entries where the field is greater than or equal to the value. |
+| Contains            | ct         | Contains      | Returns entries where the field contains the value.                    |
+| NotContains         | nct        | NotContains   | Returns entries where the field does not contain the value.            |
+| EndsWith            | ev         | EndsWith      | Returns entries where the field ends with the value.                   |
+| NotEndsWith         | ne         | NotEndsWith   | Returns entries where the field does not end with the value.           |
+| StartsWith          | bw         | StartsWith    | Returns entries where the field begins with the value.                 |
+| NotStartsWith       | nbw        | NotStartsWith | Returns entries where the field does not begin with the value.         |
 
 Additionally, there are several functions that can be used to help
 filter specific data types.
