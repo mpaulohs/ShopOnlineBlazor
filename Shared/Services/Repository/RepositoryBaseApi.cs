@@ -8,6 +8,8 @@ using System.Linq.Expressions;
 using Shared.Services.Repository.RepositoryExtentions;
 using Shared.Models.Catalogs;
 using Shared.Services.Request.Sort;
+using System.Linq;
+using System.Linq.Dynamic;
 
 namespace Shared.Services.Repository
 {
@@ -31,12 +33,7 @@ namespace Shared.Services.Repository
 
         public IQueryable<TEntity> AllEntities { get { return Context.Set<TEntity>(); } }
 
-        /// <summary>
-        /// Gets or sets a flag indicating if changes should be persisted after CreateAsync, UpdateAsync and DeleteAllAsync are called.
-        /// </summary>
-        /// <value>
-        /// True if changes should be automatically persisted, otherwise false.
-        /// </value>
+
         public bool AutoSaveChanges { get; set; } = true;
 
         private bool _disposed;
@@ -205,15 +202,24 @@ namespace Shared.Services.Repository
             //search
 
             //filter
+            if (filter != default)
+            {
+                var strExpression = FilterExpression.FilterExtensions.ToExpressionString(filter);
+                var filterExpression = FilterExpression.FilterExtensions.ToExpression<TEntity, TKey>(strExpression);
+                if (filterExpression != null)
+                {
+                    entities = entities.Where(filterExpression);
+                }
+            }
 
             //sort
 
             if (entities == default || sorts == default)
             {
-                return entities.ToList<TEntity>();
+                return await entities.ToListAsync<TEntity>();
             }
 
-            return entities.OrderBy<TEntity, TKey>(sorts: sorts).ToList<TEntity>();
+            return await entities.OrderBy<TEntity, TKey>(sorts: sorts).ToListAsync<TEntity>();
         }
 
 

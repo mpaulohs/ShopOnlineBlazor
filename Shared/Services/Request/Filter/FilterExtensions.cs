@@ -117,17 +117,41 @@ namespace FilterExpression
 
     };
 
-        public static Expression<Func<IApplicationEntity<Guid>, bool>> ToExpression(string strExpression)
+        public static Expression<Func<TEntity, bool>> ToExpression<TEntity, TKey> (string strExpression)
         {
             strExpression = "x => x.Property0 == \"Z\" && old.Any(y => y.Key0 == x.Key0 && y.Property0 != x.Property0)";
 
-            var p = Expression.Parameter(typeof(IApplicationEntity<Guid>), "Entity");
+            var p = Expression.Parameter(typeof(TEntity), "Entity");
 
-            var exp = System.Linq.Dynamic.DynamicExpression.ParseLambda<IApplicationEntity<Guid>, bool>(strExpression, new[] {p});
+            var exp = System.Linq.Dynamic.DynamicExpression.ParseLambda<TEntity, bool>(strExpression, new[] { p });
 
             var func = exp.Compile();
 
             return exp;
+        }
+
+
+        public static string ToExpressionString(string queryString)
+        {
+            var nodes = queryString.Split(';');
+            var result = new StringBuilder("(item)=>");
+            foreach (var item in nodes)
+            {
+                var items = item.Split(':');
+                if (items.Length == 3)
+                {
+                    result.Append("(item)." + items[0]).Append(" " + GetSymbol(items[1])).Append(" (item)." + items[2]).Append(" And ");
+                }
+            }
+            result.Length = result.Length - 5;
+            result.Append(";");
+            return result.ToString();
+        }
+
+        public static string GetSymbol(string nodeElement)
+        {
+            var node = NodOparatorsMap.Find(e => e.Name == nodeElement);
+            return node == default ? nodeElement : node.Symbol;
         }
     };
 }

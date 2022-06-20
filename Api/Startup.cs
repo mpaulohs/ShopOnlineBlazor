@@ -50,6 +50,7 @@ namespace Api
 
             services.AddDbContext<ApplicationDbContext>(options =>
             {
+                //to do delete options.UseSqlight(Configuration.GetConnectionString("AppConnectionString"));
                 options.UseSqlServer(Configuration.GetConnectionString("AppConnectionString"));
             });
 

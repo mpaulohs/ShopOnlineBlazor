@@ -10,7 +10,7 @@ namespace Api.Controllers
         [HttpOptions]
         public ContentResult Options()
         {
-            var html = System.IO.File.ReadAllText(@"./api/web/options.html");
+            var html = System.IO.File.ReadAllText(@"./web/options.html");
             return new ContentResult
             {
                 Content = html,
@@ -21,12 +21,26 @@ namespace Api.Controllers
         [HttpGet]
         public ContentResult Index()
         {
-            var html = System.IO.File.ReadAllText(@"./api/web/options.html");
-            return new ContentResult
-            {
-                Content = html,
+            // try
+            // {
+            //     var html = System.IO.File.ReadAllText(@"./web/options.html");
+            //     return new ContentResult
+            //     {
+            //         Content = html,
+            //         ContentType = "text/html"
+            //     };
+            // }
+            // catch (System.Exception)
+            // {
+
+            //     throw;
+            // }
+
+            return new ContentResult{
+                Content = "<h1>Restapi instructions</h1>",
                 ContentType = "text/html"
             };
+
         }
     }
 }
