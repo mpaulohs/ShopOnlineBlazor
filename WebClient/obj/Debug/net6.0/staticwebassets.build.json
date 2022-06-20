@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "H7CYUBmntq1vxIwoAjnbpTfZ3uId1sGBGthev+wrQ0k=",
+  "Hash": "RO8TC6v81Vit641NndCmWroubAF4x+f4j9XJK1hy8pA=",
   "Source": "WebClient",
   "BasePath": "/",
   "Mode": "Root",
@@ -2140,6 +2140,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.6\\runtimes\\browser-wasm\\lib\\net6.0\\System.Linq.dll"
+    },
+    {
+      "Identity": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\WebClient\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Linq.Dynamic.dll",
+      "SourceId": "WebClient",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\WebClient\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/System.Linq.Dynamic.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.linq.dynamic\\1.0.8\\lib\\net40\\System.Linq.Dynamic.dll"
     },
     {
       "Identity": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\WebClient\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Linq.Expressions.dll",
@@ -6424,6 +6441,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\WebClient\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Private.Xml.Linq.dll"
+    },
+    {
+      "Identity": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\WebClient\\obj\\Debug\\net6.0\\build-gz\\npPexBub.gz",
+      "SourceId": "WebClient",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\WebClient\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/System.Linq.Dynamic.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\WebClient\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Linq.Dynamic.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\WebClient\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Linq.Dynamic.dll"
     },
     {
       "Identity": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\WebClient\\obj\\Debug\\net6.0\\build-gz\\nuRguplw.gz",
