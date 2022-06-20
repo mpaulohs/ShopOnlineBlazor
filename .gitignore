@@ -2,5 +2,9 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
+# ignore database folder
 /DB
+# ignore all logs
 Thumbs.db
+# ignore all logs
+*.log
