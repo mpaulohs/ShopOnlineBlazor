@@ -50,8 +50,9 @@ namespace Api
 
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                //to do delete options.UseSqlight(Configuration.GetConnectionString("AppConnectionString"));
-                options.UseSqlServer(Configuration.GetConnectionString("AppConnectionString"));
+                options.UseSqlite(Configuration.GetConnectionString("AppConnectionString"));
+                System.Console.WriteLine(Configuration.GetConnectionString("AppConnectionString"));
+                //options.UseSqlServer(Configuration.GetConnectionString("AppConnectionString"));
             });
 
             services.AddIdentity<User, Role>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();

@@ -3,7 +3,6 @@ using System;
 using Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -16,51 +15,47 @@ namespace Api.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.2")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
-
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.6");
 
             modelBuilder.Entity("Shared.Models.Catalogs.AdditionalInformation", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid>("EntityId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("EntityType")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Path")
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -71,30 +66,30 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -105,33 +100,33 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("BankId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -144,30 +139,30 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -178,40 +173,40 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("ClientContactInformationTypeId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("ClientId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Value")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -226,30 +221,30 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -260,36 +255,36 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("ClientId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("CurrencyId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -304,38 +299,38 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Code")
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Symbol")
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -346,30 +341,30 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -380,30 +375,30 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -414,61 +409,61 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Article")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("FullName")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("IsPublic")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("MainImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("ProductCharacteristicId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("ProductQualityId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("ProductSerieId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("ProductTypeId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("ProductUnitMeasurementId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -487,11 +482,11 @@ namespace Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2e89caa6-af63-4a37-a4fd-d5b079e84be7"),
+                            Id = new Guid("d0df6323-59aa-4bb2-b0ca-59c49bd49474"),
                             Article = "Article_1",
                             Comment = "Cometn_1",
-                            ConcurrencyStamp = "232c04f9-455f-4e82-8668-2aba7083b8b5",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 887, DateTimeKind.Local).AddTicks(7865),
+                            ConcurrencyStamp = "02d9e883-d3af-4899-8ecb-57586b8f6034",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(5830),
                             Description = "Description_1",
                             FullName = "FullName_1",
                             IsPublic = true,
@@ -501,11 +496,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f71d6710-5798-4d18-83f1-325647631d98"),
+                            Id = new Guid("16957a49-0b81-4813-9ae8-9c4e0a06c0cd"),
                             Article = "Article_2",
                             Comment = "Cometn_2",
-                            ConcurrencyStamp = "418182d0-26e9-44f3-94a0-a19fa018c13b",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 887, DateTimeKind.Local).AddTicks(8111),
+                            ConcurrencyStamp = "93c96c7c-5461-47f5-a8f8-4377ec4b4a1e",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(5900),
                             Description = "Description_2",
                             FullName = "FullName_2",
                             IsPublic = true,
@@ -515,11 +510,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("95017a72-0966-4cc5-9fe5-30e2173e39cd"),
+                            Id = new Guid("936eae25-7347-4cab-b391-96db4a7f49f3"),
                             Article = "Article_3",
                             Comment = "Cometn_3",
-                            ConcurrencyStamp = "28c7b102-61ac-4cd1-9520-6ba6be3c900c",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 887, DateTimeKind.Local).AddTicks(8165),
+                            ConcurrencyStamp = "dd268ece-fa34-45f3-bc1d-3249d6129027",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(5970),
                             Description = "Description_3",
                             FullName = "FullName_3",
                             IsPublic = true,
@@ -529,11 +524,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a4f35d9c-f794-40a8-95a1-1b4d5b404913"),
+                            Id = new Guid("b89b56d7-f93f-489d-b413-ddabad038552"),
                             Article = "Article_4",
                             Comment = "Cometn_4",
-                            ConcurrencyStamp = "9e5d017a-398b-4b9c-9c85-72e0230c9f71",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 887, DateTimeKind.Local).AddTicks(8227),
+                            ConcurrencyStamp = "f89dc034-57f4-4af7-88ab-0a2fe4b2950c",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(5990),
                             Description = "Description_4",
                             FullName = "FullName_4",
                             IsPublic = true,
@@ -543,11 +538,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("750dadfc-cf3c-43b6-a093-018134ea5cee"),
+                            Id = new Guid("30ad012b-913a-4c66-86e3-a4420f4f961b"),
                             Article = "Article_5",
                             Comment = "Cometn_5",
-                            ConcurrencyStamp = "7deb017a-fdd1-49da-b985-8c4c944d894a",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 887, DateTimeKind.Local).AddTicks(8280),
+                            ConcurrencyStamp = "85437091-1930-444c-b6a9-8a301ceb32f4",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6000),
                             Description = "Description_5",
                             FullName = "FullName_5",
                             IsPublic = true,
@@ -557,11 +552,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f2b880f8-b746-49e4-9cfa-21a1188f2168"),
+                            Id = new Guid("da8238c7-0d6c-479a-a455-eecce11473b5"),
                             Article = "Article_6",
                             Comment = "Cometn_6",
-                            ConcurrencyStamp = "7ef63cdf-9d04-4253-b903-1217808ecfe9",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 887, DateTimeKind.Local).AddTicks(8351),
+                            ConcurrencyStamp = "c5cbff79-ff89-401c-842f-556a764ae327",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6020),
                             Description = "Description_6",
                             FullName = "FullName_6",
                             IsPublic = true,
@@ -571,11 +566,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3f43cc8e-e9bf-402a-9f13-863eef5334dc"),
+                            Id = new Guid("99c8ebdd-2fca-4870-a74c-fe2297a98764"),
                             Article = "Article_7",
                             Comment = "Cometn_7",
-                            ConcurrencyStamp = "8d2ebbcf-e7e0-4cfd-9a09-c8f8d0cbe896",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 887, DateTimeKind.Local).AddTicks(8526),
+                            ConcurrencyStamp = "5f270871-be4e-4523-bdd5-482e16fcbcd1",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6030),
                             Description = "Description_7",
                             FullName = "FullName_7",
                             IsPublic = true,
@@ -585,11 +580,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a4de43c1-bfa4-474f-b921-7364da21de71"),
+                            Id = new Guid("0378b692-1261-456a-81b3-73f8e3c97610"),
                             Article = "Article_8",
                             Comment = "Cometn_8",
-                            ConcurrencyStamp = "8b034d40-5c5e-467e-8bba-bb47c79bf58c",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 887, DateTimeKind.Local).AddTicks(8593),
+                            ConcurrencyStamp = "f1cfa07f-05e9-4203-85aa-7d835800d9d5",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6040),
                             Description = "Description_8",
                             FullName = "FullName_8",
                             IsPublic = true,
@@ -599,11 +594,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5bce7b81-3b70-4412-88b6-ab30d3529659"),
+                            Id = new Guid("0bf80e13-3ee0-4401-b275-daef18821ba4"),
                             Article = "Article_9",
                             Comment = "Cometn_9",
-                            ConcurrencyStamp = "40c9e629-c432-428e-80a0-29ee5cc9c845",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 887, DateTimeKind.Local).AddTicks(8643),
+                            ConcurrencyStamp = "aae5718c-b4e7-4e4e-8aba-5e4f8f924829",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6050),
                             Description = "Description_9",
                             FullName = "FullName_9",
                             IsPublic = true,
@@ -613,11 +608,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("273fc647-960d-4bcd-8160-a76bc9ab190f"),
+                            Id = new Guid("061ba29d-b943-4df0-bee5-148298cbe5d2"),
                             Article = "Article_10",
                             Comment = "Cometn_10",
-                            ConcurrencyStamp = "9131d0af-f04d-4ccc-a5e1-cab13b6b1eee",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 887, DateTimeKind.Local).AddTicks(8697),
+                            ConcurrencyStamp = "398d6b71-3607-465c-afd7-5f1d96b29fcc",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6060),
                             Description = "Description_10",
                             FullName = "FullName_10",
                             IsPublic = true,
@@ -627,11 +622,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a6580181-5e56-474b-a7fd-7a3e4192736e"),
+                            Id = new Guid("3ec0e82b-3145-4a5a-910f-4df12330d7fe"),
                             Article = "Article_11",
                             Comment = "Cometn_11",
-                            ConcurrencyStamp = "66eb7f77-538c-4802-830a-6904a8fff326",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 887, DateTimeKind.Local).AddTicks(8748),
+                            ConcurrencyStamp = "a8996936-b78e-4656-b3b9-4151ed1ac6ca",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6080),
                             Description = "Description_11",
                             FullName = "FullName_11",
                             IsPublic = true,
@@ -641,11 +636,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("34fefb1b-ea34-44fc-94a0-ec3eced537d5"),
+                            Id = new Guid("0bc18075-331d-4b08-8475-a0b71bc1203d"),
                             Article = "Article_12",
                             Comment = "Cometn_12",
-                            ConcurrencyStamp = "398c8c63-3f2d-4816-9451-cb49123107ba",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 887, DateTimeKind.Local).AddTicks(8804),
+                            ConcurrencyStamp = "733b6463-df4b-4c77-a806-45bc329edafe",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6090),
                             Description = "Description_12",
                             FullName = "FullName_12",
                             IsPublic = true,
@@ -655,11 +650,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e231bf1b-5fb4-46be-bc31-c427225d57ee"),
+                            Id = new Guid("a69981ef-e263-46e0-86d1-0fed043267d4"),
                             Article = "Article_13",
                             Comment = "Cometn_13",
-                            ConcurrencyStamp = "620b83d0-8a9c-4bf3-8253-4a1e9720c1a2",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 887, DateTimeKind.Local).AddTicks(9225),
+                            ConcurrencyStamp = "7fb97aab-19b1-41e1-bfe3-d98ed0b6ccd7",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6100),
                             Description = "Description_13",
                             FullName = "FullName_13",
                             IsPublic = true,
@@ -669,11 +664,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("cca006a3-28f9-4f91-8a50-323d42767811"),
+                            Id = new Guid("09a0074d-86eb-42a6-968e-a0c964d4600f"),
                             Article = "Article_14",
                             Comment = "Cometn_14",
-                            ConcurrencyStamp = "2fe679f8-a5e9-475e-85ac-ae841fdc9402",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 887, DateTimeKind.Local).AddTicks(9525),
+                            ConcurrencyStamp = "79e8e466-4ecc-4de7-80aa-5491773100d8",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6110),
                             Description = "Description_14",
                             FullName = "FullName_14",
                             IsPublic = true,
@@ -683,11 +678,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("53103a5a-d461-4cb6-9071-d11943a9b337"),
+                            Id = new Guid("48a694b4-d5d6-4ae3-96a8-2310bb63386a"),
                             Article = "Article_15",
                             Comment = "Cometn_15",
-                            ConcurrencyStamp = "3887268f-8f49-4e35-92e8-87968260d12e",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 887, DateTimeKind.Local).AddTicks(9604),
+                            ConcurrencyStamp = "bcc85512-1bec-4660-8bdf-61e157211139",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6120),
                             Description = "Description_15",
                             FullName = "FullName_15",
                             IsPublic = true,
@@ -697,11 +692,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("dcba20af-2af3-473a-9850-444debc68edb"),
+                            Id = new Guid("798282c9-9c5e-41c5-a9f2-95bfceb1a448"),
                             Article = "Article_16",
                             Comment = "Cometn_16",
-                            ConcurrencyStamp = "9826970d-88b3-44f9-ac67-88483f70baf9",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 887, DateTimeKind.Local).AddTicks(9717),
+                            ConcurrencyStamp = "ae46272b-4d17-4958-b5df-804f97e07508",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6150),
                             Description = "Description_16",
                             FullName = "FullName_16",
                             IsPublic = true,
@@ -711,11 +706,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4be1bcc9-5d52-4872-afe8-e40e5d11c1ba"),
+                            Id = new Guid("eba2a8ba-f29e-44ca-9ac6-0fa54c527822"),
                             Article = "Article_17",
                             Comment = "Cometn_17",
-                            ConcurrencyStamp = "98ee7a9a-f01c-4823-9eba-6f6e09ad87e8",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 887, DateTimeKind.Local).AddTicks(9996),
+                            ConcurrencyStamp = "be3de775-4458-4441-90e3-dfc075ef7499",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6160),
                             Description = "Description_17",
                             FullName = "FullName_17",
                             IsPublic = true,
@@ -725,11 +720,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("05a1b6a8-3e64-4ba7-947f-f995b5d160c0"),
+                            Id = new Guid("6ab9f020-cc40-476d-9ab3-3c114a157c56"),
                             Article = "Article_18",
                             Comment = "Cometn_18",
-                            ConcurrencyStamp = "140acb5f-8344-431f-83c2-5a042c8f8cad",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(94),
+                            ConcurrencyStamp = "9d93d091-77f5-4771-aae5-b5dfddddaa99",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6170),
                             Description = "Description_18",
                             FullName = "FullName_18",
                             IsPublic = true,
@@ -739,11 +734,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("db8a28ad-6f9a-48f7-8107-06d78ece5980"),
+                            Id = new Guid("cc8d8a70-6cae-4489-8173-9b5291875723"),
                             Article = "Article_19",
                             Comment = "Cometn_19",
-                            ConcurrencyStamp = "5894d16f-5f1b-4743-a581-abb1aa08e30c",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(141),
+                            ConcurrencyStamp = "01ba8dc8-4a34-45ea-9f3d-595871d42751",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6190),
                             Description = "Description_19",
                             FullName = "FullName_19",
                             IsPublic = true,
@@ -753,11 +748,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("727464bf-a5b3-425b-a379-bb059acbaf3a"),
+                            Id = new Guid("780ed791-082d-47f3-bea8-a00dabd6eb21"),
                             Article = "Article_20",
                             Comment = "Cometn_20",
-                            ConcurrencyStamp = "f52395a6-caf4-4eeb-a7ea-1f8faf99f003",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(186),
+                            ConcurrencyStamp = "65ea0249-af73-4560-89c7-789d278298cf",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6200),
                             Description = "Description_20",
                             FullName = "FullName_20",
                             IsPublic = true,
@@ -767,11 +762,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3af4e7a8-29b3-4cee-8dc6-c5ef0ef66d7a"),
+                            Id = new Guid("dba69738-5118-4740-941f-790b00af2032"),
                             Article = "Article_21",
                             Comment = "Cometn_21",
-                            ConcurrencyStamp = "43098b93-3383-4260-807f-f1ee12bfe36b",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(229),
+                            ConcurrencyStamp = "dc67e611-3bf9-486e-b2c8-4499a8607184",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6210),
                             Description = "Description_21",
                             FullName = "FullName_21",
                             IsPublic = true,
@@ -781,11 +776,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("094f6c76-f17a-4069-8d0e-3f4ca25c303e"),
+                            Id = new Guid("f93a55a5-f87e-4782-97c3-e3f1b1fc436d"),
                             Article = "Article_22",
                             Comment = "Cometn_22",
-                            ConcurrencyStamp = "594c2f07-696f-4d32-a74c-7d43d1801ee8",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(278),
+                            ConcurrencyStamp = "6b798450-13d6-41cb-bb6f-b631e0e8f24a",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6220),
                             Description = "Description_22",
                             FullName = "FullName_22",
                             IsPublic = true,
@@ -795,11 +790,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("751a2e78-abd1-47b5-bac6-4485c2e736c4"),
+                            Id = new Guid("20ca38da-28c2-4676-830a-012724fbefa4"),
                             Article = "Article_23",
                             Comment = "Cometn_23",
-                            ConcurrencyStamp = "c3ee5447-c57d-4355-be12-24489f40abd0",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(337),
+                            ConcurrencyStamp = "ad7a0392-bfc5-4742-9f13-3b634585bc22",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6230),
                             Description = "Description_23",
                             FullName = "FullName_23",
                             IsPublic = true,
@@ -809,11 +804,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e9753339-3e4b-4d76-8836-ee12db22a1e6"),
+                            Id = new Guid("e597927b-8836-4191-ad24-7a6056ba554b"),
                             Article = "Article_24",
                             Comment = "Cometn_24",
-                            ConcurrencyStamp = "800c046f-4be5-4317-b293-0ef2eb434bc5",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(380),
+                            ConcurrencyStamp = "beb49690-d015-4f29-9d72-20e363a2f89b",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6250),
                             Description = "Description_24",
                             FullName = "FullName_24",
                             IsPublic = true,
@@ -823,11 +818,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e3a0cd8a-a760-4231-8348-b63d5d740537"),
+                            Id = new Guid("79e7f856-6f1a-4f40-bdf8-d3986e230550"),
                             Article = "Article_25",
                             Comment = "Cometn_25",
-                            ConcurrencyStamp = "74371459-b0d2-4e41-a2a8-d5a76315f599",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(431),
+                            ConcurrencyStamp = "01666be8-2226-4f88-ae37-4f2f05d1fed2",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6260),
                             Description = "Description_25",
                             FullName = "FullName_25",
                             IsPublic = true,
@@ -837,11 +832,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b6f97f6b-e78b-4f29-96dd-e724097e1995"),
+                            Id = new Guid("1b46c58a-753d-4cb1-91a6-6c980703cab9"),
                             Article = "Article_26",
                             Comment = "Cometn_26",
-                            ConcurrencyStamp = "2654eba5-e22a-475d-b57a-9d5014e9e0b5",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(480),
+                            ConcurrencyStamp = "ccc24ead-910e-4dd7-820f-383fcd25a69d",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6270),
                             Description = "Description_26",
                             FullName = "FullName_26",
                             IsPublic = true,
@@ -851,11 +846,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1cc8df28-af3d-4bfb-9269-84f3f4a31eaa"),
+                            Id = new Guid("34cae827-7c6f-4374-ae49-4d3227693a80"),
                             Article = "Article_27",
                             Comment = "Cometn_27",
-                            ConcurrencyStamp = "080b5cd2-62e1-47b6-a9bf-b4350e83b970",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(616),
+                            ConcurrencyStamp = "5bd76e50-497a-47c3-9bfc-dfe2de942932",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6290),
                             Description = "Description_27",
                             FullName = "FullName_27",
                             IsPublic = true,
@@ -865,11 +860,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("aeafed9a-7e83-44c9-935d-a9a111fb271a"),
+                            Id = new Guid("c6c382ad-907b-454b-8543-dca580c6190b"),
                             Article = "Article_28",
                             Comment = "Cometn_28",
-                            ConcurrencyStamp = "6c59f561-6e3c-4efb-ac2a-d042cd2b5cf2",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(678),
+                            ConcurrencyStamp = "812c1a82-998c-4150-a49b-b8dc282b76a0",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6300),
                             Description = "Description_28",
                             FullName = "FullName_28",
                             IsPublic = true,
@@ -879,11 +874,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b9a81244-7510-4365-8d3d-a15169ba21bd"),
+                            Id = new Guid("aa3dfd84-de9d-40f2-a238-65a1258f466d"),
                             Article = "Article_29",
                             Comment = "Cometn_29",
-                            ConcurrencyStamp = "8ec107c4-b616-4921-ab16-cb5824f6509d",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(770),
+                            ConcurrencyStamp = "06835430-4e64-4e4a-bd40-02e1e3827509",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6310),
                             Description = "Description_29",
                             FullName = "FullName_29",
                             IsPublic = true,
@@ -893,11 +888,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8dd34606-f5b3-448d-83fc-e425f474ea68"),
+                            Id = new Guid("a941e926-75d1-45d3-8657-b7db90e973cb"),
                             Article = "Article_30",
                             Comment = "Cometn_30",
-                            ConcurrencyStamp = "59a7979e-557d-44ea-8427-52efbf877ed7",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(847),
+                            ConcurrencyStamp = "c3837d81-085f-4e02-a321-fffdabdfa38c",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6320),
                             Description = "Description_30",
                             FullName = "FullName_30",
                             IsPublic = true,
@@ -907,11 +902,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b8caa59e-8273-478c-8b0a-3476c1e619a7"),
+                            Id = new Guid("bd2a2c17-2dca-4a7b-834a-371c2c3e6fb3"),
                             Article = "Article_31",
                             Comment = "Cometn_31",
-                            ConcurrencyStamp = "8e101c7e-ce94-4c4b-adc7-f03053cb079c",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(987),
+                            ConcurrencyStamp = "38288a0a-f446-4ec1-8cbc-e88c38d81712",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6330),
                             Description = "Description_31",
                             FullName = "FullName_31",
                             IsPublic = true,
@@ -921,11 +916,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("42d1ea87-01d5-48a6-bb69-24420ab4b54a"),
+                            Id = new Guid("1147095a-ac8b-475a-b925-d6ac4c8a7758"),
                             Article = "Article_32",
                             Comment = "Cometn_32",
-                            ConcurrencyStamp = "918cc70e-89d3-45b4-8e1c-e935c8c743ed",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(1031),
+                            ConcurrencyStamp = "6b37c271-1496-4631-9c92-328010903562",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6340),
                             Description = "Description_32",
                             FullName = "FullName_32",
                             IsPublic = true,
@@ -935,11 +930,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("632bf7b1-9605-424b-ad5e-7916b30abd94"),
+                            Id = new Guid("79642683-5c3a-4357-858d-ef1b1663fe9d"),
                             Article = "Article_33",
                             Comment = "Cometn_33",
-                            ConcurrencyStamp = "72cfa05e-84f1-443d-8990-e5588a2041ce",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(1074),
+                            ConcurrencyStamp = "38207d98-dee8-4138-b011-9a02f6bab0cf",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6350),
                             Description = "Description_33",
                             FullName = "FullName_33",
                             IsPublic = true,
@@ -949,11 +944,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("40f9811f-6b1d-4726-a49b-2ec9880daf91"),
+                            Id = new Guid("abc5f4ff-545c-4784-a156-cbc0eba89164"),
                             Article = "Article_34",
                             Comment = "Cometn_34",
-                            ConcurrencyStamp = "37b40e8d-dc5c-4f16-8b11-e698282e27fa",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(1133),
+                            ConcurrencyStamp = "aaeb6363-569d-4c8a-8b44-b58b8e88dcff",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6370),
                             Description = "Description_34",
                             FullName = "FullName_34",
                             IsPublic = true,
@@ -963,11 +958,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ce909ca5-07fe-47ee-88a5-b44cf64efdc9"),
+                            Id = new Guid("6c132a96-14f5-4dad-a02e-18c8a80aa612"),
                             Article = "Article_35",
                             Comment = "Cometn_35",
-                            ConcurrencyStamp = "5f337a9b-befc-45ac-ad6a-909d7329cdf0",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(1177),
+                            ConcurrencyStamp = "65b81dac-13d8-41cd-9a0c-47dc05401ceb",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6390),
                             Description = "Description_35",
                             FullName = "FullName_35",
                             IsPublic = true,
@@ -977,11 +972,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("62e2a5d8-864e-42e8-b811-3fe1f23f77ee"),
+                            Id = new Guid("6fcf216b-88b2-4462-99e9-6ad74c2a0ea6"),
                             Article = "Article_36",
                             Comment = "Cometn_36",
-                            ConcurrencyStamp = "c202bc23-39d6-466f-b333-c42adc9bfa0f",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(1311),
+                            ConcurrencyStamp = "5c1d31d7-26aa-4108-9009-40a8e34729d1",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6400),
                             Description = "Description_36",
                             FullName = "FullName_36",
                             IsPublic = true,
@@ -991,11 +986,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0feb43cf-11de-414a-ae8b-cd0f8bd4fc74"),
+                            Id = new Guid("da73f720-402b-45bc-8df1-bf2cbbc217e5"),
                             Article = "Article_37",
                             Comment = "Cometn_37",
-                            ConcurrencyStamp = "5a7f69e5-7d40-4b74-baf5-e6a8b69e4654",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(1355),
+                            ConcurrencyStamp = "d18a03b4-df94-430c-a158-fed4274ca8f0",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6410),
                             Description = "Description_37",
                             FullName = "FullName_37",
                             IsPublic = true,
@@ -1005,11 +1000,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("623ece3e-d5c5-4d25-b442-a6e197ecc3a8"),
+                            Id = new Guid("0b4c1c98-b0f6-4324-beb4-a82cbbcdd068"),
                             Article = "Article_38",
                             Comment = "Cometn_38",
-                            ConcurrencyStamp = "fa2bf20e-1004-4fc7-826f-cea49f57fc72",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(1404),
+                            ConcurrencyStamp = "683ec1ba-9dc0-4ed0-b7a4-f677bdea4525",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6420),
                             Description = "Description_38",
                             FullName = "FullName_38",
                             IsPublic = true,
@@ -1019,11 +1014,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a6d5ef40-7b74-4f57-93e0-f52b07d1befa"),
+                            Id = new Guid("0f81f809-e2bc-409a-92a6-abd7a04c5f37"),
                             Article = "Article_39",
                             Comment = "Cometn_39",
-                            ConcurrencyStamp = "b5029711-eebe-4d54-b144-0e69b98a1412",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(1446),
+                            ConcurrencyStamp = "3f904cf1-33fe-4645-9905-6ea7488d122f",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6430),
                             Description = "Description_39",
                             FullName = "FullName_39",
                             IsPublic = true,
@@ -1033,11 +1028,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f106c329-4b00-44c2-9256-01b0dcd102f5"),
+                            Id = new Guid("ed086f71-b817-4590-ba82-ea030e6b560c"),
                             Article = "Article_40",
                             Comment = "Cometn_40",
-                            ConcurrencyStamp = "0a6fa74a-6c3a-42c7-9d05-3569182482ac",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(1487),
+                            ConcurrencyStamp = "ccfa8296-573f-48ac-b4e5-30dc44d79ab2",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6450),
                             Description = "Description_40",
                             FullName = "FullName_40",
                             IsPublic = true,
@@ -1047,11 +1042,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8764df0b-b134-4a95-bcb8-4d71172dd73e"),
+                            Id = new Guid("3e677d47-32e3-4394-9738-a7b99b25ffeb"),
                             Article = "Article_41",
                             Comment = "Cometn_41",
-                            ConcurrencyStamp = "21967dd6-2b27-406b-9512-cced94027981",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(1529),
+                            ConcurrencyStamp = "bfde1936-55d0-45a4-944d-d0a3f708f51b",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6460),
                             Description = "Description_41",
                             FullName = "FullName_41",
                             IsPublic = true,
@@ -1061,11 +1056,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e21dc251-0089-4576-9bcd-5130becdfbf8"),
+                            Id = new Guid("e2eb8275-1d6a-4f7e-9626-06c9888b8de1"),
                             Article = "Article_42",
                             Comment = "Cometn_42",
-                            ConcurrencyStamp = "888a57c6-3fe5-46ae-b52d-90a7e9a7f3bf",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(1577),
+                            ConcurrencyStamp = "461299dc-e3f7-4b94-af35-66df962af338",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6470),
                             Description = "Description_42",
                             FullName = "FullName_42",
                             IsPublic = true,
@@ -1075,11 +1070,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("991f6dc7-e67f-4db1-9c7b-bd338998bef4"),
+                            Id = new Guid("9f6e65c3-7b08-4403-833e-3ac17ba412d9"),
                             Article = "Article_43",
                             Comment = "Cometn_43",
-                            ConcurrencyStamp = "82a8fca1-718c-47f2-8cb7-f0e805eaa915",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(1621),
+                            ConcurrencyStamp = "7fd15b35-6245-48c7-aaf4-56faf7f711f7",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6480),
                             Description = "Description_43",
                             FullName = "FullName_43",
                             IsPublic = true,
@@ -1089,11 +1084,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b97c2ebf-a927-41d6-ae58-fb56f35589bc"),
+                            Id = new Guid("1f646059-9676-49dd-926f-362cbeb60a5c"),
                             Article = "Article_44",
                             Comment = "Cometn_44",
-                            ConcurrencyStamp = "3198cf4e-1fce-4dae-bbf9-f63ea593cc16",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(1664),
+                            ConcurrencyStamp = "6c388e92-5ae1-499f-9e90-9ce6e2bf85b1",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6500),
                             Description = "Description_44",
                             FullName = "FullName_44",
                             IsPublic = true,
@@ -1103,11 +1098,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0610e09f-5aa7-4e32-a563-02d607c620c3"),
+                            Id = new Guid("598ca49b-6614-4ccf-9a77-c57876750812"),
                             Article = "Article_45",
                             Comment = "Cometn_45",
-                            ConcurrencyStamp = "8aa86dc9-cb4e-468a-a030-68e4538b1f4d",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(1791),
+                            ConcurrencyStamp = "86963627-4d78-4c1f-bc2c-a010dbf4fad1",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6510),
                             Description = "Description_45",
                             FullName = "FullName_45",
                             IsPublic = true,
@@ -1117,11 +1112,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("bfdcdb69-325a-4973-9611-06855b80222d"),
+                            Id = new Guid("840295fb-8e59-4274-a402-65751b1a2809"),
                             Article = "Article_46",
                             Comment = "Cometn_46",
-                            ConcurrencyStamp = "ad39a0ff-ce0b-473a-b5ad-886ba8216796",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(1849),
+                            ConcurrencyStamp = "00fba7fc-ea48-43eb-98e8-d22050c5b4f0",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6520),
                             Description = "Description_46",
                             FullName = "FullName_46",
                             IsPublic = true,
@@ -1131,11 +1126,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3f76610f-b16f-4a18-b617-f3b7aaaef5a9"),
+                            Id = new Guid("3336b14e-2d5a-40ae-9af0-227b6426d5c6"),
                             Article = "Article_47",
                             Comment = "Cometn_47",
-                            ConcurrencyStamp = "866fd236-3f42-4c5a-86b8-e96ff99a4d11",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(1891),
+                            ConcurrencyStamp = "47d58831-bd4d-466f-b0ef-4dbe5136fa0d",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6530),
                             Description = "Description_47",
                             FullName = "FullName_47",
                             IsPublic = true,
@@ -1145,11 +1140,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d08d46f9-54ea-47ea-bca6-1fbd66a694cf"),
+                            Id = new Guid("231bd6de-9b40-4105-9c9a-bac9d44c540c"),
                             Article = "Article_48",
                             Comment = "Cometn_48",
-                            ConcurrencyStamp = "8182a622-febb-4909-9d6f-65cadd75d03f",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(1934),
+                            ConcurrencyStamp = "fdad8aee-e49d-496a-b637-33a509e7acc4",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6540),
                             Description = "Description_48",
                             FullName = "FullName_48",
                             IsPublic = true,
@@ -1159,11 +1154,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("99c1d7a0-0446-44f2-933c-291a9ad88f13"),
+                            Id = new Guid("c9b86e02-3d26-4f9c-a75e-081524975e5b"),
                             Article = "Article_49",
                             Comment = "Cometn_49",
-                            ConcurrencyStamp = "2661d356-cb02-46b3-9220-d8797a68de06",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(1975),
+                            ConcurrencyStamp = "793a0ce6-d692-4b32-a797-17fed2efb813",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6550),
                             Description = "Description_49",
                             FullName = "FullName_49",
                             IsPublic = true,
@@ -1173,11 +1168,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e00dea13-520f-411d-85c5-ebf27ec9e234"),
+                            Id = new Guid("e6f7c5aa-dd66-49ac-9961-4d44907d9af2"),
                             Article = "Article_50",
                             Comment = "Cometn_50",
-                            ConcurrencyStamp = "8d110248-c893-437d-89fe-d5e29ad3c08c",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(2021),
+                            ConcurrencyStamp = "2ed7126c-27d0-445f-85de-b2bb284ae985",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6560),
                             Description = "Description_50",
                             FullName = "FullName_50",
                             IsPublic = true,
@@ -1187,11 +1182,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("73ec75c5-8a00-49cb-93e3-122d2c54da25"),
+                            Id = new Guid("c3ecc9f3-3c76-41c4-be51-87c5a73749b2"),
                             Article = "Article_51",
                             Comment = "Cometn_51",
-                            ConcurrencyStamp = "4edde160-9db2-4318-8d3e-35257378cc0d",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(2063),
+                            ConcurrencyStamp = "a24cf57c-3183-430c-a087-ab13ea919570",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6580),
                             Description = "Description_51",
                             FullName = "FullName_51",
                             IsPublic = true,
@@ -1201,11 +1196,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("9b060d8f-3cd4-4a1f-8418-a0bc090ebc74"),
+                            Id = new Guid("8fba5871-a9a9-4b07-9f4c-50764eb28919"),
                             Article = "Article_52",
                             Comment = "Cometn_52",
-                            ConcurrencyStamp = "8ea95540-6cbe-4c49-935b-53c029d49bcd",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(2105),
+                            ConcurrencyStamp = "99075fff-2c91-4729-8e58-8ff77098ac3e",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6590),
                             Description = "Description_52",
                             FullName = "FullName_52",
                             IsPublic = true,
@@ -1215,11 +1210,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5a9df591-7cea-4102-9b6c-9b5f4a23a90b"),
+                            Id = new Guid("6de3b048-7b37-46c8-8d97-87a526cc11de"),
                             Article = "Article_53",
                             Comment = "Cometn_53",
-                            ConcurrencyStamp = "fb9af0c1-2c64-4184-baa3-62ffbb011aee",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(2147),
+                            ConcurrencyStamp = "6458a758-4fff-4432-8a28-f5c25c4190c4",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6620),
                             Description = "Description_53",
                             FullName = "FullName_53",
                             IsPublic = true,
@@ -1229,11 +1224,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e881222c-3109-4b53-8e7a-b67539f65807"),
+                            Id = new Guid("92d7d1f1-a273-4166-9ab4-b6f83130f262"),
                             Article = "Article_54",
                             Comment = "Cometn_54",
-                            ConcurrencyStamp = "19ee0fe0-1cfa-416e-a1f5-1ba2d1d84ef6",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(2194),
+                            ConcurrencyStamp = "ce48e201-0af2-476d-849c-f6a475e2cdf0",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6630),
                             Description = "Description_54",
                             FullName = "FullName_54",
                             IsPublic = true,
@@ -1243,11 +1238,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5bc4b4c6-6c45-4dfa-b231-b058ed52d25c"),
+                            Id = new Guid("75c4896b-b5f6-4cb9-88e9-343186161842"),
                             Article = "Article_55",
                             Comment = "Cometn_55",
-                            ConcurrencyStamp = "d1dfc156-db41-4ae1-8f5d-14623b682a84",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(2317),
+                            ConcurrencyStamp = "b11a5af3-42ba-45f7-94fb-ba32b30bbd42",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6640),
                             Description = "Description_55",
                             FullName = "FullName_55",
                             IsPublic = true,
@@ -1257,11 +1252,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1ad96c91-4d70-4470-86e4-4a3973a74675"),
+                            Id = new Guid("a273ecbb-fc63-4748-9eb4-1377d44f8230"),
                             Article = "Article_56",
                             Comment = "Cometn_56",
-                            ConcurrencyStamp = "cbb1a5ef-2c96-46e5-b5dc-01d844dc047b",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(2369),
+                            ConcurrencyStamp = "0d08dd4d-372e-48d4-8436-ec3b36acd131",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6650),
                             Description = "Description_56",
                             FullName = "FullName_56",
                             IsPublic = true,
@@ -1271,11 +1266,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("59e6c700-f233-48d6-ad3c-752b0456cfae"),
+                            Id = new Guid("a9fd185c-16e1-485a-824f-17bc19d6526e"),
                             Article = "Article_57",
                             Comment = "Cometn_57",
-                            ConcurrencyStamp = "eb9e387f-2e6f-48a0-8ab3-d1cbd45ca6a4",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(2413),
+                            ConcurrencyStamp = "9f08937a-a759-45da-a5d2-27308e26f05b",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6660),
                             Description = "Description_57",
                             FullName = "FullName_57",
                             IsPublic = true,
@@ -1285,11 +1280,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("65d4697b-153e-48db-9d58-fd57b2c273c0"),
+                            Id = new Guid("dfe3b9a3-b61c-4dff-bdb4-4518afe7b4a4"),
                             Article = "Article_58",
                             Comment = "Cometn_58",
-                            ConcurrencyStamp = "3138b9d9-43e6-42fb-9f3a-18699d784ff8",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(2461),
+                            ConcurrencyStamp = "4fd48ca8-7e74-48b9-93e9-469b413120bb",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6670),
                             Description = "Description_58",
                             FullName = "FullName_58",
                             IsPublic = true,
@@ -1299,11 +1294,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4da87b90-625f-421e-b4e8-78f18e36e724"),
+                            Id = new Guid("9191c9fb-701f-46d0-9299-7ca150e608c0"),
                             Article = "Article_59",
                             Comment = "Cometn_59",
-                            ConcurrencyStamp = "686f0f49-d616-4749-9b33-0f2571e09d64",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(2503),
+                            ConcurrencyStamp = "f848a496-f753-4595-aa16-dc835d1d7abc",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6690),
                             Description = "Description_59",
                             FullName = "FullName_59",
                             IsPublic = true,
@@ -1313,11 +1308,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("aa8be826-7a2e-4c09-beeb-765587aae7d8"),
+                            Id = new Guid("2fe07c5f-12cf-463c-815b-3f42b91beeff"),
                             Article = "Article_60",
                             Comment = "Cometn_60",
-                            ConcurrencyStamp = "279e82dd-d225-42b6-898f-6109ded9453f",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(2544),
+                            ConcurrencyStamp = "2364afb1-c163-4a0e-879a-f4db6dc7fc1d",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6700),
                             Description = "Description_60",
                             FullName = "FullName_60",
                             IsPublic = true,
@@ -1327,11 +1322,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("6c38d7b0-4d80-4d84-bef1-be55752cb6ed"),
+                            Id = new Guid("b62859da-62af-4aea-bba7-ace4243cdcb9"),
                             Article = "Article_61",
                             Comment = "Cometn_61",
-                            ConcurrencyStamp = "36c735ab-378f-4a4c-a696-b011b1af6daf",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(2586),
+                            ConcurrencyStamp = "9e80ac5a-76f9-4ec2-8239-973467a9a304",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6710),
                             Description = "Description_61",
                             FullName = "FullName_61",
                             IsPublic = true,
@@ -1341,11 +1336,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5a269849-4e9f-438c-bea4-39b2fe7d952b"),
+                            Id = new Guid("78056b5a-2379-41e4-a42b-147802a2abad"),
                             Article = "Article_62",
                             Comment = "Cometn_62",
-                            ConcurrencyStamp = "5138c810-4832-4111-94b9-87ddf680119e",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(2634),
+                            ConcurrencyStamp = "9ef6c4bd-460c-4f41-afaf-192ba2cada05",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6720),
                             Description = "Description_62",
                             FullName = "FullName_62",
                             IsPublic = true,
@@ -1355,11 +1350,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("85787e41-5561-415b-ae85-e5a705bab8ed"),
+                            Id = new Guid("0d5f02f3-97a9-42fb-aace-bb3b981f1899"),
                             Article = "Article_63",
                             Comment = "Cometn_63",
-                            ConcurrencyStamp = "5f38795e-a47c-4831-b570-28ee011285f1",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(2678),
+                            ConcurrencyStamp = "b9000a60-498f-46b1-b640-0e67e94d9934",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6730),
                             Description = "Description_63",
                             FullName = "FullName_63",
                             IsPublic = true,
@@ -1369,11 +1364,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("369ff007-f02c-48cc-9e6a-5910c650a7bf"),
+                            Id = new Guid("e301e0fc-70d0-4c01-ac47-27112ec738d9"),
                             Article = "Article_64",
                             Comment = "Cometn_64",
-                            ConcurrencyStamp = "af5e4604-0800-402c-8e82-329ff821b6af",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(2720),
+                            ConcurrencyStamp = "73f12029-4993-4d07-a6bd-95e1ce737466",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6750),
                             Description = "Description_64",
                             FullName = "FullName_64",
                             IsPublic = true,
@@ -1383,11 +1378,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("203f5123-91aa-4b56-90bd-573f82a3eb2e"),
+                            Id = new Guid("f43d1aa8-d3ca-4f3e-b092-6a937b792a1f"),
                             Article = "Article_65",
                             Comment = "Cometn_65",
-                            ConcurrencyStamp = "c177f79e-0d17-41fd-b20b-8b1245d779c0",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(2852),
+                            ConcurrencyStamp = "b495b448-7acf-40c5-a441-bfafa161cab1",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6760),
                             Description = "Description_65",
                             FullName = "FullName_65",
                             IsPublic = true,
@@ -1397,11 +1392,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("2a5927bd-ee1b-46a3-8971-f499462cb6ba"),
+                            Id = new Guid("773b8092-8e09-47bf-88ee-f4105994d9a4"),
                             Article = "Article_66",
                             Comment = "Cometn_66",
-                            ConcurrencyStamp = "ca7851b8-fdfd-4c51-a71f-4a23cc71d2fd",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(2911),
+                            ConcurrencyStamp = "25aa5c4b-f4b7-4a7e-bcd4-6c5445eb863a",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6770),
                             Description = "Description_66",
                             FullName = "FullName_66",
                             IsPublic = true,
@@ -1411,11 +1406,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("257efd71-0a4f-40bf-b278-2d98fda9d6e3"),
+                            Id = new Guid("9cf266cd-b0f5-428d-b328-142c2adc980a"),
                             Article = "Article_67",
                             Comment = "Cometn_67",
-                            ConcurrencyStamp = "3f3bea1e-4be2-4765-914b-9c6c5bbf81e4",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(2954),
+                            ConcurrencyStamp = "7e190b05-d747-48a2-a3f1-3aae30a2a44b",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6790),
                             Description = "Description_67",
                             FullName = "FullName_67",
                             IsPublic = true,
@@ -1425,11 +1420,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ac464542-03bb-477e-97bb-fc6e5773ccca"),
+                            Id = new Guid("ef896d3f-bfe2-42f2-bdb3-12f00cf1212f"),
                             Article = "Article_68",
                             Comment = "Cometn_68",
-                            ConcurrencyStamp = "790c12ce-8c71-4976-b832-c2c93717e9f7",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(2996),
+                            ConcurrencyStamp = "f7829c1d-c879-4ed8-a805-3746eefebeca",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6800),
                             Description = "Description_68",
                             FullName = "FullName_68",
                             IsPublic = true,
@@ -1439,11 +1434,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b56e83d0-df90-4395-abbe-102b569988ff"),
+                            Id = new Guid("e43de900-eef1-4b4b-9e32-5316d810c9c0"),
                             Article = "Article_69",
                             Comment = "Cometn_69",
-                            ConcurrencyStamp = "0a89febc-6408-49fb-811d-e834ae72a734",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(3039),
+                            ConcurrencyStamp = "4fa6628e-fb3f-46e4-adc7-157439fecd3b",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6810),
                             Description = "Description_69",
                             FullName = "FullName_69",
                             IsPublic = true,
@@ -1453,11 +1448,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f986932e-b3d6-421a-b42d-750a0605da55"),
+                            Id = new Guid("7a7a5ade-2d0b-40de-acf3-8fb589f91a0a"),
                             Article = "Article_70",
                             Comment = "Cometn_70",
-                            ConcurrencyStamp = "1ba1af51-718f-4d80-85fc-03488dc82551",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(3087),
+                            ConcurrencyStamp = "0249d409-1ba2-4726-b806-a4574e0941fa",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6820),
                             Description = "Description_70",
                             FullName = "FullName_70",
                             IsPublic = true,
@@ -1467,11 +1462,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("9c301705-a9e4-434c-a173-0efaef511601"),
+                            Id = new Guid("8b809e67-24c9-4152-a718-6c0a6de8d8f4"),
                             Article = "Article_71",
                             Comment = "Cometn_71",
-                            ConcurrencyStamp = "f95005c5-4cfb-4c7a-a3b5-fd58476b3d35",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(3130),
+                            ConcurrencyStamp = "1c350231-9137-4216-b93c-8c131d486325",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6850),
                             Description = "Description_71",
                             FullName = "FullName_71",
                             IsPublic = true,
@@ -1481,11 +1476,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("21d90b60-0710-4a27-8f6d-d51a0449cabe"),
+                            Id = new Guid("cb82dba7-6a60-49d3-b3d6-a315430b47e5"),
                             Article = "Article_72",
                             Comment = "Cometn_72",
-                            ConcurrencyStamp = "40ceba34-fcfe-467f-bb92-99f0b6ba56c7",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(3173),
+                            ConcurrencyStamp = "e6fcaa09-d613-4aa1-a543-58d3cdcc863b",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6860),
                             Description = "Description_72",
                             FullName = "FullName_72",
                             IsPublic = true,
@@ -1495,11 +1490,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d624f4c3-32b4-4c63-9f67-2cadb7c27e6b"),
+                            Id = new Guid("385ee501-bcad-42f8-83f5-d8a0629f7b0b"),
                             Article = "Article_73",
                             Comment = "Cometn_73",
-                            ConcurrencyStamp = "6b08f9d5-53c8-46c9-b676-8bf878127bbd",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(3295),
+                            ConcurrencyStamp = "b4d68ecb-ac41-415f-ac6b-a0f357c777e1",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6870),
                             Description = "Description_73",
                             FullName = "FullName_73",
                             IsPublic = true,
@@ -1509,11 +1504,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("02651eed-5e9b-48ba-adcb-f5d9f63fdb23"),
+                            Id = new Guid("0f890d78-bb97-4a3a-863b-2840b85a8b2d"),
                             Article = "Article_74",
                             Comment = "Cometn_74",
-                            ConcurrencyStamp = "8ef7d418-5ab8-4f44-9538-43c7fc331610",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(3350),
+                            ConcurrencyStamp = "cf70636b-d78a-41d8-b8b3-3fb564c1963b",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6880),
                             Description = "Description_74",
                             FullName = "FullName_74",
                             IsPublic = true,
@@ -1523,11 +1518,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("510b5640-d05e-4833-887e-6c564a784bb9"),
+                            Id = new Guid("58ee4c9b-cce8-48e1-9574-12322ecaf5f9"),
                             Article = "Article_75",
                             Comment = "Cometn_75",
-                            ConcurrencyStamp = "fecc8819-7ad8-47dc-8982-3b9ecbfe9ab1",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(3393),
+                            ConcurrencyStamp = "f7e27563-2b64-4789-87d1-251ce1495657",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6900),
                             Description = "Description_75",
                             FullName = "FullName_75",
                             IsPublic = true,
@@ -1537,11 +1532,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("201a2d36-1379-462e-ac2b-517fa83d2d2f"),
+                            Id = new Guid("1c846e10-6087-4e02-9719-38c66b12736d"),
                             Article = "Article_76",
                             Comment = "Cometn_76",
-                            ConcurrencyStamp = "89ca8a32-41d1-4a91-a498-50737355f9b7",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(3434),
+                            ConcurrencyStamp = "54e7f9ed-58d0-4869-a55a-470adab16c6d",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6910),
                             Description = "Description_76",
                             FullName = "FullName_76",
                             IsPublic = true,
@@ -1551,11 +1546,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("489481fe-34c5-49e7-88aa-d19e797ada45"),
+                            Id = new Guid("18646a54-60b6-41f8-bc4a-44c52295f3c4"),
                             Article = "Article_77",
                             Comment = "Cometn_77",
-                            ConcurrencyStamp = "3e220fe7-f96d-4633-80d8-408403e90bcf",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(3476),
+                            ConcurrencyStamp = "821af449-0ffc-4898-b551-e1dd9b5f0ebb",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6920),
                             Description = "Description_77",
                             FullName = "FullName_77",
                             IsPublic = true,
@@ -1565,11 +1560,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("106bb1b1-30ee-4921-88d9-fb5183c8bd25"),
+                            Id = new Guid("e7978909-7a06-4507-b176-2f714c68141a"),
                             Article = "Article_78",
                             Comment = "Cometn_78",
-                            ConcurrencyStamp = "27495e2d-0d84-4d35-a7cd-f8c67b49d488",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(3523),
+                            ConcurrencyStamp = "520232c1-633f-4665-982e-dbb4bb1a5f05",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6930),
                             Description = "Description_78",
                             FullName = "FullName_78",
                             IsPublic = true,
@@ -1579,11 +1574,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("368efbf0-0331-47be-bd3c-eff84844e703"),
+                            Id = new Guid("1d00be75-95d2-4247-972e-bedfaedf164c"),
                             Article = "Article_79",
                             Comment = "Cometn_79",
-                            ConcurrencyStamp = "102d7df1-d0f1-4ba5-a208-cdb2cd2d886a",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(3566),
+                            ConcurrencyStamp = "ff1a8dea-3e70-42aa-851b-ab5db32adb3d",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6940),
                             Description = "Description_79",
                             FullName = "FullName_79",
                             IsPublic = true,
@@ -1593,11 +1588,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("95045e78-132a-420e-a223-f17137fa2d0b"),
+                            Id = new Guid("45d106bc-1059-41a0-86c7-090776ceb782"),
                             Article = "Article_80",
                             Comment = "Cometn_80",
-                            ConcurrencyStamp = "30630b01-8aeb-425a-8cb5-dd65f988bcf6",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(3608),
+                            ConcurrencyStamp = "2aed782f-9114-4b85-9a5f-978dee91abad",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6950),
                             Description = "Description_80",
                             FullName = "FullName_80",
                             IsPublic = true,
@@ -1607,11 +1602,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5ce5ca68-2524-4744-80a0-a1251031308d"),
+                            Id = new Guid("87014951-5947-4309-8b2e-961f69584da1"),
                             Article = "Article_81",
                             Comment = "Cometn_81",
-                            ConcurrencyStamp = "9d91e66f-f4d4-457e-8c0d-6e6596114d3b",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(3650),
+                            ConcurrencyStamp = "3bcb7183-f88a-4a6e-b5ad-73f656bf5d4c",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6960),
                             Description = "Description_81",
                             FullName = "FullName_81",
                             IsPublic = true,
@@ -1621,11 +1616,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("793bc1e7-3f11-4d1e-b007-a29ab0f5c27b"),
+                            Id = new Guid("a3a7a830-11dc-43d0-afe8-9ff5915f2132"),
                             Article = "Article_82",
                             Comment = "Cometn_82",
-                            ConcurrencyStamp = "04d6ff71-5082-4e80-9286-e0188748bf02",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(3697),
+                            ConcurrencyStamp = "18ed1d8f-840a-45b9-87a3-78f909a7e35a",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6980),
                             Description = "Description_82",
                             FullName = "FullName_82",
                             IsPublic = true,
@@ -1635,11 +1630,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c79ce69b-92d6-47a0-b4d3-7b1b7607f6f3"),
+                            Id = new Guid("77c15e7e-cb66-4a5d-a78a-7266abf315e7"),
                             Article = "Article_83",
                             Comment = "Cometn_83",
-                            ConcurrencyStamp = "38e19e68-4f45-4ddf-a6e6-707e19e2537b",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(3830),
+                            ConcurrencyStamp = "0072a94c-cfda-40ae-a5e3-2453c61fe493",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(6990),
                             Description = "Description_83",
                             FullName = "FullName_83",
                             IsPublic = true,
@@ -1649,11 +1644,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c8c51081-6d88-4249-9c59-21725788490c"),
+                            Id = new Guid("db6d4e48-5647-487a-b1c7-04422dd00d83"),
                             Article = "Article_84",
                             Comment = "Cometn_84",
-                            ConcurrencyStamp = "3394be06-0f49-4ac1-816f-30a6aee0043f",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(3874),
+                            ConcurrencyStamp = "7168c4a5-2a6e-4888-98e8-01663b3adbaf",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(7000),
                             Description = "Description_84",
                             FullName = "FullName_84",
                             IsPublic = true,
@@ -1663,11 +1658,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("775a55e5-b5be-417e-88b5-42cfa928237c"),
+                            Id = new Guid("d396cca1-2f77-4349-adfe-663f9f689b06"),
                             Article = "Article_85",
                             Comment = "Cometn_85",
-                            ConcurrencyStamp = "7c7f2b63-dd46-4ad4-b604-80a5e0667b75",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(3916),
+                            ConcurrencyStamp = "ddc90fe9-5738-452f-b505-9814ce8e0f90",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(7010),
                             Description = "Description_85",
                             FullName = "FullName_85",
                             IsPublic = true,
@@ -1677,11 +1672,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("33491488-0f3a-47b9-ad6d-b42468959845"),
+                            Id = new Guid("98f41abb-441d-4981-80e9-62911470d2f3"),
                             Article = "Article_86",
                             Comment = "Cometn_86",
-                            ConcurrencyStamp = "bbf98276-5688-44de-a6ef-c7aaa9a62ec9",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(3964),
+                            ConcurrencyStamp = "179d4222-d43d-419d-91ca-4f64be9f625b",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(7020),
                             Description = "Description_86",
                             FullName = "FullName_86",
                             IsPublic = true,
@@ -1691,11 +1686,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8fdc67ed-c29f-4a76-8cde-4697d32fade2"),
+                            Id = new Guid("ed11344d-8ebf-4ad9-8288-2055d51d3d0b"),
                             Article = "Article_87",
                             Comment = "Cometn_87",
-                            ConcurrencyStamp = "89cc5757-46bd-4a1c-b5f7-9c968e4e7e49",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(4006),
+                            ConcurrencyStamp = "6f0b6f0a-0028-4f51-b065-54507cb2d5ef",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(7040),
                             Description = "Description_87",
                             FullName = "FullName_87",
                             IsPublic = true,
@@ -1705,11 +1700,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("01bf7b02-3e87-44d0-ab84-63e2ccf9d067"),
+                            Id = new Guid("ab87e6a7-464b-4d74-8431-a66608970bc2"),
                             Article = "Article_88",
                             Comment = "Cometn_88",
-                            ConcurrencyStamp = "c227a958-5db1-4a0a-94d5-6b63c6caefc1",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(4048),
+                            ConcurrencyStamp = "a6cbf49a-c958-402c-a017-e4ef32560e9b",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(7050),
                             Description = "Description_88",
                             FullName = "FullName_88",
                             IsPublic = true,
@@ -1719,11 +1714,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("aa5f28cc-9ef8-4efe-89b5-2277aabe5e50"),
+                            Id = new Guid("bca49f7e-cc5a-4c16-a25b-1168293a485c"),
                             Article = "Article_89",
                             Comment = "Cometn_89",
-                            ConcurrencyStamp = "f45ff874-6577-4911-965a-25b82388d587",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(4088),
+                            ConcurrencyStamp = "5a56d57c-3aad-49a9-a997-e44e4f06570d",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(7060),
                             Description = "Description_89",
                             FullName = "FullName_89",
                             IsPublic = true,
@@ -1733,11 +1728,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b4593d87-d325-4a05-90ab-55365d4cb865"),
+                            Id = new Guid("9ff3ee50-21d3-4db6-b08f-bd075dec4a1a"),
                             Article = "Article_90",
                             Comment = "Cometn_90",
-                            ConcurrencyStamp = "c32cf86a-bb67-4b40-8b0a-77d736d28476",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(4136),
+                            ConcurrencyStamp = "0e9b9241-bb18-425e-9523-532b79bd9f69",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(7070),
                             Description = "Description_90",
                             FullName = "FullName_90",
                             IsPublic = true,
@@ -1747,11 +1742,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5d884d05-a43a-4013-ab5a-9d9dab081e5e"),
+                            Id = new Guid("3f76a0ec-2ff3-46f7-8fa8-af30bbc15913"),
                             Article = "Article_91",
                             Comment = "Cometn_91",
-                            ConcurrencyStamp = "dfd88272-872c-44b6-890b-4c89debabeb7",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(4178),
+                            ConcurrencyStamp = "6ec6bcc8-0115-4f8f-aba3-acf8b25d77ea",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(7100),
                             Description = "Description_91",
                             FullName = "FullName_91",
                             IsPublic = true,
@@ -1761,11 +1756,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d97a668d-5be2-45bc-986b-c3822f2000b9"),
+                            Id = new Guid("6740e273-8fdf-4b8e-8997-13f3f98d3e75"),
                             Article = "Article_92",
                             Comment = "Cometn_92",
-                            ConcurrencyStamp = "89adc8c5-2ab1-4597-8492-392ba85b0991",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(4342),
+                            ConcurrencyStamp = "659889d5-9528-46d9-ba05-9b9e6b76236a",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(7110),
                             Description = "Description_92",
                             FullName = "FullName_92",
                             IsPublic = true,
@@ -1775,11 +1770,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("6748db0f-8dd4-423e-8201-c4838c22fa7d"),
+                            Id = new Guid("900664c5-499b-43d1-bde8-cb93577dd5b1"),
                             Article = "Article_93",
                             Comment = "Cometn_93",
-                            ConcurrencyStamp = "17bb2a81-5fb4-44a1-9db0-9d9c898eeed9",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(4398),
+                            ConcurrencyStamp = "b91f16cc-8e6c-4d91-bc20-a62b599b55f3",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(7120),
                             Description = "Description_93",
                             FullName = "FullName_93",
                             IsPublic = true,
@@ -1789,11 +1784,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("cb420b17-d96b-4e72-b827-c969cb99a36a"),
+                            Id = new Guid("96076f02-8025-49e7-b7d2-d3d7e76359e3"),
                             Article = "Article_94",
                             Comment = "Cometn_94",
-                            ConcurrencyStamp = "acc4b32f-9e3d-4916-9f3e-305b54ac590a",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(4447),
+                            ConcurrencyStamp = "092cf593-d173-45d6-adde-6df71b9710b2",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(7130),
                             Description = "Description_94",
                             FullName = "FullName_94",
                             IsPublic = true,
@@ -1803,11 +1798,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f94db05c-3889-4fdf-aa40-bd63904077b6"),
+                            Id = new Guid("36ec89ae-27ca-49f9-93f1-f81b3e84ddc5"),
                             Article = "Article_95",
                             Comment = "Cometn_95",
-                            ConcurrencyStamp = "20b815e0-47e6-47bd-940a-2aaf2362ab6a",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(4489),
+                            ConcurrencyStamp = "66b36502-f06b-4532-8fec-aa5006bcea44",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(7150),
                             Description = "Description_95",
                             FullName = "FullName_95",
                             IsPublic = true,
@@ -1817,11 +1812,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("63597fb2-0efa-42df-955f-90c351dd3292"),
+                            Id = new Guid("e1c13316-a0d1-422a-b740-fc0bbc598c91"),
                             Article = "Article_96",
                             Comment = "Cometn_96",
-                            ConcurrencyStamp = "5e6fcf48-ee95-4459-9965-ee5d6022d6ab",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(4531),
+                            ConcurrencyStamp = "b5f7333d-57fa-4d7d-b83f-5900974de716",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(7160),
                             Description = "Description_96",
                             FullName = "FullName_96",
                             IsPublic = true,
@@ -1831,11 +1826,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3789127a-eae0-4932-af25-f0bdaf672746"),
+                            Id = new Guid("97bbd6b8-7204-4d45-9835-67c1dcef58fe"),
                             Article = "Article_97",
                             Comment = "Cometn_97",
-                            ConcurrencyStamp = "67422108-c81e-4d99-87db-6187c6ddb605",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(4572),
+                            ConcurrencyStamp = "b11cd9bd-5adf-4be3-9412-f9c31e951fae",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(7170),
                             Description = "Description_97",
                             FullName = "FullName_97",
                             IsPublic = true,
@@ -1845,11 +1840,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("7e96df6c-479d-40a0-ab34-4169c7eec1ef"),
+                            Id = new Guid("6f08f4f7-509b-4aa5-8d16-90b96689c4d4"),
                             Article = "Article_98",
                             Comment = "Cometn_98",
-                            ConcurrencyStamp = "f85fde64-199d-41b1-bf7d-5e8c9f65b3ab",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(4620),
+                            ConcurrencyStamp = "2a714304-981b-459e-b018-bf3823bf93d3",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(7180),
                             Description = "Description_98",
                             FullName = "FullName_98",
                             IsPublic = true,
@@ -1859,11 +1854,11 @@ namespace Api.Migrations
                         },
                         new
                         {
-                            Id = new Guid("81e71a55-cabd-45ec-bad9-0be4793688c2"),
+                            Id = new Guid("26ea95dc-4952-45a0-949f-f0ccecba2cd5"),
                             Article = "Article_99",
                             Comment = "Cometn_99",
-                            ConcurrencyStamp = "01c6233c-aede-4a3e-a109-f9ab8726c56b",
-                            CreatedAt = new DateTime(2022, 6, 18, 18, 14, 1, 888, DateTimeKind.Local).AddTicks(4662),
+                            ConcurrencyStamp = "bc177fb1-d525-432f-92dc-0542f2a54102",
+                            CreatedAt = new DateTime(2022, 6, 21, 11, 4, 28, 966, DateTimeKind.Local).AddTicks(7190),
                             Description = "Description_99",
                             FullName = "FullName_99",
                             IsPublic = true,
@@ -1877,30 +1872,30 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -1911,30 +1906,30 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -1945,30 +1940,30 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -1979,30 +1974,30 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -2013,30 +2008,30 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -2047,30 +2042,30 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -2081,30 +2076,30 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -2115,30 +2110,30 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -2149,71 +2144,71 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("ClientContractId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("ClientId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("ContractAmount")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("CurrencyId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("DocumentAmount")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<Guid?>("DocumentCurrencyId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("DocumentCurrencyValue")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("DocumentType")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("ExchangeDateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("MultiplicityMutalSettlements")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<Guid?>("OrganizationId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("PriceTypeId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("ResponsibleId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("SubdivisionId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -2240,85 +2235,85 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("ClientContractId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("ClientId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("ContractAmount")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("DocumentAmount")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<Guid?>("DocumentCurrencyId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("DocumentCurrencyValue")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("DocumentStatus")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("DocumentType")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("ExchangeDateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("MultiplicityMutalSettlements")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<Guid?>("OrganizationId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("PriceTypeId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ReciverAddres")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("ReciverId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ReciverPhoneNumber")
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("ResponsibleId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("StorageId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid?>("SubdivisionId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -2347,21 +2342,21 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -2372,40 +2367,39 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("NormalizedName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
+                        .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("Roles", (string)null);
                 });
@@ -2414,18 +2408,16 @@ namespace Api.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid>("RoleId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -2438,75 +2430,75 @@ namespace Api.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("ExchangeId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("FirstName")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("LastName")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("MiddleName")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -2515,8 +2507,7 @@ namespace Api.Migrations
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+                        .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("Users", (string)null);
                 });
@@ -2525,18 +2516,16 @@ namespace Api.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -2548,16 +2537,16 @@ namespace Api.Migrations
             modelBuilder.Entity("Shared.Models.Identities.UserLogin", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -2569,10 +2558,10 @@ namespace Api.Migrations
             modelBuilder.Entity("Shared.Models.Identities.UserRole", b =>
                 {
                     b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<Guid>("RoleId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -2584,16 +2573,16 @@ namespace Api.Migrations
             modelBuilder.Entity("Shared.Models.Identities.UserToken", b =>
                 {
                     b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
