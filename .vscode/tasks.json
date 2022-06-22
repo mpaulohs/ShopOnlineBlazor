@@ -2,12 +2,12 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "cleanSolution",
             "command": "dotnet",
             "type": "process",
             "args": [
-                "build",
-                "${workspaceFolder}/WebServer/WebServer.csproj",
+                "clean",
+                "${workspaceFolder}",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -26,28 +26,48 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "publish",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "publish",
-                "${workspaceFolder}/WebServer/WebServer.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "watch",
+            "label": "Api watch",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/WebServer/WebServer.csproj"
+                "${workspaceFolder}/Api/Api.csproj",
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "WebClient watch",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "--project",
+                "${workspaceFolder}/WebClient/WebClient.csproj",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "WebServer watch",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "--project",
+                "${workspaceFolder}/WebServer/WebServer.csproj",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "RebuildSolution",
+            "dependsOn": ["cleanSolution", "buildsolution"]
+        },
+        {
+            "label": "Watch all projects",
+            "dependsOn": ["Api watch", "WebClient watch"]
         }
     ]
 }

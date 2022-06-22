@@ -51,7 +51,6 @@ namespace Api
             services.AddDbContext<ApplicationDbContext>(options =>
             {
                 options.UseSqlite(Configuration.GetConnectionString("AppConnectionString"));
-                System.Console.WriteLine(Configuration.GetConnectionString("AppConnectionString"));
                 //options.UseSqlServer(Configuration.GetConnectionString("AppConnectionString"));
             });
 
