@@ -1,0 +1,34 @@
+﻿@page "/404"
+
+<PageTitle>404</PageTitle>
+
+<div class="card customNotFound">
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                We are sorry, but we couldn't find the page you are looking for!!!
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col text-md-center m-5 text-primary">
+        <button type="button" class="btn btn-primary" @onclick="NavigateToHome">
+            Navigate to Home page.
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col text-md-center m-5">
+        If you want, you can peport this error by clicking the following link: <a href="/Error/404/The page is missing"> Repport error page</a>
+    </div>
+</div>
+@code {
+    [Inject]
+    public NavigationManager? NavigationManager { get; set; }
+
+    public void NavigateToHome()
+    {
+        NavigationManager?.NavigateTo("/");
+    }
+}
