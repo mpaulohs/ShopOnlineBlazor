@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VKEPmDWJV+lbKVLMDLe9UFBsMoqx+ngIPDD/eCPxY6ZdI/ql10q0iyZTE73YC+CpWmEEY6jnHeR0Fy5faQXqcA==",
+  "dgSpecHash": "tKGdp6nvmGqWOYKUVeUwxA7RD/+/WH0QesaKSgXQeTfDtqs0rRERCGFk2gzQb+BKAa0xZyanPYGpmZUxqP0FTA==",
   "success": true,
   "projectFilePath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Api\\Api.csproj",
   "expectedPackageFiles": [
@@ -171,7 +171,6 @@
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
-    "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.linq.dynamic\\1.0.8\\system.linq.dynamic.1.0.8.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.net.http\\4.3.0\\system.net.http.4.3.0.nupkg.sha512",
@@ -224,16 +223,5 @@
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Linq.Dynamic 1.0.8' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
-      "libraryId": "System.Linq.Dynamic",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }

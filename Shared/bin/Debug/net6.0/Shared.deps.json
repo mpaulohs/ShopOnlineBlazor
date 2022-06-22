@@ -13,8 +13,7 @@
           "Microsoft.AspNetCore.JsonPatch": "6.0.6",
           "Microsoft.AspNetCore.WebUtilities": "2.2.0",
           "Microsoft.EntityFrameworkCore": "6.0.6",
-          "Microsoft.Extensions.Identity.Stores": "6.0.6",
-          "System.Linq.Dynamic": "1.0.8"
+          "Microsoft.Extensions.Identity.Stores": "6.0.6"
         },
         "runtime": {
           "Shared.dll": {}
@@ -509,14 +508,6 @@
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         }
       },
-      "System.Linq.Dynamic/1.0.8": {
-        "runtime": {
-          "lib/net40/System.Linq.Dynamic.dll": {
-            "assemblyVersion": "1.0.6132.35681",
-            "fileVersion": "1.0.6132.35681"
-          }
-        }
-      },
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
       "System.Security.AccessControl/4.5.0": {
         "dependencies": {
@@ -909,13 +900,6 @@
       "sha512": "sha512-frQDfv0rl209cKm1lnwTgFPzNigy2EKk1BS3uAvHvlBVKe5cymGyHO+Sj+NLv5VF/AhHsqPIUUwya5oV4CHMUw==",
       "path": "system.diagnostics.diagnosticsource/6.0.0",
       "hashPath": "system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512"
-    },
-    "System.Linq.Dynamic/1.0.8": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-nh+3I/wcZcyQ4p8DKMhy/PH4sGKONrrGlx+eqpqrRTDHe6gyDTF5nK0AIXitDuzvtNTOkvpJWvPd0xdzEmlQjA==",
-      "path": "system.linq.dynamic/1.0.8",
-      "hashPath": "system.linq.dynamic.1.0.8.nupkg.sha512"
     },
     "System.Runtime.CompilerServices.Unsafe/6.0.0": {
       "type": "package",

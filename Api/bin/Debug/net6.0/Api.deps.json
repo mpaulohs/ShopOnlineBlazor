@@ -2224,14 +2224,6 @@
           "System.Runtime.Extensions": "4.3.0"
         }
       },
-      "System.Linq.Dynamic/1.0.8": {
-        "runtime": {
-          "lib/net40/System.Linq.Dynamic.dll": {
-            "assemblyVersion": "1.0.6132.35681",
-            "fileVersion": "1.0.6132.35681"
-          }
-        }
-      },
       "System.Linq.Expressions/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -2709,8 +2701,7 @@
           "Microsoft.AspNetCore.JsonPatch": "6.0.6",
           "Microsoft.AspNetCore.WebUtilities": "2.2.0",
           "Microsoft.EntityFrameworkCore": "6.0.6",
-          "Microsoft.Extensions.Identity.Stores": "6.0.6",
-          "System.Linq.Dynamic": "1.0.8"
+          "Microsoft.Extensions.Identity.Stores": "6.0.6"
         },
         "runtime": {
           "Shared.dll": {}
@@ -3892,13 +3883,6 @@
       "sha512": "sha512-5DbqIUpsDp0dFftytzuMmc0oeMdQwjcP/EWxsksIz/w1TcFRkZ3yKKz0PqiYFMmEwPSWw+qNVqD7PJ889JzHbw==",
       "path": "system.linq/4.3.0",
       "hashPath": "system.linq.4.3.0.nupkg.sha512"
-    },
-    "System.Linq.Dynamic/1.0.8": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-nh+3I/wcZcyQ4p8DKMhy/PH4sGKONrrGlx+eqpqrRTDHe6gyDTF5nK0AIXitDuzvtNTOkvpJWvPd0xdzEmlQjA==",
-      "path": "system.linq.dynamic/1.0.8",
-      "hashPath": "system.linq.dynamic.1.0.8.nupkg.sha512"
     },
     "System.Linq.Expressions/4.3.0": {
       "type": "package",

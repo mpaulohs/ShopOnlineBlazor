@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using FilterExpression;
 using System.Linq.Expressions;
-using System.Linq.Dynamic;
 using Shared.Models;
 
 namespace FilterExpression
@@ -117,18 +116,18 @@ namespace FilterExpression
 
     };
 
-        public static Expression<Func<TEntity, bool>> ToExpression<TEntity, TKey> (string strExpression)
-        {
-            strExpression = "x => x.Property0 == \"Z\" && old.Any(y => y.Key0 == x.Key0 && y.Property0 != x.Property0)";
+        // public static Expression<Func<TEntity, bool>> ToExpression<TEntity, TKey> (string strExpression)
+        // {
+        //     strExpression = "x => x.Property0 == \"Z\" && old.Any(y => y.Key0 == x.Key0 && y.Property0 != x.Property0)";
 
-            var p = Expression.Parameter(typeof(TEntity), "Entity");
+        //     var p = Expression.Parameter(typeof(TEntity), "Entity");
 
-            var exp = System.Linq.Dynamic.DynamicExpression.ParseLambda<TEntity, bool>(strExpression, new[] { p });
+        //     var exp = System.Linq.Dynamic.DynamicExpression.ParseLambda<TEntity, bool>(strExpression, new[] { p });
 
-            var func = exp.Compile();
+        //     var func = exp.Compile();
 
-            return exp;
-        }
+        //     return exp;
+        // }
 
 
         public static string ToExpressionString(string queryString)
