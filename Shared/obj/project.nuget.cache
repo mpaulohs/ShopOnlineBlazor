@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "YgzmZt6O+QZ3/YUGWJcEovHLRLsxw//6AaPy0Cvzm4WoaQYf59yv7piCyOLqXbPy0aqgxohLCQAQrcWleNfOYA==",
+  "dgSpecHash": "W8hBLEQbjWG1AFXy3Aco46venlsI8PZ00z/tQQBsYcFsPWA82CwiFyy05ChlZUhi/1UTJDtz3GnxatAJ0eRkqQ==",
   "success": true,
   "projectFilePath": "/Users/igor/Projects/ShopOnlinePWA/Shared/Shared.csproj",
   "expectedPackageFiles": [
+    "/Users/igor/.nuget/packages/bogus/34.0.2/bogus.34.0.2.nupkg.sha512",
     "/Users/igor/.nuget/packages/microsoft.aspnetcore.authentication/2.2.0/microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "/Users/igor/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "/Users/igor/.nuget/packages/microsoft.aspnetcore.authentication.cookies/2.2.0/microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",
@@ -60,5 +61,12 @@
     "/Users/igor/.nuget/packages/system.security.principal.windows/4.5.0/system.security.principal.windows.4.5.0.nupkg.sha512",
     "/Users/igor/.nuget/packages/system.text.encodings.web/4.5.0/system.text.encodings.web.4.5.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /Users/igor/Projects/ShopOnlinePWA/Shared/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

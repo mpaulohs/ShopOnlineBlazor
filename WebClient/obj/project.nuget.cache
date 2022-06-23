@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "uCF8uEQuBrIN8GIDABjiviEgOUDD0uEQU7/gHHayDpFmaubhPR1kMxrU33ob/re+Y8G/vcGL3oWhoxhHRviefQ==",
+  "dgSpecHash": "jQ7O2bVVjg2AcRuBHb78nha9mZgZNyzlLt1+5fQKUTJJ7pVnMkF1n90fDAPnW+fOi4Yn4SYiQPgVS8FgcT8TQA==",
   "success": true,
   "projectFilePath": "/Users/igor/Projects/ShopOnlinePWA/WebClient/WebClient.csproj",
   "expectedPackageFiles": [
+    "/Users/igor/.nuget/packages/bogus/34.0.2/bogus.34.0.2.nupkg.sha512",
     "/Users/igor/.nuget/packages/microsoft.aspnetcore.authentication/2.2.0/microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "/Users/igor/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "/Users/igor/.nuget/packages/microsoft.aspnetcore.authentication.cookies/2.2.0/microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",
@@ -77,5 +78,12 @@
     "/Users/igor/.nuget/packages/system.text.json/6.0.0/system.text.json.6.0.0.nupkg.sha512",
     "/Users/igor/.nuget/packages/microsoft.netcore.app.runtime.mono.browser-wasm/6.0.6/microsoft.netcore.app.runtime.mono.browser-wasm.6.0.6.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /Users/igor/Projects/ShopOnlinePWA/WebClient/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

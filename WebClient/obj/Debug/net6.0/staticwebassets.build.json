@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "k4BsKQw4tXi2n6dVSGf/Ou8mpwvV/mrGPTMaIATLJnI=",
+  "Hash": "ID2w6TOMrRfDEKRlVYbUhmqMljFvdWcRjUYIicbN4jo=",
   "Source": "WebClient",
   "BasePath": "/",
   "Mode": "Root",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/igor/.nuget/packages/microsoft.aspnetcore.components.webassembly/6.0.6/build/net6.0/blazor.webassembly.js"
+    },
+    {
+      "Identity": "/Users/igor/Projects/ShopOnlinePWA/WebClient/bin/Debug/net6.0/wwwroot/_framework/Bogus.dll",
+      "SourceId": "WebClient",
+      "SourceType": "Computed",
+      "ContentRoot": "/Users/igor/Projects/ShopOnlinePWA/WebClient/bin/Debug/net6.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/Bogus.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/igor/.nuget/packages/bogus/34.0.2/lib/net6.0/Bogus.dll"
     },
     {
       "Identity": "/Users/igor/Projects/ShopOnlinePWA/WebClient/bin/Debug/net6.0/wwwroot/_framework/dotnet.6.0.6.ytn38vfrqz.js",
@@ -6696,6 +6713,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "/Users/igor/Projects/ShopOnlinePWA/WebClient/bin/Debug/net6.0/wwwroot/_framework/System.Collections.NonGeneric.dll"
+    },
+    {
+      "Identity": "/Users/igor/Projects/ShopOnlinePWA/WebClient/obj/Debug/net6.0/build-gz/pd2nTpvm.gz",
+      "SourceId": "WebClient",
+      "SourceType": "Computed",
+      "ContentRoot": "/Users/igor/Projects/ShopOnlinePWA/WebClient/bin/Debug/net6.0/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "_framework/Bogus.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "/Users/igor/Projects/ShopOnlinePWA/WebClient/bin/Debug/net6.0/wwwroot/_framework/Bogus.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "/Users/igor/Projects/ShopOnlinePWA/WebClient/bin/Debug/net6.0/wwwroot/_framework/Bogus.dll"
     },
     {
       "Identity": "/Users/igor/Projects/ShopOnlinePWA/WebClient/obj/Debug/net6.0/build-gz/pfEI85vD.gz",

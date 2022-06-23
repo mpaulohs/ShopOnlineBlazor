@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "DM0z/waEfgIanBurV1mNFRfNlan9jwlkaw+VhR4XunDlXmPR2fgLG2LvEEz9zuVT9kE18R0uFI9s/XscMU6Fig==",
+  "dgSpecHash": "Z3X5ygEZzlfwonS4dAGybKgh4Ij9azbGzfAzu5YfUjN0hA+ZhzBI2+SXBG7mR93BhstU1K0F9ikUDXpHkt/2MQ==",
   "success": true,
   "projectFilePath": "/Users/igor/Projects/ShopOnlinePWA/Api/Api.csproj",
   "expectedPackageFiles": [
+    "/Users/igor/.nuget/packages/bogus/34.0.2/bogus.34.0.2.nupkg.sha512",
     "/Users/igor/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/igor/.nuget/packages/messagepack/2.1.152/messagepack.2.1.152.nupkg.sha512",
     "/Users/igor/.nuget/packages/messagepack.annotations/2.1.152/messagepack.annotations.2.1.152.nupkg.sha512",
@@ -223,5 +224,12 @@
     "/Users/igor/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
     "/Users/igor/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /Users/igor/Projects/ShopOnlinePWA/Api/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
