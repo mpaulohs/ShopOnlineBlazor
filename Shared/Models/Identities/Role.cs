@@ -20,5 +20,10 @@ namespace Shared.Models.Identities
         public DateTime CreatedAt { get; set; }
 
         public DateTime UpdatedAt { get; set; }
+
+        public Role(string De)
+        {
+            
+        }
     }
 }

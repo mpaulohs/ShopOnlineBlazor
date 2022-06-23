@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Bogus/34.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Bogus.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Bogus.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authentication/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -742,6 +751,25 @@
     }
   },
   "libraries": {
+    "Bogus/34.0.2": {
+      "sha512": "2KQAuMn3fLAQ2r6jeiffZnpv0bi3GCW3iRB2v1KeHIEBu8MNTh9dBlLTZwGvM0pr+9doKkU8L5JgCURmTmT88A==",
+      "type": "package",
+      "path": "bogus/34.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bogus.34.0.2.nupkg.sha512",
+        "bogus.nuspec",
+        "lib/net40/Bogus.dll",
+        "lib/net40/Bogus.xml",
+        "lib/net6.0/Bogus.dll",
+        "lib/net6.0/Bogus.xml",
+        "lib/netstandard1.3/Bogus.dll",
+        "lib/netstandard1.3/Bogus.xml",
+        "lib/netstandard2.0/Bogus.dll",
+        "lib/netstandard2.0/Bogus.xml"
+      ]
+    },
     "Microsoft.AspNetCore.Authentication/2.2.0": {
       "sha512": "b0R9X7L6zMqNsssKDvhYHuNi5x0s4DyHTeXybIAyGaitKiW1Q5aAGKdV2codHPiePv9yHfC9hAMyScXQ/xXhPw==",
       "type": "package",
@@ -1921,7 +1949,8 @@
       "Microsoft.AspNetCore.JsonPatch >= 6.0.6",
       "Microsoft.AspNetCore.WebUtilities >= 2.2.0",
       "Microsoft.EntityFrameworkCore >= 6.0.6",
-      "Microsoft.Extensions.Identity.Stores >= 6.0.6"
+      "Microsoft.Extensions.Identity.Stores >= 6.0.6",
+      "bogus >= 34.0.2"
     ]
   },
   "packageFolders": {
@@ -1986,6 +2015,10 @@
           "Microsoft.Extensions.Identity.Stores": {
             "target": "Package",
             "version": "[6.0.6, )"
+          },
+          "bogus": {
+            "target": "Package",
+            "version": "[34.0.2, )"
           }
         },
         "imports": [

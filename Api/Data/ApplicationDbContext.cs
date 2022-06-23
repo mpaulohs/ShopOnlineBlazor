@@ -132,23 +132,27 @@ namespace Api.Data
 
             //Seed(modelBuilder);
 
-            int langth = 100;
+            int langth = 300;
+
+            Role[] role = new [] {
+                new Role()
+            };
 
 
-                for (int i = 1; i < langth; i++)
-                {
-                    var product = new Product();
-                    product.Id = Guid.NewGuid();
-                    product.FullName = "FullName_" + i.ToString();
-                    product.Name = "Name_" + i.ToString();
-                    product.Comment = "Cometn_" + i.ToString();
-                    product.IsPublic = true;
-                    product.Article = "Article_" + i.ToString();
-                    product.CreatedAt = DateTime.Now;
-                    product.Description = "Description_" + i.ToString();
+                // for (int i = 1; i < langth; i++)
+                // {
+                //     var product = new Product();
+                //     product.Id = Guid.NewGuid();
+                //     product.FullName = Faker.Name.FullName();
+                //     product.Name = Faker.
+                //     product.Comment = "Cometn_" + i.ToString();
+                //     product.IsPublic = true;
+                //     product.Article = "Article_" + i.ToString();
+                //     product.CreatedAt = DateTime.Now;
+                //     product.Description = "Description_" + i.ToString();
 
-                    modelBuilder.Entity<Product>().HasData(product);
-                }
+                //     modelBuilder.Entity<Product>().HasData(product);
+                // }
             
         }
 

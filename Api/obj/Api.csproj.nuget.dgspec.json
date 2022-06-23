@@ -170,6 +170,10 @@
             "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
               "version": "[6.0.6, )"
+            },
+            "bogus": {
+              "target": "Package",
+              "version": "[34.0.2, )"
             }
           },
           "imports": [
