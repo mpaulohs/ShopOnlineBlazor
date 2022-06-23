@@ -7,21 +7,20 @@ namespace Shared.Models.Catalogs
         [Key]
         public TKey Id { get; set; }
 
-        [MaxLength(50)]
-        public string? ExchangeId { get; set; }
-
         [MaxLength(100)]
-        public string? Name { get; set; }
+        public string? Name { get; set; } = default;
 
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
 
-        public DateTime UpdatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; } = default;
 
         [MaxLength(50)]
         public string ConcurrencyStamp { get; set; } = Guid.NewGuid().ToString();
 
         [MaxLength(255)]
         public string? Comment { get; set; }
+
+        public override string ToString()=>string.IsNullOrEmpty(this.Name)?string.Empty:this.Name;
 
     }
 }

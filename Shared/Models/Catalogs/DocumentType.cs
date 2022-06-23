@@ -1,12 +1,19 @@
 ﻿namespace Shared.Models.Catalogs
 {
-    public enum DocumentType
+
+    public class DocumentType<TKey> : CatalogBase<TKey>
     {
-        Adjustment,
-        Mesage,
-        Order,
-        Payment,
-        Returns,
-        Sale
+
     }
+
+    // //ToDo create this in config file
+    // public enum DocumentType
+    // {
+    //     Adjustment,
+    //     Mesage,
+    //     Order,
+    //     Payment,
+    //     Returns,
+    //     Sale
+    // }
 }

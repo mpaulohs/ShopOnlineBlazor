@@ -17,21 +17,21 @@ namespace Shared.Models.Documents
 
         public DateTime UpdatedAt { get; set; }
 
-        public DocumentType DocumentType { get; set; }
+        public DocumentType<TKey> DocumentType { get; set; }
 
         public DateTime DateTime { get; set; }
 
         public DateTime ExchangeDateTime { get; set; }
 
-        public Organization? Organization { get; set; }
+        public Organization<TKey>? Organization { get; set; }
 
         public User? Client { get; set; }
 
-        public ClientContract? ClientContract { get; set; }
+        public ClientContract<TKey>? ClientContract { get; set; }
 
-        public PriceType? PriceType { get; set; }
+        public PriceType<TKey>? PriceType { get; set; }
 
-        public Currency? DocumentCurrency { get; set; }
+        public Currency<TKey>? DocumentCurrency { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal DocumentCurrencyValue { get; set; }
@@ -50,7 +50,7 @@ namespace Shared.Models.Documents
         [MaxLength(255)]
         public string? Comment { get; set; }
 
-        public Subdivision? Subdivision { get; set; }
+        public Subdivision<TKey>? Subdivision { get; set; }
 
         [MaxLength(50)]
         public string ConcurrencyStamp { get; set; } = Guid.NewGuid().ToString();

@@ -2,7 +2,7 @@
 
 namespace Shared.Models.Catalogs
 {
-    public class Product : CatalogBase<Guid>
+    public class Product<Tkey> : CatalogBase<Tkey>
     {
         public string? Article { get; set; }
 
@@ -10,15 +10,15 @@ namespace Shared.Models.Catalogs
         [Display(Name = "Full name")]
         public string? FullName { get; set; }
 
-        public ProductType? ProductType { get; set; }
+        public ProductType<Tkey>? ProductType { get; set; }
 
-        public ProductCharacteristic? ProductCharacteristic { get; set; }
+        public ProductCharacteristic<Tkey>? ProductCharacteristic { get; set; }
 
-        public ProductQuality? ProductQuality { get; set; }
+        public ProductQuality<Tkey>? ProductQuality { get; set; }
 
-        public ProductSerie? ProductSerie { get; set; }
+        public ProductSerie<Tkey>? ProductSerie { get; set; }
 
-        public ProductUnitMeasurement? ProductUnitMeasurement { get; set; }
+        public ProductUnitMeasurement<Tkey>? ProductUnitMeasurement { get; set; }
 
         public string? Description { get; set; }
 
@@ -26,10 +26,11 @@ namespace Shared.Models.Catalogs
 
         public bool IsPublic { get; set; }
 
+
         public override string ToString()
         {
 
-            return Name?.ToString();
+            return Name.ToString();
         }
     }
 }

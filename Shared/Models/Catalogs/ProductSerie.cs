@@ -1,6 +1,6 @@
 ﻿namespace Shared.Models.Catalogs
 {
-    public class ProductSerie : CatalogBase<Guid>
+    public class ProductSerie<Tkey> : CatalogBase<Tkey>
     {
 
 

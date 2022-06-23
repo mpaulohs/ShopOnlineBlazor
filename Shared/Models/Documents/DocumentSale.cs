@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Shared.Models.Documents
 {
-    public class DocumentSale : DocumentBase<Guid>
+    public class DocumentSale<TKey> : DocumentBase<TKey>
     {
-        public Storage? Storage { get; set; }
+        public Storage<TKey>? Storage { get; set; }
 
         public User? Reciver { get; set; }
 
@@ -16,7 +16,7 @@ namespace Shared.Models.Documents
         [MaxLength(20)]
         public string? ReciverPhoneNumber { get; set; }
 
-        public DocumentStatus DocumentStatus { get; set; }
+        public DocumentStatus<TKey> DocumentStatus { get; set; }
 
     }
 }

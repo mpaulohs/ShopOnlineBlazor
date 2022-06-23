@@ -1,6 +1,6 @@
 ﻿namespace Shared.Models.Catalogs
 {
-    public class Subdivision : CatalogBase<Guid>
+    public class Subdivision<Tkey> : CatalogBase<Tkey>
     {
 
     }

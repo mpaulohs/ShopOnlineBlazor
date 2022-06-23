@@ -1,6 +1,6 @@
 ﻿namespace Shared.Models.Catalogs
 {
-    public class Bank : CatalogBase<Guid>
+    public class Bank<TKey> : CatalogBase<TKey>
     {
 
     }

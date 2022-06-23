@@ -2,10 +2,10 @@
 
 namespace Shared.Models.Documents
 {
-    public class DocumentPayment : DocumentBase<Guid>
+    public class DocumentPayment<Tkey> : DocumentBase<Tkey>
 
     {
-        public Currency? Currency { get; set; }
+        public Currency<Tkey>? Currency { get; set; }
 
 
         //ToDo

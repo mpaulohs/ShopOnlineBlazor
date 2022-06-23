@@ -5,22 +5,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Shared.Models.Registers
 {
-    public class SaleProduct : IApplicationEntity<Guid>
+    public class SaleProduct<Tkey> : IApplicationEntity<Tkey>
 
     {
-        public Guid Id { get; set; }
+        public Tkey Id { get; set; }
 
-        public DocumentSale? Document { get; set; }
+        public DocumentSale<Tkey>? Document { get; set; }
 
-        public Product? Product { get; set; }
+        public Product<Tkey>? Product { get; set; }
 
-        public ProductUnitMeasurement? UtilMeasurement { get; set; }
+        public ProductUnitMeasurement<Tkey>? UtilMeasurement { get; set; }
 
-        public ProductCharacteristic? Characteristic { get; set; }
+        public ProductCharacteristic<Tkey>? Characteristic { get; set; }
 
-        public ProductSerie? Serie { get; set; }
+        public ProductSerie<Tkey>? Serie { get; set; }
 
-        public ProductQuality? Quality { get; set; }
+        public ProductQuality<Tkey>? Quality { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal? Price { get; set; }

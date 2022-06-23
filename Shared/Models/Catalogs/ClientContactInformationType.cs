@@ -1,6 +1,6 @@
 ﻿namespace Shared.Models.Catalogs
 {
-    public class ClientContactInformationType : CatalogBase<Guid>
+    public class ClientContactInformationType<TKey> : CatalogBase<TKey>
     {
 
     }

@@ -1,6 +1,6 @@
 ﻿namespace Shared.Models.Catalogs
 {
-    public class PriceType : CatalogBase<Guid>
+    public class PriceType<TKey> : CatalogBase<TKey>
     {
     }
 }

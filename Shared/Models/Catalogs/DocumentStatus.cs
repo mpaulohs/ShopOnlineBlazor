@@ -1,10 +1,18 @@
 ﻿namespace Shared.Models.Catalogs
 {
-    public enum DocumentStatus
+
+    public class DocumentStatus<TKey> : CatalogBase<TKey>
     {
-        New,
-        Inprocess,
-        Acssepted,
-        Denyed,
+
     }
+
+
+    // //ToDo create this in config file
+    // public enum DocumentStatus
+    // {
+    //     New,
+    //     Inprocess,
+    //     Acssepted,
+    //     Denyed,
+    // }
 }

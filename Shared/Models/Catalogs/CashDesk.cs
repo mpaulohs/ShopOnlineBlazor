@@ -1,6 +1,6 @@
 ﻿namespace Shared.Models.Catalogs
 {
-    public class CashDesk : CatalogBase<Guid>
+    public class CashDesk<Key> : CatalogBase<Key>
     {
 
     }

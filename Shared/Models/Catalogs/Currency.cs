@@ -2,7 +2,7 @@
 
 namespace Shared.Models.Catalogs
 {
-    public class Currency : CatalogBase<Guid>
+    public class Currency<TKey> : CatalogBase<TKey>
     {
         [MaxLength(20)]
         public string? Code { get; set; }

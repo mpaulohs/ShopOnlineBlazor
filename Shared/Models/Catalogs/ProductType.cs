@@ -1,6 +1,6 @@
 ﻿namespace Shared.Models.Catalogs
 {
-    public class ProductType : CatalogBase<Guid>
+    public class ProductType<Tkey> : CatalogBase<Tkey>
     {
 
     }
