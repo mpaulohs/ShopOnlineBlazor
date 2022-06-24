@@ -1,6 +1,6 @@
 ﻿namespace Shared.Models
 {
-    public interface IApplicationEntity<TKey>
+    public interface IApplicationEntity<TKey> 
     {
         public TKey Id { get; set; }
 
