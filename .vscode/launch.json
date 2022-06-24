@@ -28,7 +28,7 @@
             "preLaunchTask": "build",
             "program": "${workspaceFolder}\\Api\\bin\\Debug\\net6.0\\Api.dll",
             "args": [],
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}\\Api\\",
             "stopAtEntry": false,
             "serverReadyAction": {
                 "action": "openExternally",
