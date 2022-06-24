@@ -1,14 +1,22 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json;
 
 namespace Shared.Models.Catalogs
 {
     public class AdditionalInformation<TKey> : CatalogBase<TKey>
     {
-        public Type Type {get; set; }
-        public TKey Owner {get; set;}       
+        private Type? entityType;
 
-        [MaxLength(100)]
+        public string? EntityType
+        {
+            get => JsonSerializer.Serialize<Type>(entityType);
+            set => this.entityType = JsonSerializer.Deserialize<Type>(value);
+        }
+
+        public TKey? EntityId { get; set; }
+
+        [MaxLength(500)]
         public string? Description { get; set; }
 
         [MaxLength(500)]
