@@ -9,10 +9,10 @@ using System;
 namespace Api.Data
 {
 
-    public class ApplicationDbContext : IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
-
+    public class ApplicationDbContext<TKey> : IdentityDbContext<User<TKey>, Role<TKey>, TKey, UserClaim<TKey>, UserRole<TKey>, UserLogin<TKey>, RoleClaim<TKey>, UserToken<TKey>>
+where TKey : IEquatable<TKey>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext<TKey>> options)
         : base(options)
         {
 
@@ -22,7 +22,7 @@ namespace Api.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<User>(b =>
+            modelBuilder.Entity<User<TKey>>(b =>
             {
                 // Table name
                 b.ToTable("Users");
@@ -52,7 +52,7 @@ namespace Api.Data
                     .IsRequired();
             });
 
-            modelBuilder.Entity<Role>(b =>
+            modelBuilder.Entity<Role<TKey>>(b =>
             {
                 // Table name
                 b.ToTable("Roles");
@@ -70,90 +70,90 @@ namespace Api.Data
                     .IsRequired();
             });
 
-            modelBuilder.Entity<UserRole>(b => b.ToTable("UserRoles"));
+            modelBuilder.Entity<UserRole<TKey>>(b => b.ToTable("UserRoles"));
 
-            modelBuilder.Entity<UserClaim>(b => b.ToTable("UserClaims"));
+            modelBuilder.Entity<UserClaim<TKey>>(b => b.ToTable("UserClaims"));
 
-            modelBuilder.Entity<UserLogin>(b => b.ToTable("UserLogins"));
+            modelBuilder.Entity<UserLogin<TKey>>(b => b.ToTable("UserLogins"));
 
-            modelBuilder.Entity<UserToken>(b => b.ToTable("UserTokens"));
+            modelBuilder.Entity<UserToken<TKey>>(b => b.ToTable("UserTokens"));
 
-            modelBuilder.Entity<RoleClaim>(b => b.ToTable("RoleClaims"));
+            modelBuilder.Entity<RoleClaim<TKey>>(b => b.ToTable("RoleClaims"));
 
             //Catalogs
 
-            modelBuilder.Entity<AdditionalInformation>(b => b.ToTable("AdditionalInformations"));
+            modelBuilder.Entity<AdditionalInformation<TKey>>(b => b.ToTable("AdditionalInformations"));
 
-            modelBuilder.Entity<Bank>(b => b.ToTable("Banks"));
+            modelBuilder.Entity<Bank<TKey>>(b => b.ToTable("Banks"));
 
-            modelBuilder.Entity<BankAccount>(b => b.ToTable("BankAccounts"));
+            modelBuilder.Entity<BankAccount<TKey>>(b => b.ToTable("BankAccounts"));
 
-            modelBuilder.Entity<CashDesk>(b => b.ToTable("CashDesks"));
+            modelBuilder.Entity<CashDesk<TKey>>(b => b.ToTable("CashDesks"));
 
-            modelBuilder.Entity<ClientContactInformation>(b => b.ToTable("ClientContackInformations"));
+            modelBuilder.Entity<ClientContactInformation<TKey>>(b => b.ToTable("ClientContackInformations"));
 
-            modelBuilder.Entity<ClientContactInformationType>(b => b.ToTable("ClientContactInformationTypes"));
+            modelBuilder.Entity<ClientContactInformationType<TKey>>(b => b.ToTable("ClientContactInformationTypes"));
 
-            modelBuilder.Entity<ClientContract>(b => b.ToTable("ClientContracts"));
+            modelBuilder.Entity<ClientContract<TKey>>(b => b.ToTable("ClientContracts"));
 
-            modelBuilder.Entity<Currency>(b => b.ToTable("Currencyes"));
+            modelBuilder.Entity<Currency<TKey>>(b => b.ToTable("Currencyes"));
 
-            modelBuilder.Entity<Product>(b => b.ToTable("Products"));
+            modelBuilder.Entity<Product<TKey>>(b => b.ToTable("Products"));
 
-            modelBuilder.Entity<ProductCharacteristic>(b => b.ToTable("ProductCharacteristics"));
+            modelBuilder.Entity<ProductCharacteristic<TKey>>(b => b.ToTable("ProductCharacteristics"));
 
-            modelBuilder.Entity<ProductQuality>(b => b.ToTable("ItmeQualityes"));
+            modelBuilder.Entity<ProductQuality<TKey>>(b => b.ToTable("ItmeQualityes"));
 
-            modelBuilder.Entity<ProductSerie>(b => b.ToTable("ProductSeries"));
+            modelBuilder.Entity<ProductSerie<TKey>>(b => b.ToTable("ProductSeries"));
 
-            modelBuilder.Entity<ProductType>(b => b.ToTable("ProductTypes"));
+            modelBuilder.Entity<ProductType<TKey>>(b => b.ToTable("ProductTypes"));
 
-            modelBuilder.Entity<ProductUnitClassifier>(b => b.ToTable("ProductUnitClassifiers"));
+            modelBuilder.Entity<ProductUnitClassifier<TKey>>(b => b.ToTable("ProductUnitClassifiers"));
 
-            modelBuilder.Entity<ProductUnitMeasurement>(b => b.ToTable("ProductUnitMeasuraments"));
+            modelBuilder.Entity<ProductUnitMeasurement<TKey>>(b => b.ToTable("ProductUnitMeasuraments"));
 
-            modelBuilder.Entity<Organization>(b => b.ToTable("Organizations"));
+            modelBuilder.Entity<Organization<TKey>>(b => b.ToTable("Organizations"));
 
-            modelBuilder.Entity<Storage>(b => b.ToTable("Storages"));
+            modelBuilder.Entity<Storage<TKey>>(b => b.ToTable("Storages"));
 
-            modelBuilder.Entity<Subdivision>(b => b.ToTable("Subdivisions"));
+            modelBuilder.Entity<Subdivision<TKey>>(b => b.ToTable("Subdivisions"));
 
             //Documents
 
-            modelBuilder.Entity<DocumentSale>(b => b.ToTable("Documents"));
+            modelBuilder.Entity<DocumentSale<TKey>>(b => b.ToTable("Documents"));
 
-            modelBuilder.Entity<DocumentPayment>(b => b.ToTable("Payments"));
+            modelBuilder.Entity<DocumentPayment<TKey>>(b => b.ToTable("Payments"));
 
-            //modelBuilder.Entity<DocumentAdjustment>(b => b.ToTable("Adjustments"));
+            //modelBuilder.Entity<DocumentAdjustment<TKey>>(b => b.ToTable("Adjustments"));
 
-            modelBuilder.Entity<Mesage>(b => b.ToTable("Mesages"));
+            modelBuilder.Entity<Mesage<TKey>>(b => b.ToTable("Mesages"));
 
             //Seed data
 
             //Seed(modelBuilder);
 
-            int langth = 300;
+            // int langth = 300;
 
             // Role[] role = new [] {
             //     //new Role()
             // };
 
 
-                // for (int i = 1; i < langth; i++)
-                // {
-                //     var product = new Product();
-                //     product.Id = Guid.NewGuid();
-                //     product.FullName = Faker.Name.FullName();
-                //     product.Name = Faker.
-                //     product.Comment = "Cometn_" + i.ToString();
-                //     product.IsPublic = true;
-                //     product.Article = "Article_" + i.ToString();
-                //     product.CreatedAt = DateTime.Now;
-                //     product.Description = "Description_" + i.ToString();
+            // for (int i = 1; i < langth; i++)
+            // {
+            //     var product = new Product();
+            //     product.Id = Guid.NewGuid();
+            //     product.FullName = Faker.Name.FullName();
+            //     product.Name = Faker.
+            //     product.Comment = "Cometn_" + i.ToString();
+            //     product.IsPublic = true;
+            //     product.Article = "Article_" + i.ToString();
+            //     product.CreatedAt = DateTime.Now;
+            //     product.Description = "Description_" + i.ToString();
 
-                //     modelBuilder.Entity<Product>().HasData(product);
-                // }
-            
+            //     modelBuilder.Entity<Product<TKey>>().HasData(product);
+            // }
+
         }
 
 
@@ -167,27 +167,27 @@ namespace Api.Data
 
         //    List<Role<TKey>> roles = new List<Role<TKey>>
         //    {
-        //            new Role<TKey>()
+        //            new Role<TKey<TKey>>()
         //             {
         //                Name = roleAdministrators,
         //                NormalizedName = roleAdministrators.ToUpper(),
         //                Description = "Administrators of application"
         //            },
-        //            new Role<TKey>()
+        //            new Role<TKey<TKey>>()
         //            {
 
         //                Name = roleManagers,
         //                NormalizedName = roleManagers.ToUpper(),
         //                Description = "Managers of application"
         //            },
-        //            new Role<TKey>()
+        //            new Role<TKey<TKey>>()
         //            {
 
         //                Name = roleClients,
         //                NormalizedName = roleClients.ToUpper(),
         //                Description = "Clients of application"
         //            },
-        //             new Role<TKey>()
+        //             new Role<TKey<TKey>>()
         //            {
 
         //                Name =rolePublic,
@@ -199,8 +199,8 @@ namespace Api.Data
 
         //    foreach (var role in roles)
         //    {
-        //        // if (this.Roles.AnyAsync<Role>(r => r.NormalizedName == role.NormalizedName) == null)
-        //        modelBuilder.Entity<Role<TKey>>().HasData(role);
+        //        // if (this.Roles.AnyAsync<Role<TKey>>(r => r.NormalizedName == role.NormalizedName) == null)
+        //        modelBuilder.Entity<Role<TKey><TKey>>().HasData(role);
         //    }
 
 
@@ -208,11 +208,11 @@ namespace Api.Data
         //    string userAdministrator = $"Admitistrator@{Assembly.GetCallingAssembly().GetName().Name}.com";
         //    string userManager = $"Manager@{Assembly.GetCallingAssembly().GetName().Name}.com";
         //    string userClient = $"Client@{Assembly.GetCallingAssembly().GetName().Name}.com";
-        //    var password = new PasswordHasher<User<TKey>>();
+        //    var password = new PasswordHasher<User<TKey><TKey>>();
 
         //    var users = new List<User<TKey>>
         //    {
-        //        new User<TKey>()
+        //        new User<TKey<TKey>>()
         //        {
 
         //            FirstName = userAdministrator,
@@ -227,7 +227,7 @@ namespace Api.Data
         //            TwoFactorEnabled = false,
         //            LockoutEnabled = false
         //        },
-        //        new User<TKey>()
+        //        new User<TKey<TKey>>()
         //        {
 
         //            FirstName = userManager,
@@ -242,7 +242,7 @@ namespace Api.Data
         //            TwoFactorEnabled = false,
         //            LockoutEnabled = false
         //        },
-        //        new User<TKey>()
+        //        new User<TKey<TKey>>()
         //        {
 
         //            FirstName = userClient,
@@ -263,12 +263,12 @@ namespace Api.Data
         //    foreach (var user in users)
         //    {
         //        user.PasswordHash = password.HashPassword(user, "K1DvesCS");
-        //        modelBuilder.Entity<User<TKey>>().HasData(user);
+        //        modelBuilder.Entity<User<TKey><TKey>>().HasData(user);
         //    }
 
-        //    List<Product<TKey>> Products = new List<Product<TKey>>()
+        //    List<Product<TKey>> Products = new List<Product<TKey><TKey>>()
         //    {
-        //        new Product<TKey>()
+        //        new Product<TKey<TKey>>()
         //        {
 
         //            Article = new Random().Next(0, 1000).ToString(),
@@ -279,9 +279,9 @@ namespace Api.Data
         //    };
 
 
-        //    List<DocumentSale<TKey>> sales = new List<DocumentSale<TKey>>()
+        //    List<DocumentSale<TKey>> sales = new List<DocumentSale<TKey><TKey>>()
         //    {
-        //        new DocumentSale<TKey>()
+        //        new DocumentSale<TKey<TKey>>()
         //        {
 
         //            DateTime = DateTime.Now,
@@ -293,20 +293,20 @@ namespace Api.Data
         //        }
         //    };
 
-        //    List<SaleProduct<TKey>> saleProducts = new List<SaleProduct<TKey>>()
+        //    List<SaleProduct<TKey>> saleProducts = new List<SaleProduct<TKey><TKey>>()
         //    {
-        //        new SaleProduct<TKey>()
+        //        new SaleProduct<TKey<TKey>>()
         //        {
 
         //            Product=Products[0],
         //            Price =  500,
         //            Discount = 10,
-        //            Serie = new ProductSerie<TKey>()
+        //            Serie = new ProductSerie<TKey<TKey>>()
         //            {
 
         //                Name = "SerieForProduct"
         //            },
-        //            Quality = new ProductQuality<TKey>()
+        //            Quality = new ProductQuality<TKey<TKey>>()
         //            {
 
         //                Name = "QualityForProduct"
@@ -316,12 +316,12 @@ namespace Api.Data
         //    };
 
         //Curency
-        //var Curensy = new HashSet<Currency>();
+        //var Curensy = new HashSet<Currency<TKey>>();
         //foreach (CultureInfo Product in CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures))
         //    Curensy.Add(new Currency(Product.Name, Product.ToString(), Product.NumberFormat.CurrencySymbol));
 
         //foreach (Currency currency in Curensy)
-        //    modelBuilder.Entity<Currency>().HasData(currency);
+        //    modelBuilder.Entity<Currency<TKey>>().HasData(currency);
 
     }
 }

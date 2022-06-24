@@ -3,7 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Shared.Models.Identities
 {
-    public class User : IdentityUser<Guid>, IApplicationEntity<Guid>
+    public class User<TKey> : IdentityUser<TKey>, IApplicationEntity<TKey>
+        where TKey: IEquatable<TKey>
 
     {
         public string? ExchangeId { get; set; }
@@ -21,13 +22,13 @@ namespace Shared.Models.Identities
         [MaxLength(100)]
         public string? LastName { get; set; }
 
-        public virtual ICollection<UserClaim>? Claims { get; set; }
+        public virtual ICollection<UserClaim<TKey>>? Claims { get; set; }
 
-        public virtual ICollection<UserLogin>? Logins { get; set; }
+        public virtual ICollection<UserLogin<TKey>>? Logins { get; set; }
 
-        public virtual ICollection<UserToken>? Tokens { get; set; }
+        public virtual ICollection<UserToken<TKey>>? Tokens { get; set; }
 
-        public virtual ICollection<UserRole>? UserRoles { get; set; }
+        public virtual ICollection<UserRole<TKey>>? UserRoles { get; set; }
 
     }
 }

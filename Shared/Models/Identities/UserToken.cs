@@ -3,8 +3,9 @@
 namespace Shared.Models.Identities
 {
 
-    public class UserToken : IdentityUserToken<Guid>
+    public class UserToken<TKey> : IdentityUserToken<TKey>
+        where TKey: IEquatable<TKey>
     {
-        public virtual User? User { get; set; }
+        public virtual User<TKey>? User { get; set; }
     }
 }

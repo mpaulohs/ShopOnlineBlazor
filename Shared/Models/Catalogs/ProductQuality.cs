@@ -1,6 +1,6 @@
 ﻿namespace Shared.Models.Catalogs
 {
-    public class ProductQuality<Tkey> : CatalogBase<Tkey>
+    public class ProductQuality<TKey> : CatalogBase<TKey>
 
     {
 

@@ -2,7 +2,7 @@
 
 namespace Shared.Models.Catalogs
 {
-    public class Product<Tkey> : CatalogBase<Tkey>
+    public class Product<TKey> : CatalogBase<TKey>
     {
         public string? Article { get; set; }
 
@@ -10,15 +10,15 @@ namespace Shared.Models.Catalogs
         [Display(Name = "Full name")]
         public string? FullName { get; set; }
 
-        public ProductType<Tkey>? ProductType { get; set; }
+        public ProductType<TKey>? ProductType { get; set; }
 
-        public ProductCharacteristic<Tkey>? ProductCharacteristic { get; set; }
+        public ProductCharacteristic<TKey>? ProductCharacteristic { get; set; }
 
-        public ProductQuality<Tkey>? ProductQuality { get; set; }
+        public ProductQuality<TKey>? ProductQuality { get; set; }
 
-        public ProductSerie<Tkey>? ProductSerie { get; set; }
+        public ProductSerie<TKey>? ProductSerie { get; set; }
 
-        public ProductUnitMeasurement<Tkey>? ProductUnitMeasurement { get; set; }
+        public ProductUnitMeasurement<TKey>? ProductUnitMeasurement { get; set; }
 
         public string? Description { get; set; }
 

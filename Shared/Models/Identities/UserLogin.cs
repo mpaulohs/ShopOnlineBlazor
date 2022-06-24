@@ -2,9 +2,10 @@
 
 namespace Shared.Models.Identities
 {
-    public class UserLogin : IdentityUserLogin<Guid>
+    public class UserLogin<TKey> : IdentityUserLogin<TKey>
+        where TKey: IEquatable<TKey>
 
     {
-        public virtual User? User { get; set; }
+        public virtual User<TKey>? User { get; set; }
     }
 }

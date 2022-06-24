@@ -1,6 +1,6 @@
 ﻿namespace Shared.Models.Catalogs
 {
-    public class Storage<Tkey>  : CatalogBase<Tkey>
+    public class Storage<TKey>  : CatalogBase<TKey>
     {
     }
 }

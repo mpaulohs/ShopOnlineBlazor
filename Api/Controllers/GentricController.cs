@@ -12,14 +12,15 @@ using Shared.Models;
 namespace Api.Controllers
 {
 
-    public class GenericController<TEntity> : ControllerBase
-        where TEntity : class, IApplicationEntity<Guid>
+    public class GenericController<TEntity, TKey> : ControllerBase
+        where TEntity : class, IApplicationEntity<TKey>
+        where TKey: IEquatable<TKey>
     {
-        private readonly IRepository<TEntity, Guid> _repository;
+        private readonly IRepository<TEntity, TKey> _repository;
 
         private readonly ILogger<TEntity> _logger;
 
-        public GenericController(IRepository<TEntity, Guid> repository, ILogger<TEntity> loger)
+        public GenericController(IRepository<TEntity, TKey> repository, ILogger<TEntity> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -47,7 +48,7 @@ namespace Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> Get(Guid id)
+        public async Task<ActionResult> Get(TKey id)
         {
             try
             {

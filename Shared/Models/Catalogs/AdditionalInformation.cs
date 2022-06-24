@@ -5,7 +5,8 @@ namespace Shared.Models.Catalogs
 {
     public class AdditionalInformation<TKey> : CatalogBase<TKey>
     {
-        public IApplicationEntity<TKey>? AppObject { get; set; }         
+        public virtual IApplicationEntity<TKey>? AppObject { get; set; }  
+        public TKey AppObjectId {get; set;}       
 
         [MaxLength(100)]
         public string? Description { get; set; }

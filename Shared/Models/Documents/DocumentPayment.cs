@@ -2,10 +2,11 @@
 
 namespace Shared.Models.Documents
 {
-    public class DocumentPayment<Tkey> : DocumentBase<Tkey>
+    public class DocumentPayment<TKey> : DocumentBase<TKey>
+    where TKey: IEquatable<TKey>
 
     {
-        public Currency<Tkey>? Currency { get; set; }
+        public Currency<TKey>? Currency { get; set; }
 
 
         //ToDo

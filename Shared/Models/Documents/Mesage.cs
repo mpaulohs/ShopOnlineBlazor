@@ -2,9 +2,11 @@
 
 namespace Shared.Models.Documents
 {
-    public class Mesage : IApplicationEntity<Guid>
+    public class Mesage<TKey> : IApplicationEntity<TKey>
+        where TKey: IEquatable<TKey>
     {
-        public Guid Id { get; set; }
+        [Key]
+        public TKey Id { get; set; }
 
         [MaxLength(50)]
         public string? ExchangeId { get; set; }
@@ -15,5 +17,12 @@ namespace Shared.Models.Documents
 
         [MaxLength(50)]
         public string? ConcurrencyStamp { get; set; }
+
+         public string Text { get; set; } = default;
+
+        public override string ToString()
+        {
+            return this.Text.ToString();
+        }
     }
 }

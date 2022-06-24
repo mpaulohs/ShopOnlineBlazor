@@ -13,13 +13,15 @@ namespace Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class ProductController<TKey> : ControllerBase
+    where TKey: IEquatable<TKey>
+
     {
-        private readonly IRepository<Product, Guid> _repository;
+        private readonly IRepository<Product<TKey>, TKey> _repository;
 
-        private readonly ILogger<Product> _logger;
+        private readonly ILogger<Product<TKey>> _logger;
 
-        public ProductController(IRepository<Product, Guid> repository, ILogger<Product> loger)
+        public ProductController(IRepository<Product<TKey>, TKey> repository, ILogger<Product<TKey>> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -76,7 +78,7 @@ namespace Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> Get(Guid id)
+        public async Task<ActionResult> Get(TKey id)
         {
             try
             {
@@ -97,7 +99,7 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] Product item)
+        public async Task<ActionResult> Post([FromBody] Product<TKey> item)
         {
             try
             {

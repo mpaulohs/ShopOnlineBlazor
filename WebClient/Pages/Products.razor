@@ -1,7 +1,7 @@
 ﻿@page "/products"
 @using global::Shared.Models.Catalogs
 @using global::Shared.Services.Repository;
-@inject IRepository<Product,Guid> Repository
+@inject IRepository<Product<Guid>,Guid> Repository
 
 <h3>Products</h3>
 
@@ -11,17 +11,17 @@
 }
 else
 {
-@for (int i = 1; i < @ProductsList.Count<Product>(); i++)
+@for (int i = 1; i < @ProductsList.Count<Product<Guid>>(); i++)
 {
 
     <tr>
         <td>@i.ToString()</td>
-        <td>@(ProductsList.ElementAt<@Product>(i).Id.ToString())</td>
-        <td>@(ProductsList.ElementAt<@Product>(i).Article.ToString())</td>
-        <td>@(ProductsList.ElementAt<@Product>(i).Name.ToString())</td>
-        <td>@(ProductsList.ElementAt<@Product>(i).FullName.ToString())</td>
-        <td>@(ProductsList.ElementAt<@Product>(i).CreatedAt.ToString())</td>
-        <td>@(ProductsList.ElementAt<@Product>(i).UpdatedAt.ToString())</td>
+        <td>@(ProductsList.ElementAt<@Product<Guid>>(i).Id.ToString())</td>
+        <td>@(ProductsList.ElementAt<@Product<Guid>>(i).Name.ToString())</td>
+        <td>@(ProductsList.ElementAt<@Product<Guid>>(i).FullName.ToString())</td>
+        <td>@(ProductsList.ElementAt<@Product<Guid>>(i).CreatedAt.ToString())</td>
+        <td>@(ProductsList.ElementAt<@Product<Guid>>(i).UpdatedAt.ToString())</td>
+        <td>@(ProductsList.ElementAt<@Product<Guid>>(i).Article.ToString())</td>
     </tr>
 }
 }
@@ -30,7 +30,7 @@ else
 
 
 @code {
-    public IEnumerable<Product> ProductsList { get; set; }
+    public IEnumerable<Product<Guid>> ProductsList { get; set; }
 
     private int pageCurrent = 1;
 

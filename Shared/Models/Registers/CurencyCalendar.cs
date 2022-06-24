@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Shared.Models.Registers
 {
-    public class CurencyCalendar<Tkey>
+    public class CurencyCalendar<TKey>
     {
         [Column(TypeName = "date")]
         public DateTime Date { get; set; }
 
-        public Currency<Tkey>? Currency { get; set; }
+        public Currency<TKey>? Currency { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal Multiplisity { get; set; }

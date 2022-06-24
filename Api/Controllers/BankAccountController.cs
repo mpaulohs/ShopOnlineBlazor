@@ -12,13 +12,14 @@ namespace Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BankAccountController : GenericController<BankAccount>
+    public class BankAccountController<TKey> : GenericController<BankAccount<TKey>, TKey>
+    where TKey: IEquatable<TKey>
     {
-        private readonly IRepository<BankAccount, Guid> _repository;
+        private readonly IRepository<BankAccount<TKey>, TKey> _repository;
 
-        private readonly ILogger<BankAccount> _logger;
+        private readonly ILogger<BankAccount<TKey>> _logger;
 
-        public BankAccountController(IRepository<BankAccount, Guid> repository, ILogger<BankAccount> loger) : base (repository, loger)
+        public BankAccountController(IRepository<BankAccount<TKey>, TKey> repository, ILogger<BankAccount<TKey>> loger) : base (repository, loger)
         {
             _repository = repository;
             _logger = loger;

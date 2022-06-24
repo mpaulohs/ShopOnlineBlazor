@@ -5,22 +5,23 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Shared.Models.Registers
 {
-    public class SaleProduct<Tkey> : IApplicationEntity<Tkey>
+    public class SaleProduct<TKey> : IApplicationEntity<TKey>
+    where TKey: IEquatable<TKey>
 
     {
-        public Tkey Id { get; set; }
+        public TKey Id { get; set; }
 
-        public DocumentSale<Tkey>? Document { get; set; }
+        public DocumentSale<TKey>? Document { get; set; }
 
-        public Product<Tkey>? Product { get; set; }
+        public Product<TKey>? Product { get; set; }
 
-        public ProductUnitMeasurement<Tkey>? UtilMeasurement { get; set; }
+        public ProductUnitMeasurement<TKey>? UtilMeasurement { get; set; }
 
-        public ProductCharacteristic<Tkey>? Characteristic { get; set; }
+        public ProductCharacteristic<TKey>? Characteristic { get; set; }
 
-        public ProductSerie<Tkey>? Serie { get; set; }
+        public ProductSerie<TKey>? Serie { get; set; }
 
-        public ProductQuality<Tkey>? Quality { get; set; }
+        public ProductQuality<TKey>? Quality { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal? Price { get; set; }

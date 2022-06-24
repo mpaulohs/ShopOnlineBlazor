@@ -10,7 +10,6 @@
 
         public string ConcurrencyStamp { get; set; }
 
-
         public string ToString();
     }
 }

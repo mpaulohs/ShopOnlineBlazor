@@ -1,6 +1,6 @@
 ﻿namespace Shared.Models.Catalogs
 {
-    public class ProductUnitMeasurement<Tkey> : CatalogBase<Tkey>
+    public class ProductUnitMeasurement<TKey> : CatalogBase<TKey>
     {
 
     }

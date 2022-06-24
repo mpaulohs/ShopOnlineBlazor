@@ -5,10 +5,11 @@ using System.ComponentModel.DataAnnotations;
 namespace Shared.Models.Documents
 {
     public class DocumentSale<TKey> : DocumentBase<TKey>
+            where TKey: IEquatable<TKey>
     {
         public Storage<TKey>? Storage { get; set; }
 
-        public User? Reciver { get; set; }
+        public User<TKey>? Reciver { get; set; }
 
         [MaxLength(255)]
         public string? ReciverAddres { get; set; }

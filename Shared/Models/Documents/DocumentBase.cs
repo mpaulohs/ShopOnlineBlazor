@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Shared.Models.Documents
 {
     public abstract class DocumentBase<TKey> : IApplicationEntity<TKey>
+        where TKey: IEquatable<TKey>
 
     {
         public TKey Id { get; set; }
@@ -25,7 +26,7 @@ namespace Shared.Models.Documents
 
         public Organization<TKey>? Organization { get; set; }
 
-        public User? Client { get; set; }
+        public User<TKey>? Client { get; set; }
 
         public ClientContract<TKey>? ClientContract { get; set; }
 
@@ -45,7 +46,7 @@ namespace Shared.Models.Documents
         [Column(TypeName = "decimal(18,2)")]
         public decimal ContractAmount { get; set; }
 
-        public User? Responsible { get; set; }
+        public User<TKey>? Responsible { get; set; }
 
         [MaxLength(255)]
         public string? Comment { get; set; }
@@ -54,5 +55,10 @@ namespace Shared.Models.Documents
 
         [MaxLength(50)]
         public string ConcurrencyStamp { get; set; } = Guid.NewGuid().ToString();
+
+        public override string ToString()
+        {
+            return (this.DocumentType?.ToString() + " " + this.ExchangeId?.ToString() + " DATE " + this.ExchangeDateTime.ToShortDateString()).ToUpper();
+        }
     }
 }
