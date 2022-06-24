@@ -5,7 +5,7 @@ namespace Shared.Models.Identities
 {
 
     public class Role<TKey> : IdentityRole<TKey>, IApplicationEntity<TKey>
-    where TKey: IEquatable<TKey>
+    where TKey : IEquatable<TKey>
 
     {
         [MaxLength(500)]
