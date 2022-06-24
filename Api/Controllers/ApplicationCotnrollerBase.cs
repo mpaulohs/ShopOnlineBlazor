@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Shared.Models.Catalogs;
@@ -12,16 +12,18 @@ using Shared.Models;
 
 namespace Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ProductController : ControllerBase
+
+    public class ApplicationControllerBase<TEntity, TKey> : ControllerBase , IApplicationController<TEntity, TKey>
+      where TEntity : class, IApplicationEntity<TKey>
+        where TKey : IEquatable<TKey>
     {
+
   
-        private readonly IRepository<Product<Guid>, Guid> _repository;
+        private readonly IRepository<TEntity, TKey> _repository;
 
-        private readonly ILogger<Product<Guid>> _logger;
+        private readonly ILogger<TEntity> _logger;
 
-        public ProductController(IRepository<Product<Guid>, Guid> repository, ILogger<Product<Guid>> loger)
+        public ApplicationControllerBase(IRepository<TEntity, TKey> repository, ILogger<TEntity> loger)
         {
             _repository = repository;
             _logger = loger;
@@ -78,7 +80,7 @@ namespace Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> Get(Guid id)
+        public async Task<ActionResult> Get(TKey id)
         {
             try
             {
@@ -99,7 +101,7 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] Product<Guid> item)
+        public async Task<ActionResult> Post([FromBody] TEntity item)
         {
             try
             {
@@ -115,5 +117,6 @@ namespace Api.Controllers
         }
 
     }
-}
 
+
+    }

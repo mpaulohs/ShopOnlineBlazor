@@ -8,7 +8,7 @@
 
 	<ItemGroup>
 	  <Compile Remove="Controllers\AdditionalInformationController.cs" />
-	  <Compile Remove="Controllers\BankController.cs" />
+
 	  <Compile Remove="Controllers\CashDeskController.cs" />
 	  <Compile Remove="Controllers\ClientContactInformationController.cs" />
 	  <Compile Remove="Controllers\ClientContactInformationTypeController.cs" />

@@ -1,4 +1,5 @@
 using Api.Data;
+using Api.Controllers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -55,6 +56,8 @@ namespace Api
             });
 
             services.AddIdentity<User<Guid>, Role<Guid>>().AddEntityFrameworkStores<ApplicationDbContext<Guid>>().AddDefaultTokenProviders();
+
+            services.AddScoped(typeof(IApplicationController<Bank<Guid>, Guid>), typeof(ApplicationControllerBase<Bank<Guid>, Guid>));
 
             services.AddScoped(typeof(IRepository<AdditionalInformation<Guid>, Guid>), typeof(RepositoryBaseApi<AdditionalInformation<Guid>, Guid, ApplicationDbContext<Guid>>));
 
