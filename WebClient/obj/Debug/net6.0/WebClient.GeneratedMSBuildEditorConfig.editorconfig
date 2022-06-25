@@ -11,57 +11,57 @@ build_property.EnableTrimAnalyzer = true
 build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = WebClient
 build_property.RootNamespace = WebClient
-build_property.ProjectDir = /Users/igor/Projects/ShopOnlinePWA/WebClient/
+build_property.ProjectDir = c:\Users\melnik.igor.CORPUZSERVICE\source\repos\developmentservice\ShopOnlinePWA\WebClient\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/igor/Projects/ShopOnlinePWA/WebClient
+build_property.MSBuildProjectDirectory = c:\Users\melnik.igor.CORPUZSERVICE\source\repos\developmentservice\ShopOnlinePWA\WebClient
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebClient/App.razor]
+[c:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/WebClient/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebClient/Pages/Authentication.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQXV0aGVudGljYXRpb24ucmF6b3I=
+[c:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/WebClient/Pages/Authentication.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVudGljYXRpb24ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebClient/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
+[c:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/WebClient/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebClient/Pages/FetchData.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmV0Y2hEYXRhLnJhem9y
+[c:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/WebClient/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebClient/Pages/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+[c:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/WebClient/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebClient/Pages/Products.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvZHVjdHMucmF6b3I=
+[c:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/WebClient/Pages/Products.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebClient/Shared/LoginDisplay.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0xvZ2luRGlzcGxheS5yYXpvcg==
+[c:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/WebClient/Shared/LoginDisplay.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luRGlzcGxheS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebClient/Shared/RedirectToLogin.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1JlZGlyZWN0VG9Mb2dpbi5yYXpvcg==
+[c:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/WebClient/Shared/RedirectToLogin.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFJlZGlyZWN0VG9Mb2dpbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebClient/Shared/SurveyPrompt.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1N1cnZleVByb21wdC5yYXpvcg==
+[c:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/WebClient/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebClient/_Imports.razor]
+[c:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/WebClient/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebClient/Shared/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-3a69sib9s4
+[c:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/WebClient/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-texym03vzf
 
-[/Users/igor/Projects/ShopOnlinePWA/WebClient/Shared/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-ftry2nfje7
+[c:/Users/melnik.igor.CORPUZSERVICE/source/repos/developmentservice/ShopOnlinePWA/WebClient/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-tva32fkiip
