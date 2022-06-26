@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 using Shared.Services.Request.Pagination;
 using Shared.Services.Request.Search;
 using Shared.Models;
-
-
+using Api.Data;
+using Microsoft.Extensions.Configuration;
 
 namespace Api.Controllers
 {
@@ -20,9 +20,13 @@ namespace Api.Controllers
     public class BankController : ControllerBase
     {
         protected IApplicationController<Bank<Guid>, Guid> Controller;
-        public BankController(IApplicationController<Bank<Guid>, Guid> controller)
+
+        public IConfiguration Configuration { get; set; }
+
+        public BankController(IApplicationController<Bank<Guid>, Guid> controller, IConfiguration configuration)
         {
             this.Controller = controller;
+            this.Configuration = configuration;
         }
 
         [HttpGet]
@@ -33,5 +37,11 @@ namespace Api.Controllers
             return await Controller.Get(pagintaionParameters, searchParameters);
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult>  Seed([FromQuery] int length)
+        {
+           SeedDb<Guid>.Seed(length, this.Configuration);
+           return await Controller.Get();
+        }
     }
 }

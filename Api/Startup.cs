@@ -33,7 +33,7 @@ namespace Api
 
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "RestAPI", Version = "v1" });
             });
 
 

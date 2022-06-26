@@ -8,6 +8,9 @@ namespace Shared.Models.Catalogs
         public string? Code { get; set; }
 
         [MaxLength(20)]
+        public string? ShortName { get; set; }
+
+        [MaxLength(20)]
         public string? Symbol { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Shared.Models.Catalogs;
 using Shared.Models.Documents;
 using Shared.Models.Identities;
@@ -12,10 +13,11 @@ namespace Api.Data
     public class ApplicationDbContext<TKey> : IdentityDbContext<User<TKey>, Role<TKey>, TKey, UserClaim<TKey>, UserRole<TKey>, UserLogin<TKey>, RoleClaim<TKey>, UserToken<TKey>>
 where TKey : IEquatable<TKey>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext<TKey>> options)
+        private IConfiguration configuration;
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext<TKey>> options, IConfiguration configuration)
         : base(options)
         {
-
+this.configuration = configuration;
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -130,7 +132,9 @@ where TKey : IEquatable<TKey>
 
             //Seed data
 
-            //Seed(modelBuilder);
+            // int length = 100;
+
+            // SeedDb<TKey>.Seed(modelBuilder, length, configuration);
 
             // int langth = 300;
 

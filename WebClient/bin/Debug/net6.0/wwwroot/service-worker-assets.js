@@ -73,7 +73,7 @@
       "url": "sample-data\/weather.json"
     },
     {
-      "hash": "sha256-wB\/ZQw+y5bQjQCeJChspQxj9FQNS\/lmxPnOMe1wAXXY=",
+      "hash": "sha256-QyLbw2i3kiUCl2dF\/7yiXCYFTZMR7vfazW1YK3SuSuw=",
       "url": "WebClient.styles.css"
     },
     {
@@ -977,6 +977,10 @@
       "url": "_framework\/System.Private.CoreLib.dll"
     },
     {
+      "hash": "sha256-zJXgw\/tAzTVOXksPhtpZVT12vxHC7S9mQyBRM36dwD0=",
+      "url": "_framework\/dotnet.6.0.6.ytn38vfrqz.js"
+    },
+    {
       "hash": "sha256-44J\/Hf\/X8VbgiBAazDB8c0FaVrAFYOb4BbGyQwuzNyk=",
       "url": "_framework\/dotnet.timezones.blat"
     },
@@ -1001,19 +1005,19 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-bfC+WC+aYX1jv2CDS42rHCKSPOT9eycLRKPfOZxoEaE=",
+      "hash": "sha256-g2s9Rewsg4sn3LYeb5RdTTp5rnccw63eqEzUFa4jea4=",
       "url": "_framework\/Shared.dll"
     },
     {
-      "hash": "sha256-IJz8nof3887kagz8DcE\/SHzOSGAv6wou+ryM4hcwxPE=",
+      "hash": "sha256-QZP1zWL8I39iag94Mnsb7m36U1q7XnwVRCwhSBFrYgI=",
       "url": "_framework\/Shared.pdb"
     },
     {
-      "hash": "sha256-t9fhqgamQobo4AjpfIqD+l++gKGh4PwAgQWPtKRVOiw=",
+      "hash": "sha256-rIlqG4KcVO4rUlAw8o4yHA8WUHBTYDfywUEOf1TM2qA=",
       "url": "_framework\/WebClient.dll"
     },
     {
-      "hash": "sha256-DTZdP8j9gRP81hlOVU4fxLUehGQK+t7loM1OQa84SOY=",
+      "hash": "sha256-AnBTNij8aQ+ds4YE7V950+tPaTx9JEOzVlNprwpX9yU=",
       "url": "_framework\/WebClient.pdb"
     },
     {
@@ -1021,17 +1025,13 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-sUVp43LQNv1F43SiXw\/GQN1XQan8BThj1pFngmLzcb4=",
+      "hash": "sha256-G9bnhN3+mDLcvbqhNnaW2PEn1K4OUlWe+geKdF33LOc=",
       "url": "_framework\/blazor.boot.json"
-    },
-    {
-      "hash": "sha256-zJXgw\/tAzTVOXksPhtpZVT12vxHC7S9mQyBRM36dwD0=",
-      "url": "_framework\/dotnet.6.0.6.ytn38vfrqz.js"
     },
     {
       "hash": "sha256-Wn02IHGVHYWQvpPDhVA\/vA\/ICx8Xfh4I6vjapn2Wbxk=",
       "url": "_content\/Microsoft.AspNetCore.Components.WebAssembly.Authentication\/AuthenticationService.js"
     }
   ],
-  "version": "xMqdsk5C"
+  "version": "XIgP\/iDB"
 };

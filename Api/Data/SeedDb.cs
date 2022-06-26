@@ -1,15 +1,22 @@
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using Bogus;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using Shared.Models.Catalogs;
 
 namespace Api.Data
 {
-    public class SeedDb<TKey>
+    public static class SeedDb<TKey>
     {
-        public SeedDb(ModelBuilder modelBuilder, int length)
+        public static void Seed (int length, IConfiguration configuration, ModelBuilder modelBuilder = default)
         {
+            var clientContactInformatinType = configuration.GetSection("Catalogs:ClientContactInformationType").Get<List<ClientContactInformationType<Guid>>>(); //ClientContactInformationType").Get<List<ClientContactInformationType<Guid>>>();
+            var currency = configuration.GetSection("Catalogs:Currency").Get<List<Currency<Guid>>>();
+
+
             var faker = new Faker();
             //Catalogs
 
@@ -52,8 +59,8 @@ namespace Api.Data
                 products.Add(entity);
             }
 
-            modelBuilder.Entity<ProductCharacteristic<TKey>>().HasData(productCharacteristics);
-            modelBuilder.Entity<Product<TKey>>().HasData(products);
+            // modelBuilder.Entity<ProductCharacteristic<TKey>>().HasData(productCharacteristics);
+            // modelBuilder.Entity<Product<TKey>>().HasData(products);
         }
     }
 }
