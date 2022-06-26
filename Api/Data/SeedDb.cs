@@ -10,37 +10,99 @@ using Shared.Models.Catalogs;
 namespace Api.Data
 {
     public static class SeedDb<TKey>
+    where TKey : IEquatable<TKey>
     {
-        public static void Seed (int length, IConfiguration configuration, ModelBuilder modelBuilder = default)
+        public static void Seed(int length, IConfiguration configuration, ModelBuilder modelBuilder = default)
         {
-            var clientContactInformatinType = configuration.GetSection("Catalogs:ClientContactInformationType").Get<List<ClientContactInformationType<Guid>>>(); //ClientContactInformationType").Get<List<ClientContactInformationType<Guid>>>();
-            var currency = configuration.GetSection("Catalogs:Currency").Get<List<Currency<Guid>>>();
-
-
             var faker = new Faker();
-            //Catalogs
 
-            var productCharacteristics = new List<ProductCharacteristic<TKey>>();
+            //Catalogs
+            var clientContactInformatinTypeName = configuration.GetSection("Catalogs:ClientContactInformationType").Get<List<ClientContactInformationType<Guid>>>();
+            var currencys = configuration.GetSection("Catalogs:Currency").Get<List<Currency<Guid>>>();
+
+            var banks = new List<Bank<TKey>>();
             for (int i = 0; i < length; i++)
             {
-                var entity = new ProductCharacteristic<TKey>();
-
+                var entity = new Bank<TKey>();
                 entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
                 entity.Name = entity.Name;
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
                 entity.Comment = faker.Lorem.Sentence();
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                banks.Add(entity);
+            }
 
+            var bankAccounts = new List<BankAccount<TKey>>();
+            for (int i = 0; i < length; i++)
+            {
+                var entity = new BankAccount<TKey>();
+                entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
+                entity.Name = entity.Name;
+                entity.CreatedAt = faker.Date.Past(5);
+                entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.Comment = faker.Lorem.Sentence();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                bankAccounts.Add(entity);
+            }
+
+            var cashDescks = new List<CashDesk<TKey>>();
+            for (int i = 0; i < length; i++)
+            {
+                var entity = new CashDesk<TKey>();
+                entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
+                entity.Name = entity.Name;
+                entity.CreatedAt = faker.Date.Past(5);
+                entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.Comment = faker.Lorem.Sentence();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                cashDescks.Add(entity);
+            }
+
+            var clientContactInformationTypes = new List<ClientContactInformationType<TKey>>();
+            for (int i = 0; i < clientContactInformatinTypeName.Count; i++)
+            {
+                var entity = new ClientContactInformationType<TKey>();
+                entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
+                entity.Name = entity.Name;
+                entity.CreatedAt = faker.Date.Past(5);
+                entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.Comment = faker.Lorem.Sentence();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                clientContactInformationTypes.Add(entity);
+            }
+
+            var clientContactInformation = new List<ClientContactInformation<TKey>>();
+            for (int i = 0; i < length; i++)
+            {
+                var entity = new ClientContactInformation<TKey>();
+                entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
+                entity.Name = entity.Name;
+                entity.CreatedAt = faker.Date.Past(5);
+                entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.Comment = faker.Lorem.Sentence();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                entity.ClientContactInformationType = faker.PickRandom<ClientContactInformationType<TKey>>(clientContactInformationTypes);
+                clientContactInformation.Add(entity);
+            }
+
+            var productCharacteristics = new List<ProductCharacteristic<TKey>>();
+            for (int i = 0; i < length; i++)
+            {
+                var entity = new ProductCharacteristic<TKey>();
+                entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
+                entity.Name = entity.Name;
+                entity.CreatedAt = faker.Date.Past(5);
+                entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.Comment = faker.Lorem.Sentence();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 productCharacteristics.Add(entity);
             }
 
             var products = new List<Product<TKey>>();
-
             for (int i = 1; i < length; i++)
             {
                 var entity = new Product<TKey>();
-
                 entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
                 entity.Name = faker.Commerce.Product();
                 entity.Name = entity.Name;
@@ -49,13 +111,12 @@ namespace Api.Data
                 entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
                 entity.Comment = faker.Lorem.Sentence();
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
-
                 entity.IsPublic = faker.Random.Bool();
                 entity.Article = faker.Commerce.Ean13();
                 entity.Description = faker.Commerce.ProductDescription();
-
                 entity.ProductCharacteristic = faker.PickRandom<ProductCharacteristic<TKey>>(productCharacteristics);
                 entity.MainImageUrl = faker.Image.Random.ToString();
+                //entity.ProductCharacteristic
                 products.Add(entity);
             }
 
