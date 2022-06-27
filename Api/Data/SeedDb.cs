@@ -17,15 +17,13 @@ namespace Api.Data
             var faker = new Faker();
 
             //Catalogs
-            var clientContactInformatinTypeName = configuration.GetSection("Catalogs:ClientContactInformationType").Get<List<ClientContactInformationType<Guid>>>();
-            var currencys = configuration.GetSection("Catalogs:Currency").Get<List<Currency<Guid>>>();
-
+           
             var banks = new List<Bank<TKey>>();
             for (int i = 0; i < length; i++)
             {
                 var entity = new Bank<TKey>();
                 entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
-                entity.Name = entity.Name;
+                entity.Name = faker.Company.CompanyName();
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
                 entity.Comment = faker.Lorem.Sentence();
@@ -38,7 +36,7 @@ namespace Api.Data
             {
                 var entity = new BankAccount<TKey>();
                 entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
-                entity.Name = entity.Name;
+                entity.Name = "Bank account: " + faker.Lorem.Word();
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
                 entity.Comment = faker.Lorem.Sentence();
@@ -51,7 +49,7 @@ namespace Api.Data
             {
                 var entity = new CashDesk<TKey>();
                 entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
-                entity.Name = entity.Name;
+                entity.Name = "Cash desk: " + faker.Lorem.Word();
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
                 entity.Comment = faker.Lorem.Sentence();
@@ -59,12 +57,13 @@ namespace Api.Data
                 cashDescks.Add(entity);
             }
 
+            var clientContactInformatinTypeName = configuration.GetSection("Catalogs:ClientContactInformationType").Get<List<ClientContactInformationType<Guid>>>();
             var clientContactInformationTypes = new List<ClientContactInformationType<TKey>>();
             for (int i = 0; i < clientContactInformatinTypeName.Count; i++)
             {
                 var entity = new ClientContactInformationType<TKey>();
                 entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
-                entity.Name = entity.Name;
+                entity.Name = clientContactInformatinTypeName[i].Name;
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
                 entity.Comment = faker.Lorem.Sentence();
@@ -77,7 +76,7 @@ namespace Api.Data
             {
                 var entity = new ClientContactInformation<TKey>();
                 entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
-                entity.Name = entity.Name;
+                entity.Name = faker.Address.FullAddress();
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
                 entity.Comment = faker.Lorem.Sentence();
@@ -91,12 +90,90 @@ namespace Api.Data
             {
                 var entity = new ProductCharacteristic<TKey>();
                 entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
-                entity.Name = entity.Name;
+                entity.Name = faker.Commerce.Color();
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
                 entity.Comment = faker.Lorem.Sentence();
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 productCharacteristics.Add(entity);
+            }
+
+            var productQuality = new List<ProductQuality<TKey>>();
+            for (int i = 0; i < length; i++)
+            {
+                var entity = new ProductQuality<TKey>();
+                entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
+                entity.Name = "Product quaity: " + faker.Lorem.Word();
+                entity.CreatedAt = faker.Date.Past(5);
+                entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.Comment = faker.Lorem.Sentence();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                productQuality.Add(entity);
+            }
+
+            var productQuantityes = new List<ProductQuantity<TKey>>();
+            for (int i = 0; i < length; i++)
+            {
+                var entity = new ProductQuantity<TKey>();
+                entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
+                entity.Name = "Product quanity: " + faker.Lorem.Word();
+                entity.CreatedAt = faker.Date.Past(5);
+                entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.Comment = faker.Lorem.Sentence();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                productQuantityes.Add(entity);
+            }
+
+            var productSeries = new List<ProductSerie<TKey>>();
+            for (int i = 0; i < length; i++)
+            {
+                var entity = new ProductSerie<TKey>();
+                entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
+                entity.Name = "Product serie: " + faker.Lorem.Word();
+                entity.CreatedAt = faker.Date.Past(5);
+                entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.Comment = faker.Lorem.Sentence();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                productSeries.Add(entity);
+            }
+
+            var productTypes = new List<ProductType<TKey>>();
+            for (int i = 0; i < length; i++)
+            {
+                var entity = new ProductType<TKey>();
+                entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
+                entity.Name = "Product type: " + faker.Lorem.Word();
+                entity.CreatedAt = faker.Date.Past(5);
+                entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.Comment = faker.Lorem.Sentence();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                productTypes.Add(entity);
+            }
+
+            var productUnitClassifiers = new List<ProductUnitClassifier<TKey>>();
+            for (int i = 0; i < length; i++)
+            {
+                var entity = new ProductUnitClassifier<TKey>();
+                entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
+                entity.Name = "Product unit classifier: " + faker.Lorem.Word();
+                entity.CreatedAt = faker.Date.Past(5);
+                entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.Comment = faker.Lorem.Sentence();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                productUnitClassifiers.Add(entity);
+            }
+
+            var productUnitMeasurements = new List<ProductUnitMeasurement<TKey>>();
+            for (int i = 0; i < length; i++)
+            {
+                var entity = new ProductUnitMeasurement<TKey>();
+                entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
+                entity.Name = "Product unit measurement: " + faker.Lorem.Word();
+                entity.CreatedAt = faker.Date.Past(5);
+                entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.Comment = faker.Lorem.Sentence();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                productUnitMeasurements.Add(entity);
             }
 
             var products = new List<Product<TKey>>();
