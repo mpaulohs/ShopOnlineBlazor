@@ -133,7 +133,7 @@ this.configuration = configuration;
             //Seed data\
             int length = 100;
 
-            SeedDb<TKey>.Fill( length,  configuration,  modelBuilder = default);
+            SeedDb<TKey>.Fill(length,  configuration,  modelBuilder = default);
 
             // 
 
