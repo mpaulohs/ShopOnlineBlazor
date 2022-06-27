@@ -17,7 +17,7 @@ namespace Api.Data
             var faker = new Faker();
 
             //Catalogs
-           
+
             var banks = new List<Bank<TKey>>();
             for (int i = 0; i < length; i++)
             {
@@ -176,6 +176,32 @@ namespace Api.Data
                 productUnitMeasurements.Add(entity);
             }
 
+            var storages = new List<Storage<TKey>>();
+            for (int i = 0; i < length; i++)
+            {
+                var entity = new Storage<TKey>();
+                entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
+                entity.Name = "Storage: " + faker.Lorem.Word();
+                entity.CreatedAt = faker.Date.Past(5);
+                entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.Comment = faker.Lorem.Sentence();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                storages.Add(entity);
+            }
+
+            var subdivisions = new List<Subdivision<TKey>>();
+            for (int i = 0; i < length; i++)
+            {
+                var entity = new Subdivision<TKey>();
+                entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
+                entity.Name = "Subdivision: " + faker.Lorem.Word();
+                entity.CreatedAt = faker.Date.Past(5);
+                entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.Comment = faker.Lorem.Sentence();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                subdivisions.Add(entity);
+            }
+
             var products = new List<Product<TKey>>();
             for (int i = 1; i < length; i++)
             {
@@ -199,6 +225,7 @@ namespace Api.Data
 
             // modelBuilder.Entity<ProductCharacteristic<TKey>>().HasData(productCharacteristics);
             // modelBuilder.Entity<Product<TKey>>().HasData(products);
+            
         }
     }
 }
