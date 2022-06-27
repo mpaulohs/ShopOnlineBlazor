@@ -130,9 +130,12 @@ this.configuration = configuration;
 
             modelBuilder.Entity<Mesage<TKey>>(b => b.ToTable("Mesages"));
 
-            //Seed data
+            //Seed data\
+            int length = 100;
 
-            // int length = 100;
+            Seed(int length, IConfiguration configuration, ModelBuilder modelBuilder = default)
+
+            // 
 
             // SeedDb<TKey>.Seed(modelBuilder, length, configuration);
 

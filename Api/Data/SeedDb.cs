@@ -217,15 +217,19 @@ namespace Api.Data
                 entity.IsPublic = faker.Random.Bool();
                 entity.Article = faker.Commerce.Ean13();
                 entity.Description = faker.Commerce.ProductDescription();
-                entity.ProductCharacteristic = faker.PickRandom<ProductCharacteristic<TKey>>(productCharacteristics);
                 entity.MainImageUrl = faker.Image.Random.ToString();
-                //entity.ProductCharacteristic
+                entity.Description = faker.Lorem.Paragraph();
+                entity.ProductCharacteristic = faker.PickRandom<ProductCharacteristic<TKey>>(productCharacteristics);
+                entity.ProductQuality = faker.PickRandom<ProductQuality<TKey>>(productQuality);
+                entity.ProductSerie = faker.PickRandom<ProductSerie<TKey>>(productSeries);
+                entity.ProductType = faker.PickRandom<ProductType<TKey>>(productTypes);
+                entity.ProductUnitMeasurement = faker.PickRandom<ProductUnitMeasurement<TKey>>(productUnitMeasurements);
                 products.Add(entity);
             }
 
             // modelBuilder.Entity<ProductCharacteristic<TKey>>().HasData(productCharacteristics);
             // modelBuilder.Entity<Product<TKey>>().HasData(products);
-            
+
         }
     }
 }
