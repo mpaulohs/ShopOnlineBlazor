@@ -12,7 +12,8 @@ namespace Api.Data
     public static class SeedDb<TKey>
     where TKey : IEquatable<TKey>
     {
-        public static void Seed(int length, IConfiguration configuration, ModelBuilder modelBuilder = default)
+
+     public static void Fill (int length, IConfiguration configuration, ModelBuilder modelBuilder = default)
         {
             var faker = new Faker();
 
@@ -57,13 +58,13 @@ namespace Api.Data
                 cashDescks.Add(entity);
             }
 
-            var clientContactInformatinTypeName = configuration.GetSection("Catalogs:ClientContactInformationType").Get<List<ClientContactInformationType<Guid>>>();
+            var clientContactInformatinTypeName = configuration.GetSection("Catalogs:ClientContactInformationType").Get<List<string>>();
             var clientContactInformationTypes = new List<ClientContactInformationType<TKey>>();
             for (int i = 0; i < clientContactInformatinTypeName.Count; i++)
             {
                 var entity = new ClientContactInformationType<TKey>();
                 entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
-                entity.Name = clientContactInformatinTypeName[i].Name;
+                entity.Name = clientContactInformatinTypeName[i];
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
                 entity.Comment = faker.Lorem.Sentence();
@@ -83,6 +84,72 @@ namespace Api.Data
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 entity.ClientContactInformationType = faker.PickRandom<ClientContactInformationType<TKey>>(clientContactInformationTypes);
                 clientContactInformation.Add(entity);
+            }
+
+            var currencies = configuration.GetSection("Catalogs:Currency").Get<List<Currency<TKey>>>();
+             for (int i = 0; i < currencies.Count; i++)
+            {
+                var entity = currencies[i];
+                entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
+                entity.CreatedAt = faker.Date.Past(5);
+                entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+            }
+
+            var documentStatusNames = configuration.GetSection("Catalogs:DocumentStatus").Get<List<string>>();
+            var documentStatuses = new List<DocumentStatus<TKey>>();
+            for (int i = 0; i < documentStatusNames.Count; i++)
+            {
+                var entity = new DocumentStatus<TKey>();
+                entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
+                entity.Name = documentStatusNames[i];
+                entity.CreatedAt = faker.Date.Past(5);
+                entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.Comment = faker.Lorem.Sentence();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                documentStatuses.Add(entity);
+            }
+
+            var documentTypeNames = configuration.GetSection("Catalogs:DocumentStatus").Get<List<string>>();
+            var documentTypes = new List<DocumentType<TKey>>();
+            for (int i = 0; i < documentTypeNames.Count; i++)
+            {
+                var entity = new DocumentType<TKey>();
+                entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
+                entity.Name = clientContactInformatinTypeName[i];
+                entity.CreatedAt = faker.Date.Past(5);
+                entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.Comment = faker.Lorem.Sentence();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                documentTypes.Add(entity);
+            }
+
+            var organizations = new List<Organization<TKey>>();
+            for (int i = 0; i < length; i++)
+            {
+                var entity = new Organization<TKey>();
+                entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
+                entity.Name = faker.Commerce.Color();
+                entity.CreatedAt = faker.Date.Past(5);
+                entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.Comment = faker.Lorem.Sentence();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                organizations.Add(entity);
+            }
+
+
+            var priceTypeNames = configuration.GetSection("Catalogs:PriceType").Get<List<string>>();
+            var priceTypes = new List<PriceType<TKey>>();
+            for (int i = 0; i < documentTypeNames.Count; i++)
+            {
+                var entity = new DocumentType<TKey>();
+                entity.Id = (TKey)Convert.ChangeType(i, typeof(TKey));
+                entity.Name = clientContactInformatinTypeName[i];
+                entity.CreatedAt = faker.Date.Past(5);
+                entity.CreatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.Comment = faker.Lorem.Sentence();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                documentTypes.Add(entity);
             }
 
             var productCharacteristics = new List<ProductCharacteristic<TKey>>();
@@ -227,8 +294,30 @@ namespace Api.Data
                 products.Add(entity);
             }
 
-            // modelBuilder.Entity<ProductCharacteristic<TKey>>().HasData(productCharacteristics);
-            // modelBuilder.Entity<Product<TKey>>().HasData(products);
+            //modelBuilder.Entity<AdditionalInformation<TKey>().HasData(additionalInformation);
+            modelBuilder.Entity<Bank<TKey>>().HasData(banks);
+            modelBuilder.Entity<BankAccount<TKey>>().HasData(bankAccounts);
+            modelBuilder.Entity<CashDesk<TKey>>().HasData(cashDescks);
+            modelBuilder.Entity<ClientContactInformationType<TKey>>().HasData(clientContactInformationTypes);
+            modelBuilder.Entity<ClientContactInformation<TKey>>().HasData(clientContactInformation);
+            //modelBuilder.Entity<ClientContract<TKey>().HasData(clientContracts);
+            modelBuilder.Entity<Currency<TKey>>().HasData(currencies);
+            modelBuilder.Entity<DocumentStatus<TKey>>().HasData(documentStatuses);
+            modelBuilder.Entity<DocumentType<TKey>>().HasData(documentTypes);
+            modelBuilder.Entity<Organization<TKey>>().HasData(organizations);
+            modelBuilder.Entity<PriceType<TKey>>().HasData(priceTypes);
+            modelBuilder.Entity<ProductUnitClassifier<TKey>>().HasData(productUnitClassifiers);
+            modelBuilder.Entity<ProductUnitMeasurement<TKey>>().HasData(productUnitMeasurements);
+            modelBuilder.Entity<ProductQuality<TKey>>().HasData(productQuality);
+            modelBuilder.Entity<ProductQuantity<TKey>>().HasData(productQuantityes);
+            modelBuilder.Entity<ProductSerie<TKey>>().HasData(productSeries);
+            modelBuilder.Entity<ProductType<TKey>>().HasData(productTypes);
+
+            modelBuilder.Entity<Storage<TKey>>().HasData(storages);
+            modelBuilder.Entity<Subdivision<TKey>>().HasData(subdivisions);
+
+            modelBuilder.Entity<ProductCharacteristic<TKey>>().HasData(productCharacteristics);
+            modelBuilder.Entity<Product<TKey>>().HasData(products);
 
         }
     }
