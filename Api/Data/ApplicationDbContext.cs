@@ -133,7 +133,7 @@ where TKey : IEquatable<TKey>
             //Seed data\
             int length = 100;
 
-            SeedDb<TKey>.Fill(length, configuration, modelBuilder = default);
+            modelBuilder.Seed<TKey>(length, configuration);
 
         }
     }
