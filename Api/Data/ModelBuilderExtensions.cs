@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using Bogus;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +26,8 @@ namespace Api.Data
         public static void Seed<TKey>(this ModelBuilder modelBuilder, int length, IConfiguration configuration) where TKey : IEquatable<TKey>
         {
 
+            //Debugger.Launch();
+            
             var faker = new Faker();
 
             int counter = 0;
@@ -68,7 +71,7 @@ namespace Api.Data
                 {
                     entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
                 }
-                
+
                 entity.Name = "Bank account: " + faker.Lorem.Word();
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
@@ -142,6 +145,7 @@ namespace Api.Data
                 entity.Comment = faker.Lorem.Sentence();
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 entity.ClientContactInformationType = faker.PickRandom<ClientContactInformationType<TKey>>(clientContactInformationTypes);
+                //entity.ClientContactInformationTypeId = entity.ClientContactInformationType.Id;
                 clientContactInformation.Add(entity);
             }
 

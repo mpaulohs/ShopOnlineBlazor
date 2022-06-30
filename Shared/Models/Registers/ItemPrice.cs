@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Shared.Models.Registers
 {
     public class ProductPrice<TKey>
+      where TKey : IEquatable<TKey>
     {
         public Guid Id { get; set; }
         public PriceType<TKey>? PriceType { get; set; }

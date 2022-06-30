@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Shared.Models.Registers
 {
     public class CurencyCalendar<TKey>
+      where TKey : IEquatable<TKey>
     {
         [Column(TypeName = "date")]
         public DateTime Date { get; set; }

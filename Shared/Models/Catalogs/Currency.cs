@@ -3,6 +3,7 @@
 namespace Shared.Models.Catalogs
 {
     public class Currency<TKey> : CatalogBase<TKey>
+where TKey : IEquatable<TKey>
     {
         [MaxLength(20)]
         public string? Code { get; set; }

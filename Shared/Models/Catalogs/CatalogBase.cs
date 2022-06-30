@@ -3,6 +3,7 @@
 namespace Shared.Models.Catalogs
 {
     public abstract class CatalogBase<TKey> : IApplicationEntity<TKey>
+     where TKey : IEquatable<TKey>
     {
         [Key]
         public TKey Id { get; set; }
@@ -20,7 +21,7 @@ namespace Shared.Models.Catalogs
         [MaxLength(255)]
         public string? Comment { get; set; }
 
-        public override string ToString()=>string.IsNullOrEmpty(this.Name)?string.Empty:this.Name;
+        public override string ToString() => string.IsNullOrEmpty(this.Name) ? string.Empty : this.Name;
 
     }
 }

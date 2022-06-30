@@ -6,12 +6,12 @@ using Shared.Models.Catalogs;
 using Shared.Models.Documents;
 using Shared.Models.Identities;
 using System;
+using System.Collections.Generic;
 
 namespace Api.Data
 {
 
-    public class ApplicationDbContext<TKey> : IdentityDbContext<User<TKey>, Role<TKey>, TKey, UserClaim<TKey>, UserRole<TKey>, UserLogin<TKey>, RoleClaim<TKey>, UserToken<TKey>>
-where TKey : IEquatable<TKey>
+    public class ApplicationDbContext<TKey> : IdentityDbContext<User<TKey>, Role<TKey>, TKey, UserClaim<TKey>, UserRole<TKey>, UserLogin<TKey>, RoleClaim<TKey>, UserToken<TKey>> where TKey : IEquatable<TKey>
     {
         private IConfiguration configuration;
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext<TKey>> options, IConfiguration configuration)
@@ -92,9 +92,24 @@ where TKey : IEquatable<TKey>
 
             modelBuilder.Entity<CashDesk<TKey>>(b => b.ToTable("CashDesks"));
 
-            modelBuilder.Entity<ClientContactInformation<TKey>>(b => b.ToTable("ClientContackInformations"));
+            modelBuilder.Entity<ClientContactInformation<TKey>>(b =>
+            {
+                b.ToTable("ClientContackInformations");
+                b.OwnsOne(e=>e.ClientContactInformationType);
+                //b.HasOne<ClientContactInformationType<TKey>>(c => c.ClientContactInformationType);
+                //.WithMany<ClientContactInformation<TKey>>(d => d.ClientContactInformations);
+                //.WithMany(a => a.ClientContactInformations);
+            }
+            );
 
-            modelBuilder.Entity<ClientContactInformationType<TKey>>(b => b.ToTable("ClientContactInformationTypes"));
+            modelBuilder.Entity<ClientContactInformationType<TKey>>(b =>
+            {
+                b.ToTable("ClientContactInformationTypes");
+              //  b.HasMany(e=>e.ClientContactInformations)
+              //  .WithOne(d=>d.ClientContactInformationType);
+
+            }
+            );
 
             modelBuilder.Entity<ClientContract<TKey>>(b => b.ToTable("ClientContracts"));
 
@@ -130,7 +145,7 @@ where TKey : IEquatable<TKey>
 
             modelBuilder.Entity<Mesage<TKey>>(b => b.ToTable("Mesages"));
 
-            //Seed data\
+            //Seed data\Api/Data/ApplicationDbContext.cs
             int length = 100;
 
             modelBuilder.Seed<TKey>(length, configuration);

@@ -5,6 +5,7 @@ using System.Text.Json;
 namespace Shared.Models.Catalogs
 {
     public class AdditionalInformation<TKey> : CatalogBase<TKey>
+where TKey : IEquatable<TKey>
     {
         private Type? entityType;
 
