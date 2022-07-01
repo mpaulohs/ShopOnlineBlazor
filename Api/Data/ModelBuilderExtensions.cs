@@ -497,7 +497,7 @@ namespace Api.Data
             modelBuilder.Entity<BankAccount<TKey>>().HasData(bankAccounts);
             modelBuilder.Entity<CashDesk<TKey>>().HasData(cashDescks);
             modelBuilder.Entity<ClientContactInformationType<TKey>>().HasData(clientContactInformationTypes);
-            modelBuilder.Entity<ClientContactInformation<TKey>>().HasData(clientContactInformation);
+            modelBuilder.Entity<ClientContactInformation<TKey>>().OwnsOne(e=>e.ClientContactInformationType).HasData(clientContactInformation);
             //modelBuilder.Entity<ClientContract<TKey>().HasData(clientContracts);
             modelBuilder.Entity<Currency<TKey>>().HasData(currencies);
             modelBuilder.Entity<DocumentStatus<TKey>>().HasData(documentStatuses);
