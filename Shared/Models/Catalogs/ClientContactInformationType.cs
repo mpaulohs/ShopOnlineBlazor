@@ -3,7 +3,7 @@
     public class ClientContactInformationType<TKey> : CatalogBase<TKey>
      where TKey : IEquatable<TKey>
     {
-       // public List<ClientContactInformation<TKey>>? ClientContactInformations { get; set; }
+       public ICollection<ClientContactInformation<TKey>>? ClientContactInformations { get; set; }
 
     }
 }

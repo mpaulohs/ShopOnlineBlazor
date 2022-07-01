@@ -95,8 +95,8 @@ namespace Api.Data
             modelBuilder.Entity<ClientContactInformation<TKey>>(b =>
             {
                 b.ToTable("ClientContackInformations");
-                b.OwnsOne(e=>e.ClientContactInformationType);
-                //b.HasOne<ClientContactInformationType<TKey>>(c => c.ClientContactInformationType);
+                //b.HasMany(e=>e.ClientContactInformationType);
+                //b.HasOne(c => c.ClientContactInformationType).WithMany(t => t.ClientContactInformations);
                 //.WithMany<ClientContactInformation<TKey>>(d => d.ClientContactInformations);
                 //.WithMany(a => a.ClientContactInformations);
             }
@@ -105,8 +105,8 @@ namespace Api.Data
             modelBuilder.Entity<ClientContactInformationType<TKey>>(b =>
             {
                 b.ToTable("ClientContactInformationTypes");
-              //  b.HasMany(e=>e.ClientContactInformations)
-              //  .WithOne(d=>d.ClientContactInformationType);
+                b.HasMany(e => e.ClientContactInformations).WithOne(e => e.ClientContactInformationType);
+                //  .WithOne(d=>d.ClientContactInformationType);
 
             }
             );
