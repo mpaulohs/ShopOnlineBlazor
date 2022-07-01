@@ -3,6 +3,7 @@
 namespace Shared.Models.Catalogs
 {
     public class Product<TKey> : CatalogBase<TKey>
+where TKey : IEquatable<TKey>
     {
         public string? Article { get; set; }
 

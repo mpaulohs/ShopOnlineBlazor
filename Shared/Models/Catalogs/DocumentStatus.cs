@@ -2,6 +2,7 @@
 {
 
     public class DocumentStatus<TKey> : CatalogBase<TKey>
+         where TKey : IEquatable<TKey>
     {
 
     }

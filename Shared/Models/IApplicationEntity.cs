@@ -1,6 +1,7 @@
 ﻿namespace Shared.Models
 {
     public interface IApplicationEntity<TKey> 
+    where TKey: IEquatable<TKey>
     {
         public TKey Id { get; set; }
 
