@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/igor/Projects/ShopOnlinePWA/Shared/Shared.csproj": {}
+    "/Users/igormelnyk/Projects/ShopOnlinePWA/Shared/Shared.csproj": {}
   },
   "projects": {
-    "/Users/igor/Projects/ShopOnlinePWA/Shared/Shared.csproj": {
+    "/Users/igormelnyk/Projects/ShopOnlinePWA/Shared/Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/igor/Projects/ShopOnlinePWA/Shared/Shared.csproj",
+        "projectUniqueName": "/Users/igormelnyk/Projects/ShopOnlinePWA/Shared/Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "/Users/igor/Projects/ShopOnlinePWA/Shared/Shared.csproj",
-        "packagesPath": "/Users/igor/.nuget/packages/",
-        "outputPath": "/Users/igor/Projects/ShopOnlinePWA/Shared/obj/",
+        "projectPath": "/Users/igormelnyk/Projects/ShopOnlinePWA/Shared/Shared.csproj",
+        "packagesPath": "/Users/igormelnyk/.nuget/packages/",
+        "outputPath": "/Users/igormelnyk/Projects/ShopOnlinePWA/Shared/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/igor/.nuget/NuGet/NuGet.Config"
+          "/Users/igormelnyk/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"

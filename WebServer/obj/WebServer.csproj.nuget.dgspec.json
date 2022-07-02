@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/igor/Projects/ShopOnlinePWA/WebServer/WebServer.csproj": {}
+    "/Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/WebServer.csproj": {}
   },
   "projects": {
-    "/Users/igor/Projects/ShopOnlinePWA/WebServer/WebServer.csproj": {
+    "/Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/WebServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/igor/Projects/ShopOnlinePWA/WebServer/WebServer.csproj",
+        "projectUniqueName": "/Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/WebServer.csproj",
         "projectName": "WebServer",
-        "projectPath": "/Users/igor/Projects/ShopOnlinePWA/WebServer/WebServer.csproj",
-        "packagesPath": "/Users/igor/.nuget/packages/",
-        "outputPath": "/Users/igor/Projects/ShopOnlinePWA/WebServer/obj/",
+        "projectPath": "/Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/WebServer.csproj",
+        "packagesPath": "/Users/igormelnyk/.nuget/packages/",
+        "outputPath": "/Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/igor/.nuget/NuGet/NuGet.Config"
+          "/Users/igormelnyk/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"

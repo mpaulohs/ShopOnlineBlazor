@@ -8,65 +8,65 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebServer
 build_property.RootNamespace = WebServer
-build_property.ProjectDir = /Users/igor/Projects/ShopOnlinePWA/WebServer/
+build_property.ProjectDir = /Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/igor/Projects/ShopOnlinePWA/WebServer
+build_property.MSBuildProjectDirectory = /Users/igormelnyk/Projects/ShopOnlinePWA/WebServer
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebServer/App.razor]
+[/Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebServer/Pages/Counter.razor]
+[/Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebServer/Pages/FetchData.razor]
+[/Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebServer/Pages/Index.razor]
+[/Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebServer/Shared/LoginDisplay.razor]
+[/Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/Shared/LoginDisplay.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0xvZ2luRGlzcGxheS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebServer/Shared/SurveyPrompt.razor]
+[/Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1N1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebServer/_Imports.razor]
+[/Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebServer/Shared/MainLayout.razor]
+[/Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-qwrpr9bmru
 
-[/Users/igor/Projects/ShopOnlinePWA/WebServer/Shared/NavMenu.razor]
+[/Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-sv97fdvk9s
 
-[/Users/igor/Projects/ShopOnlinePWA/WebServer/Areas/Identity/Pages/Account/LogOut.cshtml]
+[/Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/Areas/Identity/Pages/Account/LogOut.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9Mb2dPdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebServer/Areas/Identity/Pages/Shared/_LoginPartial.cshtml]
+[/Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/Areas/Identity/Pages/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvU2hhcmVkL19Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebServer/Pages/Error.cshtml]
+[/Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebServer/Pages/_Host.cshtml]
+[/Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/igor/Projects/ShopOnlinePWA/WebServer/Pages/_Layout.cshtml]
+[/Users/igormelnyk/Projects/ShopOnlinePWA/WebServer/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

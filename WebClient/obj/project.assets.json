@@ -3629,19 +3629,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/igor/.nuget/packages/": {}
+    "/Users/igormelnyk/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/igor/Projects/ShopOnlinePWA/WebClient/WebClient.csproj",
+      "projectUniqueName": "/Users/igormelnyk/Projects/ShopOnlinePWA/WebClient/WebClient.csproj",
       "projectName": "WebClient",
-      "projectPath": "/Users/igor/Projects/ShopOnlinePWA/WebClient/WebClient.csproj",
-      "packagesPath": "/Users/igor/.nuget/packages/",
-      "outputPath": "/Users/igor/Projects/ShopOnlinePWA/WebClient/obj/",
+      "projectPath": "/Users/igormelnyk/Projects/ShopOnlinePWA/WebClient/WebClient.csproj",
+      "packagesPath": "/Users/igormelnyk/.nuget/packages/",
+      "outputPath": "/Users/igormelnyk/Projects/ShopOnlinePWA/WebClient/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/igor/.nuget/NuGet/NuGet.Config"
+        "/Users/igormelnyk/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -3653,8 +3653,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/igor/Projects/ShopOnlinePWA/Shared/Shared.csproj": {
-              "projectPath": "/Users/igor/Projects/ShopOnlinePWA/Shared/Shared.csproj"
+            "/Users/igormelnyk/Projects/ShopOnlinePWA/Shared/Shared.csproj": {
+              "projectPath": "/Users/igormelnyk/Projects/ShopOnlinePWA/Shared/Shared.csproj"
             }
           }
         }
