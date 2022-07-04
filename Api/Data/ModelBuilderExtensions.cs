@@ -27,7 +27,7 @@ namespace Api.Data
         {
 
             //Debugger.Launch();
-            
+
             var faker = new Faker();
 
             int counter = 0;
@@ -484,7 +484,7 @@ namespace Api.Data
                 entity.Description = faker.Commerce.ProductDescription();
                 entity.MainImageUrl = faker.Image.Random.ToString();
                 entity.Description = faker.Lorem.Paragraph();
-                entity.ProductCharacteristic = faker.PickRandom<ProductCharacteristic<TKey>>(productCharacteristics);
+                entity.ProductCharacteristics = productCharacteristics;
                 entity.ProductQuality = faker.PickRandom<ProductQuality<TKey>>(productQuality);
                 entity.ProductSerie = faker.PickRandom<ProductSerie<TKey>>(productSeries);
                 entity.ProductType = faker.PickRandom<ProductType<TKey>>(productTypes);
@@ -497,7 +497,7 @@ namespace Api.Data
             modelBuilder.Entity<BankAccount<TKey>>().HasData(bankAccounts);
             modelBuilder.Entity<CashDesk<TKey>>().HasData(cashDescks);
             modelBuilder.Entity<ClientContactInformationType<TKey>>().HasData(clientContactInformationTypes);
-            modelBuilder.Entity<ClientContactInformation<TKey>>().OwnsOne(e=>e.ClientContactInformationType).HasData(clientContactInformation);
+            //modelBuilder.Entity<ClientContactInformation<TKey>>().OwnsOne(e => e.ClientContactInformationType).HasData(clientContactInformation);
             //modelBuilder.Entity<ClientContract<TKey>().HasData(clientContracts);
             modelBuilder.Entity<Currency<TKey>>().HasData(currencies);
             modelBuilder.Entity<DocumentStatus<TKey>>().HasData(documentStatuses);
@@ -513,7 +513,7 @@ namespace Api.Data
             modelBuilder.Entity<ProductType<TKey>>().HasData(productTypes);
             modelBuilder.Entity<Storage<TKey>>().HasData(storages);
             modelBuilder.Entity<Subdivision<TKey>>().HasData(subdivisions);
-            modelBuilder.Entity<Product<TKey>>().HasData(products);
+            //modelBuilder.Entity<Product<TKey>>().HasData(products);
         }
 
 

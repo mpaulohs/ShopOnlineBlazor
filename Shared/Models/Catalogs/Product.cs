@@ -13,9 +13,9 @@ where TKey : IEquatable<TKey>
 
         public ProductType<TKey>? ProductType { get; set; }
 
-        public ProductCharacteristic<TKey>? ProductCharacteristic { get; set; }
+        public virtual ICollection<ProductCharacteristic<TKey>>? ProductCharacteristics { get; set; }
 
-        public ProductQuality<TKey>? ProductQuality { get; set; }
+        public virtual ProductQuality<TKey>? ProductQuality { get; set; }
 
         public ProductSerie<TKey>? ProductSerie { get; set; }
 
@@ -31,7 +31,7 @@ where TKey : IEquatable<TKey>
         public override string ToString()
         {
 
-            return Name??ToString();
+            return Name ?? ToString();
         }
     }
 }

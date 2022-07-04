@@ -18,6 +18,7 @@ namespace Api.Data
         : base(options)
         {
             this.configuration = configuration;
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -92,16 +93,6 @@ namespace Api.Data
 
             modelBuilder.Entity<CashDesk<TKey>>(b => b.ToTable("CashDesks"));
 
-            modelBuilder.Entity<ClientContactInformation<TKey>>(b =>
-            {
-                b.ToTable("ClientContackInformations");
-                //b.HasMany(e=>e.ClientContactInformationType);
-                //b.HasOne(c => c.ClientContactInformationType).WithMany(t => t.ClientContactInformations);
-                //.WithMany<ClientContactInformation<TKey>>(d => d.ClientContactInformations);
-                //.WithMany(a => a.ClientContactInformations);
-            }
-            );
-
             modelBuilder.Entity<ClientContactInformationType<TKey>>(b =>
             {
                 b.ToTable("ClientContactInformationTypes");
@@ -111,11 +102,24 @@ namespace Api.Data
             }
             );
 
+            //modelBuilder.Entity<ClientContactInformation<TKey>>(b => b.ToTable("ClientContackInformations"));
+            //b.HasMany(e => e.ClientContactInformationType);
+            //b.HasOne(c => c.ClientContactInformationType).WithMany(t => t.ClientContactInformations);
+            //.WithMany<ClientContactInformation<TKey>>(d => d.ClientContactInformations);
+            //.WithMany(a => a.ClientContactInformations);
+            //}
+            //);
+
             modelBuilder.Entity<ClientContract<TKey>>(b => b.ToTable("ClientContracts"));
 
             modelBuilder.Entity<Currency<TKey>>(b => b.ToTable("Currencyes"));
 
-            modelBuilder.Entity<Product<TKey>>(b => b.ToTable("Products"));
+            modelBuilder.Entity<Product<TKey>>(b =>
+            {
+                b.ToTable("Products");
+                b.HasMany(p => p.ProductCharacteristics).WithMany(e => e.Products);
+                b.HasOne(c => c.ProductQuality).WithMany(pq => pq.Products);
+            });
 
             modelBuilder.Entity<ProductCharacteristic<TKey>>(b => b.ToTable("ProductCharacteristics"));
 

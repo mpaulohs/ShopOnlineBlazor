@@ -52,6 +52,8 @@ namespace Api
             services.AddDbContext<ApplicationDbContext<Guid>>(options =>
             {
                 options.UseSqlite(Configuration.GetConnectionString("AppConnectionString"));
+                //ToDo disable after debuging
+                options.EnableSensitiveDataLogging();
                 //options.UseSqlServer(Configuration.GetConnectionString("AppConnectionString"));
             });
 
