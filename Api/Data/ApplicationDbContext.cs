@@ -18,7 +18,6 @@ namespace Api.Data
         : base(options)
         {
             this.configuration = configuration;
-
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -93,17 +92,20 @@ namespace Api.Data
 
             modelBuilder.Entity<CashDesk<TKey>>(b => b.ToTable("CashDesks"));
 
-            modelBuilder.Entity<ClientContactInformationType<TKey>>(b =>
-            {
-                b.ToTable("ClientContactInformationTypes");
-                b.HasMany(e => e.ClientContactInformations).WithOne(e => e.ClientContactInformationType);
-                //  .WithOne(d=>d.ClientContactInformationType);
+            // modelBuilder.Entity<ClientContactInformationType<TKey>>(b =>
+            // {
+            //     b.ToTable("ClientContactInformationTypes");
+            //     b.HasMany(b => b.ClientContactInformations).WithOne(c => c.ClientContactInformationType).HasForeignKey("ClientContactInformationTypeId");
+            // }
+            // );
 
-            }
-            );
+            // modelBuilder.Entity<ClientContactInformation<TKey>>(b =>
+            // {
+            //     b.ToTable("ClientContackInformations");
+            //     b.HasOne(e => e.ClientContactInformationType).WithMany(e => e.ClientContactInformations);
+            // });
 
-            //modelBuilder.Entity<ClientContactInformation<TKey>>(b => b.ToTable("ClientContackInformations"));
-            //b.HasMany(e => e.ClientContactInformationType);
+
             //b.HasOne(c => c.ClientContactInformationType).WithMany(t => t.ClientContactInformations);
             //.WithMany<ClientContactInformation<TKey>>(d => d.ClientContactInformations);
             //.WithMany(a => a.ClientContactInformations);
@@ -118,7 +120,7 @@ namespace Api.Data
             {
                 b.ToTable("Products");
                 b.HasMany(p => p.ProductCharacteristics).WithMany(e => e.Products);
-                b.HasOne(c => c.ProductQuality).WithMany(pq => pq.Products);
+                b.HasOne(c => c.ProductQuality).WithMany(pq => pq.Products).HasForeignKey("Id");
             });
 
             modelBuilder.Entity<ProductCharacteristic<TKey>>(b => b.ToTable("ProductCharacteristics"));

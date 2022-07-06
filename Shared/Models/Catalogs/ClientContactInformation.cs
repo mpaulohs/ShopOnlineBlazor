@@ -10,7 +10,7 @@ namespace Shared.Models.Catalogs
 
         //public TKey? ClientContactInformationTypeId { get; set; }
 
-        public virtual ClientContactInformationType<TKey>? ClientContactInformationType { get; set; }
+        public ClientContactInformationType<TKey>? ClientContactInformationType { get; set; }
 
         [MaxLength(255)]
         public string? Value { get; set; }

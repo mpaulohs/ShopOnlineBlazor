@@ -13,24 +13,20 @@ namespace Api.Data
     public static class ModelBuilderExtensions
 
     {
-
-        // public static T CreateInstancete<T>() where T : new()
-        // {
-        //     T obj = new T();
-        //     PropertyInfo propertyInfo = obj.GetType().GetProperty("client_no");
-        //     propertyInfo.SetValue(obj, CLIENT_NUMBER, null);
-        //     return (T)Convert.ChangeType(obj, typeof(T));
-        // }
-
-
         public static void Seed<TKey>(this ModelBuilder modelBuilder, int length, IConfiguration configuration) where TKey : IEquatable<TKey>
         {
 
             //Debugger.Launch();
+            System.Console.WriteLine("Start");
+            if (System.Diagnostics.Debugger.IsAttached == false)
+            {
+                var res = System.Diagnostics.Debugger.Launch();
+                System.Console.WriteLine("Debugger lunched: " + res.ToString());
+            }
 
             var faker = new Faker();
-
             int counter = 0;
+
             //Catalogs
 
             var banks = new List<Bank<TKey>>();
@@ -125,29 +121,48 @@ namespace Api.Data
                 clientContactInformationTypes.Add(entity);
             }
 
-            var clientContactInformation = new List<ClientContactInformation<TKey>>();
+            // var clientContactInformation = new List<ClientContactInformation<TKey>>();
+            // for (int i = 0; i < length; i++)
+            // {
+            //     var entity = new ClientContactInformation<TKey>();
+            //     counter++;
+            //     if (typeof(TKey) == typeof(Guid))
+            //     {
+            //         var Id = Guid.NewGuid();
+            //         entity.Id = Id.ChangeType<TKey>();
+            //     }
+            //     else
+            //     {
+            //         entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
+            //     }
+            //     entity.Name = faker.Address.FullAddress();
+            //     entity.CreatedAt = faker.Date.Past(5);
+            //     entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+            //     entity.Comment = faker.Lorem.Sentence();
+            //     entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+            //     var clientContactInformationType = faker.PickRandom<ClientContactInformationType<TKey>>(clientContactInformationTypes);
+            //     System.Console.WriteLine(clientContactInformationType.ToString());
+            //     entity.ClientContactInformationType = clientContactInformationType;
+            //     //entity.ClientContactInformationTypeId = entity.ClientContactInformationType.Id;
+            //     clientContactInformation.Add(entity);
+            // }
+
+            var clientContactInformatinModel = new List<dynamic>();
             for (int i = 0; i < length; i++)
             {
-                var entity = new ClientContactInformation<TKey>();
-                counter++;
-                if (typeof(TKey) == typeof(Guid))
+                var CreatedAt = faker.Date.Past(5);
+                var entity = new
                 {
-                    var Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
-                entity.Name = faker.Address.FullAddress();
-                entity.CreatedAt = faker.Date.Past(5);
-                entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
-                entity.Comment = faker.Lorem.Sentence();
-                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
-                entity.ClientContactInformationType = faker.PickRandom<ClientContactInformationType<TKey>>(clientContactInformationTypes);
-                //entity.ClientContactInformationTypeId = entity.ClientContactInformationType.Id;
-                clientContactInformation.Add(entity);
-            }
+                    Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey)),
+                    Name = faker.Address.FullAddress(),
+                    CreatedAt = CreatedAt,
+                    UpdatedAt = faker.Date.Between(CreatedAt, DateTime.Now),
+                    Comment = faker.Lorem.Sentence(),
+                    ConcurrencyStamp = Guid.NewGuid().ToString(),
+                    ClientContactInformationTypeId = faker.PickRandom<ClientContactInformationType<TKey>>(clientContactInformationTypes).Id
+                };
+                clientContactInformatinModel.Add(entity);
+            };
 
             var currencies = configuration.GetSection("Catalogs:Currency").Get<List<Currency<TKey>>>();
             for (int i = 0; i < currencies.Count; i++)
@@ -497,7 +512,11 @@ namespace Api.Data
             modelBuilder.Entity<BankAccount<TKey>>().HasData(bankAccounts);
             modelBuilder.Entity<CashDesk<TKey>>().HasData(cashDescks);
             modelBuilder.Entity<ClientContactInformationType<TKey>>().HasData(clientContactInformationTypes);
-            //modelBuilder.Entity<ClientContactInformation<TKey>>().OwnsOne(e => e.ClientContactInformationType).HasData(clientContactInformation);
+            modelBuilder.Entity<ClientContactInformation<TKey>>(ci =>
+            {
+                ci.HasOne(ci => ci.ClientContactInformationType).WithMany(cit => cit.ClientContactInformations);
+                ci.HasData(clientContactInformatinModel);
+            });
             //modelBuilder.Entity<ClientContract<TKey>().HasData(clientContracts);
             modelBuilder.Entity<Currency<TKey>>().HasData(currencies);
             modelBuilder.Entity<DocumentStatus<TKey>>().HasData(documentStatuses);
