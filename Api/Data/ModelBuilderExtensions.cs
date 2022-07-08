@@ -53,26 +53,23 @@ namespace Api.Data
                 banks.Add(entity);
             }
 
-            var bankAccounts = new List<BankAccount<TKey>>();
+            var bankAccounts = new List<dynamic>();
             for (int i = 0; i < length; i++)
             {
-                var entity = new BankAccount<TKey>();
                 counter++;
-                if (typeof(TKey) == typeof(Guid))
-                {
-                    var Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
+                var CreatedAt = faker.Date.Past(5);
 
-                entity.Name = "Bank account: " + faker.Lorem.Word();
-                entity.CreatedAt = faker.Date.Past(5);
-                entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
-                entity.Comment = faker.Lorem.Sentence();
-                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                var entity = new
+                {
+                    Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey)),
+
+                    Name = "Bank account: " + faker.Lorem.Word(),
+                    BankId = faker.PickRandom(banks).Id,
+                    CreatedAt = CreatedAt,
+                    UpdatedAt = faker.Date.Between(CreatedAt, DateTime.Now),
+                    Comment = faker.Lorem.Sentence(),
+                    ConcurrencyStamp = Guid.NewGuid().ToString(),
+                };
                 bankAccounts.Add(entity);
             }
 
@@ -473,43 +470,41 @@ namespace Api.Data
                 subdivisions.Add(entity);
             }
 
-            var products = new List<Product<TKey>>();
+            var products = new List<Object>();
             for (int i = 1; i < length; i++)
             {
-                var entity = new Product<TKey>();
-                counter++;
-                if (typeof(TKey) == typeof(Guid))
+                var CreatedAt = faker.Date.Past(5);
+
+                var entity = new
                 {
-                    var Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
-                entity.Name = faker.Commerce.Product();
-                entity.Name = entity.Name;
-                entity.FullName = faker.Commerce.Product();
-                entity.CreatedAt = faker.Date.Past(5);
-                entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
-                entity.Comment = faker.Lorem.Sentence();
-                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
-                entity.IsPublic = faker.Random.Bool();
-                entity.Article = faker.Commerce.Ean13();
-                entity.Description = faker.Commerce.ProductDescription();
-                entity.MainImageUrl = faker.Image.Random.ToString();
-                entity.Description = faker.Lorem.Paragraph();
-                entity.ProductCharacteristics = productCharacteristics;
-                entity.ProductQuality = faker.PickRandom<ProductQuality<TKey>>(productQuality);
-                entity.ProductSerie = faker.PickRandom<ProductSerie<TKey>>(productSeries);
-                entity.ProductType = faker.PickRandom<ProductType<TKey>>(productTypes);
-                entity.ProductUnitMeasurement = faker.PickRandom<ProductUnitMeasurement<TKey>>(productUnitMeasurements);
+                    Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey)),
+                    Name = "Bank account: " + faker.Lorem.Word(),
+                    FullName = faker.Commerce.Product(),
+                    CreatedAt = CreatedAt,
+                    UpdatedAt = faker.Date.Between(CreatedAt, DateTime.Now),
+                    Comment = faker.Lorem.Sentence(),
+                    ConcurrencyStamp = Guid.NewGuid().ToString(),
+                    IsPublic = faker.Random.Bool(),
+                    Article = faker.Commerce.Ean13(),
+                    Description = faker.Commerce.ProductDescription(),
+                    MainImageUrl = faker.Image.Random.ToString(),
+                    //ProductCharacteristics = productCharacteristics,
+                    ProductQualityId = faker.PickRandom<ProductQuality<TKey>>(productQuality).Id,
+                    ProductSerieId = faker.PickRandom<ProductSerie<TKey>>(productSeries).Id,
+                    ProductTypeId = faker.PickRandom<ProductType<TKey>>(productTypes).Id,
+                    ProductUnitMeasurementId = faker.PickRandom<ProductUnitMeasurement<TKey>>(productUnitMeasurements).Id,
+                };
                 products.Add(entity);
             }
 
+
             //modelBuilder.Entity<AdditionalInformation<TKey>().HasData(additionalInformation);
             modelBuilder.Entity<Bank<TKey>>().HasData(banks);
-            modelBuilder.Entity<BankAccount<TKey>>().HasData(bankAccounts);
+            modelBuilder.Entity<BankAccount<TKey>>(e =>
+            {
+                e.HasOne(e => e.Bank).WithMany(e => e.BankAccounts);
+                e.HasData(bankAccounts);
+            });
             modelBuilder.Entity<CashDesk<TKey>>().HasData(cashDescks);
             modelBuilder.Entity<ClientContactInformationType<TKey>>().HasData(clientContactInformationTypes);
             modelBuilder.Entity<ClientContactInformation<TKey>>(ci =>
@@ -532,7 +527,16 @@ namespace Api.Data
             modelBuilder.Entity<ProductType<TKey>>().HasData(productTypes);
             modelBuilder.Entity<Storage<TKey>>().HasData(storages);
             modelBuilder.Entity<Subdivision<TKey>>().HasData(subdivisions);
-            //modelBuilder.Entity<Product<TKey>>().HasData(products);
+            modelBuilder.Entity<Product<TKey>>(e =>
+            {
+                e.ToTable("Products");
+                e.HasMany(e => e.ProductCharacteristics).WithMany(e => e.Products);
+                e.HasOne(e => e.ProductQuality);
+                e.HasOne(e => e.ProductSerie);
+                e.HasOne(e => e.ProductType);
+                e.HasOne(e => e.ProductUnitMeasurement);
+                e.HasData(products);
+            });
         }
 
 

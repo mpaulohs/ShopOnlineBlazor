@@ -116,12 +116,6 @@ namespace Api.Data
 
             modelBuilder.Entity<Currency<TKey>>(b => b.ToTable("Currencyes"));
 
-            modelBuilder.Entity<Product<TKey>>(b =>
-            {
-                b.ToTable("Products");
-                b.HasMany(p => p.ProductCharacteristics).WithMany(e => e.Products);
-                b.HasOne(c => c.ProductQuality).WithMany(pq => pq.Products).HasForeignKey("Id");
-            });
 
             modelBuilder.Entity<ProductCharacteristic<TKey>>(b => b.ToTable("ProductCharacteristics"));
 

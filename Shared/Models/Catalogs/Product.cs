@@ -11,15 +11,15 @@ where TKey : IEquatable<TKey>
         [Display(Name = "Full name")]
         public string? FullName { get; set; }
 
-        public ProductType<TKey>? ProductType { get; set; }
+        public virtual ProductType<TKey>? ProductType { get; set; }
 
         public virtual ICollection<ProductCharacteristic<TKey>>? ProductCharacteristics { get; set; }
 
         public virtual ProductQuality<TKey>? ProductQuality { get; set; }
 
-        public ProductSerie<TKey>? ProductSerie { get; set; }
+        public virtual ProductSerie<TKey>? ProductSerie { get; set; }
 
-        public ProductUnitMeasurement<TKey>? ProductUnitMeasurement { get; set; }
+        public virtual ProductUnitMeasurement<TKey>? ProductUnitMeasurement { get; set; }
 
         public string? Description { get; set; }
 
