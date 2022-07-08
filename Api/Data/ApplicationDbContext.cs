@@ -92,34 +92,19 @@ namespace Api.Data
 
             modelBuilder.Entity<CashDesk<TKey>>(b => b.ToTable("CashDesks"));
 
-            // modelBuilder.Entity<ClientContactInformationType<TKey>>(b =>
-            // {
-            //     b.ToTable("ClientContactInformationTypes");
-            //     b.HasMany(b => b.ClientContactInformations).WithOne(c => c.ClientContactInformationType).HasForeignKey("ClientContactInformationTypeId");
-            // }
-            // );
+            modelBuilder.Entity<ClientContactInformationType<TKey>>().ToTable("ClientContactInformationTypes");
 
-            // modelBuilder.Entity<ClientContactInformation<TKey>>(b =>
-            // {
-            //     b.ToTable("ClientContackInformations");
-            //     b.HasOne(e => e.ClientContactInformationType).WithMany(e => e.ClientContactInformations);
-            // });
-
-
-            //b.HasOne(c => c.ClientContactInformationType).WithMany(t => t.ClientContactInformations);
-            //.WithMany<ClientContactInformation<TKey>>(d => d.ClientContactInformations);
-            //.WithMany(a => a.ClientContactInformations);
-            //}
-            //);
+            modelBuilder.Entity<ClientContactInformation<TKey>>().ToTable("ClientContackInformations");
 
             modelBuilder.Entity<ClientContract<TKey>>(b => b.ToTable("ClientContracts"));
 
             modelBuilder.Entity<Currency<TKey>>(b => b.ToTable("Currencyes"));
 
-
             modelBuilder.Entity<ProductCharacteristic<TKey>>(b => b.ToTable("ProductCharacteristics"));
 
-            modelBuilder.Entity<ProductQuality<TKey>>(b => b.ToTable("ItmeQualityes"));
+            modelBuilder.Entity<ProductQuality<TKey>>(b => b.ToTable("ProductQualities"));
+
+            modelBuilder.Entity<ProductQuantity<TKey>>(b => b.ToTable("ProductQuantities"));
 
             modelBuilder.Entity<ProductSerie<TKey>>(b => b.ToTable("ProductSeries"));
 
@@ -136,6 +121,9 @@ namespace Api.Data
             modelBuilder.Entity<Subdivision<TKey>>(b => b.ToTable("Subdivisions"));
 
             //Documents
+            modelBuilder.Entity<DocumentStatus<TKey>>().ToTable("DocumentStatuses");
+
+            modelBuilder.Entity<DocumentType<TKey>>().ToTable("DocumentTypes");
 
             modelBuilder.Entity<DocumentSale<TKey>>(b => b.ToTable("Documents"));
 
@@ -145,7 +133,6 @@ namespace Api.Data
 
             modelBuilder.Entity<Mesage<TKey>>(b => b.ToTable("Mesages"));
 
-            //Seed data\Api/Data/ApplicationDbContext.cs
             int length = 100;
 
             modelBuilder.Seed<TKey>(length, configuration);

@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using Shared.Models.Catalogs;
+using Shared.Models.Identities;
 
 namespace Api.Data
 {
@@ -512,6 +513,60 @@ namespace Api.Data
                 ci.HasOne(ci => ci.ClientContactInformationType).WithMany(cit => cit.ClientContactInformations);
                 ci.HasData(clientContactInformatinModel);
             });
+
+
+
+            var users = new List<User<TKey>>();
+            for (int i = 1; i < length; i++)
+            {
+                var CreatedAt = faker.Date.Past(5);
+
+                var entity = new User<TKey>();
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
+                entity.FirstName = faker.Person.FirstName;
+                entity.MiddleName = faker.Person.LastName;
+                entity.LastName = faker.Person.LastName;
+                entity.UserName = faker.Person.UserName;
+                entity.NormalizedUserName = entity.UserName.Trim().ToUpper().Normalize();
+                entity.UpdatedAt = faker.Date.Between(CreatedAt, DateTime.Now);
+                entity.Email = faker.Person.Email;
+                entity.NormalizedEmail = entity.Email.Trim().ToUpper().Normalize();
+                entity.EmailConfirmed = faker.Random.Bool();
+                //ToDo entity.PasswordHash;
+                entity.SecurityStamp = Guid.NewGuid().ToString();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                entity.PhoneNumber = faker.Phone.PhoneNumber();
+                entity.PhoneNumberConfirmed = faker.Random.Bool();
+                entity.TwoFactorEnabled = faker.Random.Bool();
+                //ToDo entity.LockoutEnd = faker.Date.Random;
+                entity.LockoutEnabled = faker.Random.Bool();
+                entity.AccessFailedCount = faker.Random.Number(100);
+                users.Add(entity);
+            }
+
+            var roleNames = configuration.GetSection("Catalogs:Roles").Get<List<string>>();
+            var roles = new List<Role<TKey>>();
+            for (int i = 1; i < roleNames.Count; i++)
+            {
+                var CreatedAt = faker.Date.Past(5);
+                var entity = new Role<TKey>();
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.Description = faker.Commerce.ProductDescription();
+                entity.ExchangeId = Guid.NewGuid().ToString();
+                entity.CreatedAt = CreatedAt;
+                entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.Name = roleNames[i];
+                entity.NormalizedName = entity.Name.Trim().ToUpper().Normalize();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                roles.Add(entity);
+            }
+
+
+
+
+            modelBuilder.Entity<User<TKey>>().HasData(users);
+            modelBuilder.Entity<Role<TKey>>().HasData(roles);
             //modelBuilder.Entity<ClientContract<TKey>().HasData(clientContracts);
             modelBuilder.Entity<Currency<TKey>>().HasData(currencies);
             modelBuilder.Entity<DocumentStatus<TKey>>().HasData(documentStatuses);
@@ -528,15 +583,15 @@ namespace Api.Data
             modelBuilder.Entity<Storage<TKey>>().HasData(storages);
             modelBuilder.Entity<Subdivision<TKey>>().HasData(subdivisions);
             modelBuilder.Entity<Product<TKey>>(e =>
-            {
-                e.ToTable("Products");
-                e.HasMany(e => e.ProductCharacteristics).WithMany(e => e.Products);
-                e.HasOne(e => e.ProductQuality);
-                e.HasOne(e => e.ProductSerie);
-                e.HasOne(e => e.ProductType);
-                e.HasOne(e => e.ProductUnitMeasurement);
-                e.HasData(products);
-            });
+                    {
+                        e.ToTable("Products");
+                        e.HasMany(e => e.ProductCharacteristics).WithMany(e => e.Products);
+                        e.HasOne(e => e.ProductQuality);
+                        e.HasOne(e => e.ProductSerie);
+                        e.HasOne(e => e.ProductType);
+                        e.HasOne(e => e.ProductUnitMeasurement);
+                        e.HasData(products);
+                    });
         }
 
 
