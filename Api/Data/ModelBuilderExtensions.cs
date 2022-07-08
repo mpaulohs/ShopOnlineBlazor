@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
 using Bogus;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
@@ -17,7 +19,7 @@ namespace Api.Data
         public static void Seed<TKey>(this ModelBuilder modelBuilder, int length, IConfiguration configuration) where TKey : IEquatable<TKey>
         {
 
-            //Debugger.Launch();
+            Debugger.Launch();
             System.Console.WriteLine("Start");
             if (System.Diagnostics.Debugger.IsAttached == false)
             {
@@ -118,32 +120,6 @@ namespace Api.Data
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 clientContactInformationTypes.Add(entity);
             }
-
-            // var clientContactInformation = new List<ClientContactInformation<TKey>>();
-            // for (int i = 0; i < length; i++)
-            // {
-            //     var entity = new ClientContactInformation<TKey>();
-            //     counter++;
-            //     if (typeof(TKey) == typeof(Guid))
-            //     {
-            //         var Id = Guid.NewGuid();
-            //         entity.Id = Id.ChangeType<TKey>();
-            //     }
-            //     else
-            //     {
-            //         entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-            //     }
-            //     entity.Name = faker.Address.FullAddress();
-            //     entity.CreatedAt = faker.Date.Past(5);
-            //     entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
-            //     entity.Comment = faker.Lorem.Sentence();
-            //     entity.ConcurrencyStamp = Guid.NewGuid().ToString();
-            //     var clientContactInformationType = faker.PickRandom<ClientContactInformationType<TKey>>(clientContactInformationTypes);
-            //     System.Console.WriteLine(clientContactInformationType.ToString());
-            //     entity.ClientContactInformationType = clientContactInformationType;
-            //     //entity.ClientContactInformationTypeId = entity.ClientContactInformationType.Id;
-            //     clientContactInformation.Add(entity);
-            // }
 
             var clientContactInformatinModel = new List<dynamic>();
             for (int i = 0; i < length; i++)
@@ -489,7 +465,7 @@ namespace Api.Data
                     Article = faker.Commerce.Ean13(),
                     Description = faker.Commerce.ProductDescription(),
                     MainImageUrl = faker.Image.Random.ToString(),
-                    //ProductCharacteristics = productCharacteristics,
+                    //ToDo ProductCharacteristics = productCharacteristics,
                     ProductQualityId = faker.PickRandom<ProductQuality<TKey>>(productQuality).Id,
                     ProductSerieId = faker.PickRandom<ProductSerie<TKey>>(productSeries).Id,
                     ProductTypeId = faker.PickRandom<ProductType<TKey>>(productTypes).Id,
@@ -498,42 +474,25 @@ namespace Api.Data
                 products.Add(entity);
             }
 
-
-            //modelBuilder.Entity<AdditionalInformation<TKey>().HasData(additionalInformation);
-            modelBuilder.Entity<Bank<TKey>>().HasData(banks);
-            modelBuilder.Entity<BankAccount<TKey>>(e =>
-            {
-                e.HasOne(e => e.Bank).WithMany(e => e.BankAccounts);
-                e.HasData(bankAccounts);
-            });
-            modelBuilder.Entity<CashDesk<TKey>>().HasData(cashDescks);
-            modelBuilder.Entity<ClientContactInformationType<TKey>>().HasData(clientContactInformationTypes);
-            modelBuilder.Entity<ClientContactInformation<TKey>>(ci =>
-            {
-                ci.HasOne(ci => ci.ClientContactInformationType).WithMany(cit => cit.ClientContactInformations);
-                ci.HasData(clientContactInformatinModel);
-            });
-
-
-
             var users = new List<User<TKey>>();
             for (int i = 1; i < length; i++)
             {
+                var person = new Bogus.Person();
                 var CreatedAt = faker.Date.Past(5);
 
                 var entity = new User<TKey>();
                 entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
                 entity.ExchangeId = Guid.NewGuid().ToString();
-                entity.FirstName = faker.Person.FirstName;
-                entity.MiddleName = faker.Person.LastName;
-                entity.LastName = faker.Person.LastName;
-                entity.UserName = faker.Person.UserName;
+                entity.FirstName = person.FirstName;
+                entity.MiddleName = person.LastName;
+                entity.LastName = person.LastName;
+                entity.UserName = person.UserName;
                 entity.NormalizedUserName = entity.UserName.Trim().ToUpper().Normalize();
                 entity.UpdatedAt = faker.Date.Between(CreatedAt, DateTime.Now);
-                entity.Email = faker.Person.Email;
+                entity.Email = person.Email;
                 entity.NormalizedEmail = entity.Email.Trim().ToUpper().Normalize();
                 entity.EmailConfirmed = faker.Random.Bool();
-                //ToDo entity.PasswordHash;
+                entity.PasswordHash = new PasswordHasher<User<TKey>>().HashPassword(null, "secret");
                 entity.SecurityStamp = Guid.NewGuid().ToString();
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 entity.PhoneNumber = faker.Phone.PhoneNumber();
@@ -547,7 +506,7 @@ namespace Api.Data
 
             var roleNames = configuration.GetSection("Catalogs:Roles").Get<List<string>>();
             var roles = new List<Role<TKey>>();
-            for (int i = 1; i < roleNames.Count; i++)
+            foreach (var role in roleNames)
             {
                 var CreatedAt = faker.Date.Past(5);
                 var entity = new Role<TKey>();
@@ -556,15 +515,19 @@ namespace Api.Data
                 entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.CreatedAt = CreatedAt;
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
-                entity.Name = roleNames[i];
+                entity.Name = role;
                 entity.NormalizedName = entity.Name.Trim().ToUpper().Normalize();
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 roles.Add(entity);
             }
 
-
-
-
+            //Fill tables
+            //modelBuilder.Entity<AdditionalInformation<TKey>().HasData(additionalInformation);
+            modelBuilder.Entity<Bank<TKey>>().HasData(banks);
+            modelBuilder.Entity<BankAccount<TKey>>().HasData(bankAccounts);
+            modelBuilder.Entity<CashDesk<TKey>>().HasData(cashDescks);
+            modelBuilder.Entity<ClientContactInformationType<TKey>>().HasData(clientContactInformationTypes);
+            modelBuilder.Entity<ClientContactInformation<TKey>>().HasData(clientContactInformatinModel);
             modelBuilder.Entity<User<TKey>>().HasData(users);
             modelBuilder.Entity<Role<TKey>>().HasData(roles);
             //modelBuilder.Entity<ClientContract<TKey>().HasData(clientContracts);
@@ -582,18 +545,7 @@ namespace Api.Data
             modelBuilder.Entity<ProductType<TKey>>().HasData(productTypes);
             modelBuilder.Entity<Storage<TKey>>().HasData(storages);
             modelBuilder.Entity<Subdivision<TKey>>().HasData(subdivisions);
-            modelBuilder.Entity<Product<TKey>>(e =>
-                    {
-                        e.ToTable("Products");
-                        e.HasMany(e => e.ProductCharacteristics).WithMany(e => e.Products);
-                        e.HasOne(e => e.ProductQuality);
-                        e.HasOne(e => e.ProductSerie);
-                        e.HasOne(e => e.ProductType);
-                        e.HasOne(e => e.ProductUnitMeasurement);
-                        e.HasData(products);
-                    });
+            modelBuilder.Entity<Product<TKey>>().HasData(products);
         }
-
-
     }
 }

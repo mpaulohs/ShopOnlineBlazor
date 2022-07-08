@@ -24,6 +24,9 @@ namespace Api.Data
         {
             base.OnModelCreating(modelBuilder);
 
+
+            //Identityes
+
             modelBuilder.Entity<User<TKey>>(b =>
             {
                 // Table name
@@ -88,7 +91,11 @@ namespace Api.Data
 
             modelBuilder.Entity<Bank<TKey>>(b => b.ToTable("Banks"));
 
-            modelBuilder.Entity<BankAccount<TKey>>(b => b.ToTable("BankAccounts"));
+            modelBuilder.Entity<BankAccount<TKey>>(e =>
+                       {
+                           e.ToTable("BankAccounts");
+                           e.HasOne(e => e.Bank).WithMany(e => e.BankAccounts);
+                       });
 
             modelBuilder.Entity<CashDesk<TKey>>(b => b.ToTable("CashDesks"));
 
@@ -102,9 +109,21 @@ namespace Api.Data
 
             modelBuilder.Entity<ProductCharacteristic<TKey>>(b => b.ToTable("ProductCharacteristics"));
 
-            modelBuilder.Entity<ProductQuality<TKey>>(b => b.ToTable("ProductQualities"));
+            modelBuilder.Entity<ProductQuality<TKey>>(b => b.ToTable("ProductQualityes"));
 
-            modelBuilder.Entity<ProductQuantity<TKey>>(b => b.ToTable("ProductQuantities"));
+            modelBuilder.Entity<ProductQuantity<TKey>>(b => b.ToTable("ProductQuantityes"));
+
+            modelBuilder.Entity<Product<TKey>>(e =>
+                            {
+                                e.ToTable("Products");
+                                e.HasMany(e => e.ProductCharacteristics).WithMany(e => e.Products);
+                                e.HasOne(e => e.ProductQuality);
+                                e.HasOne(e => e.ProductSerie);
+                                e.HasOne(e => e.ProductType);
+                                e.HasOne(e => e.ProductUnitMeasurement);
+                            }
+            );
+
 
             modelBuilder.Entity<ProductSerie<TKey>>(b => b.ToTable("ProductSeries"));
 
@@ -114,6 +133,8 @@ namespace Api.Data
 
             modelBuilder.Entity<ProductUnitMeasurement<TKey>>(b => b.ToTable("ProductUnitMeasuraments"));
 
+            modelBuilder.Entity<PriceType<TKey>>(b => b.ToTable("PriceTypes"));
+
             modelBuilder.Entity<Organization<TKey>>(b => b.ToTable("Organizations"));
 
             modelBuilder.Entity<Storage<TKey>>(b => b.ToTable("Storages"));
@@ -121,6 +142,7 @@ namespace Api.Data
             modelBuilder.Entity<Subdivision<TKey>>(b => b.ToTable("Subdivisions"));
 
             //Documents
+
             modelBuilder.Entity<DocumentStatus<TKey>>().ToTable("DocumentStatuses");
 
             modelBuilder.Entity<DocumentType<TKey>>().ToTable("DocumentTypes");
