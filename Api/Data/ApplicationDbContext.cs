@@ -103,7 +103,12 @@ namespace Api.Data
 
             modelBuilder.Entity<ClientContactInformation<TKey>>().ToTable("ClientContackInformations");
 
-            modelBuilder.Entity<ClientContract<TKey>>(b => b.ToTable("ClientContracts"));
+            modelBuilder.Entity<ClientContract<TKey>>(b =>
+            {
+                b.ToTable("ClientContracts");
+                b.HasOne(e => e.Client);
+                b.HasOne(e => e.Currency);
+            });
 
             modelBuilder.Entity<Currency<TKey>>(b => b.ToTable("Currencyes"));
 

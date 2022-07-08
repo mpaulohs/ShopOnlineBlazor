@@ -30,6 +30,62 @@ namespace Api.Data
             var faker = new Faker();
             int counter = 0;
 
+            //Identity
+
+            var users = new List<User<TKey>>();
+            for (int i = 1; i < length; i++)
+            {
+                var person = new Bogus.Person();
+                var CreatedAt = faker.Date.Past(5);
+
+                var entity = new User<TKey>();
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
+                entity.FirstName = person.FirstName;
+                entity.MiddleName = person.LastName;
+                entity.LastName = person.LastName;
+                entity.UserName = person.UserName;
+                entity.NormalizedUserName = entity.UserName.Trim().ToUpper().Normalize();
+                entity.UpdatedAt = faker.Date.Between(CreatedAt, DateTime.Now);
+                entity.Email = person.Email;
+                entity.NormalizedEmail = entity.Email.Trim().ToUpper().Normalize();
+                entity.EmailConfirmed = faker.Random.Bool();
+                entity.PasswordHash = new PasswordHasher<User<TKey>>().HashPassword(null, "secret");
+                entity.SecurityStamp = Guid.NewGuid().ToString();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                entity.PhoneNumber = faker.Phone.PhoneNumber();
+                entity.PhoneNumberConfirmed = faker.Random.Bool();
+                entity.TwoFactorEnabled = faker.Random.Bool();
+                //ToDo entity.LockoutEnd = faker.Date.Random;
+                entity.LockoutEnabled = faker.Random.Bool();
+                entity.AccessFailedCount = faker.Random.Number(100);
+                users.Add(entity);
+            }
+
+            var roleNames = configuration.GetSection("Catalogs:Roles").Get<List<string>>();
+            var roles = new List<Role<TKey>>();
+            foreach (var role in roleNames)
+            {
+                var CreatedAt = faker.Date.Past(5);
+                var entity = new Role<TKey>();
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.Description = faker.Commerce.ProductDescription();
+                entity.ExchangeId = Guid.NewGuid().ToString();
+                entity.CreatedAt = CreatedAt;
+                entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
+                entity.Name = role;
+                entity.NormalizedName = entity.Name.Trim().ToUpper().Normalize();
+                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                roles.Add(entity);
+            }
+
+            var userRoles = new List<object>();
+            foreach (var user in users)
+            {
+                userRoles.Add(new { UserId = user.Id, RoleId = faker.PickRandom(roles).Id });
+            }
+
+
             //Catalogs
 
             var banks = new List<Bank<TKey>>();
@@ -121,7 +177,7 @@ namespace Api.Data
                 clientContactInformationTypes.Add(entity);
             }
 
-            var clientContactInformatinModel = new List<dynamic>();
+            var clientContactInformatin = new List<object>();
             for (int i = 0; i < length; i++)
             {
                 var CreatedAt = faker.Date.Past(5);
@@ -133,10 +189,13 @@ namespace Api.Data
                     UpdatedAt = faker.Date.Between(CreatedAt, DateTime.Now),
                     Comment = faker.Lorem.Sentence(),
                     ConcurrencyStamp = Guid.NewGuid().ToString(),
-                    ClientContactInformationTypeId = faker.PickRandom<ClientContactInformationType<TKey>>(clientContactInformationTypes).Id
+                    ClientContactInformationTypeId = faker.PickRandom<ClientContactInformationType<TKey>>(clientContactInformationTypes).Id,
+                    ClientId = faker.PickRandom(users).Id,
                 };
-                clientContactInformatinModel.Add(entity);
+                clientContactInformatin.Add(entity);
             };
+
+
 
             var currencies = configuration.GetSection("Catalogs:Currency").Get<List<Currency<TKey>>>();
             for (int i = 0; i < currencies.Count; i++)
@@ -156,6 +215,25 @@ namespace Api.Data
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
             }
+
+            var clientContracts = new List<object>();
+            foreach (var user in users)
+            {
+                var CreatedAt = faker.Date.Past(5);
+                var entity = new
+                {
+                    Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey)),
+                    Name = $"Contract with {user.UserName} from {CreatedAt.ToShortDateString()}",
+                    CreatedAt = CreatedAt,
+                    UpdatedAt = faker.Date.Between(CreatedAt, DateTime.Now),
+                    Comment = faker.Lorem.Sentence(),
+                    ConcurrencyStamp = Guid.NewGuid().ToString(),
+                    ClientContactInformationTypeId = faker.PickRandom<ClientContactInformationType<TKey>>(clientContactInformationTypes).Id,
+                    ClientId = faker.PickRandom(users).Id,
+                    CurrencyId = faker.PickRandom(currencies).Id,
+                };
+                clientContracts.Add(entity);
+            };
 
             var documentStatusNames = configuration.GetSection("Catalogs:DocumentStatus").Get<List<string>>();
             var documentStatuses = new List<DocumentStatus<TKey>>();
@@ -474,63 +552,17 @@ namespace Api.Data
                 products.Add(entity);
             }
 
-            var users = new List<User<TKey>>();
-            for (int i = 1; i < length; i++)
-            {
-                var person = new Bogus.Person();
-                var CreatedAt = faker.Date.Past(5);
-
-                var entity = new User<TKey>();
-                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
-                entity.ExchangeId = Guid.NewGuid().ToString();
-                entity.FirstName = person.FirstName;
-                entity.MiddleName = person.LastName;
-                entity.LastName = person.LastName;
-                entity.UserName = person.UserName;
-                entity.NormalizedUserName = entity.UserName.Trim().ToUpper().Normalize();
-                entity.UpdatedAt = faker.Date.Between(CreatedAt, DateTime.Now);
-                entity.Email = person.Email;
-                entity.NormalizedEmail = entity.Email.Trim().ToUpper().Normalize();
-                entity.EmailConfirmed = faker.Random.Bool();
-                entity.PasswordHash = new PasswordHasher<User<TKey>>().HashPassword(null, "secret");
-                entity.SecurityStamp = Guid.NewGuid().ToString();
-                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
-                entity.PhoneNumber = faker.Phone.PhoneNumber();
-                entity.PhoneNumberConfirmed = faker.Random.Bool();
-                entity.TwoFactorEnabled = faker.Random.Bool();
-                //ToDo entity.LockoutEnd = faker.Date.Random;
-                entity.LockoutEnabled = faker.Random.Bool();
-                entity.AccessFailedCount = faker.Random.Number(100);
-                users.Add(entity);
-            }
-
-            var roleNames = configuration.GetSection("Catalogs:Roles").Get<List<string>>();
-            var roles = new List<Role<TKey>>();
-            foreach (var role in roleNames)
-            {
-                var CreatedAt = faker.Date.Past(5);
-                var entity = new Role<TKey>();
-                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
-                entity.Description = faker.Commerce.ProductDescription();
-                entity.ExchangeId = Guid.NewGuid().ToString();
-                entity.CreatedAt = CreatedAt;
-                entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
-                entity.Name = role;
-                entity.NormalizedName = entity.Name.Trim().ToUpper().Normalize();
-                entity.ConcurrencyStamp = Guid.NewGuid().ToString();
-                roles.Add(entity);
-            }
-
             //Fill tables
             //modelBuilder.Entity<AdditionalInformation<TKey>().HasData(additionalInformation);
             modelBuilder.Entity<Bank<TKey>>().HasData(banks);
             modelBuilder.Entity<BankAccount<TKey>>().HasData(bankAccounts);
             modelBuilder.Entity<CashDesk<TKey>>().HasData(cashDescks);
             modelBuilder.Entity<ClientContactInformationType<TKey>>().HasData(clientContactInformationTypes);
-            modelBuilder.Entity<ClientContactInformation<TKey>>().HasData(clientContactInformatinModel);
+            modelBuilder.Entity<ClientContactInformation<TKey>>().HasData(clientContactInformatin);
             modelBuilder.Entity<User<TKey>>().HasData(users);
             modelBuilder.Entity<Role<TKey>>().HasData(roles);
-            //modelBuilder.Entity<ClientContract<TKey>().HasData(clientContracts);
+            modelBuilder.Entity<UserRole<TKey>>().HasData(userRoles);
+            modelBuilder.Entity<ClientContract<TKey>>().HasData(clientContracts);
             modelBuilder.Entity<Currency<TKey>>().HasData(currencies);
             modelBuilder.Entity<DocumentStatus<TKey>>().HasData(documentStatuses);
             modelBuilder.Entity<DocumentType<TKey>>().HasData(documentTypes);

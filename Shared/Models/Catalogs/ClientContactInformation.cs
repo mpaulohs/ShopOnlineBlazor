@@ -8,11 +8,6 @@ namespace Shared.Models.Catalogs
     {
         public User<TKey>? Client { get; set; }
 
-        //public TKey? ClientContactInformationTypeId { get; set; }
-
         public ClientContactInformationType<TKey>? ClientContactInformationType { get; set; }
-
-        [MaxLength(255)]
-        public string? Value { get; set; }
     }
 }
