@@ -8,6 +8,8 @@ namespace Shared.Models.Catalogs
         [Key]
         public TKey Id { get; set; }
 
+        public string? ExchangeId { get; set; }
+
         [MaxLength(100)]
         public string? Name { get; set; } = default;
 

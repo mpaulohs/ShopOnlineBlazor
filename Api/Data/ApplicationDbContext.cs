@@ -121,7 +121,7 @@ namespace Api.Data
             modelBuilder.Entity<Product<TKey>>(e =>
                             {
                                 e.ToTable("Products");
-                                e.HasMany(e => e.ProductCharacteristics).WithMany(e => e.Products);
+                                e.HasMany(e => e.ProductCharacteristics).WithMany(e => e.Products).UsingEntity("Product_ProductChrarcteristics");
                                 e.HasOne(e => e.ProductQuality);
                                 e.HasOne(e => e.ProductSerie);
                                 e.HasOne(e => e.ProductType);

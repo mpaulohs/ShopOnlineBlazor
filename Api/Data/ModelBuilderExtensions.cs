@@ -19,13 +19,13 @@ namespace Api.Data
         public static void Seed<TKey>(this ModelBuilder modelBuilder, int length, IConfiguration configuration) where TKey : IEquatable<TKey>
         {
 
-            Debugger.Launch();
-            System.Console.WriteLine("Start");
-            if (System.Diagnostics.Debugger.IsAttached == false)
-            {
-                var res = System.Diagnostics.Debugger.Launch();
-                System.Console.WriteLine("Debugger lunched: " + res.ToString());
-            }
+            // Debugger.Launch();
+            // System.Console.WriteLine("Start");
+            // if (System.Diagnostics.Debugger.IsAttached == false)
+            // {
+            //     var res = System.Diagnostics.Debugger.Launch();
+            //     System.Console.WriteLine("Debugger lunched: " + res.ToString());
+            // }
 
             var faker = new Faker();
             int counter = 0;
@@ -37,7 +37,6 @@ namespace Api.Data
             {
                 var person = new Bogus.Person();
                 var CreatedAt = faker.Date.Past(5);
-
                 var entity = new User<TKey>();
                 entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
                 entity.ExchangeId = Guid.NewGuid().ToString();
@@ -69,6 +68,7 @@ namespace Api.Data
                 var CreatedAt = faker.Date.Past(5);
                 var entity = new Role<TKey>();
                 entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.Description = faker.Commerce.ProductDescription();
                 entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.CreatedAt = CreatedAt;
@@ -92,18 +92,9 @@ namespace Api.Data
             for (int i = 0; i < length; i++)
             {
                 var entity = new Bank<TKey>();
-
                 counter++;
-                if (typeof(TKey) == typeof(Guid))
-                {
-                    Guid Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
-
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.Name = "Bank " + faker.Company.CompanyName();
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
@@ -117,11 +108,10 @@ namespace Api.Data
             {
                 counter++;
                 var CreatedAt = faker.Date.Past(5);
-
                 var entity = new
                 {
                     Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey)),
-
+                    ExchangeId = Guid.NewGuid().ToString(),
                     Name = "Bank account: " + faker.Lorem.Word(),
                     BankId = faker.PickRandom(banks).Id,
                     CreatedAt = CreatedAt,
@@ -137,15 +127,8 @@ namespace Api.Data
             {
                 var entity = new CashDesk<TKey>();
                 counter++;
-                if (typeof(TKey) == typeof(Guid))
-                {
-                    var Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.Name = "Cash desk: " + faker.Lorem.Word();
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
@@ -160,15 +143,8 @@ namespace Api.Data
             {
                 var entity = new ClientContactInformationType<TKey>();
                 counter++;
-                if (typeof(TKey) == typeof(Guid))
-                {
-                    var Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.Name = clientContactInformatinTypeName[i];
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
@@ -184,6 +160,7 @@ namespace Api.Data
                 var entity = new
                 {
                     Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey)),
+                    ExchangeId = Guid.NewGuid().ToString(),
                     Name = faker.Address.FullAddress(),
                     CreatedAt = CreatedAt,
                     UpdatedAt = faker.Date.Between(CreatedAt, DateTime.Now),
@@ -195,22 +172,13 @@ namespace Api.Data
                 clientContactInformatin.Add(entity);
             };
 
-
-
             var currencies = configuration.GetSection("Catalogs:Currency").Get<List<Currency<TKey>>>();
             for (int i = 0; i < currencies.Count; i++)
             {
                 var entity = currencies[i];
                 counter++;
-                if (typeof(TKey) == typeof(Guid))
-                {
-                    var Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
@@ -223,6 +191,7 @@ namespace Api.Data
                 var entity = new
                 {
                     Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey)),
+                    ExchangeId = Guid.NewGuid().ToString(),
                     Name = $"Contract with {user.UserName} from {CreatedAt.ToShortDateString()}",
                     CreatedAt = CreatedAt,
                     UpdatedAt = faker.Date.Between(CreatedAt, DateTime.Now),
@@ -241,15 +210,8 @@ namespace Api.Data
             {
                 var entity = new DocumentStatus<TKey>();
                 counter++;
-                if (typeof(TKey) == typeof(Guid))
-                {
-                    var Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.Name = documentStatusNames[i];
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
@@ -264,15 +226,8 @@ namespace Api.Data
             {
                 var entity = new DocumentType<TKey>();
                 counter++;
-                if (typeof(TKey) == typeof(Guid))
-                {
-                    var Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.Name = documentTypeNames[i];
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
@@ -286,15 +241,8 @@ namespace Api.Data
             {
                 var entity = new Organization<TKey>();
                 counter++;
-                if (typeof(TKey) == typeof(Guid))
-                {
-                    var Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.Name = "Organization " + faker.Company.CompanyName();
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
@@ -303,22 +251,14 @@ namespace Api.Data
                 organizations.Add(entity);
             }
 
-
             var priceTypeNames = configuration.GetSection("Catalogs:PriceType").Get<List<string>>();
             var priceTypes = new List<PriceType<TKey>>();
             for (int i = 0; i < priceTypeNames.Count; i++)
             {
                 var entity = new PriceType<TKey>();
                 counter++;
-                if (typeof(TKey) == typeof(Guid))
-                {
-                    var Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.Name = priceTypeNames[i];
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
@@ -332,15 +272,8 @@ namespace Api.Data
             {
                 var entity = new ProductCharacteristic<TKey>();
                 counter++;
-                if (typeof(TKey) == typeof(Guid))
-                {
-                    var Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.Name = faker.Commerce.Color();
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
@@ -354,15 +287,8 @@ namespace Api.Data
             {
                 var entity = new ProductQuality<TKey>();
                 counter++;
-                if (typeof(TKey) == typeof(Guid))
-                {
-                    var Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.Name = "Product quaity: " + faker.Lorem.Word();
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
@@ -376,15 +302,8 @@ namespace Api.Data
             {
                 var entity = new ProductQuantity<TKey>();
                 counter++;
-                if (typeof(TKey) == typeof(Guid))
-                {
-                    var Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.Name = "Product quanity: " + faker.Lorem.Word();
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
@@ -398,15 +317,8 @@ namespace Api.Data
             {
                 var entity = new ProductSerie<TKey>();
                 counter++;
-                if (typeof(TKey) == typeof(Guid))
-                {
-                    var Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.Name = "Product serie: " + faker.Commerce.Ean13();
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
@@ -420,15 +332,8 @@ namespace Api.Data
             {
                 var entity = new ProductType<TKey>();
                 counter++;
-                if (typeof(TKey) == typeof(Guid))
-                {
-                    var Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.Name = "Product type: " + faker.Lorem.Word();
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
@@ -442,15 +347,8 @@ namespace Api.Data
             {
                 var entity = new ProductUnitClassifier<TKey>();
                 counter++;
-                if (typeof(TKey) == typeof(Guid))
-                {
-                    var Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.Name = "Product unit classifier: " + faker.Lorem.Word();
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
@@ -464,15 +362,8 @@ namespace Api.Data
             {
                 var entity = new ProductUnitMeasurement<TKey>();
                 counter++;
-                if (typeof(TKey) == typeof(Guid))
-                {
-                    var Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.Name = "Product unit measurement: " + faker.Lorem.Word();
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
@@ -486,15 +377,8 @@ namespace Api.Data
             {
                 var entity = new Storage<TKey>();
                 counter++;
-                if (typeof(TKey) == typeof(Guid))
-                {
-                    var Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.Name = "Storage: " + faker.Lorem.Word();
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
@@ -508,15 +392,8 @@ namespace Api.Data
             {
                 var entity = new Subdivision<TKey>();
                 counter++;
-                if (typeof(TKey) == typeof(Guid))
-                {
-                    var Id = Guid.NewGuid();
-                    entity.Id = Id.ChangeType<TKey>();
-                }
-                else
-                {
-                    entity.Id = (TKey)Convert.ChangeType(counter, typeof(TKey));
-                }
+                entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
+                entity.ExchangeId = Guid.NewGuid().ToString();
                 entity.Name = "Subdivision: " + faker.Lorem.Word();
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
@@ -529,10 +406,10 @@ namespace Api.Data
             for (int i = 1; i < length; i++)
             {
                 var CreatedAt = faker.Date.Past(5);
-
                 var entity = new
                 {
                     Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey)),
+                    ExchangeId = Guid.NewGuid().ToString(),
                     Name = "Bank account: " + faker.Lorem.Word(),
                     FullName = faker.Commerce.Product(),
                     CreatedAt = CreatedAt,
@@ -543,7 +420,7 @@ namespace Api.Data
                     Article = faker.Commerce.Ean13(),
                     Description = faker.Commerce.ProductDescription(),
                     MainImageUrl = faker.Image.Random.ToString(),
-                    //ToDo ProductCharacteristics = productCharacteristics,
+                    //ProductCharacteristics = faker.PickRandom(productCharacteristics, 5),
                     ProductQualityId = faker.PickRandom<ProductQuality<TKey>>(productQuality).Id,
                     ProductSerieId = faker.PickRandom<ProductSerie<TKey>>(productSeries).Id,
                     ProductTypeId = faker.PickRandom<ProductType<TKey>>(productTypes).Id,
@@ -551,6 +428,14 @@ namespace Api.Data
                 };
                 products.Add(entity);
             }
+
+            // var productProductCharacteristics = new Dictionary<object, object>();
+            // foreach (var product in products)
+            // {
+            //     var ProductID = product.GetType().GetField("Id").GetValue(product);
+            //     var ProductCharacteristicId = faker.PickRandom(productCharacteristics).GetType().GetField("Id").GetValue(productCharacteristics);
+            //     productProductCharacteristics.Add(ProductID, ProductCharacteristicId);
+            // }
 
             //Fill tables
             //modelBuilder.Entity<AdditionalInformation<TKey>().HasData(additionalInformation);
@@ -578,6 +463,7 @@ namespace Api.Data
             modelBuilder.Entity<Storage<TKey>>().HasData(storages);
             modelBuilder.Entity<Subdivision<TKey>>().HasData(subdivisions);
             modelBuilder.Entity<Product<TKey>>().HasData(products);
+            //modelBuilder.Model("") <).HasData(productProductCharacteristics);
         }
     }
 }
