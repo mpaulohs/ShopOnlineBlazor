@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{A63289D8-BB5A-446E-ABE1-F81585019CAA}|Default">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/igormelnyk/Projects/ShopOnlinePWA/Api/Data/ModelBuilderExtensions.cs" relfile="Api/Data/ModelBuilderExtensions.cs" line="31" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Api/Data/ModelBuilderExtensions.cs">
+    <Files>
+      <File FileName="Api/Data/ModelBuilderExtensions.cs" Line="29" Column="7" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ShopOnlinePWA" expanded="True">
+            <Node name="Api" expanded="True">
+              <Node name="Data" expanded="True">
+                <Node name="ModelBuilderExtensions.cs" selected="True" />
+              </Node>
+            </Node>
+            <Node name="Shared" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Api PreferredExecutionTarget="/Applications/Google Chrome.app" />
+</Properties>
