@@ -32,7 +32,6 @@ namespace Api.Data
             int counter = 0;
 
             //Identity
-
             var users = new List<User<TKey>>();
             for (int i = 1; i < length; i++)
             {

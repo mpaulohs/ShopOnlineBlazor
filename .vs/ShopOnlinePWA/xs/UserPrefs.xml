@@ -7,10 +7,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Api/Data/ModelBuilderExtensions.cs">
-    <Files>
-      <File FileName="Api/Data/ModelBuilderExtensions.cs" Line="29" Column="7" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -20,7 +17,6 @@
                 <Node name="ModelBuilderExtensions.cs" selected="True" />
               </Node>
             </Node>
-            <Node name="Shared" expanded="True" />
           </Node>
         </State>
       </Pad>
