@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
+using System.Linq;
 using Bogus;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.AspNetCore.Identity;
@@ -379,7 +380,7 @@ namespace Api.Data
                 counter++;
                 entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
                 entity.ExchangeId = Guid.NewGuid().ToString();
-                entity.Name = "Storage: " + faker.Lorem.Word();
+                entity.Name = $"Storage: {i}";
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
                 entity.Comment = faker.Lorem.Sentence();
@@ -394,7 +395,7 @@ namespace Api.Data
                 counter++;
                 entity.Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey));
                 entity.ExchangeId = Guid.NewGuid().ToString();
-                entity.Name = "Subdivision: " + faker.Lorem.Word();
+                entity.Name = $"Subdivision: {i}";
                 entity.CreatedAt = faker.Date.Past(5);
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
                 entity.Comment = faker.Lorem.Sentence();
@@ -405,7 +406,14 @@ namespace Api.Data
             var products = new List<Object>();
             for (int i = 1; i < length; i++)
             {
+                // var productCharacteristicList = new List<ProductCharacteristic<TKey>>();
+                // productCharacteristicList.AddRange(faker.PickRandom(productCharacteristics, 5));
+                // var product = new Product<TKey>();
+                // product.ProductCharacteristics
+
                 var CreatedAt = faker.Date.Past(5);
+
+
                 var entity = new
                 {
                     Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey)),
@@ -420,7 +428,9 @@ namespace Api.Data
                     Article = faker.Commerce.Ean13(),
                     Description = faker.Commerce.ProductDescription(),
                     MainImageUrl = faker.Image.Random.ToString(),
+                    //ProductCharacteristics = productCharacteristicList
                     //ProductCharacteristics = faker.PickRandom(productCharacteristics, 5),
+                    //ProductCharacteristicsId = faker.PickRandom(productCharacteristicIds, 5),
                     ProductQualityId = faker.PickRandom<ProductQuality<TKey>>(productQuality).Id,
                     ProductSerieId = faker.PickRandom<ProductSerie<TKey>>(productSeries).Id,
                     ProductTypeId = faker.PickRandom<ProductType<TKey>>(productTypes).Id,
@@ -429,12 +439,20 @@ namespace Api.Data
                 products.Add(entity);
             }
 
-            // var productProductCharacteristics = new Dictionary<object, object>();
+
+
+            var productProductCharacteristics = new Dictionary<TKey, TKey>();
             // foreach (var product in products)
             // {
-            //     var ProductID = product.GetType().GetField("Id").GetValue(product);
-            //     var ProductCharacteristicId = faker.PickRandom(productCharacteristics).GetType().GetField("Id").GetValue(productCharacteristics);
-            //     productProductCharacteristics.Add(ProductID, ProductCharacteristicId);
+            //     var productId = product.GetType().GetField("Id").GetValue(product); // Object
+            //     var ProductId = (TKey)Convert.ChangeType(productId, typeof(TKey)); //Type TKey
+            //     var ProductCharacteristicId = faker.PickRandom(productCharacteristics).Id;
+            //     productProductCharacteristics.Add(ProductId, ProductCharacteristicId);
+            // }
+
+            // foreach (var item in productProductCharacteristics)
+            // {
+            //     System.Console.WriteLine(item.ToString());
             // }
 
             //Fill tables
@@ -463,7 +481,14 @@ namespace Api.Data
             modelBuilder.Entity<Storage<TKey>>().HasData(storages);
             modelBuilder.Entity<Subdivision<TKey>>().HasData(subdivisions);
             modelBuilder.Entity<Product<TKey>>().HasData(products);
-            //modelBuilder.Model("") <).HasData(productProductCharacteristics);
+            // modelBuilder.Entity<Product<TKey>>(e =>
+            //                 {
+            //                     e.ToTable("Products");
+            //                     // e.HasMany(e => e.ProductCharacteristics).WithMany(e => e.Products).UsingEntity("Product_ProductChrarcteristics");
+            //                     e.HasMany(e => e.ProductCharacteristics)
+            //                     .WithMany(e => e.Products).UsingEntity("ProductsCharacteristics").HasData(productProductCharacteristics);
+            //                 }
+            // );
         }
     }
 }

@@ -15,6 +15,9 @@ namespace Api.Data
     {
         private IConfiguration configuration;
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext<TKey>> options, IConfiguration configuration)
+
+
+
         : base(options)
         {
             this.configuration = configuration;
@@ -23,10 +26,6 @@ namespace Api.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-
-            //Identityes
-
             modelBuilder.Entity<User<TKey>>(b =>
             {
                 // Table name
@@ -112,7 +111,7 @@ namespace Api.Data
 
             modelBuilder.Entity<Currency<TKey>>(b => b.ToTable("Currencyes"));
 
-            modelBuilder.Entity<ProductCharacteristic<TKey>>(b => b.ToTable("ProductCharacteristics"));
+            //modelBuilder.Entity<ProductCharacteristic<TKey>>(b => b.ToTable("ProductCharacteristics"));
 
             modelBuilder.Entity<ProductQuality<TKey>>(b => b.ToTable("ProductQualityes"));
 
@@ -121,7 +120,12 @@ namespace Api.Data
             modelBuilder.Entity<Product<TKey>>(e =>
                             {
                                 e.ToTable("Products");
-                                e.HasMany(e => e.ProductCharacteristics).WithMany(e => e.Products).UsingEntity("Product_ProductChrarcteristics");
+                                // e.HasMany(e => e.ProductCharacteristics).WithMany(e => e.Products).UsingEntity("Product_ProductChrarcteristics");
+                                e.HasMany(e => e.ProductCharacteristics)
+                                .WithMany(e => e.Products).UsingEntity("ProductsCharacteristics");
+                                // .UsingEntity<Dictionary<string, object>>("Product_Characteristic",
+                                // p => p.HasOne<ProductCharacteristic<TKey>>().WithMany().HasForeignKey("ProductCharacteristicId"),
+                                // c => c.HasOne<Product<TKey>>().WithMany().HasForeignKey("ProductId"));
                                 e.HasOne(e => e.ProductQuality);
                                 e.HasOne(e => e.ProductSerie);
                                 e.HasOne(e => e.ProductType);
@@ -167,6 +171,3 @@ namespace Api.Data
         }
     }
 }
-
-
-
