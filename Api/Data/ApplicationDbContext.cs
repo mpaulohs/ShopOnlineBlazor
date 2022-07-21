@@ -111,21 +111,28 @@ namespace Api.Data
 
             modelBuilder.Entity<Currency<TKey>>(b => b.ToTable("Currencyes"));
 
-            //modelBuilder.Entity<ProductCharacteristic<TKey>>(b => b.ToTable("ProductCharacteristics"));
-
             modelBuilder.Entity<ProductQuality<TKey>>(b => b.ToTable("ProductQualityes"));
 
             modelBuilder.Entity<ProductQuantity<TKey>>(b => b.ToTable("ProductQuantityes"));
 
+            modelBuilder.Entity<ProductCharacteristic<TKey>>(b => b.ToTable("ProductCharacteristics"));
+
             modelBuilder.Entity<Product<TKey>>(e =>
                             {
                                 e.ToTable("Products");
-                                // e.HasMany(e => e.ProductCharacteristics).WithMany(e => e.Products).UsingEntity("Product_ProductChrarcteristics");
-                                e.HasMany(e => e.ProductCharacteristics)
-                                .WithMany(e => e.Products).UsingEntity("ProductsCharacteristics");
-                                // .UsingEntity<Dictionary<string, object>>("Product_Characteristic",
-                                // p => p.HasOne<ProductCharacteristic<TKey>>().WithMany().HasForeignKey("ProductCharacteristicId"),
-                                // c => c.HasOne<Product<TKey>>().WithMany().HasForeignKey("ProductId"));
+                                e.HasMany(p => p.ProductCharacteristics)
+                                .WithMany(ph => ph.Products)
+                                .UsingEntity("Products_ProductCharacteristics",
+                                typeof(Dictionary<string, object>),
+                                configureRight => configureRight
+                                .HasOne(typeof(ProductCharacteristic<TKey>))
+                                .WithMany()
+                                .HasForeignKey("ProductCharacteristicId"),
+                                configureRight => configureRight
+                                .HasOne(typeof(Product<TKey>))
+                                .WithMany()
+                                .HasForeignKey("ProductId"),
+                                join => join.ToTable("Products_Characteristics"));
                                 e.HasOne(e => e.ProductQuality);
                                 e.HasOne(e => e.ProductSerie);
                                 e.HasOne(e => e.ProductType);

@@ -20,14 +20,6 @@ namespace Api.Data
         public static void Seed<TKey>(this ModelBuilder modelBuilder, int length, IConfiguration configuration) where TKey : IEquatable<TKey>
         {
 
-            // Debugger.Launch();
-            // System.Console.WriteLine("Start");
-            // if (System.Diagnostics.Debugger.IsAttached == false)
-            // {
-            //     var res = System.Diagnostics.Debugger.Launch();
-            //     System.Console.WriteLine("Debugger lunched: " + res.ToString());
-            // }
-
             var faker = new Faker();
             int counter = 0;
 
@@ -52,6 +44,7 @@ namespace Api.Data
                 entity.PasswordHash = new PasswordHasher<User<TKey>>().HashPassword(null, "secret");
                 entity.SecurityStamp = Guid.NewGuid().ToString();
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
+                // entity.PhoneNumber = faker.Phone.PhoneNumber("{0:(###) ###-####}");
                 entity.PhoneNumber = faker.Phone.PhoneNumber();
                 entity.PhoneNumberConfirmed = faker.Random.Bool();
                 entity.TwoFactorEnabled = faker.Random.Bool();
@@ -87,7 +80,6 @@ namespace Api.Data
 
 
             //Catalogs
-
             var banks = new List<Bank<TKey>>();
             for (int i = 0; i < length; i++)
             {
@@ -220,7 +212,7 @@ namespace Api.Data
                 documentStatuses.Add(entity);
             }
 
-            var documentTypeNames = configuration.GetSection("Catalogs:DocumentStatus").Get<List<string>>();
+            var documentTypeNames = configuration.GetSection("Catalogs:DocumentTypes").Get<List<string>>();
             var documentTypes = new List<DocumentType<TKey>>();
             for (int i = 0; i < documentTypeNames.Count; i++)
             {
@@ -405,14 +397,7 @@ namespace Api.Data
             var products = new List<Object>();
             for (int i = 1; i < length; i++)
             {
-                // var productCharacteristicList = new List<ProductCharacteristic<TKey>>();
-                // productCharacteristicList.AddRange(faker.PickRandom(productCharacteristics, 5));
-                // var product = new Product<TKey>();
-                // product.ProductCharacteristics
-
                 var CreatedAt = faker.Date.Past(5);
-
-
                 var entity = new
                 {
                     Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey)),
@@ -427,9 +412,6 @@ namespace Api.Data
                     Article = faker.Commerce.Ean13(),
                     Description = faker.Commerce.ProductDescription(),
                     MainImageUrl = faker.Image.Random.ToString(),
-                    //ProductCharacteristics = productCharacteristicList
-                    //ProductCharacteristics = faker.PickRandom(productCharacteristics, 5),
-                    //ProductCharacteristicsId = faker.PickRandom(productCharacteristicIds, 5),
                     ProductQualityId = faker.PickRandom<ProductQuality<TKey>>(productQuality).Id,
                     ProductSerieId = faker.PickRandom<ProductSerie<TKey>>(productSeries).Id,
                     ProductTypeId = faker.PickRandom<ProductType<TKey>>(productTypes).Id,
@@ -438,24 +420,6 @@ namespace Api.Data
                 products.Add(entity);
             }
 
-
-
-            var productProductCharacteristics = new Dictionary<TKey, TKey>();
-            // foreach (var product in products)
-            // {
-            //     var productId = product.GetType().GetField("Id").GetValue(product); // Object
-            //     var ProductId = (TKey)Convert.ChangeType(productId, typeof(TKey)); //Type TKey
-            //     var ProductCharacteristicId = faker.PickRandom(productCharacteristics).Id;
-            //     productProductCharacteristics.Add(ProductId, ProductCharacteristicId);
-            // }
-
-            // foreach (var item in productProductCharacteristics)
-            // {
-            //     System.Console.WriteLine(item.ToString());
-            // }
-
-            //Fill tables
-            //modelBuilder.Entity<AdditionalInformation<TKey>().HasData(additionalInformation);
             modelBuilder.Entity<Bank<TKey>>().HasData(banks);
             modelBuilder.Entity<BankAccount<TKey>>().HasData(bankAccounts);
             modelBuilder.Entity<CashDesk<TKey>>().HasData(cashDescks);
@@ -480,14 +444,15 @@ namespace Api.Data
             modelBuilder.Entity<Storage<TKey>>().HasData(storages);
             modelBuilder.Entity<Subdivision<TKey>>().HasData(subdivisions);
             modelBuilder.Entity<Product<TKey>>().HasData(products);
-            // modelBuilder.Entity<Product<TKey>>(e =>
-            //                 {
-            //                     e.ToTable("Products");
-            //                     // e.HasMany(e => e.ProductCharacteristics).WithMany(e => e.Products).UsingEntity("Product_ProductChrarcteristics");
-            //                     e.HasMany(e => e.ProductCharacteristics)
-            //                     .WithMany(e => e.Products).UsingEntity("ProductsCharacteristics").HasData(productProductCharacteristics);
-            //                 }
-            // );
+
+            var productProductCharacteristics = new List<object>();
+            foreach (var product in products)
+            {
+                var ProductId = product.GetType().GetProperty("Id").GetValue(product, null);
+                var ProductCharacteristicId = faker.PickRandom(productCharacteristics).Id;
+                modelBuilder.Entity("Products_ProductCharacteristics").HasData(new { ProductCharacteristicId = ProductCharacteristicId, ProductId = ProductId });
+
+            }
         }
     }
 }
