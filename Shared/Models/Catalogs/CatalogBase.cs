@@ -22,6 +22,7 @@ namespace Shared.Models.Catalogs
 
         [MaxLength(255)]
         public string? Comment { get; set; }
+        public string GetName { get => this.Name; set => throw new NotImplementedException(); }
 
         public override string ToString() => string.IsNullOrEmpty(this.Name) ? string.Empty : this.Name;
 

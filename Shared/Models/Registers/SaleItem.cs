@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Shared.Models.Registers
 {
     public class SaleProduct<TKey> : IApplicationEntity<TKey>
-    where TKey: IEquatable<TKey>
+    where TKey : IEquatable<TKey>
 
     {
         public TKey Id { get; set; }
@@ -44,5 +44,6 @@ namespace Shared.Models.Registers
 
         [MaxLength(50)]
         public string? ConcurrencyStamp { get; set; }
+        public string GetName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

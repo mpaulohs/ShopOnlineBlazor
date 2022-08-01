@@ -199,6 +199,11 @@ namespace Shared.Services.Repository
                 return null;
             }
             //search
+            if (search != default)
+            {
+                var searchs = search.Split(' ');
+                entities = entities.Where<TEntity>(e => searchs.Contains(e.ToString()));
+            }
 
             //filter
             // if (filter != default)
@@ -215,6 +220,7 @@ namespace Shared.Services.Repository
 
             if (entities == default || sorts == default)
             {
+                var res = entities.AsAsyncEnumerable<TEntity>();
                 return await entities.ToListAsync<TEntity>();
             }
 

@@ -30,8 +30,7 @@ where TKey : IEquatable<TKey>
 
         public override string ToString()
         {
-
-            return Name ?? ToString();
+            return string.Format("{0} {1)", base.ToString(), this.FullName);
         }
     }
 }
