@@ -1,11 +1,11 @@
 ﻿self.assetsManifest = {
   "assets": [
     {
-      "hash": "sha256-kfXT+\/7PwnK7UBTMq8\/AX20+soj7u1sV\/U1lCtnmSZI=",
+      "hash": "sha256-lDAEEaul32OkTANWkZgjgs4sFCsMdLsR5NJxrjVcXdo=",
       "url": "css\/app.css"
     },
     {
-      "hash": "sha256-z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=",
+      "hash": "sha256-SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7\/p4nS6D\/0=",
       "url": "css\/bootstrap\/bootstrap.min.css"
     },
     {
@@ -13,7 +13,7 @@
       "url": "css\/bootstrap\/bootstrap.min.css.map"
     },
     {
-      "hash": "sha256-+Q44zfEaCMmXduni5Td+IgCbk8sSUQwES2nWs+KKQz0=",
+      "hash": "sha256-jA4J4h\/k76zVxbFKEaWwFKJccmO0voOQ1DbUW+5YNlI=",
       "url": "css\/open-iconic\/FONT-LICENSE"
     },
     {
@@ -29,7 +29,7 @@
       "url": "css\/open-iconic\/font\/fonts\/open-iconic.otf"
     },
     {
-      "hash": "sha256-oUpLdS+SoLJFwf4bzA3iKD7TCm66oLkTpAQlVJ2s1wc=",
+      "hash": "sha256-+P1oQ5jPzOVJGC52E1oxGXIXxxCyMlqy6A9cNxGYzVk=",
       "url": "css\/open-iconic\/font\/fonts\/open-iconic.svg"
     },
     {
@@ -41,11 +41,11 @@
       "url": "css\/open-iconic\/font\/fonts\/open-iconic.woff"
     },
     {
-      "hash": "sha256-s\/Is6Ey6jfNAEfXUIOyHrXXX+RcA8hzchYnuOIWUMl4=",
+      "hash": "sha256-aF5g\/izareSj02F3MPSoTGNbcMBl9nmZKDe04zjU\/ss=",
       "url": "css\/open-iconic\/ICON-LICENSE"
     },
     {
-      "hash": "sha256-9wdNXQFE78LCNHo+Hq2eXMTx+YBf2gjsufVTJc8dAV0=",
+      "hash": "sha256-p\/oxU91iBE+uaDr3kYOyZPuulf4YcPAMNIz6PRA\/tb0=",
       "url": "css\/open-iconic\/README.md"
     },
     {
@@ -61,27 +61,27 @@
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-qVGwOl6Wjr9FQjSQ+jvDoj8aOg704sUahH7sLEPGSJw=",
+      "hash": "sha256-gy4IjjdtlozmxCKxjuT2eWuK5aIRXUDsGoQ7A5TpI4c=",
       "url": "index.html"
     },
     {
-      "hash": "sha256-7yb0Ox4saiiPZXZyNReKgjeRrcIkYVlGTVqsu7XvILk=",
+      "hash": "sha256-\/4HRh363SK5qeC7MzxVG4bE1EpptaoYpPdcyZ+k6hCI=",
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-4Yh4OTT5TEAPNyXEzOG+n5l2HPK294WFItz4SIelj88=",
+      "hash": "sha256-yzFf+O\/mlH+Q9klUSqXP2kxGKOUFLPxaww8da8fKhGU=",
       "url": "sample-data\/weather.json"
     },
     {
-      "hash": "sha256-QyLbw2i3kiUCl2dF\/7yiXCYFTZMR7vfazW1YK3SuSuw=",
+      "hash": "sha256-ClPlTRapopmCLFhHd9n0jP56wdxOYfc7hYFSmRW9EIk=",
       "url": "WebClient.styles.css"
     },
     {
-      "hash": "sha256-G5Ga+uCOkVHxSiBJsnj1MOcAOxo5GUbq6mFEUmBp5nQ=",
+      "hash": "sha256-02Gp54iUqRWSjJrJlbtuTPkkvwWBI\/yrJweHR\/q\/KIs=",
       "url": "appsettings.Development.json"
     },
     {
-      "hash": "sha256-G5Ga+uCOkVHxSiBJsnj1MOcAOxo5GUbq6mFEUmBp5nQ=",
+      "hash": "sha256-02Gp54iUqRWSjJrJlbtuTPkkvwWBI\/yrJweHR\/q\/KIs=",
       "url": "appsettings.json"
     },
     {
@@ -978,7 +978,7 @@
     },
     {
       "hash": "sha256-pvJcJ6jtDSfxgXm03QYRTm4aAi9PSzMSJODReHtvASY=",
-      "url": "_framework\/dotnet.6.0.7.93uh6y7tg6.js"
+      "url": "_framework\/dotnet.6.0.7.alqgr3tsc4.js"
     },
     {
       "hash": "sha256-voSto+V7XFVWZeFKKyqXIz7TSPff+H8\/q3yNzTJaPg8=",
@@ -1005,19 +1005,19 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-OAIVw9iuonsGqBLAFUg8u7H+l5i0dU5AQjmVY3nWqrg=",
+      "hash": "sha256-1exYxfZUAHAaEAU28p5NqEahRaoK70h14ug015MrXCU=",
       "url": "_framework\/Shared.dll"
     },
     {
-      "hash": "sha256-ITQNzSrR3IoQt7qyARLTbeo3fDlV+YlQEdmMMt+yvHM=",
+      "hash": "sha256-96s6jACSCcZzGIcq0lugWG7tSWGMKgZQlfbYpYiukAQ=",
       "url": "_framework\/Shared.pdb"
     },
     {
-      "hash": "sha256-iQIlMzZa+dT9qdvoVhvWbKGPGB6m0T7Hw9\/vYuglkZ4=",
+      "hash": "sha256-UDAVzyEr9Dh45Ge0FXIpQIcxr+V6Zog+Rai7O6DO\/wY=",
       "url": "_framework\/WebClient.dll"
     },
     {
-      "hash": "sha256-oCfRFH\/yfnNuXdUTvkII8MbAVuGhGqILTb2kXH9cx\/g=",
+      "hash": "sha256-TnMF7WFTsmA3HfYD7aIEqsv2DBm\/ONixKBQ09lu3kq0=",
       "url": "_framework\/WebClient.pdb"
     },
     {
@@ -1025,7 +1025,7 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-q04pfV7eAw6Z68iKpg7kmYUSvu40RqvELGDmS0gDpVE=",
+      "hash": "sha256-M8sK2FmRjRiEU5PcSnPjr3f9uMD8qrl5atEjGHNuDXc=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -1033,5 +1033,5 @@
       "url": "_content\/Microsoft.AspNetCore.Components.WebAssembly.Authentication\/AuthenticationService.js"
     }
   ],
-  "version": "pW0DAfMO"
+  "version": "WI5xlrdn"
 };
