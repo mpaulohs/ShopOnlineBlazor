@@ -44,6 +44,6 @@ namespace Shared.Models.Registers
 
         [MaxLength(50)]
         public string? ConcurrencyStamp { get; set; }
-        public string GetName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+       
     }
 }

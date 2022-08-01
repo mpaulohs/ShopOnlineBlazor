@@ -29,6 +29,6 @@ namespace Shared.Models.Identities
         public virtual ICollection<UserToken<TKey>>? Tokens { get; set; }
 
         public virtual ICollection<UserRole<TKey>>? UserRoles { get; set; }
-        public string GetName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
     }
 }

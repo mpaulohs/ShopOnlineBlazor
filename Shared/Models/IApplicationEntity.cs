@@ -11,8 +11,6 @@
 
         public string ConcurrencyStamp { get; set; }
 
-        public string GetName { get; set; }
-
 
         public string ToString();
     }

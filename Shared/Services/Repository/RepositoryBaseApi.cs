@@ -373,5 +373,53 @@ namespace Shared.Services.Repository
             }
             return true;
         }
+
+        public async Task<IEnumerable<TEntity>>? GetAsync(string fields = null, string search = null, Expression<Func<TEntity, bool>>[] filters = null, string sorts = null, int pageSize = 0, int pageCurrent = 0, CancellationToken cancellationToken = default)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            ThrowIfDisposed();
+
+            var entities = AllEntities;
+
+            if (entities == null)
+            {
+                return null;
+            }
+            //search
+            // if (search != default)
+            // {
+            //     var searchs = search.Split(' ');
+            //     entities = entities.Where<TEntity>(e => searchs.Contains(e.ToString()));
+            // }
+
+            //filter
+            if (filters != default)
+            {
+                foreach (var filter in filters)
+                {
+                    entities = entities.Where(filter);
+
+                }
+
+
+                // var strExpression = FilterExpression.FilterExtensions.ToExpressionString(filter);
+                // var filterExpression = FilterExpression.FilterExtensions.ToExpression<TEntity, TKey>(strExpression);
+                // if (filterExpression != null)
+                // {
+                //     entities = entities.Where(filterExpression);
+                // }
+            }
+
+            //sort
+
+            if (entities == default || sorts == default)
+            {
+                //var res = entities.AsAsyncEnumerable<TEntity>();
+                return await entities?.ToListAsync<TEntity>();
+            }
+
+            return await entities?.ToListAsync<TEntity>();
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace Shared.Models.Documents
         public string? ConcurrencyStamp { get; set; }
 
         public string Text { get; set; } = default;
-        public string GetName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
 
         public override string ToString()
         {

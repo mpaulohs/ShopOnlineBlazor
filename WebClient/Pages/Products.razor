@@ -11,19 +11,19 @@
 }
 else
 {
-@for (int i = 1; i < @ProductsList.Count<Product<Guid>>(); i++)
-{
+    @for (int i = 1; i < @ProductsList.Count<Product<Guid>>(); i++)
+    {
 
-    <tr>
-        <td>@i.ToString()</td>
-        <td>@(ProductsList.ElementAt<@Product<Guid>>(i).Id.ToString())</td>
-        <td>@(ProductsList.ElementAt<@Product<Guid>>(i).Name.ToString())</td>
-        <td>@(ProductsList.ElementAt<@Product<Guid>>(i).FullName.ToString())</td>
-        <td>@(ProductsList.ElementAt<@Product<Guid>>(i).CreatedAt.ToString())</td>
-        <td>@(ProductsList.ElementAt<@Product<Guid>>(i).UpdatedAt.ToString())</td>
-        <td>@(ProductsList.ElementAt<@Product<Guid>>(i).Article.ToString())</td>
-    </tr>
-}
+        <tr>
+            <td>@i.ToString()</td>
+            <td>@(ProductsList.ElementAt<@Product<Guid>>(i).Id.ToString())</td>
+            <td>@(ProductsList.ElementAt<@Product<Guid>>(i).Name.ToString())</td>
+            <td>@(ProductsList.ElementAt<@Product<Guid>>(i).FullName.ToString())</td>
+            <td>@(ProductsList.ElementAt<@Product<Guid>>(i).CreatedAt.ToString())</td>
+            <td>@(ProductsList.ElementAt<@Product<Guid>>(i).UpdatedAt.ToString())</td>
+            <td>@(ProductsList.ElementAt<@Product<Guid>>(i).Article.ToString())</td>
+        </tr>
+    }
 }
 
 
@@ -48,6 +48,6 @@ else
     private async Task GetProducts()
     {
         var sorts = "name";
-        ProductsList = await Repository.GetAsync(sorts: sorts, pageSize: pageSize, pageCurrent: pageCurrent);
+        //ToDo ProductsList = await Repository.GetAsync(sorts: sorts, pageSize: pageSize, pageCurrent: pageCurrent);
     }
 }

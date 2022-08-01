@@ -398,12 +398,13 @@ namespace Api.Data
             for (int i = 1; i < length; i++)
             {
                 var CreatedAt = faker.Date.Past(5);
+                var name = faker.Commerce.Product();
                 var entity = new
                 {
                     Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey)),
                     ExchangeId = Guid.NewGuid().ToString(),
-                    Name = "Bank account: " + faker.Lorem.Word(),
-                    FullName = faker.Commerce.Product(),
+                    Name = name,
+                    FullName = string.Format("Product {0}", name),
                     CreatedAt = CreatedAt,
                     UpdatedAt = faker.Date.Between(CreatedAt, DateTime.Now),
                     Comment = faker.Lorem.Sentence(),

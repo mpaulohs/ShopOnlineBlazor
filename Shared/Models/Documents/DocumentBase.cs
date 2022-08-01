@@ -55,7 +55,6 @@ namespace Shared.Models.Documents
 
         [MaxLength(50)]
         public string ConcurrencyStamp { get; set; } = Guid.NewGuid().ToString();
-        public string GetName { get => this.Id.ToString(); set => throw new NotImplementedException(); }
 
         public override string ToString()
         {

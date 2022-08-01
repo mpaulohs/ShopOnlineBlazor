@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using Shared.Services.Request.Pagination;
 using Shared.Services.Request.Search;
 using Shared.Models;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace Api.Controllers
 {
@@ -16,7 +18,7 @@ namespace Api.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-  
+
         private readonly IRepository<Product<Guid>, Guid> _repository;
 
         private readonly ILogger<Product<Guid>> _logger;
@@ -40,6 +42,44 @@ namespace Api.Controllers
             try
             {
                 var result = await _repository.GetAsync(fields, search, filter, sorts, pageSize, pageCerent);
+
+                if (result != null)
+                {
+                    //Response.Headers.Add("x-pagination", JsonConvert.SerializeObject(result.MetaData));
+                    return StatusCode(200, result);
+                }
+                return StatusCode(404);
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpGet]
+        [Route("getfilter")]
+        public async Task<ActionResult> GetFilter(
+                [FromQuery] string fields = default,
+                [FromQuery] string search = default,
+                [FromQuery] string filter = default,
+                [FromQuery] string sorts = default,
+                [FromQuery] int pageSize = default,
+                [FromQuery] int pageCerent = default)
+        {
+            try
+            {
+
+                Expression<Func<Product<Guid>, bool>> filter1 = product => product.Name.Contains(filter);
+                var filters = new Expression<Func<Product<Guid>, bool>>[] { filter1 };
+                //var filters = new List<Expression<Func<Product<Guid>, bool>>>().ToArray();
+                //var explist = new List<Expression<Predicate<Product<Guid>>>>();
+                // Expression<Predicate<Product<Guid>>> item = product => product.Name.Contains(filter);
+                //var res = explist.Add(item);//.ToArray();
+
+
+
+                var result = await _repository.GetAsync(fields, search, filters, sorts, pageSize, pageCerent);
 
                 if (result != null)
                 {

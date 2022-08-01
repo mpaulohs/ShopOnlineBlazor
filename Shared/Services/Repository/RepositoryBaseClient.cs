@@ -134,7 +134,12 @@ namespace Shared.Services.Repository
 
         public async Task<List<TEntity>>? GetAsync(string fields = null, string search = null, string filter = null, string sorts = null, int pageSize = 0, int pageCurrent = 0, CancellationToken cancellationToken = default)
         {
-           return await HttpClient.GetFromJsonAsync<List<TEntity>>(RequestUri, cancellationToken);
+            return await HttpClient.GetFromJsonAsync<List<TEntity>>(RequestUri, cancellationToken);
+        }
+
+        public Task<IEnumerable<TEntity>>? GetAsync(string fields = null, string search = null, Expression<Func<TEntity, bool>>[] filters = null, string sorts = null, int pageSize = 0, int pageCurrent = 0, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
         }
     }
 }
