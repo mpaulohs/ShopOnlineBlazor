@@ -73,7 +73,7 @@
       "url": "sample-data\/weather.json"
     },
     {
-      "hash": "sha256-ClPlTRapopmCLFhHd9n0jP56wdxOYfc7hYFSmRW9EIk=",
+      "hash": "sha256-TvZd94qy2SdWIFTGxL7LZ3A\/UNeYqD\/XsH0qNig5Qa4=",
       "url": "WebClient.styles.css"
     },
     {
@@ -1005,11 +1005,11 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-0xiby415IZcVhIGrplvCwUfdEXzlVd4IQmtNtrKgHVs=",
+      "hash": "sha256-S6lwiB\/4ZYgzdVF4jT9cl9JtVJ2JTPCkTp8U8N1K4jg=",
       "url": "_framework\/Shared.dll"
     },
     {
-      "hash": "sha256-gQYk\/W5\/p9qYCdlTTVylzs3y6Upm\/OVK0hg1OpA8jKU=",
+      "hash": "sha256-wtuUYP\/xnCpGUax\/ajfU3BDFrIuvsAvjOHSJk5XLQnQ=",
       "url": "_framework\/Shared.pdb"
     },
     {
@@ -1025,7 +1025,7 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-LsR0VdHKNU5fhPoADMnYtVaT3VgjZ0l8KVsAs6c2rlA=",
+      "hash": "sha256-Nwvebb9PbweytELX2LVTJYiYB1z9ae2kqZ4NDf\/MsJk=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -1033,5 +1033,5 @@
       "url": "_content\/Microsoft.AspNetCore.Components.WebAssembly.Authentication\/AuthenticationService.js"
     }
   ],
-  "version": "clpWDhJc"
+  "version": "H9F2eYHB"
 };
