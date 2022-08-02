@@ -37,11 +37,11 @@ namespace Api.Controllers
                 [FromQuery] string filter = default,
                 [FromQuery] string sorts = default,
                 [FromQuery] int pageSize = default,
-                [FromQuery] int pageCerent = default)
+                [FromQuery] int curentPage = default)
         {
             try
             {
-                var result = await _repository.GetAsync(fields, search, filter, sorts, pageSize, pageCerent);
+                var result = await _repository.GetAsync(fields, search, filter, sorts, pageSize, curentPage);
 
                 if (result != null)
                 {

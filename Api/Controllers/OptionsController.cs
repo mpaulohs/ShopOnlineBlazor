@@ -36,7 +36,8 @@ namespace Api.Controllers
             //     throw;
             // }
 
-            return new ContentResult{
+            return new ContentResult
+            {
                 Content = "<h1>Restapi instructions</h1>",
                 ContentType = "text/html"
             };

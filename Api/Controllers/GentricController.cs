@@ -1,23 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using Shared.Models.Catalogs;
 using Shared.Services.Repository;
-using Shared.Models.Identities;
 using System;
 using System.Threading.Tasks;
-using Shared.Services.Request.Pagination;
+using System.Linq.Expressions;
+using Microsoft.AspNetCore.JsonPatch;
 using Shared.Models;
+using Shared.Services.Request.Pagination;
+using Newtonsoft.Json;
 
 namespace Api.Controllers
 {
 
+    [Route("api/[controller]")]
+    [ApiController]
     public class GenericController<TEntity, TKey> : ControllerBase
-        where TEntity : class, IApplicationEntity<TKey>
-        where TKey: IEquatable<TKey>
+             where TEntity : class, IApplicationEntity<TKey>
+             where TKey : IEquatable<TKey>
     {
         private readonly IRepository<TEntity, TKey> _repository;
-
         private readonly ILogger<TEntity> _logger;
 
         public GenericController(IRepository<TEntity, TKey> repository, ILogger<TEntity> loger)
@@ -31,7 +33,7 @@ namespace Api.Controllers
         {
             try
             {
-                  var result = await _repository.GetByFiltersAsync(pagintaionParameters);
+                var result = await _repository.GetByFiltersAsync(pagintaionParameters);
 
                 if (result != null)
                 {

@@ -3,7 +3,7 @@
     public class PaginationParameters
     {
         const int maxPageSize = 50;
-        public int pageCerent { get; set; } = 1;
+        public int curentPage { get; set; } = 1;
 
         private int _pageSize = 10;
 

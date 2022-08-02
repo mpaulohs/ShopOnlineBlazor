@@ -1,16 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using Shared.Models.Catalogs;
 using Shared.Services.Repository;
-using Shared.Models.Identities;
 using System;
 using System.Threading.Tasks;
-using Shared.Services.Request.Pagination;
-using Shared.Services.Request.Search;
-using Shared.Models;
-using System.Collections.Generic;
 using System.Linq.Expressions;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace Api.Controllers
 {
@@ -18,11 +13,8 @@ namespace Api.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-
         private readonly IRepository<Product<Guid>, Guid> _repository;
-
         private readonly ILogger<Product<Guid>> _logger;
-
         public ProductController(IRepository<Product<Guid>, Guid> repository, ILogger<Product<Guid>> loger)
         {
             _repository = repository;
@@ -30,88 +22,31 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        [Route("get")]
         public async Task<ActionResult> Get(
                 [FromQuery] string fields = default,
                 [FromQuery] string search = default,
                 [FromQuery] string filter = default,
                 [FromQuery] string sorts = default,
                 [FromQuery] int pageSize = default,
-                [FromQuery] int pageCerent = default)
-        {
-            try
-            {
-                var result = await _repository.GetAsync(fields, search, filter, sorts, pageSize, pageCerent);
-
-                if (result != null)
-                {
-                    //Response.Headers.Add("x-pagination", JsonConvert.SerializeObject(result.MetaData));
-                    return StatusCode(200, result);
-                }
-                return StatusCode(404);
-            }
-            catch (Exception exception)
-            {
-                _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
-                return StatusCode(500, "Internal server error");
-            }
-        }
-
-        [HttpGet]
-        [Route("getfilter")]
-        public async Task<ActionResult> GetFilter(
-                [FromQuery] string fields = default,
-                [FromQuery] string search = default,
-                [FromQuery] string filter = default,
-                [FromQuery] string sorts = default,
-                [FromQuery] int pageSize = default,
-                [FromQuery] int pageCerent = default)
+                [FromQuery] int curentPage = default)
         {
             try
             {
                 Expression<Func<Product<Guid>, bool>>[] filters = default;
 
-                if (filter != default)
+                if (filter != default && search != default)
                 {
-                    Expression<Func<Product<Guid>, bool>> filter1 = product => product.Name.Contains(filter);
-                    filters = new Expression<Func<Product<Guid>, bool>>[] { filter1 };
+                    Expression<Func<Product<Guid>, bool>> filterExpression = product => product.Name.Contains(filter);
+                    filters = new[] { filterExpression };
                 }
 
-                //var filters = new List<Expression<Func<Product<Guid>, bool>>>().ToArray();
-                //var explist = new List<Expression<Predicate<Product<Guid>>>>();
-                // Expression<Predicate<Product<Guid>>> item = product => product.Name.Contains(filter);
-                //var res = explist.Add(item);//.ToArray();
+                var response = await _repository.GetAsync(fields, search, filters, sorts, pageSize, curentPage);
 
-
-
-                var result = await _repository.GetAsync(fields, search, filters, sorts, pageSize, pageCerent);
-
-                if (result != null)
+                if (response != null)
                 {
-                    //Response.Headers.Add("x-pagination", JsonConvert.SerializeObject(result.MetaData));
-                    return StatusCode(200, result);
-                }
-                return StatusCode(404);
-            }
-            catch (Exception exception)
-            {
-                _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
-                return StatusCode(500, "Internal server error");
-            }
-        }
-
-        [HttpGet]
-        public async Task<ActionResult> Get([FromQuery] PaginationParameters pagintaionParameters, [FromQuery]
-        SearchParameters searchParameters)
-        {
-            try
-            {
-                var result = await _repository.GetByFiltersAsync(pagintaionParameters, searchParameters);
-
-                if (result != null)
-                {
-                    Response.Headers.Add("x-pagination", JsonConvert.SerializeObject(result.MetaData));
-                    return StatusCode(200, result);
+                    //ToDo "create extra information in response header"
+                    //Response.Headers.Add("x-pagination", JsonConvert.SerializeObject(response.MetaData));
+                    return StatusCode(200, response);
                 }
                 return StatusCode(404);
             }
@@ -123,7 +58,7 @@ namespace Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> Get(Guid id)
+        public async Task<ActionResult> Get([FromRoute] Guid id)
         {
             try
             {
@@ -144,11 +79,11 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] Product<Guid> item)
+        public async Task<ActionResult> Post([FromBody] Product<Guid> entity)
         {
             try
             {
-                var result = await _repository.CreateAsync(item);
+                var result = await _repository.CreateAsync(entity);
 
                 return StatusCode(201, result);
             }
@@ -157,6 +92,43 @@ namespace Api.Controllers
                 _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return StatusCode(500, "Internal server error");
             }
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Put([FromRoute] Guid id, [FromBody] JsonPatchDocument entity)
+        {
+            try
+            {
+                var result = await _repository.UpdatePartyalAsync(id, entity);
+                return StatusCode(201, result);
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(Guid id)
+        {
+            try
+            {
+                var response = await _repository.DeleteByIdAsync(id);
+
+                if (response == true)
+                {
+                    return StatusCode(200, response);
+                }
+                return StatusCode(404);
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                return StatusCode(500, "Internal server error");
+            }
+
         }
 
     }

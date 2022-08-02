@@ -38,10 +38,10 @@ namespace Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult>  Seed([FromQuery] int length)
+        public async Task<ActionResult> Seed([FromQuery] int length)
         {
-           //SeedDb<Guid>.Fill(length, this.Configuration);
-           return await Controller.Get();
+            //SeedDb<Guid>.Fill(length, this.Configuration);
+            return await Controller.Get();
         }
     }
 }

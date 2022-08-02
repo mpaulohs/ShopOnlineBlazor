@@ -18,14 +18,14 @@
     <ul class="pagination">
         @foreach (var item in itemsOnPageRanges)
         {
-          <li class="page-item @(item==itemsOnPage?"active":"");"><a class="page-link" href="#">@item.ToString()</a></li>
+            <li class="page-item @(item==itemsOnPage?"active":"");"><a class="page-link" href="#">@item.ToString()</a></li>
         }
     </ul>
 </nav>
 
 @code {
     [Parameter]
-    public int CurentPage { get; set; }
+    public int curentPage { get; set; }
 
     [Parameter]
     public int TotalPages { get; set; }

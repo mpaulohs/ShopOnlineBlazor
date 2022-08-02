@@ -25,7 +25,7 @@ namespace Api.Controllers
                 [FromQuery] string filter = default,
                 [FromQuery] string sorts = default,
                 [FromQuery] int pageSize = default,
-                [FromQuery] int pageCerent = default);
+                [FromQuery] int curentPage = default);
 
 
         public Task<ActionResult> Get(TKey id);

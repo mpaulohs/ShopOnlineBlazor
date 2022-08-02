@@ -168,7 +168,7 @@ namespace Shared.Services.Repository
             //if (pagination!=null)
             //{
             //    entities = entities?
-            //   .Skip((pagination.pageCerent-1)*pagination.PageSize)
+            //   .Skip((pagination.curentPage-1)*pagination.PageSize)
             //   .Take(pagination.PageSize);
             //}
 
@@ -176,7 +176,7 @@ namespace Shared.Services.Repository
             //entities = entities.OrderBy(e => e.CreatedAt);
 
 
-            return PaginationList<TEntity>.ToPaginationList(entities, paginationParameters.pageCerent, paginationParameters.PageSize);
+            return PaginationList<TEntity>.ToPaginationList(entities, paginationParameters.curentPage, paginationParameters.PageSize);
         }
 
         public virtual async Task<List<TEntity>>? GetAsync(
@@ -185,7 +185,7 @@ namespace Shared.Services.Repository
             string filter = default,
             string sorts = default,
             int pageSize = default,
-            int pageCerent = default,
+            int curentPage = default,
             CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();

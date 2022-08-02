@@ -66,7 +66,7 @@ namespace Shared.Services.Repository
         {
             var queryParams = new Dictionary<string, string>
             {
-                ["pageCerent"] = paginationParameters.pageCerent.ToString(),
+                ["curentPage"] = paginationParameters.curentPage.ToString(),
                 ["searchTerm"] = searchParameters.SearchTerm == null ? "" : searchParameters.SearchTerm
             };
 
