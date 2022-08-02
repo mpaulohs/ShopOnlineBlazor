@@ -402,24 +402,18 @@ namespace Shared.Services.Repository
 
                 }
 
-
-                // var strExpression = FilterExpression.FilterExtensions.ToExpressionString(filter);
-                // var filterExpression = FilterExpression.FilterExtensions.ToExpression<TEntity, TKey>(strExpression);
-                // if (filterExpression != null)
-                // {
-                //     entities = entities.Where(filterExpression);
-                // }
             }
 
             //sort
 
-            if (entities == default || sorts == default)
+            if (sorts != default)
             {
-                //var res = entities.AsAsyncEnumerable<TEntity>();
-                return await entities?.ToListAsync<TEntity>();
+                entities = entities.OrderBy<TEntity, TKey>(sorts);
             }
 
-            return await entities?.ToListAsync<TEntity>();
+            return await entities.ToListAsync();
+
+
         }
     }
 }

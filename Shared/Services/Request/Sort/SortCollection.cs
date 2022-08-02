@@ -4,16 +4,16 @@ using System.Reflection;
 
 public class SortCollection<TSource>
 {
-    private List<ISortProperty<TSource>> Properties { get; set; }  
+    private List<ISortProperty<TSource>> sortProperties { get; set; }
         = new List<ISortProperty<TSource>>();
 
-    public IReadOnlyList<ISort> Sorts => Properties.AsReadOnly();
-    
+    public IReadOnlyList<ISort> SortProperties => sortProperties.AsReadOnly();
+
     public SortCollection()
-    {}
-    
+    { }
+
     public SortCollection(string value)
-        :this(value?.Split(new[] {","}, StringSplitOptions.RemoveEmptyEntries))
+        : this(value?.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))
     {
     }
 
@@ -21,33 +21,33 @@ public class SortCollection<TSource>
     {
         if (elements == null)
             return;
-        
+
         foreach (var element in elements)
         {
             var sortElement = Parse(element);
-            
+
             // garbage property name, skip it
             if (sortElement is null) continue;
-            
-            Properties.Add(sortElement);
+
+            sortProperties.Add(sortElement);
         }
     }
-    
-    private static ISortProperty<TSource>? Parse(string element)
+
+    private static ISortProperty<TSource>? Parse(string propertyName)
     {
-        var name = element.Trim();
+        propertyName = propertyName.Trim();
         var properties = typeof(TSource).GetProperties().ToList();
         var direction = ListSortDirection.Ascending;
 
-        if (element.StartsWith("-"))
+        if (propertyName.StartsWith("-"))
         {
             direction = ListSortDirection.Descending;
-            name = name.Substring(1);
+            propertyName = propertyName.Substring(1);
         }
-        
+
         // property name cased properly
         var propertyInfo = properties
-            .Find(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+            .Find(p => p.Name.Equals(propertyName, StringComparison.OrdinalIgnoreCase));
 
         if (propertyInfo == null)
             return null;
@@ -55,18 +55,18 @@ public class SortCollection<TSource>
         var type = typeof(SortProperty<>);
         var sortedElementType = type
             .MakeGenericType(
-                typeof(TSource), 
+                typeof(TSource),
                 propertyInfo.PropertyType
             );
 
         var ctor = sortedElementType
-            .GetConstructor(new[] { 
+            .GetConstructor(new[] {
                 typeof(PropertyInfo),
                 typeof(ListSortDirection)
             });
 
         return ctor.Invoke(new object?[] {
-            propertyInfo, 
+            propertyInfo,
             direction
         }) as ISortProperty<TSource>;
     }
@@ -74,18 +74,18 @@ public class SortCollection<TSource>
     public IQueryable<TSource> Apply(IQueryable<TSource> queryable)
     {
         var query = queryable;
-        
-        foreach (var element in Properties)
+
+        foreach (var element in sortProperties)
         {
-           query = element.Apply(query);
+            query = element.Apply(query);
         }
-        
+
         return query;
     }
-    
+
     public override string ToString()
     {
-        return string.Join(",", Properties);
+        return string.Join(",", sortProperties);
     }
 
     /// <summary>
@@ -99,15 +99,15 @@ public class SortCollection<TSource>
 
         if (parse == null)
             return ToString();
-        
+
         var sort = new SortCollection<TSource>(ToString());
         var property = sort
-            .Properties
+            .sortProperties
             .Find(x => x.PropertyName == parse.PropertyName);
 
         if (property == null)
         {
-            sort.Properties.Add(parse);
+            sort.sortProperties.Add(parse);
             return sort.ToString();
         }
 
@@ -125,15 +125,15 @@ public class SortCollection<TSource>
 
         if (parse == null)
             return ToString();
-        
+
         var sort = new SortCollection<TSource>(ToString());
         var property = sort
-            .Properties
+            .sortProperties
             .Find(x => x.PropertyName == parse.PropertyName);
 
         if (property != null)
         {
-            sort.Properties.Remove(property);
+            sort.sortProperties.Remove(property);
         }
 
         return sort.ToString();
@@ -142,13 +142,13 @@ public class SortCollection<TSource>
     private class SortProperty<TKey> : ISortProperty<TSource>
     {
         public SortProperty(
-            PropertyInfo propertyInfo, 
+            PropertyInfo propertyInfo,
             ListSortDirection direction)
         {
             PropertyName = propertyInfo.Name;
             Direction = direction;
 
-            var source = Expression.Parameter(typeof(TSource), "x");
+            var source = Expression.Parameter(typeof(TSource), "entity");
             var member = Expression.Property(source, propertyInfo);
             Filter = Expression.Lambda<Func<TSource, TKey>>(member, source);
         }
@@ -161,17 +161,17 @@ public class SortCollection<TSource>
         {
             var visitor = new OrderingMethodFinder();
             visitor.Visit(queryable.Expression);
-            
+
             if (visitor.OrderingMethodFound)
             {
-                queryable = Direction == ListSortDirection.Ascending 
-                    ? ((IOrderedQueryable<TSource>)queryable).ThenBy(Filter) 
+                queryable = Direction == ListSortDirection.Ascending
+                    ? ((IOrderedQueryable<TSource>)queryable).ThenBy(Filter)
                     : ((IOrderedQueryable<TSource>)queryable).ThenByDescending(Filter);
             }
             else
             {
-                queryable = Direction == ListSortDirection.Ascending 
-                    ? queryable.OrderBy(Filter) 
+                queryable = Direction == ListSortDirection.Ascending
+                    ? queryable.OrderBy(Filter)
                     : queryable.OrderByDescending(Filter);
             }
             return queryable;
@@ -183,7 +183,7 @@ public class SortCollection<TSource>
                 ? PropertyName
                 : $"-{PropertyName}";
         }
-    
+
         private class OrderingMethodFinder : ExpressionVisitor
         {
             public bool OrderingMethodFound { get; set; }

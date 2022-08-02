@@ -69,9 +69,14 @@ namespace Api.Controllers
         {
             try
             {
+                Expression<Func<Product<Guid>, bool>>[] filters = default;
 
-                Expression<Func<Product<Guid>, bool>> filter1 = product => product.Name.Contains(filter);
-                var filters = new Expression<Func<Product<Guid>, bool>>[] { filter1 };
+                if (filter != default)
+                {
+                    Expression<Func<Product<Guid>, bool>> filter1 = product => product.Name.Contains(filter);
+                    filters = new Expression<Func<Product<Guid>, bool>>[] { filter1 };
+                }
+
                 //var filters = new List<Expression<Func<Product<Guid>, bool>>>().ToArray();
                 //var explist = new List<Expression<Predicate<Product<Guid>>>>();
                 // Expression<Predicate<Product<Guid>>> item = product => product.Name.Contains(filter);

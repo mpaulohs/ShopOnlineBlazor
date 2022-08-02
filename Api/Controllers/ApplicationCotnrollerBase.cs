@@ -13,12 +13,12 @@ using Shared.Models;
 namespace Api.Controllers
 {
 
-    public class ApplicationControllerBase<TEntity, TKey> : ControllerBase , IApplicationController<TEntity, TKey>
+    public class ApplicationControllerBase<TEntity, TKey> : ControllerBase, IApplicationController<TEntity, TKey>
       where TEntity : class, IApplicationEntity<TKey>
         where TKey : IEquatable<TKey>
     {
 
-  
+
         private readonly IRepository<TEntity, TKey> _repository;
 
         private readonly ILogger<TEntity> _logger;
@@ -119,4 +119,4 @@ namespace Api.Controllers
     }
 
 
-    }
+}
