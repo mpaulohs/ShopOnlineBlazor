@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Shared.Models.Catalogs;
 using Shared.Services.Repository;
 using System;
 using System.Threading.Tasks;
-using System.Linq.Expressions;
-using Microsoft.AspNetCore.JsonPatch;
 using Shared.Models;
 using Shared.Services.Request.Pagination;
 using Newtonsoft.Json;
@@ -15,7 +12,7 @@ namespace Api.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class GenericController<TEntity, TKey> : ControllerBase
+   public class GenericController<TEntity, TKey> : ControllerBase
              where TEntity : class, IApplicationEntity<TKey>
              where TKey : IEquatable<TKey>
     {
