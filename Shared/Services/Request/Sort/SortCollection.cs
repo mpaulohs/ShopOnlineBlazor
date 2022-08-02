@@ -4,16 +4,16 @@ using System.Reflection;
 
 public class SortCollection<TSource>
 {
-    private List<ISortProperty<TSource>> sortProperties { get; set; }
-        = new List<ISortProperty<TSource>>();
+    private List<IOrderByProperty<TSource>> sortProperties { get; set; }
+        = new List<IOrderByProperty<TSource>>();
 
-    public IReadOnlyList<ISort> SortProperties => sortProperties.AsReadOnly();
+    public IReadOnlyList<IOrderByProperty> SortProperties => sortProperties.AsReadOnly();
 
     public SortCollection()
     { }
 
     public SortCollection(string value)
-        : this(value?.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))
+        : this(value?.Split(',', StringSplitOptions.RemoveEmptyEntries))
     {
     }
 
@@ -33,7 +33,7 @@ public class SortCollection<TSource>
         }
     }
 
-    private static ISortProperty<TSource>? Parse(string propertyName)
+    private static IOrderByProperty<TSource>? Parse(string propertyName)
     {
         propertyName = propertyName.Trim();
         var properties = typeof(TSource).GetProperties().ToList();
@@ -46,8 +46,7 @@ public class SortCollection<TSource>
         }
 
         // property name cased properly
-        var propertyInfo = properties
-            .Find(p => p.Name.Equals(propertyName, StringComparison.OrdinalIgnoreCase));
+        var propertyInfo = properties.Find(p => p.Name.Equals(propertyName, StringComparison.OrdinalIgnoreCase));
 
         if (propertyInfo == null)
             return null;
@@ -68,7 +67,7 @@ public class SortCollection<TSource>
         return ctor.Invoke(new object?[] {
             propertyInfo,
             direction
-        }) as ISortProperty<TSource>;
+        }) as IOrderByProperty<TSource>;
     }
 
     public IQueryable<TSource> Apply(IQueryable<TSource> queryable)
@@ -111,8 +110,8 @@ public class SortCollection<TSource>
             return sort.ToString();
         }
 
-        property.Direction =
-            property.Direction == ListSortDirection.Ascending
+        property.SortDirection =
+            property.SortDirection == ListSortDirection.Ascending
                 ? ListSortDirection.Descending
                 : ListSortDirection.Ascending;
 
@@ -139,14 +138,14 @@ public class SortCollection<TSource>
         return sort.ToString();
     }
 
-    private class SortProperty<TKey> : ISortProperty<TSource>
+    private class SortProperty<TKey> : IOrderByProperty<TSource>
     {
         public SortProperty(
             PropertyInfo propertyInfo,
             ListSortDirection direction)
         {
             PropertyName = propertyInfo.Name;
-            Direction = direction;
+            SortDirection = direction;
 
             var source = Expression.Parameter(typeof(TSource), "entity");
             var member = Expression.Property(source, propertyInfo);
@@ -154,7 +153,7 @@ public class SortCollection<TSource>
         }
 
         public string PropertyName { get; private set; }
-        public ListSortDirection Direction { get; set; }
+        public ListSortDirection SortDirection { get; set; }
         public Expression<Func<TSource, TKey>> Filter { get; private set; }
 
         public IQueryable<TSource> Apply(IQueryable<TSource> queryable)
@@ -164,13 +163,13 @@ public class SortCollection<TSource>
 
             if (visitor.OrderingMethodFound)
             {
-                queryable = Direction == ListSortDirection.Ascending
+                queryable = SortDirection == ListSortDirection.Ascending
                     ? ((IOrderedQueryable<TSource>)queryable).ThenBy(Filter)
                     : ((IOrderedQueryable<TSource>)queryable).ThenByDescending(Filter);
             }
             else
             {
-                queryable = Direction == ListSortDirection.Ascending
+                queryable = SortDirection == ListSortDirection.Ascending
                     ? queryable.OrderBy(Filter)
                     : queryable.OrderByDescending(Filter);
             }
@@ -179,7 +178,7 @@ public class SortCollection<TSource>
 
         public override string ToString()
         {
-            return Direction == ListSortDirection.Ascending
+            return SortDirection == ListSortDirection.Ascending
                 ? PropertyName
                 : $"-{PropertyName}";
         }
@@ -203,15 +202,15 @@ public class SortCollection<TSource>
         }
     }
 
-    private interface ISortProperty<T> : ISort
+    private interface IOrderByProperty<T> : IOrderByProperty
     {
-        new ListSortDirection Direction { get; set; }
+        new ListSortDirection SortDirection { get; set; }
         IQueryable<T> Apply(IQueryable<T> queryable);
     }
 
-    public interface ISort
+    public interface IOrderByProperty
     {
-        string PropertyName { get; }
-        ListSortDirection Direction { get; }
+        public string PropertyName { get; }
+        public ListSortDirection SortDirection { get; }
     }
 }

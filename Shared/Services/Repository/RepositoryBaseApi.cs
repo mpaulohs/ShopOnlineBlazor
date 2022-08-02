@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 using Shared.Services.Repository.RepositoryExtentions;
 using Shared.Models.Catalogs;
 using Shared.Services.Request.Sort;
-
+using Shared.Services.Request.Select;
 
 namespace Shared.Services.Repository
 {
@@ -374,7 +374,7 @@ namespace Shared.Services.Repository
             return true;
         }
 
-        public async Task<IEnumerable<TEntity>>? GetAsync(string fields = null, string search = null, Expression<Func<TEntity, bool>>[] filters = null, string sorts = null, int pageSize = 0, int pageCurrent = 0, CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<TEntity>>? GetAsync(string fields = default, string search = default, Expression<Func<TEntity, bool>>[] filters = default, string sorts = default, int pageSize = default, int pageCurrent = default, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
 
@@ -386,6 +386,12 @@ namespace Shared.Services.Repository
             {
                 return null;
             }
+
+            //select
+            if (fields != default)
+            {
+                entities = entities.Select<TEntity, TKey>(fields);
+            }
             //search
             // if (search != default)
             // {
@@ -393,27 +399,35 @@ namespace Shared.Services.Repository
             //     entities = entities.Where<TEntity>(e => searchs.Contains(e.ToString()));
             // }
 
-            //filter
+            //Where
             if (filters != default)
             {
                 foreach (var filter in filters)
                 {
                     entities = entities.Where(filter);
-
                 }
 
             }
 
-            //sort
-
+            //OrderBy
             if (sorts != default)
             {
                 entities = entities.OrderBy<TEntity, TKey>(sorts);
             }
 
+            //Skip
+            if (pageCurrent != default && pageCurrent > 1)
+            {
+                entities = entities.Skip((pageCurrent - 1) * pageSize);
+            }
+
+            //Take
+            if (pageSize != default && pageSize > 0)
+            {
+                entities = entities.Take(pageSize);
+            }
+
             return await entities.ToListAsync();
-
-
         }
     }
 }
