@@ -106,6 +106,8 @@ namespace Api
 
             services.AddScoped(typeof(IRepository<ProductUnitMeasurement<Guid>, Guid>), typeof(RepositoryBaseApi<ProductUnitMeasurement<Guid>, Guid, ApplicationDbContext<Guid>>));
 
+            services.AddScoped(typeof(IRepository<Role<Guid>, Guid>), typeof(RepositoryBaseApi<Role<Guid>, Guid, ApplicationDbContext<Guid>>));
+
             services.AddScoped(typeof(IRepository<Storage<Guid>, Guid>), typeof(RepositoryBaseApi<Storage<Guid>, Guid, ApplicationDbContext<Guid>>));
 
             services.AddScoped(typeof(IRepository<Subdivision<Guid>, Guid>), typeof(RepositoryBaseApi<Subdivision<Guid>, Guid, ApplicationDbContext<Guid>>));
