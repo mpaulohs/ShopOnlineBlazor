@@ -393,21 +393,21 @@ namespace Shared.Services.Repository
                 entities = entities.Select<TEntity, TKey>(fields);
             }
             //search
-            // if (search != default)
-            // {
-            //     var searchs = search.Split(' ');
-            //     entities = entities.Where<TEntity>(e => searchs.Contains(e.ToString()));
-            // }
+            if (search != default)
+            {
+                var searchs = search.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                entities = entities.Where<TEntity>(e => searchs.Contains(e.Id.ToString()));
+            }
 
             //Where
-            if (filters != default)
-            {
-                foreach (var filter in filters)
-                {
-                    entities = entities.Where(filter);
-                }
+            // if (filters != default)
+            // {
+            //     foreach (var filter in filters)
+            //     {
+            //         entities = entities.Where(filter);
+            //     }
 
-            }
+            // }
 
             //OrderBy
             if (sorts != default)

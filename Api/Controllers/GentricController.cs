@@ -33,19 +33,20 @@ namespace Api.Controllers
         public async Task<ActionResult> Get(
                [FromQuery] string fields = default,
                [FromQuery] string search = default,
-               [FromQuery] string filter = default,
+               //[FromQuery] string filter = default,
                [FromQuery] string sorts = default,
                [FromQuery] int pageSize = default,
                [FromQuery] int curentPage = default)
         {
             try
             {
+                string filter = default;
 
                 Expression<Func<TEntity, bool>>[] filters = default;
 
-                if (filter != default && search != default)
+                if (search != default)
                 {
-                    Expression<Func<TEntity, bool>> filterExpression = entity => entity.Id.Equals(filter);
+                    Expression<Func<TEntity, bool>> filterExpression = entity => entity.Id.ToString().Contains(search);
                     filters = new[] { filterExpression };
                 }
 
@@ -103,20 +104,21 @@ namespace Api.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult> Put([FromRoute] TKey id, [FromBody] JsonPatchDocument entity)
-        {
-            try
-            {
-                var result = await _repository.UpdatePartyalAsync(id, entity);
-                return StatusCode(201, result);
-            }
-            catch (Exception exception)
-            {
-                _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
-                return StatusCode(500, "Internal server error");
-            }
-        }
+        //ToDo implement put metod
+        // [HttpPut("{id}")]
+        // public async Task<ActionResult> Put([FromRoute] TKey id, [FromBody] JsonPatchDocument entity)
+        // {
+        //     try
+        //     {
+        //         var result = await _repository.UpdatePartyalAsync(id, entity);
+        //         return StatusCode(201, result);
+        //     }
+        //     catch (Exception exception)
+        //     {
+        //         _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+        //         return StatusCode(500, "Internal server error");
+        //     }
+        // }
 
 
         [HttpDelete("{id}")]
