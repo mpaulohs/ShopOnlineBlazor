@@ -9,12 +9,10 @@ using Microsoft.AspNetCore.JsonPatch;
 
 namespace Api.Controllers
 {
-    public class AdditionalInformationController : GenericController<AdditionalInformation, Guid>
+    public class AdditionalInformationController : GenericController<AdditionalInformation<Guid>, Guid>
     {
-        public AdditionalInformationController(IRepository<AdditionalInformation, Guid> repository, ILogger<AdditionalInformation> loger)
-        : base(repository, loger)
+        public AdditionalInformationController(IRepository<AdditionalInformation<Guid>, Guid> repository, ILogger<AdditionalInformation<Guid>> loger) : base(repository, loger)
         {
-
         }
     }
 }

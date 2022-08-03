@@ -34,6 +34,7 @@ namespace Api
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "RestAPI", Version = "v1" });
+                options.EnableAnnotations();
             });
 
 
@@ -59,7 +60,7 @@ namespace Api
 
             services.AddIdentity<User<Guid>, Role<Guid>>().AddEntityFrameworkStores<ApplicationDbContext<Guid>>().AddDefaultTokenProviders();
 
-            services.AddScoped(typeof(IApplicationController<Bank<Guid>, Guid>), typeof(ApplicationControllerBase<Bank<Guid>, Guid>));
+            //services.AddScoped(typeof(IApplicationController<Bank<Guid>, Guid>), typeof(ApplicationControllerBase<Bank<Guid>, Guid>));
 
             services.AddScoped(typeof(IRepository<AdditionalInformation<Guid>, Guid>), typeof(RepositoryBaseApi<AdditionalInformation<Guid>, Guid, ApplicationDbContext<Guid>>));
 
@@ -118,7 +119,11 @@ namespace Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1");
+                }
+                );
             }
 
             app.UseCors();

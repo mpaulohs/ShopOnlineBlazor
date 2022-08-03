@@ -15,33 +15,10 @@ using Microsoft.Extensions.Configuration;
 
 namespace Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class BankController : ControllerBase
+    public class BankController : GenericController<Bank<Guid>, Guid>
     {
-        protected IApplicationController<Bank<Guid>, Guid> Controller;
-
-        public IConfiguration Configuration { get; set; }
-
-        public BankController(IApplicationController<Bank<Guid>, Guid> controller, IConfiguration configuration)
+        public BankController(IRepository<Bank<Guid>, Guid> repository, ILogger<Bank<Guid>> loger) : base(repository, loger)
         {
-            this.Controller = controller;
-            this.Configuration = configuration;
-        }
-
-        [HttpGet]
-        [Route("get")]
-        public async Task<ActionResult> Get([FromQuery] PaginationParameters pagintaionParameters, [FromQuery]
-        SearchParameters searchParameters)
-        {
-            return await Controller.Get(pagintaionParameters, searchParameters);
-        }
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult> Seed([FromQuery] int length)
-        {
-            //SeedDb<Guid>.Fill(length, this.Configuration);
-            return await Controller.Get();
         }
     }
 }

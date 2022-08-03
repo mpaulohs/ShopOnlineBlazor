@@ -10,18 +10,10 @@ using System.Threading.Tasks;
 
 namespace Api.Controllers
 {
-    public class BankAccountController: GenericController<BankAccount<Guid>, Guid>
+    public class BankAccountController : GenericController<BankAccount<Guid>, Guid>
     {
-        private readonly IRepository<BankAccount<Guid>, Guid> _repository;
-
-        private readonly ILogger<BankAccount<Guid>> _logger;
-
-        public BankAccountController(IRepository<BankAccount<Guid>, Guid> repository, ILogger<BankAccount<Guid>> loger) 
-            : base(repository, loger)
+        public BankAccountController(IRepository<BankAccount<Guid>, Guid> repository, ILogger<BankAccount<Guid>> loger) : base(repository, loger)
         {
-            _repository = repository;
-            _logger = loger;
         }
-
     }
 }
