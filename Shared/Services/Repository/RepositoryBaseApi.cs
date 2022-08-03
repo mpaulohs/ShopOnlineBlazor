@@ -406,7 +406,6 @@ namespace Shared.Services.Repository
             //     {
             //         entities = entities.Where(filter);
             //     }
-
             // }
 
             //OrderBy
