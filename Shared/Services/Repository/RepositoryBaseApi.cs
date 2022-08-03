@@ -254,6 +254,7 @@ namespace Shared.Services.Repository
             newEntity.Id = id;
             newEntity.CreatedAt = origEntity.CreatedAt;
             newEntity.UpdatedAt = DateTime.Now;
+            //ToDo update ConcurrencyStamp
             newEntity.ConcurrencyStamp = origEntity.ConcurrencyStamp;
 
             try
