@@ -8,7 +8,7 @@
     }
 
 
-    // //ToDo create this in config file
+    // //ToDo: create this in config file
     // public enum DocumentStatus
     // {
     //     New,

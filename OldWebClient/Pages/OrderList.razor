@@ -10,7 +10,7 @@
 
 @if (orders == null)
 {
-    <p><em>Loading...</em></p>
+        <p><em>Loading...</em></p>
 }
 else
 {
@@ -20,39 +20,39 @@ else
          .Where(prop => prop.GetGetMethod(true).IsPublic);
     // .Where(ø => ø.GetSetMethod(true).IsPublic);
 
-    <table class="table">
-        <thead>
-            <tr>
+        <table class="table">
+            <thead>
+                <tr>
                 @foreach (var property in properties)
                 {
-                    <th>@property.Name</th>
+                            <th>@property.Name</th>
                 }
-            </tr>
-        </thead>
-        <tbody>
+                </tr>
+            </thead>
+            <tbody>
             @foreach (var item in orders)
             {
-                <tr>
+                        <tr>
                     @foreach (var property in properties)
                     {
-                       string tData = @property.GetValue(item)?.ToString();
+                        string tData = @property.GetValue(item)?.ToString();
                         if (property.Name == "Id")
                         {
-                            <td>
-                                <NavLink href=@($"orders/{tData}")>@tData</NavLink>
-                            </td>
+                                            <td>
+                                                <NavLink href=@($"orders/{tData}")>@tData</NavLink>
+                                            </td>
                         }
                         else
                         {
-                            <td>
+                                            <td>
                                 @property.GetValue(item)?.ToString()
-                            </td>
+                                            </td>
                         }
                     }
-                </tr>
+                        </tr>
             }
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 }
 
 @code {
@@ -61,8 +61,8 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        //ToDo update 
-       // var res = await repository.GetByFiltersAsync();
+        //ToDo: update 
+        // var res = await repository.GetByFiltersAsync();
 
     }
 

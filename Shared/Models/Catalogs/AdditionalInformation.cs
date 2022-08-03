@@ -22,16 +22,5 @@ where TKey : IEquatable<TKey>
 
         [MaxLength(500)]
         public string? Path { get; set; }
-
-        //ToDo
-        // public AdditionalInformation(IApplicationEntity<TKey> entity, string description = default, string path = default)
-        // {
-        //     this.Type = entity.GetType();
-        //     this.Owner = entity.Id;
-        //     this.Description = description;
-        //     this.Path = path;
-        // }
-
-
     }
 }

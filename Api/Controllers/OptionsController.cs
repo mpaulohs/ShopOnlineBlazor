@@ -21,26 +21,25 @@ namespace Api.Controllers
         [HttpGet]
         public ContentResult Index()
         {
-            // try
-            // {
-            //     var html = System.IO.File.ReadAllText(@"./web/options.html");
-            //     return new ContentResult
-            //     {
-            //         Content = html,
-            //         ContentType = "text/html"
-            //     };
-            // }
-            // catch (System.Exception)
-            // {
-
-            //     throw;
-            // }
-
-            return new ContentResult
+            try
             {
-                Content = "<h1>Restapi instructions</h1>",
-                ContentType = "text/html"
-            };
+                var html = System.IO.File.ReadAllText(@"./web/options.html");
+                return new ContentResult
+                {
+                    Content = html,
+                    ContentType = "text/html"
+                };
+            }
+            catch (System.Exception)
+            {
+                return new ContentResult
+                {
+                    Content = "<h1>RestApi documentation</h1>",
+                    ContentType = "text/html"
+                };
+            }
+
+
 
         }
     }

@@ -48,7 +48,7 @@ namespace Api.Data
                 entity.PhoneNumber = faker.Phone.PhoneNumber();
                 entity.PhoneNumberConfirmed = faker.Random.Bool();
                 entity.TwoFactorEnabled = faker.Random.Bool();
-                //ToDo entity.LockoutEnd = faker.Date.Random;
+                //ToDo: entity.LockoutEnd = faker.Date.Random;
                 entity.LockoutEnabled = faker.Random.Bool();
                 entity.AccessFailedCount = faker.Random.Number(100);
                 users.Add(entity);

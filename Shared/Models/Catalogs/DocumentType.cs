@@ -6,15 +6,4 @@ where TKey : IEquatable<TKey>
     {
 
     }
-
-    // //ToDo create this in config file
-    // public enum DocumentType
-    // {
-    //     Adjustment,
-    //     Mesage,
-    //     Order,
-    //     Payment,
-    //     Returns,
-    //     Sale
-    // }
 }

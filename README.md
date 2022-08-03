@@ -280,13 +280,6 @@ optimize performance and efficiency.
 
 Since REST APIs depend upon HTTP standards, each request’s status is used to communicate the result of the request, such as success or failure. Each status code provides a machine-readable response, plus a human-readable message. Web developers (and a number of users) will be familiar with many of these.
 
-- 200: Success
-- 201: Created
-- 404: Not found
-- 401: Unauthorized
-- 403: Forbidden
-- 429: Too many requests
-
 
 - 200 OK - Response to a successful GET, PUT, PATCH or DELETE. Can also be used for a POST that doesn't result in a creation.
 - 201 Created - Response to a POST that results in a creation. Should be combined with a Location header pointing to the location of the new resource
@@ -301,14 +294,4 @@ Since REST APIs depend upon HTTP standards, each request’s status is used to c
 - 415 Unsupported Media Type - If incorrect content type was provided as part of the request
 - 422 Unprocessable Entity - Used for validation errors
 - 429 Too Many Requests - When a request is rejected due to rate limiting
-
-
-
-
-
-#User Read#
-Where User name = jkjj
-Where User id = 453535
-Where User name begin from asc sort by name acs
-Where User age >= 18 sort by age dec
-where user age>=10 and name like "vas" sort by date regis firs 40 
+- 500 Server Error

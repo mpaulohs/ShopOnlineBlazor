@@ -25,7 +25,6 @@ namespace Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
 
@@ -38,7 +37,7 @@ namespace Api
             });
 
 
-            // TODO: this should be limited only to specified sources
+            // ToDo: in production this should be limited only to specified sources
             services.AddCors(options =>
             {
                 options.AddDefaultPolicy(builder => builder
@@ -53,14 +52,15 @@ namespace Api
             services.AddDbContext<ApplicationDbContext<Guid>>(options =>
             {
                 options.UseSqlite(Configuration.GetConnectionString("AppConnectionString"));
-                //ToDo disable after debuging
+
+                //ToDo: disable in production after debuging
                 options.EnableSensitiveDataLogging();
+
+                //ToDo: check on SqlServer
                 //options.UseSqlServer(Configuration.GetConnectionString("AppConnectionString"));
             });
 
             services.AddIdentity<User<Guid>, Role<Guid>>().AddEntityFrameworkStores<ApplicationDbContext<Guid>>().AddDefaultTokenProviders();
-
-            //services.AddScoped(typeof(IApplicationController<Bank<Guid>, Guid>), typeof(ApplicationControllerBase<Bank<Guid>, Guid>));
 
             services.AddScoped(typeof(IRepository<AdditionalInformation<Guid>, Guid>), typeof(RepositoryBaseApi<AdditionalInformation<Guid>, Guid, ApplicationDbContext<Guid>>));
 
@@ -79,6 +79,8 @@ namespace Api
             services.AddScoped(typeof(IRepository<Currency<Guid>, Guid>), typeof(RepositoryBaseApi<Currency<Guid>, Guid, ApplicationDbContext<Guid>>));
 
             services.AddScoped(typeof(IRepository<DocumentPayment<Guid>, Guid>), typeof(RepositoryBaseApi<DocumentPayment<Guid>, Guid, ApplicationDbContext<Guid>>));
+
+            services.AddScoped(typeof(IRepository<DocumentType<Guid>, Guid>), typeof(RepositoryBaseApi<DocumentType<Guid>, Guid, ApplicationDbContext<Guid>>));
 
             services.AddScoped(typeof(IRepository<DocumentSale<Guid>, Guid>), typeof(RepositoryBaseApi<DocumentSale<Guid>, Guid, ApplicationDbContext<Guid>>));
 
@@ -111,8 +113,6 @@ namespace Api
             services.AddScoped(typeof(IRepository<User<Guid>, Guid>), typeof(RepositoryBaseApi<User<Guid>, Guid, ApplicationDbContext<Guid>>));
 
         }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

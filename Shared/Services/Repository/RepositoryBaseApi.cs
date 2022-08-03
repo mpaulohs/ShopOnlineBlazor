@@ -95,7 +95,7 @@ namespace Shared.Services.Repository
             ThrowIfDisposed();
             if (entity == null)
             {
-                //ToDo Change results to Action results /return StatusCode
+                //ToDo: Change results to Action results /return StatusCode
                 Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new ArgumentNullException(nameof(entity));
             }
@@ -248,7 +248,7 @@ namespace Shared.Services.Repository
                 throw new NullReferenceException(nameof(origEntity));
             }
 
-            //ToDo Check about paralel changed models
+            //ToDo: Check about paralel changed models
             //Context.Attach(origEntity);
 
             newEntity.Id = id;

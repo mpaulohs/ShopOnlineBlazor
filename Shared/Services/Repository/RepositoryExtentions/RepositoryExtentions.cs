@@ -5,14 +5,14 @@ using System.Linq.Expressions;
 namespace Shared.Services.Repository.RepositoryExtentions
 {
 
-    //ToDo repear this function
+    //ToDo: repear this function
     public static class RepositoryExtentions
     {
         public static IQueryable<TEntity> Search<TEntity, TKey>(this IQueryable<TEntity> source, string searchTerm)
         where TEntity : class, IApplicationEntity<TKey>
         where TKey : IEquatable<TKey>
 
-        {               
+        {
             if (string.IsNullOrWhiteSpace(searchTerm))
             {
                 return source;
@@ -42,7 +42,7 @@ namespace Shared.Services.Repository.RepositoryExtentions
 
             Expression<Func<TEntity, bool>> filter = e => e.Id.ToString().Contains(search);
 
-            Expression <Action<TEntity>> action = e => Console.WriteLine(e.ToString());
+            Expression<Action<TEntity>> action = e => Console.WriteLine(e.ToString());
 
             //Expression<Func<TEntity, bool>> filter = e => e.ToString().Contains(search);
 
@@ -56,7 +56,7 @@ namespace Shared.Services.Repository.RepositoryExtentions
 
             var res = source.Where(filter);
 
-           return res;
+            return res;
 
             //return result;
 
