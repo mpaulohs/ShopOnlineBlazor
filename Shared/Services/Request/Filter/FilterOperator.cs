@@ -1,4 +1,4 @@
-﻿namespace FilterExpression
+﻿namespace Shared.Services.Request.Pagination
 {
     public enum FilterOperator
     {
