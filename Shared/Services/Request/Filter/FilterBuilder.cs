@@ -1,17 +1,17 @@
-﻿using FilterExpression.Tokens;
-using FilterExpression.Tokens.Common.Tokens;
+﻿using Shared.Services.Request.Pagination.Tokens;
+using Shared.Services.Request.Pagination.Tokens.Common.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace FilterExpression
+namespace Shared.Services.Request.Pagination
 {
     public class FilterBuilder : ExpressionVisitor
     {
         private List<Token> _tokens = new List<Token>();
 
-       
+
 
         // for demo purposes
         public List<Token> Tokens => _tokens;
@@ -173,7 +173,7 @@ namespace FilterExpression
                             base.Visit(Expression.Constant(dateTime.Ticks));
                             return node;
 
-                        case ExpressionType.MemberAccess:                            
+                        case ExpressionType.MemberAccess:
                             if (node.Member.Name != ((MemberExpression)node.Expression).Member.Name)
                             {
                                 var lambda2 = Expression.Lambda<Func<DateTime>>(node);

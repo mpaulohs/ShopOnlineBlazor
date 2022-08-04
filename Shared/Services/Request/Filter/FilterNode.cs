@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FilterExpression
+namespace Shared.Services.Request.Pagination
 {
     public class FilterNode
     {
@@ -25,7 +25,7 @@ namespace FilterExpression
 
         public string FieldName { get; set; }
         public object Value { get; set; }
-        public FilterOperator Operator { get; set; }        
+        public FilterOperator Operator { get; set; }
 
         // For demo purposes
         public override string ToString() => $"{CompositionOperator} {FieldName ?? "FieldName"} {Operator} {Value ?? "Value"}";

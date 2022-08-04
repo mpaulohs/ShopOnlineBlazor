@@ -1,4 +1,4 @@
-﻿namespace FilterExpression.Tokens.Common.Tokens
+﻿namespace Shared.Services.Request.Pagination.Tokens.Common.Tokens
 {
     public class BinaryOperatorToken : Token
     {

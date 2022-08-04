@@ -1,4 +1,4 @@
-﻿namespace FilterExpression.Tokens
+﻿namespace Shared.Services.Request.Pagination.Tokens
 {
     public class ConstantToken : Token
     {

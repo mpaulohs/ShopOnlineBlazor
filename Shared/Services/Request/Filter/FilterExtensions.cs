@@ -1,31 +1,31 @@
 ﻿using System.Text;
 using System.Collections.Generic;
-using FilterExpression;
+using Shared.Services.Request.Pagination;
 using System.Linq.Expressions;
 using Shared.Models;
 
-namespace FilterExpression
+namespace Shared.Services.Request.Pagination
 {
     public static class FilterExtensions
     {
         public static string ToQueryString(this IList<FilterNode> filters)
         {
-            var sb = new StringBuilder();
+            var gueryString = new StringBuilder();
 
             for (var i = 0; i < filters.Count; i++)
             {
-                sb.Append(
+                gueryString.Append(
                     $"{filters[i].FieldName}:" +
                     $"{filters[i].Operator}:" +
                     $"{filters[i].Value};");
                 if (i < filters.Count - 1)
                 {
-                    sb.Length--;
-                    sb.Append("&");
+                    gueryString.Length--;
+                    gueryString.Append("&");
                 }
             }
 
-            return sb.ToString();
+            return gueryString.ToString();
         }
 
         public static Dictionary<ExpressionType, FilterOperator> _operatorMap = new Dictionary<ExpressionType, FilterOperator>
@@ -61,7 +61,7 @@ namespace FilterExpression
 
         public static string QueryStringToString(string query)
         {
-            var nodes = query.Split(';');
+            var nodes = query.Split(';', StringSplitOptions.RemoveEmptyEntries);
             var result = new StringBuilder("(item)=>");
             foreach (var item in nodes)
             {
@@ -69,9 +69,7 @@ namespace FilterExpression
                 if (items.Length == 3)
                 {
                     result.Append("(item)." + items[0]).Append(items[1]).Append(items[2]);
-
                 }
-
             }
             return result.ToString();
         }
@@ -113,7 +111,6 @@ namespace FilterExpression
             new NodOparator("StartsWith", typeof(string),"bw","StartsWith","Returns entries where the field begins with the value."),
             new NodOparator("NotStartsWith", typeof(string),"nbw","NotStartsWith","Returns entries where the field does not begin with the value.")
 
-
     };
 
         // public static Expression<Func<TEntity, bool>> ToExpression<TEntity, TKey> (string strExpression)
@@ -132,7 +129,7 @@ namespace FilterExpression
 
         public static string ToExpressionString(string queryString)
         {
-            var nodes = queryString.Split(';');
+            var nodes = queryString.Split(';', StringSplitOptions.RemoveEmptyEntries);
             var result = new StringBuilder("(item)=>");
             foreach (var item in nodes)
             {
