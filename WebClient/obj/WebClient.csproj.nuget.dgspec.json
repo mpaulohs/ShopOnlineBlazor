@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\WebClient\\WebClient.csproj": {}
+    "/Users/igormelnyk/Projects/ShopOnlinePWA/WebClient/WebClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj": {
+    "/Users/igormelnyk/Projects/ShopOnlinePWA/Shared/Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj",
+        "projectUniqueName": "/Users/igormelnyk/Projects/ShopOnlinePWA/Shared/Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj",
-        "packagesPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\obj\\",
+        "projectPath": "/Users/igormelnyk/Projects/ShopOnlinePWA/Shared/Shared.csproj",
+        "packagesPath": "/Users/igormelnyk/.nuget/packages/",
+        "outputPath": "/Users/igormelnyk/Projects/ShopOnlinePWA/Shared/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\melnik.igor.CORPUZSERVICE\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/igormelnyk/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -68,6 +62,10 @@
               "target": "Package",
               "version": "[6.0.7, )"
             },
+            "System.Linq.Dynamic.Core": {
+              "target": "Package",
+              "version": "[1.2.19, )"
+            },
             "bogus": {
               "target": "Package",
               "version": "[34.0.2, )"
@@ -88,40 +86,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.302/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\WebClient\\WebClient.csproj": {
+    "/Users/igormelnyk/Projects/ShopOnlinePWA/WebClient/WebClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\WebClient\\WebClient.csproj",
+        "projectUniqueName": "/Users/igormelnyk/Projects/ShopOnlinePWA/WebClient/WebClient.csproj",
         "projectName": "WebClient",
-        "projectPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\WebClient\\WebClient.csproj",
-        "packagesPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\WebClient\\obj\\",
+        "projectPath": "/Users/igormelnyk/Projects/ShopOnlinePWA/WebClient/WebClient.csproj",
+        "packagesPath": "/Users/igormelnyk/.nuget/packages/",
+        "outputPath": "/Users/igormelnyk/Projects/ShopOnlinePWA/WebClient/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\melnik.igor.CORPUZSERVICE\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/igormelnyk/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\melnik.igor.CORPUZSERVICE\\source\\repos\\developmentservice\\ShopOnlinePWA\\Shared\\Shared.csproj"
+              "/Users/igormelnyk/Projects/ShopOnlinePWA/Shared/Shared.csproj": {
+                "projectPath": "/Users/igormelnyk/Projects/ShopOnlinePWA/Shared/Shared.csproj"
               }
             }
           }
@@ -171,7 +163,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.302/RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

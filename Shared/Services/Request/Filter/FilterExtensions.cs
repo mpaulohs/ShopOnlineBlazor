@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Shared.Services.Request.Pagination;
 using System.Linq.Expressions;
 using Shared.Models;
+using System.Linq.Dynamic.Core;
 
 namespace Shared.Services.Request.Pagination
 {
@@ -39,7 +40,6 @@ namespace Shared.Services.Request.Pagination
             { ExpressionType.LessThanOrEqual   , FilterOperator.lte },
             { ExpressionType.GreaterThan       , FilterOperator.gt  },
             { ExpressionType.GreaterThanOrEqual, FilterOperator.gte },
-
         };
 
         public static Dictionary<string, FilterOperator> _methodCallMap = new Dictionary<string, FilterOperator>
@@ -113,18 +113,20 @@ namespace Shared.Services.Request.Pagination
 
     };
 
-        // public static Expression<Func<TEntity, bool>> ToExpression<TEntity, TKey> (string strExpression)
-        // {
-        //     strExpression = "x => x.Property0 == \"Z\" && old.Any(y => y.Key0 == x.Key0 && y.Property0 != x.Property0)";
+        public static Expression<Func<TEntity, bool>> ToExpression<TEntity, TKey>(string strExpression)
+        {
+            // strExpression = "x => x.Property0 == \"Z\" && old.Any(y => y.Key0 == x.Key0 && y.Property0 != x.Property0)";
 
-        //     var p = Expression.Parameter(typeof(TEntity), "Entity");
+            var parameterExpression = Expression<TEntity>.Parameter(typeof(TEntity), "Entity");
 
-        //     var exp = System.Linq.Dynamic.DynamicExpression.ParseLambda<TEntity, bool>(strExpression, new[] { p });
+            var expression = DynamicExpressionParser.ParseLambda<TEntity, bool>(new ParsingConfig(), false, strExpression, new[] { parameterExpression });
 
-        //     var func = exp.Compile();
+            System.Console.WriteLine(expression.Body);
 
-        //     return exp;
-        // }
+            var function = expression.Compile();
+
+            return expression;
+        }
 
 
         public static string ToExpressionString(string queryString)

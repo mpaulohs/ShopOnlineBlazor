@@ -45,11 +45,14 @@ namespace Api.Controllers
                 Expression<Func<TEntity, bool>>[] filters = default;
 
                 //ToDo update filters
-                // if (search != default)
-                // {
-                //     Expression<Func<TEntity, bool>> filterExpression = entity => entity.Id.ToString().Contains(search);
-                //     filters = new[] { filterExpression };
-                // }
+                if (search != default)
+                {
+                    var strSearchExpresion = string.Format("entity => entity.Name.Contains(\"{0}\")", search);
+                    //Expression<Func<TEntity, bool>> searchExpression = entity => entity.Id.ToString().Contains(search);
+
+                    var searchExpression = FilterExtensions.ToExpression<TEntity, TKey>(strSearchExpresion);
+                    filters = new[] { searchExpression };
+                }
 
                 var response = await _repository.GetAsync(fields, search, filters, sorts, pageSize, curentPage);
 
