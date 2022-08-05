@@ -68,11 +68,11 @@ namespace Api.Controllers
                                 else
                                 {
                                     var param = Expression.Parameter(typeof(TEntity), "entity");
-                                    var body = Expression<TEntity>.AndAlso(
-                                            Expression.Invoke(searchExpression, param),
-                                            Expression.Invoke(searchExpressionNew, param));
+                                    // var body = Expression<TEntity>.Or(
+                                    //         Expression.Invoke(searchExpression, param),
+                                    //         Expression.Invoke(searchExpressionNew, param));
 
-                                    // var body = Expression<TEntity>.Or(searchExpression.Body, searchExpressionNew.Body);
+                                    var body = Expression<TEntity>.Or(searchExpression.Body, searchExpressionNew.Body);
                                     searchExpression = Expression<TEntity>.Lambda<Func<TEntity, bool>>(body, param);
                                 }
                             }
@@ -99,13 +99,17 @@ namespace Api.Controllers
                                 }
                                 else
                                 {
-                                    var param = Expression.Parameter(typeof(TEntity), "entity");
-                                    var body = Expression<TEntity>.AndAlso(
+
+                                    var param = searchExpression.Parameters[0];
+                                    var body = Expression<TEntity>.Or(
                                             Expression.Invoke(searchExpression, param),
                                             Expression.Invoke(searchExpressionNew, param));
+                                    searchExpression = Expression<TEntity>.Lambda<Func<TEntity, bool>>(body, param);
 
                                     // var body = Expression<TEntity>.Or(searchExpression.Body, searchExpressionNew.Body);
-                                    searchExpression = Expression<TEntity>.Lambda<Func<TEntity, bool>>(body, param);
+                                    //searchExpression = Expression<TEntity>.Lambda<Func<TEntity, bool>>(body, false, );
+                                    //searchExpression = Expression.Lambda<Func<TEntity, bool>>(body, searchExpression.Parameters[0]);
+                                    // searchExpression = Expression.Lambda<TEntity>.OrElse(searchExpression.Body, searchExpressionNew.Body);
                                 }
                             }
                             catch (System.Exception exception)
