@@ -34,7 +34,7 @@ namespace Api.Controllers
         public async Task<ActionResult> Get(
                [FromQuery] string fields = default,
                [FromQuery] string search = default,
-               //[FromQuery] string filter = default,
+               [FromQuery] string filter = default,
                [FromQuery] string sorts = default,
                [FromQuery] int pageSize = default,
                [FromQuery] int curentPage = default)
@@ -59,21 +59,15 @@ namespace Api.Controllers
                         {
                             try
                             {
-                                var strSearchExpresion = string.Format("entity => entity.{0}.Contains(\"{1}\")", propertyName, search);
-                                var searchExpressionNew = FilterExtensions.ToExpression<TEntity, TKey>(strSearchExpresion);
+                                var strSearchExpression = string.Format("entity => entity.{0}.Contains(\"{1}\")", propertyName, search);
+                                var searchExpressionNew = FilterExtensions.ToExpression<TEntity, TKey>(strSearchExpression);
                                 if (searchExpression == default)
                                 {
                                     searchExpression = searchExpressionNew;
                                 }
                                 else
                                 {
-                                    var param = Expression.Parameter(typeof(TEntity), "entity");
-                                    // var body = Expression<TEntity>.Or(
-                                    //         Expression.Invoke(searchExpression, param),
-                                    //         Expression.Invoke(searchExpressionNew, param));
-
-                                    var body = Expression<TEntity>.Or(searchExpression.Body, searchExpressionNew.Body);
-                                    searchExpression = Expression<TEntity>.Lambda<Func<TEntity, bool>>(body, param);
+                                    searchExpression = searchExpression.OrElse<TEntity>(searchExpressionNew);
                                 }
                             }
                             catch (System.Exception exception)
@@ -91,25 +85,16 @@ namespace Api.Controllers
                         {
                             try
                             {
-                                var strSearchExpresion = string.Format("entity => entity.{0}.Contains(\"{1}\")", property.Name, search);
-                                var searchExpressionNew = FilterExtensions.ToExpression<TEntity, TKey>(strSearchExpresion);
+                                var strSearchExpression = string.Format("entity => entity.{0}.Contains(\"{1}\")", property.Name, search);
+                                var searchExpressionNew = FilterExtensions.ToExpression<TEntity, TKey>(strSearchExpression);
                                 if (searchExpression == default)
                                 {
                                     searchExpression = searchExpressionNew;
                                 }
                                 else
                                 {
+                                    searchExpression = searchExpression.OrElse<TEntity>(searchExpressionNew);
 
-                                    var param = searchExpression.Parameters[0];
-                                    var body = Expression<TEntity>.Or(
-                                            Expression.Invoke(searchExpression, param),
-                                            Expression.Invoke(searchExpressionNew, param));
-                                    searchExpression = Expression<TEntity>.Lambda<Func<TEntity, bool>>(body, param);
-
-                                    // var body = Expression<TEntity>.Or(searchExpression.Body, searchExpressionNew.Body);
-                                    //searchExpression = Expression<TEntity>.Lambda<Func<TEntity, bool>>(body, false, );
-                                    //searchExpression = Expression.Lambda<Func<TEntity, bool>>(body, searchExpression.Parameters[0]);
-                                    // searchExpression = Expression.Lambda<TEntity>.OrElse(searchExpression.Body, searchExpressionNew.Body);
                                 }
                             }
                             catch (System.Exception exception)
