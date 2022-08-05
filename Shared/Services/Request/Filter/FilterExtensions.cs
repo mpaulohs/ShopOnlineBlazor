@@ -115,19 +115,9 @@ namespace Shared.Services.Request.Pagination
 
         public static Expression<Func<TEntity, bool>> ToExpression<TEntity, TKey>(string strExpression)
         {
-            // strExpression = "x => x.Property0 == \"Z\" && old.Any(y => y.Key0 == x.Key0 && y.Property0 != x.Property0)";
-
-            var parameterExpression = Expression<TEntity>.Parameter(typeof(TEntity), "Entity");
-
-            var expression = DynamicExpressionParser.ParseLambda<TEntity, bool>(new ParsingConfig(), false, strExpression, new[] { parameterExpression });
-
-            System.Console.WriteLine(expression.Body);
-
-            var function = expression.Compile();
-
-            return expression;
+            var parameterExpression = Expression<TEntity>.Parameter(typeof(TEntity), "entity");
+            return DynamicExpressionParser.ParseLambda<TEntity, bool>(new ParsingConfig(), false, strExpression, new[] { parameterExpression });
         }
-
 
         public static string ToExpressionString(string queryString)
         {

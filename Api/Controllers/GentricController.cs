@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using Microsoft.AspNetCore.JsonPatch;
 using System.Linq.Expressions;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Collections.Generic;
 
 namespace Api.Controllers
 {
@@ -45,13 +46,80 @@ namespace Api.Controllers
                 Expression<Func<TEntity, bool>>[] filters = default;
 
                 //ToDo update filters
+
+                //Search
                 if (search != default)
                 {
-                    var strSearchExpresion = string.Format("entity => entity.Name.Contains(\"{0}\")", search);
-                    //Expression<Func<TEntity, bool>> searchExpression = entity => entity.Id.ToString().Contains(search);
+                    var filtersList = new List<Expression<Func<TEntity, bool>>>();
+                    Expression<Func<TEntity, bool>> searchExpression = default;
+                    if (fields != default)
+                    {
+                        var fielsdArr = fields.Split(",", StringSplitOptions.RemoveEmptyEntries);
+                        foreach (var propertyName in fielsdArr)
+                        {
+                            try
+                            {
+                                var strSearchExpresion = string.Format("entity => entity.{0}.Contains(\"{1}\")", propertyName, search);
+                                var searchExpressionNew = FilterExtensions.ToExpression<TEntity, TKey>(strSearchExpresion);
+                                if (searchExpression == default)
+                                {
+                                    searchExpression = searchExpressionNew;
+                                }
+                                else
+                                {
+                                    var param = Expression.Parameter(typeof(TEntity), "entity");
+                                    var body = Expression<TEntity>.AndAlso(
+                                            Expression.Invoke(searchExpression, param),
+                                            Expression.Invoke(searchExpressionNew, param));
 
-                    var searchExpression = FilterExtensions.ToExpression<TEntity, TKey>(strSearchExpresion);
-                    filters = new[] { searchExpression };
+                                    // var body = Expression<TEntity>.Or(searchExpression.Body, searchExpressionNew.Body);
+                                    searchExpression = Expression<TEntity>.Lambda<Func<TEntity, bool>>(body, param);
+                                }
+                            }
+                            catch (System.Exception exception)
+                            {
+                                _logger.LogError(exception.Message);
+                                continue;
+                            }
+                        }
+                    }
+                    else
+                    {
+
+                        var properties = typeof(TEntity).GetProperties();
+                        foreach (var property in properties)
+                        {
+                            try
+                            {
+                                var strSearchExpresion = string.Format("entity => entity.{0}.Contains(\"{1}\")", property.Name, search);
+                                var searchExpressionNew = FilterExtensions.ToExpression<TEntity, TKey>(strSearchExpresion);
+                                if (searchExpression == default)
+                                {
+                                    searchExpression = searchExpressionNew;
+                                }
+                                else
+                                {
+                                    var param = Expression.Parameter(typeof(TEntity), "entity");
+                                    var body = Expression<TEntity>.AndAlso(
+                                            Expression.Invoke(searchExpression, param),
+                                            Expression.Invoke(searchExpressionNew, param));
+
+                                    // var body = Expression<TEntity>.Or(searchExpression.Body, searchExpressionNew.Body);
+                                    searchExpression = Expression<TEntity>.Lambda<Func<TEntity, bool>>(body, param);
+                                }
+                            }
+                            catch (System.Exception exception)
+                            {
+                                _logger.LogError(exception.Message);
+                                continue;
+                            }
+                        }
+                    }
+                    filtersList.Add(searchExpression);
+                    if (filtersList.Count > 0)
+                    {
+                        filters = filtersList.ToArray();
+                    }
                 }
 
                 var response = await _repository.GetAsync(fields, search, filters, sorts, pageSize, curentPage);
