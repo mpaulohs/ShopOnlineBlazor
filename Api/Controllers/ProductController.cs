@@ -6,10 +6,11 @@ using System;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 using Microsoft.AspNetCore.JsonPatch;
+using Shared.Models.Dtos;
 
 namespace Api.Controllers
 {
-    public class ProductController : GenericController<Product<Guid>, Guid>
+    public class ProductController : GenericController<ProductDTO<Guid>, Product<Guid>, Guid>
     {
         public ProductController(IRepository<Product<Guid>, Guid> repository, ILogger<Product<Guid>> loger) : base(repository, loger)
         {

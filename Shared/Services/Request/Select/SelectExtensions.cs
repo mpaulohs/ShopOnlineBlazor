@@ -8,46 +8,51 @@ public static class SelectExtensions
 {
 
 
-    public static IQueryable<TEntity> Select<TEntity, TKey>(
-                this IQueryable<TEntity> queryable,
+    public static IQueryable<T> Select<T>(
+                this IQueryable<T> queryable,
                 string fields)
-                where TEntity : class, IApplicationEntity<TKey>
-                where TKey : IEquatable<TKey>
+
     {
-        var selector = SelectExpressionGenerator<TEntity>(fields);
-        return queryable.Select<TEntity, TEntity>(selector);
+        var selector = SelectExpressionGenerator<T>(fields);
+        return queryable.Select<T, T>(selector);
     }
 
 
     // public static Func<T, T> SelectExpressionGenerator<T>(string fields = default)
     public static Expression<Func<T, T>> SelectExpressionGenerator<T>(string fields = default)
     {
-        string[] fildsList;
+        string[] fieldsArr = default;
         if (fields == default)
             // get Properties of the T
-            fildsList = typeof(T).GetProperties().Select(propertyInfo => propertyInfo.Name).ToArray();
+            fieldsArr = typeof(T).GetProperties().Select(propertyInfo => propertyInfo.Name).ToArray();
         else
         {
-            fildsList = fields.Split(',', StringSplitOptions.RemoveEmptyEntries);
+            fieldsArr = fields.Split(',', StringSplitOptions.RemoveEmptyEntries);
         }
 
-        // input parameter "o"
+        // input parameter "entity"
         var parameterExpression = Expression.Parameter(typeof(T), "entity");
 
         // new statement "new Data()"
         var newExpression = Expression.New(typeof(T));
 
+        var properties = typeof(T).GetProperties().ToList();
         // create initializers
-        var bindings = fildsList.Select(entity =>
+        var bindings = fieldsArr.Select(propertyName =>
             {
-                var propertyName = entity.Trim();
-                var properties = typeof(T).GetProperties().ToList();
+                propertyName = propertyName.Trim();
                 var propertyInfo = properties.Find(p => p.Name.Equals(propertyName, StringComparison.OrdinalIgnoreCase));
 
-                // original value "o.Field1"
-                var memberExpression = Expression.Property(parameterExpression, propertyInfo);
-                // set value "Field1 = o.Field1"
-                return Expression.Bind(propertyInfo, memberExpression);
+                if (propertyInfo != default)
+                {
+                    // original value "o.Field1"
+                    var memberExpression = Expression.Property(parameterExpression, propertyInfo);
+
+                    // set value "Field1 = o.Field1"
+                    return Expression.Bind(propertyInfo, memberExpression);
+                }
+
+                return null;
             }
         );
 
@@ -66,9 +71,9 @@ public static class SelectExtensions
 
 
     // Create lambda expression 
-    private static Expression<Func<TEntity, TModel>> MakeExpression<TEntity, TModel>(params Expression<Func<TEntity, object>>[] select)
+    private static Expression<Func<T, TModel>> MakeExpression<T, TModel>(params Expression<Func<T, object>>[] select)
     {
-        var param = Expression.Parameter(typeof(TEntity));
+        var param = Expression.Parameter(typeof(T));
 
         // Map expressions [select1, ..., selectN] with properties
         // For keeping things simple I map nth expression with nth property
@@ -81,20 +86,20 @@ public static class SelectExtensions
                 .ToArray()
         );
 
-        return Expression.Lambda<Func<TEntity, TModel>>(body, param);
+        return Expression.Lambda<Func<T, TModel>>(body, param);
     }
 
     // Replace parameter from given expression with param
     // All expressions must have same MyEntity parameter
-    private static Expression MakeParam<TEntity>(ParameterExpression param, Expression<Func<TEntity, object>> select)
+    private static Expression MakeParam<T>(ParameterExpression param, Expression<Func<T, object>> select)
     {
         Expression body = select.Body;
 
-        return new ParamVisitor<TEntity>(param).Visit(body);
+        return new ParamVisitor<T>(param).Visit(body);
     }
 }
 
-class ParamVisitor<TEntity> : ExpressionVisitor
+class ParamVisitor<T> : ExpressionVisitor
 {
     private readonly ParameterExpression _param;
 
@@ -105,7 +110,7 @@ class ParamVisitor<TEntity> : ExpressionVisitor
 
     protected override Expression VisitParameter(ParameterExpression node)
     {
-        if (node.Type == typeof(TEntity))
+        if (node.Type == typeof(T))
         {
             return this._param;
         }

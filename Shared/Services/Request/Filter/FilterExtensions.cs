@@ -113,7 +113,7 @@ namespace Shared.Services.Request.Pagination
 
     };
 
-        public static Expression<Func<TEntity, bool>> ToExpression<TEntity, TKey>(string strExpression)
+        public static Expression<Func<TEntity, bool>> ToExpression<TEntity>(string strExpression)
         {
             var parameterExpression = Expression<TEntity>.Parameter(typeof(TEntity), "entity");
             return DynamicExpressionParser.ParseLambda<TEntity, bool>(new ParsingConfig(), true, strExpression, new[] { parameterExpression });

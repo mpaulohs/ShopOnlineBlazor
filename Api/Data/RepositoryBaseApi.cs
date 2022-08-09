@@ -9,8 +9,17 @@ using Shared.Services.Repository.RepositoryExtentions;
 using Shared.Models.Catalogs;
 using Shared.Services.Request.Sort;
 using Shared.Services.Request.Select;
+using System.Linq;
+using System.Linq.Dynamic.Core;
+using Shared.Services.Repository;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Collections.Generic;
+using System;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 
-namespace Shared.Services.Repository
+namespace Api.Data
 {
     public class RepositoryBaseApi<TEntity, TKey, TDbContext> :
         IDisposable,
@@ -20,18 +29,20 @@ namespace Shared.Services.Repository
         where TKey : IEquatable<TKey>
     {
 
-        public RepositoryBaseApi(TDbContext context, ILogger<TEntity> logger)
+        public RepositoryBaseApi(IMapper mapper, TDbContext context, ILogger<TEntity> logger)
         {
-            Context = context ?? throw new ArgumentNullException(nameof(context));
-            Logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            this._mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            this._context = context ?? throw new ArgumentNullException(nameof(context));
+            this._logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        protected TDbContext Context { get; private set; }
+        protected IMapper _mapper { get; private set; }
 
-        protected ILogger<TEntity> Logger { get; set; }
+        protected TDbContext _context { get; private set; }
 
-        public IQueryable<TEntity> AllEntities { get { return Context.Set<TEntity>(); } }
+        protected ILogger<TEntity> _logger { get; private set; }
 
+        protected IQueryable<TEntity> _entities { get { return _context.Set<TEntity>(); } }
 
         public bool AutoSaveChanges { get; set; } = true;
 
@@ -74,12 +85,13 @@ namespace Shared.Services.Repository
         /// <summary>Saves the current store.</summary>
         /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
         /// <returns>The <see cref="Task"/> that represents the asynchronous operation.</returns>
+
         protected virtual async Task SaveChanges(CancellationToken cancellationToken)
         {
             if (AutoSaveChanges)
             {
 
-                await Context.SaveChangesAsync(cancellationToken);
+                await _context.SaveChangesAsync(cancellationToken);
             }
         }
 
@@ -96,7 +108,7 @@ namespace Shared.Services.Repository
             if (entity == null)
             {
                 //ToDo: Change results to Action results /return StatusCode
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+                _logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new ArgumentNullException(nameof(entity));
             }
 
@@ -106,7 +118,7 @@ namespace Shared.Services.Repository
             entity.UpdatedAt = default;
 
             //Before Context.Set<TEntity>().AddAsync(entity);
-            var result = await Context.AddAsync(entity, cancellationToken);
+            var result = await _context.AddAsync(entity, cancellationToken);
 
             try
             {
@@ -114,7 +126,7 @@ namespace Shared.Services.Repository
             }
             catch (Exception exception)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+                _logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new Exception(exception.Message, exception);
             }
             return result.Entity.Id;
@@ -124,14 +136,14 @@ namespace Shared.Services.Repository
         {
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
-            return await AllEntities.AsNoTracking().SingleOrDefaultAsync(e => e.Id.Equals(id), cancellationToken);
+            return await _entities.AsNoTracking().SingleOrDefaultAsync(e => e.Id.Equals(id), cancellationToken);
         }
 
         public virtual async Task<string>? GetNameByIdAsync(TKey id, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
-            var entity = await AllEntities.AsNoTracking().SingleOrDefaultAsync(e => e.Id.Equals(id), cancellationToken);
+            var entity = await _entities.AsNoTracking().SingleOrDefaultAsync(e => e.Id.Equals(id), cancellationToken);
             return entity?.ToString();
         }
 
@@ -140,7 +152,7 @@ namespace Shared.Services.Repository
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
 
-            var entities = AllEntities;
+            var entities = _entities;
 
             if (entities == null)
             {
@@ -179,7 +191,7 @@ namespace Shared.Services.Repository
             return PaginationList<TEntity>.ToPaginationList(entities, paginationParameters.curentPage, paginationParameters.PageSize);
         }
 
-        public virtual async Task<List<TEntity>>? GetAsync(
+        public virtual async Task<IEnumerable<TEntity>>? GetAsync(
             string fields = default,
             string search = default,
             string filter = default,
@@ -192,12 +204,13 @@ namespace Shared.Services.Repository
 
             ThrowIfDisposed();
 
-            var entities = AllEntities;
+            var entities = this._entities;
 
             if (entities == null)
             {
                 return null;
             }
+
             //search
             if (search != default)
             {
@@ -224,11 +237,8 @@ namespace Shared.Services.Repository
                 return await entities.ToListAsync<TEntity>();
             }
 
-            return await entities.OrderBy<TEntity, TKey>(sorts: sorts).ToListAsync<TEntity>();
+            return await entities.OrderBy<TEntity>(sorts: sorts).ToListAsync<TEntity>();
         }
-
-
-
 
         public virtual async Task<bool> UpdateAsync(TKey id, TEntity newEntity, CancellationToken cancellationToken = default)
         {
@@ -237,14 +247,14 @@ namespace Shared.Services.Repository
 
             if (newEntity == null)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+                _logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new ArgumentNullException(nameof(newEntity));
             }
 
             var origEntity = await GetByIdAsync(id, cancellationToken);
             if (origEntity == null)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+                _logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new NullReferenceException(nameof(origEntity));
             }
 
@@ -259,12 +269,12 @@ namespace Shared.Services.Repository
 
             try
             {
-                Context.Update(newEntity);
+                _context.Update(newEntity);
                 await SaveChanges(cancellationToken);
             }
             catch (Exception exception)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+                _logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new Exception(exception.Message, exception);
             }
             return true;
@@ -277,7 +287,7 @@ namespace Shared.Services.Repository
 
             if (entity == null)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+                _logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new ArgumentNullException(nameof(entity));
             }
 
@@ -286,13 +296,13 @@ namespace Shared.Services.Repository
 
             if (origEntity == null)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+                _logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new NullReferenceException(nameof(origEntity));
             }
 
             try
             {
-                Context.Attach(origEntity);
+                _context.Attach(origEntity);
                 entity.ApplyTo(origEntity);
                 origEntity.UpdatedAt = DateTime.Now;
                 origEntity.Id = id;
@@ -300,7 +310,7 @@ namespace Shared.Services.Repository
             }
             catch (Exception exception)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+                _logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new Exception(exception.Message, exception);
             }
             return true;
@@ -310,10 +320,10 @@ namespace Shared.Services.Repository
         {
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
-            var entityes = AllEntities;
+            var entityes = _entities;
             foreach (var entity in entityes)
             {
-                Context.Remove(entity);
+                _context.Remove(entity);
             }
 
             try
@@ -322,7 +332,7 @@ namespace Shared.Services.Repository
             }
             catch (Exception exception)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+                _logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new Exception(exception.Message, exception);
             }
             return true;
@@ -335,7 +345,7 @@ namespace Shared.Services.Repository
 
             if (id == null)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+                _logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new ArgumentNullException(nameof(id));
             }
 
@@ -343,7 +353,7 @@ namespace Shared.Services.Repository
 
             if (entity == null)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+                _logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new ArgumentNullException(nameof(entity));
             }
 
@@ -357,11 +367,11 @@ namespace Shared.Services.Repository
 
             if (entity == null)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+                _logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            Context.Remove(entity);
+            _context.Remove(entity);
 
             try
             {
@@ -369,19 +379,27 @@ namespace Shared.Services.Repository
             }
             catch (Exception exception)
             {
-                Logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+                _logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new Exception(exception.Message, exception);
             }
             return true;
         }
 
-        public async Task<IEnumerable<TEntity>>? GetAsync(string fields = default, string search = default, Expression<Func<TEntity, bool>>[] filters = default, string sorts = default, int pageSize = default, int pageCurrent = default, CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<TEntity>>? GetAsync(
+            string fields = default,
+            string search = default,
+            Expression<Func<TEntity,
+            bool>>[] filters = default,
+            string sorts = default,
+            int pageSize = default,
+            int pageCurrent = default,
+            CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
 
             ThrowIfDisposed();
 
-            var entities = AllEntities;
+            var entities = this._entities;
 
             if (entities == null)
             {
@@ -391,7 +409,7 @@ namespace Shared.Services.Repository
             //select
             if (fields != default)
             {
-                entities = entities.Select<TEntity, TKey>(fields);
+                entities = entities.Select<TEntity>(fields);
             }
             //search
             // if (search != default)
@@ -412,7 +430,7 @@ namespace Shared.Services.Repository
             //OrderBy
             if (sorts != default)
             {
-                entities = entities.OrderBy<TEntity, TKey>(sorts);
+                entities = entities.OrderBy<TEntity>(sorts);
             }
 
             //Skip
@@ -426,8 +444,166 @@ namespace Shared.Services.Repository
             {
                 entities = entities.Take(pageSize);
             }
-
             return await entities.ToListAsync();
+        }
+
+        public async Task<IEnumerable<TOut>>? GetAsync<TOut>(
+            string fields = default,
+            string search = default,
+            string filter = default,
+            string orderby = default,
+            int take = default,
+            int skip = default,
+            CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+
+                ThrowIfDisposed();
+
+                var entities = _entities;
+
+                //ToDo use global configuration
+                // var entities = mapper.ProjectTo<TOut>(this.entities);
+
+                if (entities == null)
+                {
+                    //ToDo hendle this result
+                    return null;
+                }
+
+                Expression<Func<TEntity, bool>> expSelect = default;
+                Expression<Func<TEntity, bool>> expSearch = default;
+                Expression<Func<TEntity, bool>> expFilter = default;
+                // Expression<Func<TOut, bool>> expOrderBy = default;
+                var properties = typeof(TEntity).GetProperties().ToList();
+
+                //select
+                if (fields != default)
+                {
+                    //var fieldList = fields.Split(",", StringSplitOptions.RemoveEmptyEntries).Select(field => field.Trim());
+                    //properties = properties.Where(property => fieldList.Contains(property.Name)).ToList();
+
+                    //ToDo check do we nead use this select
+                    entities = entities.Select<TEntity>(fields);
+                }
+
+                //Search
+                if (search != default)
+                {
+                    foreach (var property in properties)
+                    {
+                        try
+                        {
+                            var strexpSearch = string.Format("entity => entity.{0}.Contains(\"{1}\")", property.Name, search);
+                            var expSearchNew = FilterExtensions.ToExpression<TEntity>(strexpSearch);
+                            if (expSearch == default)
+                            {
+                                expSearch = expSearchNew;
+                            }
+                            else
+                            {
+                                //expSearch = System.Linq.Expressions.OrElse(expSearch, expSearchNew);
+                                expSearch = expSearch.OrElse<TEntity>(expSearchNew);
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            continue;
+                        }
+                    }
+
+                    if (expSearch != default)
+                    {
+                        entities = entities.Where<TEntity>(expSearch);
+                    }
+                }
+
+                //Filter
+                if (filter != default)
+                {
+                    var queryExpressions = filter.Split(",", StringSplitOptions.RemoveEmptyEntries);
+                    foreach (var queryEppression in queryExpressions)
+                    {
+                        try
+                        {
+                            var expFilterNew = FilterExtensions.ToExpression<TEntity>(queryEppression);
+                            if (expFilter == default)
+                            {
+                                expFilter = expFilterNew;
+                            }
+                            else
+                            {
+                                expFilter = expFilter.AndAlso<TEntity>(expFilterNew);
+                            }
+                        }
+                        catch (System.Exception exception)
+                        {
+                            _logger.LogError(exception.Message);
+                            continue;
+                        }
+                    }
+
+                    if (expFilter != default)
+                    {
+                        entities = entities.Where<TEntity>(expFilter);
+                    }
+                }
+
+                // //Where (combinaton search exp and filter exp)
+                // Expression<Func<TOut, bool>> where = default;
+
+                // if (expSearch != default && expFilter != default)
+                // {
+                //     where = expSearch.AndAlso<TOut>(expFilter);
+                // }
+                // else
+                // {
+                //     where = expSearch != default ? expSearch : expFilter;
+                // }
+
+                // if (where != default)
+                // {
+                //     entities = entities.Where(where);
+                // }
+
+                //OrderBy
+                if (orderby != default)
+                {
+                    entities = entities.OrderBy<TEntity>(orderby);
+                }
+
+                //Skip
+                if (skip != default)
+                {
+                    entities = entities.Skip<TEntity>(skip);
+                }
+
+                //Take
+                if (take != default)
+                {
+                    entities = entities.Take<TEntity>(take);
+                }
+
+                var configuration = new MapperConfiguration(cfg => cfg.CreateProjection<TEntity, TOut>());
+
+                // var entities = _entities.ProjectTo<TOut>(_mapper.ConfigurationProvider);
+                var result = await entities.ProjectTo<TOut>(configuration).ToListAsync<TOut>();
+                //var res = await entities.ToListAsync<TOut>(); // entities.ProjectTo<TOut>().Expression.ToListAsync();
+                return result;
+            }
+            catch (Exception exception)
+            {
+                //ToDo make handler for this epxeption
+                _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                throw new NotImplementedException();
+            }
+        }
+
+        public Task<IEnumerable<TOut>> GetAsync<TOut>(Expression<Func<TEntity, bool>> select = null, Expression<Func<TEntity, bool>> where = null, Expression<Func<TEntity, bool>> orderBy = null, int pageSize = 0, int pageCurrent = 0, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
         }
     }
 }

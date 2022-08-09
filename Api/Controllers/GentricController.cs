@@ -8,8 +8,10 @@ using Shared.Services.Request.Pagination;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.JsonPatch;
 using System.Linq.Expressions;
+using System.Linq;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Collections.Generic;
+using Shared.Models.Dtos;
 
 namespace Api.Controllers
 {
@@ -17,7 +19,7 @@ namespace Api.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class GenericController<TEntity, TKey> : ControllerBase
+    public class GenericController<TOut, TEntity, TKey> : ControllerBase
              where TEntity : class, IApplicationEntity<TKey>
              where TKey : IEquatable<TKey>
     {
@@ -35,83 +37,13 @@ namespace Api.Controllers
                [FromQuery] string fields = default,
                [FromQuery] string search = default,
                [FromQuery] string filter = default,
-               [FromQuery] string sorts = default,
-               [FromQuery] int pageSize = default,
-               [FromQuery] int curentPage = default)
+               [FromQuery] string orderby = default,
+               [FromQuery] int skip = default,
+               [FromQuery] int take = default)
         {
             try
             {
-                string filter = default;
-
-                Expression<Func<TEntity, bool>>[] filters = default;
-
-                //ToDo update filters
-
-                //Search
-                if (search != default)
-                {
-                    var filtersList = new List<Expression<Func<TEntity, bool>>>();
-                    Expression<Func<TEntity, bool>> searchExpression = default;
-                    if (fields != default)
-                    {
-                        var fielsdArr = fields.Split(",", StringSplitOptions.RemoveEmptyEntries);
-                        foreach (var propertyName in fielsdArr)
-                        {
-                            try
-                            {
-                                var strSearchExpression = string.Format("entity => entity.{0}.Contains(\"{1}\")", propertyName, search);
-                                var searchExpressionNew = FilterExtensions.ToExpression<TEntity, TKey>(strSearchExpression);
-                                if (searchExpression == default)
-                                {
-                                    searchExpression = searchExpressionNew;
-                                }
-                                else
-                                {
-                                    searchExpression = searchExpression.OrElse<TEntity>(searchExpressionNew);
-                                }
-                            }
-                            catch (System.Exception exception)
-                            {
-                                _logger.LogError(exception.Message);
-                                continue;
-                            }
-                        }
-                    }
-                    else
-                    {
-
-                        var properties = typeof(TEntity).GetProperties();
-                        foreach (var property in properties)
-                        {
-                            try
-                            {
-                                var strSearchExpression = string.Format("entity => entity.{0}.Contains(\"{1}\")", property.Name, search);
-                                var searchExpressionNew = FilterExtensions.ToExpression<TEntity, TKey>(strSearchExpression);
-                                if (searchExpression == default)
-                                {
-                                    searchExpression = searchExpressionNew;
-                                }
-                                else
-                                {
-                                    searchExpression = searchExpression.OrElse<TEntity>(searchExpressionNew);
-
-                                }
-                            }
-                            catch (System.Exception exception)
-                            {
-                                _logger.LogError(exception.Message);
-                                continue;
-                            }
-                        }
-                    }
-                    filtersList.Add(searchExpression);
-                    if (filtersList.Count > 0)
-                    {
-                        filters = filtersList.ToArray();
-                    }
-                }
-
-                var response = await _repository.GetAsync(fields, search, filters, sorts, pageSize, curentPage);
+                var response = _repository.GetAsync<ProductDTO<Guid>>(fields, search, filter, orderby, take, skip);
 
                 if (response != null)
                 {
@@ -127,6 +59,104 @@ namespace Api.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
+        // [HttpGet]
+        // [Route("old")]
+        // public async Task<ActionResult> Get(
+        //        [FromQuery] string fields = default,
+        //        [FromQuery] string search = default,
+        //        [FromQuery] string filter = default,
+        //        [FromQuery] string sorts = default,
+        //        [FromQuery] string pageSize = default,
+        //        [FromQuery] string curentPage = default)
+        // {
+        //     try
+        //     {
+        //         //string filter = default;
+
+        //         Expression<Func<TEntity, bool>>[] filters = default;
+
+        //         //ToDo update filters
+
+        //         //Search
+        //         if (search != default)
+        //         {
+        //             var filtersList = new List<Expression<Func<TEntity, bool>>>();
+        //             Expression<Func<TEntity, bool>> searchExpression = default;
+        //             if (fields != default)
+        //             {
+        //                 var properties = fields.Split(",", StringSplitOptions.RemoveEmptyEntries);
+        //                 foreach (var propertyName in properties)
+        //                 {
+        //                     try
+        //                     {
+        //                         var strSearchExpression = string.Format("entity => entity.{0}.Contains(\"{1}\")", propertyName, search);
+        //                         var searchExpressionNew = FilterExtensions.ToExpression<TEntity, TKey>(strSearchExpression);
+        //                         if (searchExpression == default)
+        //                         {
+        //                             searchExpression = searchExpressionNew;
+        //                         }
+        //                         else
+        //                         {
+        //                             searchExpression = searchExpression.OrElse<TEntity>(searchExpressionNew);
+        //                         }
+        //                     }
+        //                     catch (System.Exception exception)
+        //                     {
+        //                         _logger.LogError(exception.Message);
+        //                         continue;
+        //                     }
+        //                 }
+        //             }
+        //             else
+        //             {
+        //                 var properties = typeof(TEntity).GetProperties();
+        //                 var x = typeof(TEntity).GetProperties().Select(propertyInfo => propertyInfo.Name).ToArray();
+        //                 foreach (var property in properties)
+        //                 {
+        //                     try
+        //                     {
+        //                         var strSearchExpression = string.Format("entity => entity.{0}.Contains(\"{1}\")", property.Name, search);
+        //                         var searchExpressionNew = FilterExtensions.ToExpression<TEntity, TKey>(strSearchExpression);
+        //                         if (searchExpression == default)
+        //                         {
+        //                             searchExpression = searchExpressionNew;
+        //                         }
+        //                         else
+        //                         {
+        //                             searchExpression = searchExpression.OrElse<TEntity>(searchExpressionNew);
+        //                         }
+        //                     }
+        //                     catch (System.Exception exception)
+        //                     {
+        //                         _logger.LogError(exception.Message);
+        //                         continue;
+        //                     }
+        //                 }
+        //             }
+        //             filtersList.Add(searchExpression);
+        //             if (filtersList.Count > 0)
+        //             {
+        //                 filters = filtersList.ToArray();
+        //             }
+        //         }
+
+        //         var response = await _repository.GetAsync(fields, search, filters, sorts, pageSize, curentPage);
+
+        //         if (response != null)
+        //         {
+        //             //ToDo: "create extra information in response header"
+        //             //Response.Headers.Add("x-pagination", JsonConvert.SerializeObject(response.MetaData));
+        //             return StatusCode(200, response);
+        //         }
+        //         return StatusCode(404);
+        //     }
+        //     catch (Exception exception)
+        //     {
+        //         _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
+        //         return StatusCode(500, "Internal server error");
+        //     }
+        // }
 
         [HttpGet("{id}")]
         public async Task<ActionResult> Get([FromRoute] TKey id)

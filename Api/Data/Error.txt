@@ -1,0 +1,38 @@
+@"The LINQ expression 'DbSet<Product<Guid>>()
+    .LeftJoin(
+        inner: DbSet<ProductType<Guid>>(), 
+        outerKeySelector: p => EF.Property<Guid?>(p, ""ProductTypeId""), 
+        innerKeySelector: p0 => EF.Property<Guid?>(p0, ""Id""), 
+        resultSelector: (o, i) => new TransparentIdentifier<Product<Guid>, ProductType<Guid>>(
+            Outer = o, 
+            Inner = i
+        ))
+    .LeftJoin(
+        inner: DbSet<ProductQuality<Guid>>(), 
+        outerKeySelector: p => EF.Property<Guid?>(p.Outer, ""ProductQualityId""), 
+        innerKeySelector: p1 => EF.Property<Guid?>(p1, ""Id""), 
+        resultSelector: (o, i) => new TransparentIdentifier<TransparentIdentifier<Product<Guid>, ProductType<Guid>>, ProductQuality<Guid>>(
+            Outer = o, 
+            Inner = i
+        ))
+    .LeftJoin(
+        inner: DbSet<ProductSerie<Guid>>(), 
+        outerKeySelector: p => EF.Property<Guid?>(p.Outer.Outer, ""ProductSerieId""), 
+        innerKeySelector: p2 => EF.Property<Guid?>(p2, ""Id""), 
+        resultSelector: (o, i) => new TransparentIdentifier<TransparentIdentifier<TransparentIdentifier<Product<Guid>, ProductType<Guid>>, ProductQuality<Guid>>, ProductSerie<Guid>>(
+            Outer = o, 
+            Inner = i
+        ))
+    .LeftJoin(
+        inner: DbSet<ProductUnitMeasurement<Guid>>(), 
+        outerKeySelector: p => EF.Property<Guid?>(p.Outer.Outer.Outer, ""ProductUnitMeasurementId""), 
+        innerKeySelector: p3 => EF.Property<Guid?>(p3, ""Id""), 
+        resultSelector: (o, i) => new TransparentIdentifier<TransparentIdentifier<TransparentIdentifier<TransparentIdentifier<Product<Guid>, ProductType<Guid>>, ProductQuality<Guid>>, ProductSerie<Guid>>, ProductUnitMeasurement<Guid>>(
+            Outer = o, 
+            Inner = i
+        ))
+    .Where(p => p.Outer.Outer.Outer.Outer.ExchangeId.Contains(""olive"") || p.Outer.Outer.Outer.Outer.Name.Contains(""olive"") || p.Outer.Outer.Outer.Outer.ConcurrencyStamp.Contains(""olive"") || p.Outer.Outer.Outer.Outer.Comment.Contains(""olive"") || p.Outer.Outer.Outer.Outer.Article.Contains(""olive"") || p.Outer.Outer.Outer.Outer.FullName.Contains(""olive"") || p.Outer.Outer.Outer.Inner.ToString().Contains(""olive"") || p.Outer.Outer.Inner.ToString().Contains(""olive"") || p.Outer.Inner.ToString().Contains(""olive"") || p.Inner.ToString().Contains(""olive"") || p.Outer.Outer.Outer.Outer.Description.Contains(""olive"") || p.Outer.Outer.Outer.Outer.MainImageUrl.Contains(""olive""))'
+    
+    
+    
+    could not be translated. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information."

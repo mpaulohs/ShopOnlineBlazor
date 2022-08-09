@@ -13,6 +13,7 @@ using Shared.Models.Documents;
 using Shared.Models.Identities;
 using Shared.Services.Repository;
 using System;
+using Api.MappProfiles;
 
 namespace Api
 {
@@ -29,7 +30,11 @@ namespace Api
         {
 
             services.AddControllers().AddNewtonsoftJson();
+            // services.AddAutoMapper(cfg =>
+            // cfg.AddProfile<ProductProfile>()
 
+            // );
+            services.AddAutoMapper(typeof(Startup).Assembly);
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "RestAPI", Version = "v1" });

@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "3SV5cfDSh+s+qkFl7WdoQvm858EHmcVG2pdqoccE6Zp9MUKlidWyOZkT4+tVi4+sF2wBU+OLGlekqTuyGF9gBA==",
+  "dgSpecHash": "TmLHoNu4xeguYJmRhvgIN/+TwBoQg4javUMYNSEktac623oKNXRFhOVLgh/TzNJgMjjvze6D45AzNhtHJ9x5dg==",
   "success": true,
   "projectFilePath": "/Users/igormelnyk/Projects/ShopOnlinePWA/Api/Api.csproj",
   "expectedPackageFiles": [
+    "/Users/igormelnyk/.nuget/packages/automapper/11.0.0/automapper.11.0.0.nupkg.sha512",
+    "/Users/igormelnyk/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/11.0.0/automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "/Users/igormelnyk/.nuget/packages/bogus/34.0.2/bogus.34.0.2.nupkg.sha512",
     "/Users/igormelnyk/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/igormelnyk/.nuget/packages/messagepack/2.1.152/messagepack.2.1.152.nupkg.sha512",
