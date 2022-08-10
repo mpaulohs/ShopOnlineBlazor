@@ -1,171 +1,134 @@
 using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Reflection;
-
-public class SortCollection<TSource>
+public class SortCollection<T>
 {
-    private List<IOrderByProperty<TSource>> sortProperties { get; set; }
-        = new List<IOrderByProperty<TSource>>();
-
-    public IReadOnlyList<IOrderByProperty> SortProperties => sortProperties.AsReadOnly();
-
-    public SortCollection()
-    { }
-
-    public SortCollection(string value)
-        : this(value?.Split(',', StringSplitOptions.RemoveEmptyEntries))
+    private List<ISortProperty<T>> sortProperies { get; set; } = new List<ISortProperty<T>>();
+    public IReadOnlyList<ISortProperty> SortProperties => sortProperies.AsReadOnly();
+    public SortCollection() { }
+    public SortCollection(string sortStrs) : this(sortStrs.Split(',', StringSplitOptions.RemoveEmptyEntries)) { }
+    public SortCollection(IEnumerable<string> sortStrs)
     {
-    }
-
-    public SortCollection(IEnumerable<string> elements)
-    {
-        if (elements == null)
+        if (sortStrs == null)
             return;
-
-        foreach (var element in elements)
+        foreach (var sortStr in sortStrs)
         {
-            var sortElement = Parse(element);
-
-            // garbage property name, skip it
-            if (sortElement is null) continue;
-
-            sortProperties.Add(sortElement);
+            var sortProperie = Parse(sortStr);
+            if (sortProperie is null) continue;
+            sortProperies.Add(sortProperie);
         }
     }
-
-    private static IOrderByProperty<TSource>? Parse(string propertyName)
+    private static ISortProperty<T>? Parse(string propertyName)
     {
         propertyName = propertyName.Trim();
-        var properties = typeof(TSource).GetProperties().ToList();
+        var properties = typeof(T).GetProperties().ToList();
         var direction = ListSortDirection.Ascending;
-
+        // direction Descending if prop starts with "-"
         if (propertyName.StartsWith("-"))
         {
             direction = ListSortDirection.Descending;
             propertyName = propertyName.Substring(1);
         }
-
         // property name cased properly
-        var propertyInfo = properties.Find(p => p.Name.Equals(propertyName, StringComparison.OrdinalIgnoreCase));
-
-        if (propertyInfo == null)
+        var propertyInfo = properties.FirstOrDefault(p => p.Name.Equals(propertyName, StringComparison.OrdinalIgnoreCase));
+        if (propertyInfo == default)
+        {
             return null;
-
-        var type = typeof(SortProperty<>);
-        var sortedElementType = type
+        }
+        var type = typeof(SortProperyt<>);
+        var sortElementType = type
             .MakeGenericType(
-                typeof(TSource),
+                typeof(T),
                 propertyInfo.PropertyType
             );
-
-        var ctor = sortedElementType
+        var ctorInfo = sortElementType
             .GetConstructor(new[] {
                 typeof(PropertyInfo),
                 typeof(ListSortDirection)
             });
-
-        return ctor.Invoke(new object?[] {
+        return ctorInfo?.Invoke(new object?[] {
             propertyInfo,
             direction
-        }) as IOrderByProperty<TSource>;
+        }) as ISortProperty<T>;
     }
-
-    public IQueryable<TSource> Apply(IQueryable<TSource> queryable)
+    //ToDo delete this method 
+    public IQueryable<T> Apply(IQueryable<T> queryable)
     {
         var query = queryable;
-
-        foreach (var element in sortProperties)
+        foreach (var sortPropertie in sortProperies)
         {
-            query = element.Apply(query);
+            query = sortPropertie.Apply(query);
         }
-
         return query;
     }
-
     public override string ToString()
     {
-        return string.Join(",", sortProperties);
+        return string.Join(",", sortProperies);
     }
-
     /// <summary>
     /// Creates a string with the Property Sort or Flips the direction if it exists
     /// </summary>
-    /// <param name="element"></param>
+    /// <param name="sortProperieStr"></param>
     /// <returns></returns>
-    public string AddOrUpdate(string element)
+    public string AddOrUpdate(string sortProperieStr)
     {
-        var parse = Parse(element);
-
-        if (parse == null)
+        var sortProperie = Parse(sortProperieStr);
+        if (sortProperie == default)
             return ToString();
-
-        var sort = new SortCollection<TSource>(ToString());
-        var property = sort
-            .sortProperties
-            .Find(x => x.PropertyName == parse.PropertyName);
-
+        var sortCollection = new SortCollection<T>(ToString());
+        var property = sortCollection
+            .sortProperies
+            .Find(x => x.PropertyName == sortProperie.PropertyName);
         if (property == null)
         {
-            sort.sortProperties.Add(parse);
-            return sort.ToString();
+            sortCollection.sortProperies.Add(sortProperie);
+            return sortCollection.ToString();
         }
-
         property.SortDirection =
             property.SortDirection == ListSortDirection.Ascending
                 ? ListSortDirection.Descending
                 : ListSortDirection.Ascending;
-
-        return sort.ToString();
+        return sortCollection.ToString();
     }
-
     public string Remove(string element)
     {
         var parse = Parse(element);
-
         if (parse == null)
             return ToString();
-
-        var sort = new SortCollection<TSource>(ToString());
+        var sort = new SortCollection<T>(ToString());
         var property = sort
-            .sortProperties
+            .sortProperies
             .Find(x => x.PropertyName == parse.PropertyName);
-
         if (property != null)
         {
-            sort.sortProperties.Remove(property);
+            sort.sortProperies.Remove(property);
         }
-
         return sort.ToString();
     }
-
-    private class SortProperty<TKey> : IOrderByProperty<TSource>
+    private class SortProperyt<TKey> : ISortProperty<T>
     {
-        public SortProperty(
+        public SortProperyt(
             PropertyInfo propertyInfo,
             ListSortDirection direction)
         {
             PropertyName = propertyInfo.Name;
             SortDirection = direction;
-
-            var source = Expression.Parameter(typeof(TSource), "entity");
+            var source = Expression.Parameter(typeof(T), "entity");
             var member = Expression.Property(source, propertyInfo);
-            Filter = Expression.Lambda<Func<TSource, TKey>>(member, source);
+            Filter = Expression.Lambda<Func<T, TKey>>(member, source);
         }
-
         public string PropertyName { get; private set; }
         public ListSortDirection SortDirection { get; set; }
-        public Expression<Func<TSource, TKey>> Filter { get; private set; }
-
-        public IQueryable<TSource> Apply(IQueryable<TSource> queryable)
+        public Expression<Func<T, TKey>> Filter { get; private set; }
+        public IQueryable<T> Apply(IQueryable<T> queryable)
         {
             var visitor = new OrderingMethodFinder();
             visitor.Visit(queryable.Expression);
-
             if (visitor.OrderingMethodFound)
             {
                 queryable = SortDirection == ListSortDirection.Ascending
-                    ? ((IOrderedQueryable<TSource>)queryable).ThenBy(Filter)
-                    : ((IOrderedQueryable<TSource>)queryable).ThenByDescending(Filter);
+                    ? ((IOrderedQueryable<T>)queryable).ThenBy(Filter)
+                    : ((IOrderedQueryable<T>)queryable).ThenByDescending(Filter);
             }
             else
             {
@@ -175,25 +138,21 @@ public class SortCollection<TSource>
             }
             return queryable;
         }
-
         public override string ToString()
         {
             return SortDirection == ListSortDirection.Ascending
                 ? PropertyName
                 : $"-{PropertyName}";
         }
-
         private class OrderingMethodFinder : ExpressionVisitor
         {
             public bool OrderingMethodFound { get; set; }
-
             protected override Expression VisitMethodCall(MethodCallExpression node)
             {
-                var name = node.Method.Name;
-
+                var methodName = node.Method.Name;
                 if (node.Method.DeclaringType == typeof(Queryable) && (
-                    name.StartsWith("OrderBy", StringComparison.Ordinal) ||
-                    name.StartsWith("ThenBy", StringComparison.Ordinal)))
+                    methodName.StartsWith("OrderBy", StringComparison.Ordinal) ||
+                    methodName.StartsWith("ThenBy", StringComparison.Ordinal)))
                 {
                     OrderingMethodFound = true;
                 }
@@ -201,14 +160,12 @@ public class SortCollection<TSource>
             }
         }
     }
-
-    private interface IOrderByProperty<T> : IOrderByProperty
+    private interface ISortProperty<T> : ISortProperty
     {
         new ListSortDirection SortDirection { get; set; }
         IQueryable<T> Apply(IQueryable<T> queryable);
     }
-
-    public interface IOrderByProperty
+    public interface ISortProperty
     {
         public string PropertyName { get; }
         public ListSortDirection SortDirection { get; }

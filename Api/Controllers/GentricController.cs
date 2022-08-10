@@ -43,7 +43,7 @@ namespace Api.Controllers
         {
             try
             {
-                var response = _repository.GetAsync<ProductDTO<Guid>>(fields, search, filter, orderby, take, skip);
+                var response = _repository.GetAsync<ProductDTO<Guid>>(search, filter, orderby, take, skip);
 
                 if (response != null)
                 {
@@ -217,7 +217,7 @@ namespace Api.Controllers
         {
             try
             {
-                var response = await _repository.DeleteByIdAsync(id);
+                var response = await _repository.DeleteAsync(id);
 
                 if (response == true)
                 {
