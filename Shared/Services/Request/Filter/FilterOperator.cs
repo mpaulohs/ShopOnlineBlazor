@@ -1,29 +1,56 @@
-﻿namespace Shared.Services.Request.Pagination
+using System.Linq.Expressions;
+
+namespace Shared.Services.Request.Filter;
+
+class FilterOperator
 {
+    public ExpressionType ExpressionType { get; set; }
+    public string Name { get; set; }
+    public string ShortName { get; set; }
+    public string Symbol { get; set; }
+    public string Description { get; set; }
 
-    public enum FilterOperator
+    public FilterOperator(ExpressionType expressionType, string name, string shortName, string symbol, string description)
     {
-        empty,
+        ExpressionType = expressionType;
+        Name = name;
+        ShortName = shortName;
+        Symbol = symbol;
+        Description = description;
+    }
 
-        // Logical
-        and,
-        or,
-        not,
+    private static IEnumerable<FilterOperator> filterOperators = generate();
 
-        // Comparison
-        eq, // Returns entries where the field is equal to the value.
-        neq, // Returns entries where the field is not equal to the value.
-        lt, // Returns entries where the field is lower than the value.
-        lte, //Returns entries where the field is lower than or equal to the value.
-        gt, // Returns entries where the field is greater than the value.
-        gte, // Returns entries where the field is greater than or equal to the value.
-
-        // String  
-        ct, //  Returns entries where the field contains the value.
-        nct, // Returns entries where the field does not contain the value.
-        ev, //  Returns entries where the field ends with the value.
-        nev, // Returns entries where the field does not end with the value.
-        bw, //  Returns entries where the field begins with the value.
-        nbw // Returns entries where the field does not begin with the value. 
+    public static IEnumerable<FilterOperator> GetGetFilterOperators(ExpressionType expressionType = default, string name = default, string shortName = default, string symbol = default)
+    {
+        var result = filterOperators;
+        if (expressionType != default)
+        {
+            result = result.Where(f => f.Equals(expressionType));
+        }
+        if (name != default)
+        {
+            result = result.Where(f => f.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+        }
+        if (shortName != default)
+        {
+            result = result.Where(f => f.ShortName.Equals(shortName, StringComparison.CurrentCultureIgnoreCase));
+        }
+        if (symbol != default)
+        {
+            result = result.Where(f => f.Symbol.Equals(symbol));
+        }
+        return result;
+    }
+    private static IEnumerable<FilterOperator> generate()
+    {
+        var filterOperators = new List<FilterOperator>();
+        filterOperators.Add(new FilterOperator(ExpressionType.Equal, "Equal", "eg", "=", "represent equal operator"));
+        filterOperators.Add(new FilterOperator(ExpressionType.NotEqual, "Not equal", "neg", "!=", "represent not equal operator"));
+        filterOperators.Add(new FilterOperator(ExpressionType.GreaterThan, "Greater than", "gt", ">", "represent greater than operator"));
+        filterOperators.Add(new FilterOperator(ExpressionType.GreaterThanOrEqual, "Greater than or equal", "gte", ">=", "rgepresent greater than or equal operator"));
+        filterOperators.Add(new FilterOperator(ExpressionType.LessThan, "Less than", "lt", "<", "rgepresent less than operator"));
+        filterOperators.Add(new FilterOperator(ExpressionType.LessThanOrEqual, "Less than or equal", "lte", "<=", "rgepresent less than or equal operator"));
+        return filterOperators;
     }
 }

@@ -2,13 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Shared.Models;
-using Shared.Services.Request.Pagination;
-using Shared.Services.Request.Search;
 using System.Linq.Expressions;
-using Shared.Services.Repository.RepositoryExtentions;
-using Shared.Models.Catalogs;
 using Shared.Services.Request.Sort;
-using Shared.Services.Request.Select;
 using System.Linq;
 using System.Linq.Dynamic.Core;
 using Shared.Services.Repository;
@@ -19,16 +14,18 @@ using System;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using System.Text;
+using Shared.Services.Request.FilterOld;
+
 namespace Api.Data
 {
-    public class RepositoryBaseApi<TEntity, TKey, TDbContext> :
+    public class RepositoryBase<TEntity, TKey, TDbContext> :
         IDisposable,
         IRepository<TEntity, TKey>
         where TEntity : class, IApplicationEntity<TKey>
         where TDbContext : DbContext
         where TKey : IEquatable<TKey>
     {
-        public RepositoryBaseApi(IMapper mapper, TDbContext context, ILogger<TEntity> logger)
+        public RepositoryBase(IMapper mapper, TDbContext context, ILogger<TEntity> logger)
         {
             this._mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             this._context = context ?? throw new ArgumentNullException(nameof(context));
@@ -50,9 +47,6 @@ namespace Api.Data
                 throw new ObjectDisposedException(GetType().Name);
             }
         }
-        /// <summary>
-        /// Dispose the stores
-        /// </summary>
         public void Dispose()
         {
             Dispose(true);
@@ -70,9 +64,7 @@ namespace Api.Data
                 _disposed = true;
             }
         }
-        /// <summary>Saves the current store.</summary>
-        /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
-        /// <returns>The <see cref="Task"/> that represents the asynchronous operation.</returns>
+
         protected virtual async Task<bool> SaveChanges(CancellationToken cancellationToken)
         {
             if (AutoSaveChanges)
@@ -82,12 +74,6 @@ namespace Api.Data
             }
             return false;
         }
-        /// <summary>
-        /// Creates a new role in a store as an asynchronous operation.
-        /// </summary>
-        /// <param name="entity">The entity in the store.</param>
-        /// <param name="cancellationToken">The <see cref="CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
-        /// <returns>A <see cref="Task{TResult}"/> that represents the <see cref="IdentityResult"/> of the asynchronous query.</returns>
         public virtual async Task<TKey> CreateAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
@@ -102,7 +88,6 @@ namespace Api.Data
             entity.Id = default;
             entity.CreatedAt = DateTime.Now;
             entity.UpdatedAt = default;
-            //Before Context.Set<TEntity>().AddAsync(entity);
             var result = await _context.AddAsync(entity, cancellationToken);
             try
             {
@@ -136,13 +121,17 @@ namespace Api.Data
                 _logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
                 throw new NullReferenceException(nameof(origEntity));
             }
+            if (newEntity.ConcurrencyStamp != origEntity.ConcurrencyStamp)
+            {
+                _logger.LogInformation("Can't change {0} to {1}.\nThe original was changed before", origEntity, newEntity);
+                throw new ArgumentException();
+            }
             //ToDo: Check about paralel changed models
             //Context.Attach(origEntity);
             newEntity.Id = id;
             newEntity.CreatedAt = origEntity.CreatedAt;
             newEntity.UpdatedAt = DateTime.Now;
-            //ToDo update ConcurrencyStamp
-            newEntity.ConcurrencyStamp = origEntity.ConcurrencyStamp;
+            newEntity.ConcurrencyStamp = Guid.NewGuid().ToString();
             try
             {
                 _context.Update(newEntity);
@@ -236,15 +225,45 @@ namespace Api.Data
 
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
+            var entities = Get(search, filter, sorts, take, skip, cancellationToken);
+            //ToDo make global prof
+            var configuration = new MapperConfiguration(cfg => cfg.CreateProjection<TEntity, TOut>());
+            return await entities.ProjectTo<TOut>(configuration).ToListAsync<TOut>();
+        }
+
+        public async Task<IEnumerable<TEntity>>? GetAsync(
+        string search = default,
+        string filter = default,
+        string sorts = default,
+        int take = default,
+        int skip = default,
+        CancellationToken cancellationToken = default)
+        {
+
+            cancellationToken.ThrowIfCancellationRequested();
+            ThrowIfDisposed();
+            var entities = Get(search, filter, sorts, take, skip, cancellationToken);
+            return await entities.ToListAsync<TEntity>();
+        }
+
+        private IQueryable<TEntity> Get(
+             string search = default,
+            string filter = default,
+            string sorts = default,
+            int take = default,
+            int skip = default,
+            CancellationToken cancellationToken = default)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            ThrowIfDisposed();
             try
             {
                 var entities = _entities;
+                //ToDo chec if can use logger for this purpuse
                 StringBuilder message = default;
-                Expression<Func<TEntity, bool>> searchExp = default;
-                Expression<Func<TEntity, bool>> filterExp = default;
-                // Expression<Func<TOut, bool>> expOrderBy = default;
-                var properties = typeof(TEntity).GetProperties().ToList();
                 //Search
+                var properties = typeof(TEntity).GetProperties().ToList();
+                Expression<Func<TEntity, bool>> searchExp = default;
                 if (search != default)
                 {
                     foreach (var property in properties)
@@ -273,9 +292,10 @@ namespace Api.Data
                     }
                 }
                 //Filter
+                Expression<Func<TEntity, bool>> filterExp = default;
                 if (filter != default)
                 {
-                    var filterExpStrs = filter.Split(",", StringSplitOptions.RemoveEmptyEntries);
+                    var filterExpStrs = filter.Split(";", StringSplitOptions.RemoveEmptyEntries);
                     foreach (var filterExpStr in filterExpStrs)
                     {
                         try
@@ -302,10 +322,10 @@ namespace Api.Data
                         entities = entities.Where<TEntity>(filterExp);
                     }
                 }
-                //OrderBy
+                //Sort
                 if (sorts != default)
                 {
-                    entities = entities.OrderBy<TEntity>(sorts);
+                    entities = entities.Sort<TEntity>(sorts);
                 }
                 //Skip
                 if (skip != default)
@@ -317,11 +337,7 @@ namespace Api.Data
                 {
                     entities = entities.Take<TEntity>(take);
                 }
-                var configuration = new MapperConfiguration(cfg => cfg.CreateProjection<TEntity, TOut>());
-                // var entities = _entities.ProjectTo<TOut>(_mapper.ConfigurationProvider);
-                var result = await entities.ProjectTo<TOut>(configuration).ToListAsync<TOut>();
-                //var res = await entities.ToListAsync<TOut>(); // entities.ProjectTo<TOut>().Expression.ToListAsync();
-                return result;
+                return entities;
             }
             catch (Exception exception)
             {
@@ -331,4 +347,6 @@ namespace Api.Data
             }
         }
     }
+
+
 }

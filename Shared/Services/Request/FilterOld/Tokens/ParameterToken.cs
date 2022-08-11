@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Shared.Services.Request.Pagination.Tokens
+﻿namespace Shared.Services.Request.FilterOld.Tokens
 {
     public class ParameterToken : Token
     {

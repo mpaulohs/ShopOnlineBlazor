@@ -4,14 +4,9 @@ using Shared.Services.Repository;
 using System;
 using System.Threading.Tasks;
 using Shared.Models;
-using Shared.Services.Request.Pagination;
-using Newtonsoft.Json;
-using Microsoft.AspNetCore.JsonPatch;
-using System.Linq.Expressions;
-using System.Linq;
-using Swashbuckle.AspNetCore.Annotations;
-using System.Collections.Generic;
 using Shared.Models.Dtos;
+using System.Linq.Expressions;
+using Shared.Models.Catalogs;
 
 namespace Api.Controllers
 {
@@ -41,6 +36,13 @@ namespace Api.Controllers
                [FromQuery] int skip = default,
                [FromQuery] int take = default)
         {
+            //Test
+            Expression<Func<TEntity, bool>> lambda = entity => entity.CreatedAt >= DateTime.Today;
+            Expression<Func<Product<Guid>, bool>> lambda2 = entity => entity.FullName.Equals("xo");
+
+
+
+
             try
             {
                 var response = _repository.GetAsync<ProductDTO<Guid>>(search, filter, orderby, take, skip);
@@ -49,7 +51,7 @@ namespace Api.Controllers
                 {
                     //ToDo: "create extra information in response header"
                     //Response.Headers.Add("x-pagination", JsonConvert.SerializeObject(response.MetaData));
-                    return StatusCode(200, response);
+                    return StatusCode(200, response.Result);
                 }
                 return StatusCode(404);
             }
@@ -59,104 +61,6 @@ namespace Api.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
-
-        // [HttpGet]
-        // [Route("old")]
-        // public async Task<ActionResult> Get(
-        //        [FromQuery] string fields = default,
-        //        [FromQuery] string search = default,
-        //        [FromQuery] string filter = default,
-        //        [FromQuery] string sorts = default,
-        //        [FromQuery] string pageSize = default,
-        //        [FromQuery] string curentPage = default)
-        // {
-        //     try
-        //     {
-        //         //string filter = default;
-
-        //         Expression<Func<TEntity, bool>>[] filters = default;
-
-        //         //ToDo update filters
-
-        //         //Search
-        //         if (search != default)
-        //         {
-        //             var filtersList = new List<Expression<Func<TEntity, bool>>>();
-        //             Expression<Func<TEntity, bool>> searchExpression = default;
-        //             if (fields != default)
-        //             {
-        //                 var properties = fields.Split(",", StringSplitOptions.RemoveEmptyEntries);
-        //                 foreach (var propertyName in properties)
-        //                 {
-        //                     try
-        //                     {
-        //                         var strSearchExpression = string.Format("entity => entity.{0}.Contains(\"{1}\")", propertyName, search);
-        //                         var searchExpressionNew = FilterExtensions.ToExpression<TEntity, TKey>(strSearchExpression);
-        //                         if (searchExpression == default)
-        //                         {
-        //                             searchExpression = searchExpressionNew;
-        //                         }
-        //                         else
-        //                         {
-        //                             searchExpression = searchExpression.OrElse<TEntity>(searchExpressionNew);
-        //                         }
-        //                     }
-        //                     catch (System.Exception exception)
-        //                     {
-        //                         _logger.LogError(exception.Message);
-        //                         continue;
-        //                     }
-        //                 }
-        //             }
-        //             else
-        //             {
-        //                 var properties = typeof(TEntity).GetProperties();
-        //                 var x = typeof(TEntity).GetProperties().Select(propertyInfo => propertyInfo.Name).ToArray();
-        //                 foreach (var property in properties)
-        //                 {
-        //                     try
-        //                     {
-        //                         var strSearchExpression = string.Format("entity => entity.{0}.Contains(\"{1}\")", property.Name, search);
-        //                         var searchExpressionNew = FilterExtensions.ToExpression<TEntity, TKey>(strSearchExpression);
-        //                         if (searchExpression == default)
-        //                         {
-        //                             searchExpression = searchExpressionNew;
-        //                         }
-        //                         else
-        //                         {
-        //                             searchExpression = searchExpression.OrElse<TEntity>(searchExpressionNew);
-        //                         }
-        //                     }
-        //                     catch (System.Exception exception)
-        //                     {
-        //                         _logger.LogError(exception.Message);
-        //                         continue;
-        //                     }
-        //                 }
-        //             }
-        //             filtersList.Add(searchExpression);
-        //             if (filtersList.Count > 0)
-        //             {
-        //                 filters = filtersList.ToArray();
-        //             }
-        //         }
-
-        //         var response = await _repository.GetAsync(fields, search, filters, sorts, pageSize, curentPage);
-
-        //         if (response != null)
-        //         {
-        //             //ToDo: "create extra information in response header"
-        //             //Response.Headers.Add("x-pagination", JsonConvert.SerializeObject(response.MetaData));
-        //             return StatusCode(200, response);
-        //         }
-        //         return StatusCode(404);
-        //     }
-        //     catch (Exception exception)
-        //     {
-        //         _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
-        //         return StatusCode(500, "Internal server error");
-        //     }
-        // }
 
         [HttpGet("{id}")]
         public async Task<ActionResult> Get([FromRoute] TKey id)
