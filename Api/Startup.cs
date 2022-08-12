@@ -14,6 +14,7 @@ using Shared.Models.Identities;
 using Shared.Services.Repository;
 using System;
 using Api.MappProfiles;
+using Shared.Models.Dtos;
 
 namespace Api
 {
@@ -30,8 +31,11 @@ namespace Api
         {
 
             services.AddControllers().AddNewtonsoftJson();
-            // services.AddAutoMapper(cfg =>
-            // cfg.AddProfile<ProductProfile>()
+            services.AddAutoMapper(cfg =>
+            {
+                cfg.AddProfile<ProductProfile>();
+                cfg.CreateProjection<Product<Guid>, ProductDTO<Guid>>();
+            });
 
             // );
             services.AddAutoMapper(typeof(Startup).Assembly);

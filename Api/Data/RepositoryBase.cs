@@ -25,13 +25,13 @@ namespace Api.Data
         where TDbContext : DbContext
         where TKey : IEquatable<TKey>
     {
-        public RepositoryBase(IMapper mapper, TDbContext context, ILogger<TEntity> logger)
+        public RepositoryBase(IConfigurationProvider mapper, TDbContext context, ILogger<TEntity> logger)
         {
             this._mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             this._context = context ?? throw new ArgumentNullException(nameof(context));
             this._logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
-        protected IMapper _mapper { get; private set; }
+        protected IConfigurationProvider _mapper { get; private set; }
         protected TDbContext _context { get; private set; }
         protected ILogger<TEntity> _logger { get; private set; }
         protected IQueryable<TEntity> _entities { get { return _context.Set<TEntity>(); } }
@@ -226,9 +226,10 @@ namespace Api.Data
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
             var entities = Get(search, filter, sorts, take, skip, cancellationToken);
-            //ToDo make global prof
-            var configuration = new MapperConfiguration(cfg => cfg.CreateProjection<TEntity, TOut>());
-            return await entities.ProjectTo<TOut>(configuration).ToListAsync<TOut>();
+            // //ToDo make global prof
+            // var configuration = new MapperConfiguration(cfg => cfg.CreateProjection<TEntity, TOut>());
+            // return await entities.ProjectTo<TOut>(configuration).ToListAsync<TOut>();
+            return await entities.ProjectTo<TOut>(_mapper).ToListAsync<TOut>();
         }
 
         public async Task<IEnumerable<TEntity>>? GetAsync(

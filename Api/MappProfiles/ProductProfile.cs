@@ -11,7 +11,8 @@ namespace Api.MappProfiles
         {
             new MapperConfiguration(conf =>
             {
-                conf.CreateProjection<Product<Guid>, ProductDTO<Guid>>();
+
+                conf.CreateProjection<Product<Guid>, ProductDTO<Guid>>().ForMember(dest => dest.ProductSerie, act => act.MapFrom(source => source.ProductSerie.Name));
                 // .ForMember(destinationMember => destinationMember.ProductQuality, memberOptions => memberOptions.MapFrom(src => src.ProductQuality.Name));
             });
         }
