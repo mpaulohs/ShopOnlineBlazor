@@ -2,7 +2,7 @@ using System.Linq.Expressions;
 
 namespace Shared.Services.Request.Filter;
 
-class FilterOperator
+public class FilterOperation
 {
     public ExpressionType ExpressionType { get; set; }
     public string Name { get; set; }
@@ -10,7 +10,7 @@ class FilterOperator
     public string Symbol { get; set; }
     public string Description { get; set; }
 
-    public FilterOperator(ExpressionType expressionType, string name, string shortName, string symbol, string description)
+    public FilterOperation(ExpressionType expressionType, string name, string shortName, string symbol, string description)
     {
         ExpressionType = expressionType;
         Name = name;
@@ -19,38 +19,33 @@ class FilterOperator
         Description = description;
     }
 
-    private static IEnumerable<FilterOperator> filterOperators = generate();
-
-    public static IEnumerable<FilterOperator> GetGetFilterOperators(ExpressionType expressionType = default, string name = default, string shortName = default, string symbol = default)
+    public static FilterOperation GetOperation(ExpressionType expressionType = default, string name = default, string shortName = default, string symbol = default)
     {
-        var result = filterOperators;
         if (expressionType != default)
         {
-            result = result.Where(f => f.Equals(expressionType));
+            return operations.FirstOrDefault(f => f.ExpressionType.Equals(expressionType));
         }
         if (name != default)
         {
-            result = result.Where(f => f.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+            return operations.FirstOrDefault(f => f.Name.Equals(name));
         }
         if (shortName != default)
         {
-            result = result.Where(f => f.ShortName.Equals(shortName, StringComparison.CurrentCultureIgnoreCase));
+            return operations.FirstOrDefault(f => f.ShortName.Equals(shortName));
         }
         if (symbol != default)
         {
-            result = result.Where(f => f.Symbol.Equals(symbol));
+            return operations.FirstOrDefault(f => f.Symbol.Equals(symbol));
         }
-        return result;
+        return default;
     }
-    private static IEnumerable<FilterOperator> generate()
+    private static FilterOperation[] operations = new[]
     {
-        var filterOperators = new List<FilterOperator>();
-        filterOperators.Add(new FilterOperator(ExpressionType.Equal, "Equal", "eg", "=", "represent equal operator"));
-        filterOperators.Add(new FilterOperator(ExpressionType.NotEqual, "Not equal", "neg", "!=", "represent not equal operator"));
-        filterOperators.Add(new FilterOperator(ExpressionType.GreaterThan, "Greater than", "gt", ">", "represent greater than operator"));
-        filterOperators.Add(new FilterOperator(ExpressionType.GreaterThanOrEqual, "Greater than or equal", "gte", ">=", "rgepresent greater than or equal operator"));
-        filterOperators.Add(new FilterOperator(ExpressionType.LessThan, "Less than", "lt", "<", "rgepresent less than operator"));
-        filterOperators.Add(new FilterOperator(ExpressionType.LessThanOrEqual, "Less than or equal", "lte", "<=", "rgepresent less than or equal operator"));
-        return filterOperators;
-    }
+        new FilterOperation(ExpressionType.Equal, "Equal", "eg", "=", "represent equal operator"),
+        new FilterOperation(ExpressionType.NotEqual, "Not equal", "neg", "!=", "represent not equal operator"),
+        new FilterOperation(ExpressionType.GreaterThan, "Greater than", "gt", ">", "represent greater than operator"),
+        new FilterOperation(ExpressionType.GreaterThanOrEqual, "Greater than or equal", "gte", ">=", "rgepresent greater than or equal operator"),
+        new FilterOperation(ExpressionType.LessThan, "Less than", "lt", "<", "rgepresent less than operator"),
+        new FilterOperation(ExpressionType.LessThanOrEqual, "Less than or equal", "lte", "<=", "rgepresent less than or equal operator")
+    };
 }

@@ -6,16 +6,17 @@ namespace Shared.Services.Request.Select;
 
 public static class SelectExtensions
 {
-
-
     public static IQueryable<T> Select<T>(
-                this IQueryable<T> queryable,
-                string fields)
-
+    this IQueryable<T> queryable,
+    string propertyOrFieldName)
     {
-        var selector = SelectExpressionGenerator<T>(fields);
-        return queryable.Select<T, T>(selector);
+        //var elementType = typeof(T);
+        var parameter = Expression.Parameter(typeof(T));
+        var property = Expression.PropertyOrField(parameter, propertyOrFieldName);
+        var selector = Expression.Lambda(property, parameter);
+        return queryable;
     }
+
 
 
     // public static Func<T, T> SelectExpressionGenerator<T>(string fields = default)
