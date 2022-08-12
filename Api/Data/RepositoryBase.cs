@@ -290,9 +290,9 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
             // }
             //Filter
 
-            if (true)
+            if (filter != default)
             {
-                entities = entities.FilterByRules(Rules);
+                entities = entities.FilterByRules(filter);
             }
 
 
@@ -352,16 +352,16 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
     }
 
 
-    private static FilterRule[] Rules = new[] {
-        new FilterRule {
-            PropertyName = "name",
-            Operation = FilterOperation.GetOperation(ExpressionType.Equal),
-            Value = "Hat"
-        },
-        new FilterRule {
-            PropertyName = "createdAt",
-            Operation =FilterOperation.GetOperation( ExpressionType.GreaterThan),
-            Value = new DateTime(2018, 1, 1)
-        }
-    };
+    // private static FilterRule[] Rules = new[] {
+    //     new FilterRule {
+    //         PropertyName = "name",
+    //         Operation = FilterOperation.GetOperation(ExpressionType.Equal),
+    //         Value = "Hat"
+    //     },
+    //     new FilterRule {
+    //         PropertyName = "createdAt",
+    //         Operation =FilterOperation.GetOperation( ExpressionType.GreaterThan),
+    //         Value = new DateTime(2018, 1, 1)
+    //     }
+    // };
 }
