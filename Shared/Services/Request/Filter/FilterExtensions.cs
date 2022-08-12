@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Linq;
 
 namespace Shared.Services.Request.Filter;
 
@@ -12,10 +15,12 @@ public static class FilterExtensions
         {
             var property = Expression.Property(parameter, rule.PropertyName);
             var value = Expression.Constant(rule.Value);
-            var expressionNew = Expression.MakeBinary(rule.Operator.ExpressionType, property, value);
+            var expressionNew = Expression.MakeBinary(rule.Operation.ExpressionType, property, value);
             expression = expression == default ? expressionNew : Expression.MakeBinary(ExpressionType.AndAlso, expression, expressionNew);
-            queryable = queryable.Provider.CreateQuery<T>(expression);
+
         }
-        return queryable;
+        var cookedExpression = Expression.Lambda<Func<T, bool>>(expression, parameter);
+        return queryable.Where(cookedExpression);
     }
+
 }

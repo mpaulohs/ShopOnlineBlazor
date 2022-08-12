@@ -17,11 +17,11 @@ using Shared.Services.Request.OrderBy;
 namespace Api.Data;
 
 public class RepositoryBase<TEntity, TKey, TDbContext> :
-    IDisposable,
-    IRepository<TEntity, TKey>
-    where TEntity : class, IApplicationEntity<TKey>
-    where TDbContext : DbContext
-    where TKey : IEquatable<TKey>
+ IDisposable,
+ IRepository<TEntity, TKey>
+ where TEntity : class, IApplicationEntity<TKey>
+ where TDbContext : DbContext
+ where TKey : IEquatable<TKey>
 {
     public RepositoryBase(IConfigurationProvider mapper, TDbContext context, ILogger<TEntity> logger)
     {
@@ -213,12 +213,12 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
     }
 
     public async Task<IEnumerable<TOut>>? GetAsync<TOut>(
-        string search = default,
-        string filter = default,
-        string orderBy = default,
-        int take = default,
-        int skip = default,
-        CancellationToken cancellationToken = default)
+    string search = default,
+    string filter = default,
+    string orderBy = default,
+    int take = default,
+    int skip = default,
+    CancellationToken cancellationToken = default)
     {
 
         cancellationToken.ThrowIfCancellationRequested();
@@ -246,12 +246,12 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
     }
 
     private IQueryable<TEntity> Get(
-         string search = default,
-        string filter = default,
-        string orderBy = default,
-        int take = default,
-        int skip = default,
-        CancellationToken cancellationToken = default)
+    string search = default,
+    string filter = default,
+    string orderBy = default,
+    int take = default,
+    int skip = default,
+    CancellationToken cancellationToken = default)
     {
         cancellationToken.ThrowIfCancellationRequested();
         ThrowIfDisposed();
@@ -263,36 +263,36 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
             // Expression<Func<TEntity, bool>> searchExp = default;
             // if (search != default)
             // {
-            //     foreach (var property in properties)
-            //     {
-            //         try
-            //         {
-            //             var searchStrExp = string.Format("entity => entity.{0}.Contains(\"{1}\")", property.Name, search);
-            //             var searchExpNew = FilterExtensions.ToExpression<TEntity>(searchStrExp);
-            //             if (searchExp == default)
-            //             {
-            //                 searchExp = searchExpNew;
-            //             }
-            //             else
-            //             {
-            //                 searchExp = searchExp.OrElse<TEntity>(searchExpNew);
-            //             }
-            //         }
-            //         catch (Exception)
-            //         {
-            //             continue;
-            //         }
-            //     }
-            //     if (searchExp != default)
-            //     {
-            //         entities = entities.Where<TEntity>(searchExp);
-            //     }
+            // foreach (var property in properties)
+            // {
+            // try
+            // {
+            // var searchStrExp = string.Format("entity => entity.{0}.Contains(\"{1}\")", property.Name, search);
+            // var searchExpNew = FilterExtensions.ToExpression<TEntity>(searchStrExp);
+            // if (searchExp == default)
+            // {
+            // searchExp = searchExpNew;
+            // }
+            // else
+            // {
+            // searchExp = searchExp.OrElse<TEntity>(searchExpNew);
+            // }
+            // }
+            // catch (Exception)
+            // {
+            // continue;
+            // }
+            // }
+            // if (searchExp != default)
+            // {
+            // entities = entities.Where<TEntity>(searchExp);
+            // }
             // }
             //Filter
 
             if (true)
             {
-
+                entities = entities.FilterByRules(Rules);
             }
 
 
@@ -300,31 +300,31 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
             // Expression<Func<TEntity, bool>> filterExp = default;
             // if (filter != default)
             // {
-            //     var filterExpStrs = filter.Split(";", StringSplitOptions.RemoveEmptyEntries);
-            //     foreach (var filterExpStr in filterExpStrs)
-            //     {
-            //         try
-            //         {
-            //             var filterExpNew = FilterExtensions.ToExpression<TEntity>(filterExpStr);
-            //             if (filterExp == default)
-            //             {
-            //                 filterExp = filterExpNew;
-            //             }
-            //             else
-            //             {
-            //                 filterExp = filterExp.AndAlso<TEntity>(filterExpNew);
-            //             }
-            //         }
-            //         catch (System.Exception exception)
-            //         {
-            //             _logger.LogError(exception.Message);
-            //             continue;
-            //         }
-            //     }
-            //     if (filterExp != default)
-            //     {
-            //         entities = entities.Where<TEntity>(filterExp);
-            //     }
+            // var filterExpStrs = filter.Split(";", StringSplitOptions.RemoveEmptyEntries);
+            // foreach (var filterExpStr in filterExpStrs)
+            // {
+            // try
+            // {
+            // var filterExpNew = FilterExtensions.ToExpression<TEntity>(filterExpStr);
+            // if (filterExp == default)
+            // {
+            // filterExp = filterExpNew;
+            // }
+            // else
+            // {
+            // filterExp = filterExp.AndAlso<TEntity>(filterExpNew);
+            // }
+            // }
+            // catch (System.Exception exception)
+            // {
+            // _logger.LogError(exception.Message);
+            // continue;
+            // }
+            // }
+            // if (filterExp != default)
+            // {
+            // entities = entities.Where<TEntity>(filterExp);
+            // }
             // }
             //Sort
             if (orderBy != default)
@@ -332,7 +332,7 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
                 entities = entities.OrderByPropertyOrField(orderBy);
             }
             //Skip
-                 if (skip != default)
+            if (skip != default)
             {
                 entities = entities.Skip<TEntity>(skip);
             }
@@ -352,23 +352,16 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
     }
 
 
-    //ToDo delete ufter test
-    public static FilterRule[] rules = new[]{
- new FilterRule
-                    {
-                        PropertyName = "Name",
-                        Operator = FilterOperation.GetOperation(ExpressionType.Equal),
-                        Value = "Hat"
-                    },
-                                    new FilterRule
-                                    {
-                                        PropertyName = "Name",
-                                        Operator = FilterOperation.GetOperation(ExpressionType.Equal),
-                                        Value = "Hat"
-                                    }
-
-
-                };
-
-
+    private static FilterRule[] Rules = new[] {
+        new FilterRule {
+            PropertyName = "name",
+            Operation = FilterOperation.GetOperation(ExpressionType.Equal),
+            Value = "Hat"
+        },
+        new FilterRule {
+            PropertyName = "createdAt",
+            Operation =FilterOperation.GetOperation( ExpressionType.GreaterThan),
+            Value = new DateTime(2018, 1, 1)
+        }
+    };
 }
