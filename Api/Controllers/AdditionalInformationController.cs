@@ -6,7 +6,6 @@ using System;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 using Microsoft.AspNetCore.JsonPatch;
-
 namespace Api.Controllers
 {
     public class AdditionalInformationController : GenericController<AdditionalInformation<Guid>, Guid>

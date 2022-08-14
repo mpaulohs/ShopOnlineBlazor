@@ -1,7 +1,5 @@
 using System.Linq.Expressions;
-
 namespace Shared.Services.Request.Filter;
-
 public static class FilterExtensions
 {
     public static IQueryable<T> FilterByRules<T>(this IQueryable<T> queryable, string rules)
@@ -18,21 +16,22 @@ public static class FilterExtensions
         }
         return queryable.FilterByRules(rulesList);
     }
-
     private static IQueryable<T> FilterByRules<T>(this IQueryable<T> queryable, IEnumerable<FilterRule> rules)
     {
         var parameter = Expression.Parameter(typeof(T));
-        BinaryExpression binaryExpressionAndAlso = default;
+        Expression expression = default;
         foreach (var rule in rules)
         {
             var member = Expression.Property(parameter, rule.PropertyName);
             var value = Expression.Constant(rule.Value);
             var filterExpression = Expression.MakeBinary(rule.Operation.ExpressionType, member, value);
-            binaryExpressionAndAlso = binaryExpressionAndAlso == default ? filterExpression : Expression.MakeBinary(ExpressionType.AndAlso, binaryExpressionAndAlso, filterExpression);
-
+            expression = expression == default ? filterExpression : Expression.MakeBinary(ExpressionType.AndAlso, expression, filterExpression);
         }
-        var cookedExpression = Expression.Lambda<Func<T, bool>>(binaryExpressionAndAlso, parameter);
-        return queryable.Where(cookedExpression);
+        if (expression == default)
+        {
+            return queryable;
+        }
+        var expressionLambda = Expression.Lambda<Func<T, bool>>(expression, parameter);
+        return queryable.Where(expressionLambda);
     }
-
 }

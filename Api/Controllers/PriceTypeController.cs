@@ -7,7 +7,6 @@ using Shared.Services.Repository;
 using Shared.Models.Documents;
 using System;
 using System.Threading.Tasks;
-
 namespace Api.Controllers
 {
     public class PriceTypeController : GenericController<PriceType<Guid>, Guid>

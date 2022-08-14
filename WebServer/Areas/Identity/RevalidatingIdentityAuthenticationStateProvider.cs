@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Components.Server;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using System.Security.Claims;
-
 namespace WebServer.Areas.Identity
 {
     public class RevalidatingIdentityAuthenticationStateProvider<TUser>
@@ -12,7 +11,6 @@ namespace WebServer.Areas.Identity
     {
         private readonly IServiceScopeFactory _scopeFactory;
         private readonly IdentityOptions _options;
-
         public RevalidatingIdentityAuthenticationStateProvider(
             ILoggerFactory loggerFactory,
             IServiceScopeFactory scopeFactory,
@@ -22,9 +20,7 @@ namespace WebServer.Areas.Identity
             _scopeFactory = scopeFactory;
             _options = optionsAccessor.Value;
         }
-
         protected override TimeSpan RevalidationInterval => TimeSpan.FromMinutes(30);
-
         protected override async Task<bool> ValidateAuthenticationStateAsync(
             AuthenticationState authenticationState, CancellationToken cancellationToken)
         {
@@ -47,7 +43,6 @@ namespace WebServer.Areas.Identity
                 }
             }
         }
-
         private async Task<bool> ValidateSecurityStampAsync(UserManager<TUser> userManager, ClaimsPrincipal principal)
         {
             var user = await userManager.GetUserAsync(principal);

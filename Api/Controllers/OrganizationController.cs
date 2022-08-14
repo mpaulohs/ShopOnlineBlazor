@@ -7,10 +7,8 @@ using Shared.Services.Repository;
 using Shared.Models.Documents;
 using System;
 using System.Threading.Tasks;
-
 namespace Api.Controllers
 {
-
     public class OrganizationController : GenericController<Organization<Guid>, Guid>
     {
         public OrganizationController(IRepository<Organization<Guid>, Guid> repository, ILogger<Organization<Guid>> loger) : base(repository, loger)

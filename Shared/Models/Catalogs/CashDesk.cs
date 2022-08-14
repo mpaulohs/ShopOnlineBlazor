@@ -3,6 +3,5 @@
     public class CashDesk<TKey> : CatalogBase<TKey>
         where TKey : IEquatable<TKey>
     {
-
     }
 }

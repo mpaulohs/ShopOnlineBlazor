@@ -7,11 +7,8 @@ using Shared.Models;
 using Shared.Models.Dtos;
 using System.Linq.Expressions;
 using Shared.Models.Catalogs;
-
 namespace Api.Controllers
 {
-
-
     [Route("api/[controller]")]
     [ApiController]
     public class GenericController<TOut, TEntity, TKey> : ControllerBase
@@ -20,16 +17,16 @@ namespace Api.Controllers
     {
         private readonly IRepository<TEntity, TKey> _repository;
         private readonly ILogger<TEntity> _logger;
-
         public GenericController(IRepository<TEntity, TKey> repository, ILogger<TEntity> loger)
         {
             _repository = repository;
             _logger = loger;
         }
-
         [HttpGet]
         public async Task<ActionResult> Get(
-               [FromQuery] string fields = default,
+               // ToDo maybe in the future i
+               // ToDo maybe in the future implement this functional
+               // [FromQuery] string fields = default,
                [FromQuery] string search = default,
                [FromQuery] string filter = default,
                [FromQuery] string orderby = default,
@@ -39,14 +36,9 @@ namespace Api.Controllers
             //Test
             Expression<Func<TEntity, bool>> lambda = entity => entity.CreatedAt >= DateTime.Today;
             Expression<Func<Product<Guid>, bool>> lambda2 = entity => entity.FullName.Equals("xo");
-
-
-
-
             try
             {
                 var response = _repository.GetAsync<ProductDTO<Guid>>(search, filter, orderby, take, skip);
-
                 if (response != null)
                 {
                     //ToDo: "create extra information in response header"
@@ -61,14 +53,12 @@ namespace Api.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
-
         [HttpGet("{id}")]
         public async Task<ActionResult> Get([FromRoute] TKey id)
         {
             try
             {
                 var result = await _repository.GetByIdAsync(id);
-
                 if (result != null)
                 {
                     return StatusCode(200, result);
@@ -80,16 +70,13 @@ namespace Api.Controllers
                 _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return StatusCode(500, "Internal server error");
             }
-
         }
-
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] TEntity entity)
         {
             try
             {
                 var result = await _repository.CreateAsync(entity);
-
                 return StatusCode(201, result);
             }
             catch (Exception exception)
@@ -98,7 +85,6 @@ namespace Api.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
-
         //ToDo implement put metod
         // [HttpPut("{id}")]
         // public async Task<ActionResult> Put([FromRoute] TKey id, [FromBody] JsonPatchDocument entity)
@@ -114,15 +100,12 @@ namespace Api.Controllers
         //         return StatusCode(500, "Internal server error");
         //     }
         // }
-
-
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(TKey id)
         {
             try
             {
                 var response = await _repository.DeleteAsync(id);
-
                 if (response == true)
                 {
                     return StatusCode(200, response);
@@ -137,4 +120,3 @@ namespace Api.Controllers
         }
     }
 }
-

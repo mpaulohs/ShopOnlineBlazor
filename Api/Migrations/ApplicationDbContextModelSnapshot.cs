@@ -4,9 +4,7 @@ using Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-
 #nullable disable
-
 namespace Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext<Guid>))]
@@ -16,21 +14,15 @@ namespace Api.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.7");
-
             modelBuilder.Entity("Products_ProductCharacteristics", b =>
                 {
                     b.Property<Guid>("ProductCharacteristicId")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid>("ProductId")
                         .HasColumnType("TEXT");
-
                     b.HasKey("ProductCharacteristicId", "ProductId");
-
                     b.HasIndex("ProductId");
-
                     b.ToTable("Products_Characteristics", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -528,86 +520,63 @@ namespace Api.Migrations
                             ProductId = new Guid("7fc2a088-13b6-4552-a1a2-1a41d4346e3c")
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.AdditionalInformation<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Description")
                         .HasMaxLength(500)
                         .HasColumnType("TEXT");
-
                     b.Property<Guid>("EntityId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("EntityType")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Path")
                         .HasMaxLength(500)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.ToTable("AdditionalInformations", (string)null);
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.Bank<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.ToTable("Banks", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -1610,44 +1579,32 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2022, 4, 26, 3, 18, 35, 740, DateTimeKind.Local).AddTicks(6397)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.BankAccount<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("BankId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.HasIndex("BankId");
-
                     b.ToTable("BankAccounts", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -2750,39 +2707,29 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2022, 7, 8, 6, 5, 37, 770, DateTimeKind.Local).AddTicks(1674)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.CashDesk<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.ToTable("CashDesks", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -3785,49 +3732,35 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2022, 6, 7, 17, 48, 6, 946, DateTimeKind.Local).AddTicks(6158)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.ClientContactInformation<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("ClientContactInformationTypeId")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("ClientId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.HasIndex("ClientContactInformationTypeId");
-
                     b.HasIndex("ClientId");
-
                     b.ToTable("ClientContackInformations", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -5030,39 +4963,29 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2022, 7, 14, 0, 57, 42, 488, DateTimeKind.Local).AddTicks(8811)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.ClientContactInformationType<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.ToTable("ClientContactInformationTypes", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -5095,49 +5018,35 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2018, 10, 7, 3, 23, 24, 714, DateTimeKind.Local).AddTicks(7915)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.ClientContract<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("ClientId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("CurrencyId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.HasIndex("ClientId");
-
                     b.HasIndex("CurrencyId");
-
                     b.ToTable("ClientContracts", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -6328,51 +6237,38 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2020, 9, 13, 0, 24, 36, 138, DateTimeKind.Local).AddTicks(1435)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.Currency<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Code")
                         .HasMaxLength(20)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ShortName")
                         .HasMaxLength(20)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Symbol")
                         .HasMaxLength(20)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.ToTable("Currencyes", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -7532,39 +7428,29 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2021, 7, 31, 9, 53, 55, 838, DateTimeKind.Local).AddTicks(5227)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.DocumentStatus<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.ToTable("DocumentStatuses", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -7627,39 +7513,29 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2021, 6, 9, 7, 40, 42, 109, DateTimeKind.Local).AddTicks(827)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.DocumentType<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.ToTable("DocumentTypes", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -7712,39 +7588,29 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2018, 7, 4, 7, 18, 23, 600, DateTimeKind.Local).AddTicks(2929)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.Organization<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.ToTable("Organizations", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -8747,39 +8613,29 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2020, 3, 18, 12, 29, 24, 399, DateTimeKind.Local).AddTicks(5158)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.PriceType<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.ToTable("PriceTypes", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -8812,75 +8668,52 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2019, 4, 1, 9, 2, 48, 710, DateTimeKind.Local).AddTicks(2228)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.Product<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Article")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("FullName")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<bool>("IsPublic")
                         .HasColumnType("INTEGER");
-
                     b.Property<string>("MainImageUrl")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("ProductQualityId")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("ProductSerieId")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("ProductTypeId")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("ProductUnitMeasurementId")
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.HasIndex("ProductQualityId");
-
                     b.HasIndex("ProductSerieId");
-
                     b.HasIndex("ProductTypeId");
-
                     b.HasIndex("ProductUnitMeasurementId");
-
                     b.ToTable("Products", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -10764,39 +10597,29 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2021, 12, 14, 10, 46, 41, 841, DateTimeKind.Local).AddTicks(1789)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.ProductCharacteristic<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.ToTable("ProductCharacteristics", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -11799,39 +11622,29 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2022, 8, 2, 22, 53, 2, 948, DateTimeKind.Local).AddTicks(2184)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.ProductQuality<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.ToTable("ProductQualityes", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -12834,39 +12647,29 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2021, 7, 10, 18, 58, 34, 152, DateTimeKind.Local).AddTicks(8895)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.ProductQuantity<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.ToTable("ProductQuantityes", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -13869,39 +13672,29 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2022, 2, 24, 11, 3, 56, 267, DateTimeKind.Local).AddTicks(4296)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.ProductSerie<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.ToTable("ProductSeries", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -14904,39 +14697,29 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2022, 7, 6, 12, 0, 48, 48, DateTimeKind.Local).AddTicks(1179)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.ProductType<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.ToTable("ProductTypes", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -15939,39 +15722,29 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2021, 12, 18, 8, 47, 33, 76, DateTimeKind.Local).AddTicks(1305)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.ProductUnitClassifier<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.ToTable("ProductUnitClassifiers", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -16974,39 +16747,29 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2021, 8, 1, 0, 36, 39, 20, DateTimeKind.Local).AddTicks(955)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.ProductUnitMeasurement<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.ToTable("ProductUnitMeasuraments", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -18009,39 +17772,29 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2022, 6, 17, 4, 35, 17, 841, DateTimeKind.Local).AddTicks(1534)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.Storage<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.ToTable("Storages", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -19044,39 +18797,29 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2021, 12, 10, 16, 0, 38, 620, DateTimeKind.Local).AddTicks(1667)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.Subdivision<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.ToTable("Subdivisions", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -20079,280 +19822,190 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2022, 1, 22, 9, 52, 41, 252, DateTimeKind.Local).AddTicks(4606)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Documents.DocumentPayment<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("ClientContractId")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("ClientId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<decimal>("ContractAmount")
                         .HasColumnType("decimal(18,2)");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("CurrencyId")
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("TEXT");
-
                     b.Property<decimal>("DocumentAmount")
                         .HasColumnType("decimal(18,2)");
-
                     b.Property<Guid?>("DocumentCurrencyId")
                         .HasColumnType("TEXT");
-
                     b.Property<decimal>("DocumentCurrencyValue")
                         .HasColumnType("decimal(18,2)");
-
                     b.Property<Guid>("DocumentTypeId")
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("ExchangeDateTime")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<decimal>("MultiplicityMutalSettlements")
                         .HasColumnType("decimal(18,2)");
-
                     b.Property<Guid?>("OrganizationId")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("PriceTypeId")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("ResponsibleId")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("SubdivisionId")
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.HasIndex("ClientContractId");
-
                     b.HasIndex("ClientId");
-
                     b.HasIndex("CurrencyId");
-
                     b.HasIndex("DocumentCurrencyId");
-
                     b.HasIndex("DocumentTypeId");
-
                     b.HasIndex("OrganizationId");
-
                     b.HasIndex("PriceTypeId");
-
                     b.HasIndex("ResponsibleId");
-
                     b.HasIndex("SubdivisionId");
-
                     b.ToTable("Payments", (string)null);
                 });
-
             modelBuilder.Entity("Shared.Models.Documents.DocumentSale<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("ClientContractId")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("ClientId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Comment")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<decimal>("ContractAmount")
                         .HasColumnType("decimal(18,2)");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("TEXT");
-
                     b.Property<decimal>("DocumentAmount")
                         .HasColumnType("decimal(18,2)");
-
                     b.Property<Guid?>("DocumentCurrencyId")
                         .HasColumnType("TEXT");
-
                     b.Property<decimal>("DocumentCurrencyValue")
                         .HasColumnType("decimal(18,2)");
-
                     b.Property<Guid>("DocumentStatusId")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid>("DocumentTypeId")
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("ExchangeDateTime")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<decimal>("MultiplicityMutalSettlements")
                         .HasColumnType("decimal(18,2)");
-
                     b.Property<Guid?>("OrganizationId")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("PriceTypeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ReciverAddres")
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("ReciverId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ReciverPhoneNumber")
                         .HasMaxLength(20)
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("ResponsibleId")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("StorageId")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid?>("SubdivisionId")
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.HasIndex("ClientContractId");
-
                     b.HasIndex("ClientId");
-
                     b.HasIndex("DocumentCurrencyId");
-
                     b.HasIndex("DocumentStatusId");
-
                     b.HasIndex("DocumentTypeId");
-
                     b.HasIndex("OrganizationId");
-
                     b.HasIndex("PriceTypeId");
-
                     b.HasIndex("ReciverId");
-
                     b.HasIndex("ResponsibleId");
-
                     b.HasIndex("StorageId");
-
                     b.HasIndex("SubdivisionId");
-
                     b.ToTable("Documents", (string)null);
                 });
-
             modelBuilder.Entity("Shared.Models.Documents.Mesage<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.ToTable("Mesages", (string)null);
                 });
-
             modelBuilder.Entity("Shared.Models.Identities.Role<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Description")
                         .HasMaxLength(500)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ExchangeId")
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasMaxLength(256)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("NormalizedName")
                         .HasMaxLength(256)
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.HasIndex("NormalizedName")
                         .IsUnique()
                         .HasDatabaseName("RoleNameIndex");
-
                     b.ToTable("Roles", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -20443,114 +20096,81 @@ namespace Api.Migrations
                             UpdatedAt = new DateTime(2021, 3, 5, 23, 7, 43, 547, DateTimeKind.Local).AddTicks(8114)
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Identities.RoleClaim<System.Guid>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
-
                     b.Property<string>("ClaimType")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ClaimValue")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid>("RoleId")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.HasIndex("RoleId");
-
                     b.ToTable("RoleClaims", (string)null);
                 });
-
             modelBuilder.Entity("Shared.Models.Identities.User<System.Guid>", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
-
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("INTEGER");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("TEXT");
-
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("INTEGER");
-
                     b.Property<string>("ExchangeId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("FirstName")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("LastName")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("INTEGER");
-
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("MiddleName")
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
                         .HasColumnType("TEXT");
-
                     b.Property<string>("PasswordHash")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("TEXT");
-
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("INTEGER");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("TEXT");
-
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("INTEGER");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
-
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex");
-
                     b.ToTable("Users", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -22830,64 +22450,44 @@ namespace Api.Migrations
                             UserName = "Cassandra_Weissnat86"
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Identities.UserClaim<System.Guid>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
-
                     b.Property<string>("ClaimType")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ClaimValue")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid>("UserId")
                         .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
                     b.HasIndex("UserId");
-
                     b.ToTable("UserClaims", (string)null);
                 });
-
             modelBuilder.Entity("Shared.Models.Identities.UserLogin<System.Guid>", b =>
                 {
                     b.Property<string>("LoginProvider")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ProviderKey")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid>("UserId")
                         .HasColumnType("TEXT");
-
                     b.HasKey("LoginProvider", "ProviderKey");
-
                     b.HasIndex("UserId");
-
                     b.ToTable("UserLogins", (string)null);
                 });
-
             modelBuilder.Entity("Shared.Models.Identities.UserRole<System.Guid>", b =>
                 {
                     b.Property<Guid>("UserId")
                         .HasColumnType("TEXT");
-
                     b.Property<Guid>("RoleId")
                         .HasColumnType("TEXT");
-
                     b.HasKey("UserId", "RoleId");
-
                     b.HasIndex("RoleId");
-
                     b.ToTable("UserRoles", (string)null);
-
                     b.HasData(
                         new
                         {
@@ -23385,26 +22985,19 @@ namespace Api.Migrations
                             RoleId = new Guid("02160069-9490-45f0-8e91-3f70458f7354")
                         });
                 });
-
             modelBuilder.Entity("Shared.Models.Identities.UserToken<System.Guid>", b =>
                 {
                     b.Property<Guid>("UserId")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("LoginProvider")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
-
                     b.Property<string>("Value")
                         .HasColumnType("TEXT");
-
                     b.HasKey("UserId", "LoginProvider", "Name");
-
                     b.ToTable("UserTokens", (string)null);
                 });
-
             modelBuilder.Entity("Products_ProductCharacteristics", b =>
                 {
                     b.HasOne("Shared.Models.Catalogs.ProductCharacteristic<System.Guid>", null)
@@ -23412,212 +23005,152 @@ namespace Api.Migrations
                         .HasForeignKey("ProductCharacteristicId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
                     b.HasOne("Shared.Models.Catalogs.Product<System.Guid>", null)
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.BankAccount<System.Guid>", b =>
                 {
                     b.HasOne("Shared.Models.Catalogs.Bank<System.Guid>", "Bank")
                         .WithMany("BankAccounts")
                         .HasForeignKey("BankId");
-
                     b.Navigation("Bank");
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.ClientContactInformation<System.Guid>", b =>
                 {
                     b.HasOne("Shared.Models.Catalogs.ClientContactInformationType<System.Guid>", "ClientContactInformationType")
                         .WithMany("ClientContactInformations")
                         .HasForeignKey("ClientContactInformationTypeId");
-
                     b.HasOne("Shared.Models.Identities.User<System.Guid>", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
-
                     b.Navigation("Client");
-
                     b.Navigation("ClientContactInformationType");
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.ClientContract<System.Guid>", b =>
                 {
                     b.HasOne("Shared.Models.Identities.User<System.Guid>", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
-
                     b.HasOne("Shared.Models.Catalogs.Currency<System.Guid>", "Currency")
                         .WithMany()
                         .HasForeignKey("CurrencyId");
-
                     b.Navigation("Client");
-
                     b.Navigation("Currency");
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.Product<System.Guid>", b =>
                 {
                     b.HasOne("Shared.Models.Catalogs.ProductQuality<System.Guid>", "ProductQuality")
                         .WithMany("Products")
                         .HasForeignKey("ProductQualityId");
-
                     b.HasOne("Shared.Models.Catalogs.ProductSerie<System.Guid>", "ProductSerie")
                         .WithMany()
                         .HasForeignKey("ProductSerieId");
-
                     b.HasOne("Shared.Models.Catalogs.ProductType<System.Guid>", "ProductType")
                         .WithMany()
                         .HasForeignKey("ProductTypeId");
-
                     b.HasOne("Shared.Models.Catalogs.ProductUnitMeasurement<System.Guid>", "ProductUnitMeasurement")
                         .WithMany()
                         .HasForeignKey("ProductUnitMeasurementId");
-
                     b.Navigation("ProductQuality");
-
                     b.Navigation("ProductSerie");
-
                     b.Navigation("ProductType");
-
                     b.Navigation("ProductUnitMeasurement");
                 });
-
             modelBuilder.Entity("Shared.Models.Documents.DocumentPayment<System.Guid>", b =>
                 {
                     b.HasOne("Shared.Models.Catalogs.ClientContract<System.Guid>", "ClientContract")
                         .WithMany()
                         .HasForeignKey("ClientContractId");
-
                     b.HasOne("Shared.Models.Identities.User<System.Guid>", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
-
                     b.HasOne("Shared.Models.Catalogs.Currency<System.Guid>", "Currency")
                         .WithMany()
                         .HasForeignKey("CurrencyId");
-
                     b.HasOne("Shared.Models.Catalogs.Currency<System.Guid>", "DocumentCurrency")
                         .WithMany()
                         .HasForeignKey("DocumentCurrencyId");
-
                     b.HasOne("Shared.Models.Catalogs.DocumentType<System.Guid>", "DocumentType")
                         .WithMany()
                         .HasForeignKey("DocumentTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
                     b.HasOne("Shared.Models.Catalogs.Organization<System.Guid>", "Organization")
                         .WithMany()
                         .HasForeignKey("OrganizationId");
-
                     b.HasOne("Shared.Models.Catalogs.PriceType<System.Guid>", "PriceType")
                         .WithMany()
                         .HasForeignKey("PriceTypeId");
-
                     b.HasOne("Shared.Models.Identities.User<System.Guid>", "Responsible")
                         .WithMany()
                         .HasForeignKey("ResponsibleId");
-
                     b.HasOne("Shared.Models.Catalogs.Subdivision<System.Guid>", "Subdivision")
                         .WithMany()
                         .HasForeignKey("SubdivisionId");
-
                     b.Navigation("Client");
-
                     b.Navigation("ClientContract");
-
                     b.Navigation("Currency");
-
                     b.Navigation("DocumentCurrency");
-
                     b.Navigation("DocumentType");
-
                     b.Navigation("Organization");
-
                     b.Navigation("PriceType");
-
                     b.Navigation("Responsible");
-
                     b.Navigation("Subdivision");
                 });
-
             modelBuilder.Entity("Shared.Models.Documents.DocumentSale<System.Guid>", b =>
                 {
                     b.HasOne("Shared.Models.Catalogs.ClientContract<System.Guid>", "ClientContract")
                         .WithMany()
                         .HasForeignKey("ClientContractId");
-
                     b.HasOne("Shared.Models.Identities.User<System.Guid>", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId");
-
                     b.HasOne("Shared.Models.Catalogs.Currency<System.Guid>", "DocumentCurrency")
                         .WithMany()
                         .HasForeignKey("DocumentCurrencyId");
-
                     b.HasOne("Shared.Models.Catalogs.DocumentStatus<System.Guid>", "DocumentStatus")
                         .WithMany()
                         .HasForeignKey("DocumentStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
                     b.HasOne("Shared.Models.Catalogs.DocumentType<System.Guid>", "DocumentType")
                         .WithMany()
                         .HasForeignKey("DocumentTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
                     b.HasOne("Shared.Models.Catalogs.Organization<System.Guid>", "Organization")
                         .WithMany()
                         .HasForeignKey("OrganizationId");
-
                     b.HasOne("Shared.Models.Catalogs.PriceType<System.Guid>", "PriceType")
                         .WithMany()
                         .HasForeignKey("PriceTypeId");
-
                     b.HasOne("Shared.Models.Identities.User<System.Guid>", "Reciver")
                         .WithMany()
                         .HasForeignKey("ReciverId");
-
                     b.HasOne("Shared.Models.Identities.User<System.Guid>", "Responsible")
                         .WithMany()
                         .HasForeignKey("ResponsibleId");
-
                     b.HasOne("Shared.Models.Catalogs.Storage<System.Guid>", "Storage")
                         .WithMany()
                         .HasForeignKey("StorageId");
-
                     b.HasOne("Shared.Models.Catalogs.Subdivision<System.Guid>", "Subdivision")
                         .WithMany()
                         .HasForeignKey("SubdivisionId");
-
                     b.Navigation("Client");
-
                     b.Navigation("ClientContract");
-
                     b.Navigation("DocumentCurrency");
-
                     b.Navigation("DocumentStatus");
-
                     b.Navigation("DocumentType");
-
                     b.Navigation("Organization");
-
                     b.Navigation("PriceType");
-
                     b.Navigation("Reciver");
-
                     b.Navigation("Responsible");
-
                     b.Navigation("Storage");
-
                     b.Navigation("Subdivision");
                 });
-
             modelBuilder.Entity("Shared.Models.Identities.RoleClaim<System.Guid>", b =>
                 {
                     b.HasOne("Shared.Models.Identities.Role<System.Guid>", "Role")
@@ -23625,10 +23158,8 @@ namespace Api.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
                     b.Navigation("Role");
                 });
-
             modelBuilder.Entity("Shared.Models.Identities.UserClaim<System.Guid>", b =>
                 {
                     b.HasOne("Shared.Models.Identities.User<System.Guid>", "User")
@@ -23636,10 +23167,8 @@ namespace Api.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
                     b.Navigation("User");
                 });
-
             modelBuilder.Entity("Shared.Models.Identities.UserLogin<System.Guid>", b =>
                 {
                     b.HasOne("Shared.Models.Identities.User<System.Guid>", "User")
@@ -23647,10 +23176,8 @@ namespace Api.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
                     b.Navigation("User");
                 });
-
             modelBuilder.Entity("Shared.Models.Identities.UserRole<System.Guid>", b =>
                 {
                     b.HasOne("Shared.Models.Identities.Role<System.Guid>", "Role")
@@ -23658,18 +23185,14 @@ namespace Api.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
                     b.HasOne("Shared.Models.Identities.User<System.Guid>", "User")
                         .WithMany("UserRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
                     b.Navigation("Role");
-
                     b.Navigation("User");
                 });
-
             modelBuilder.Entity("Shared.Models.Identities.UserToken<System.Guid>", b =>
                 {
                     b.HasOne("Shared.Models.Identities.User<System.Guid>", "User")
@@ -23677,40 +23200,30 @@ namespace Api.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
                     b.Navigation("User");
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.Bank<System.Guid>", b =>
                 {
                     b.Navigation("BankAccounts");
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.ClientContactInformationType<System.Guid>", b =>
                 {
                     b.Navigation("ClientContactInformations");
                 });
-
             modelBuilder.Entity("Shared.Models.Catalogs.ProductQuality<System.Guid>", b =>
                 {
                     b.Navigation("Products");
                 });
-
             modelBuilder.Entity("Shared.Models.Identities.Role<System.Guid>", b =>
                 {
                     b.Navigation("RoleClaims");
-
                     b.Navigation("UserRoles");
                 });
-
             modelBuilder.Entity("Shared.Models.Identities.User<System.Guid>", b =>
                 {
                     b.Navigation("Claims");
-
                     b.Navigation("Logins");
-
                     b.Navigation("Tokens");
-
                     b.Navigation("UserRoles");
                 });
 #pragma warning restore 612, 618

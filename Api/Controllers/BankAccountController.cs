@@ -7,7 +7,6 @@ using Shared.Services.Repository;
 using Shared.Models.Documents;
 using System;
 using System.Threading.Tasks;
-
 namespace Api.Controllers
 {
     public class BankAccountController : GenericController<BankAccount<Guid>, Guid>

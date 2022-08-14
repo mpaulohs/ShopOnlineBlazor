@@ -7,10 +7,8 @@ using Shared.Services.Repository;
 using Shared.Models.Documents;
 using System;
 using System.Threading.Tasks;
-
 namespace Api.Controllers
 {
-
     public class ProductUnitMeasurementController : GenericController<ProductUnitMeasurement<Guid>, Guid>
     {
         public ProductUnitMeasurementController(IRepository<ProductUnitMeasurement<Guid>, Guid> repository, ILogger<ProductUnitMeasurement<Guid>> loger) : base(repository, loger)

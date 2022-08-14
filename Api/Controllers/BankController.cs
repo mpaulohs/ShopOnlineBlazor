@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Shared.Models.Catalogs;
@@ -12,7 +11,6 @@ using Shared.Services.Request.Search;
 using Shared.Models;
 using Api.Data;
 using Microsoft.Extensions.Configuration;
-
 namespace Api.Controllers
 {
     public class BankController : GenericController<Bank<Guid>, Guid>

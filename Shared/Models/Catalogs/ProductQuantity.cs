@@ -3,6 +3,5 @@
     public class ProductQuantity<TKey> : CatalogBase<TKey>
 where TKey : IEquatable<TKey>
     {
-
     }
 }

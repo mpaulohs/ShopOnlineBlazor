@@ -1,18 +1,14 @@
 using System.Linq.Expressions;
-
 namespace Shared.Services.Request.OrderBy;
-
 public static class OrderByExtensions
 {
     public static IQueryable<T> OrderByPropertyOrField<T>(this IQueryable<T> queryable, string orderBy)
     {
         var orderBys = orderBy.Split(":", StringSplitOptions.RemoveEmptyEntries);
         string orderByMethodName = default;
-
         foreach (var order in orderBys)
         {
             var propertyOrFieldName = order.Trim();
-
             if (propertyOrFieldName.StartsWith("-"))
             {
                 orderByMethodName = orderByMethodName == default ? "OrderByDescending" : "ThenByDescending";
@@ -38,4 +34,3 @@ public static class OrderByExtensions
         return queryable;
     }
 }
-

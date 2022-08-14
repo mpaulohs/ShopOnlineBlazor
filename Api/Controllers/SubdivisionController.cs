@@ -6,11 +6,9 @@ using Shared.Models.Catalogs;
 using Shared.Services.Repository;
 using System;
 using System.Threading.Tasks;
-
 namespace Api.Controllers
 {
-
-    public class SubdivisionController: GenericController<Subdivision<Guid>, Guid>
+    public class SubdivisionController : GenericController<Subdivision<Guid>, Guid>
     {
         public SubdivisionController(IRepository<Subdivision<Guid>, Guid> repository, ILogger<Subdivision<Guid>> loger) : base(repository, loger)
         {

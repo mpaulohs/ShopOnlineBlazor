@@ -3,6 +3,5 @@
     public class Subdivision<TKey> : CatalogBase<TKey>
 where TKey : IEquatable<TKey>
     {
-
     }
 }

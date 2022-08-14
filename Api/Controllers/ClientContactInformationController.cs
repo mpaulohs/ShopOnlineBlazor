@@ -9,7 +9,6 @@ using System;
 using System.Threading.Tasks;
 using Shared.Services.Request.Pagination;
 using Newtonsoft.Json;
-
 namespace Api.Controllers
 {
     public class ClientContactInformationController : GenericController<ClientContactInformation<Guid>, Guid>

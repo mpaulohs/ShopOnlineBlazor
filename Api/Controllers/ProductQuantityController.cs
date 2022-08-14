@@ -9,7 +9,6 @@ using System;
 using System.Threading.Tasks;
 using Shared.Services.Request.Pagination;
 using Newtonsoft.Json;
-
 namespace Api.Controllers
 {
     public class ProductQuantityController : GenericController<ProductQuantity<Guid>, Guid>

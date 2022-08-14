@@ -11,18 +11,14 @@ using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using Shared.Models.Catalogs;
 using Shared.Models.Identities;
-
 namespace Api.Data
 {
     public static class ModelBuilderExtensions
-
     {
         public static void Seed<TKey>(this ModelBuilder modelBuilder, int length, IConfiguration configuration) where TKey : IEquatable<TKey>
         {
-
             var faker = new Faker();
             int counter = 0;
-
             //Identity
             var users = new List<User<TKey>>();
             for (int i = 1; i < length; i++)
@@ -53,7 +49,6 @@ namespace Api.Data
                 entity.AccessFailedCount = faker.Random.Number(100);
                 users.Add(entity);
             }
-
             var roleNames = configuration.GetSection("Catalogs:Roles").Get<List<string>>();
             var roles = new List<Role<TKey>>();
             foreach (var role in roleNames)
@@ -71,14 +66,11 @@ namespace Api.Data
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 roles.Add(entity);
             }
-
             var userRoles = new List<object>();
             foreach (var user in users)
             {
                 userRoles.Add(new { UserId = user.Id, RoleId = faker.PickRandom(roles).Id });
             }
-
-
             //Catalogs
             var banks = new List<Bank<TKey>>();
             for (int i = 0; i < length; i++)
@@ -94,7 +86,6 @@ namespace Api.Data
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 banks.Add(entity);
             }
-
             var bankAccounts = new List<dynamic>();
             for (int i = 0; i < length; i++)
             {
@@ -113,7 +104,6 @@ namespace Api.Data
                 };
                 bankAccounts.Add(entity);
             }
-
             var cashDescks = new List<CashDesk<TKey>>();
             for (int i = 0; i < length; i++)
             {
@@ -128,7 +118,6 @@ namespace Api.Data
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 cashDescks.Add(entity);
             }
-
             var clientContactInformatinTypeName = configuration.GetSection("Catalogs:ClientContactInformationType").Get<List<string>>();
             var clientContactInformationTypes = new List<ClientContactInformationType<TKey>>();
             for (int i = 0; i < clientContactInformatinTypeName.Count; i++)
@@ -144,7 +133,6 @@ namespace Api.Data
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 clientContactInformationTypes.Add(entity);
             }
-
             var clientContactInformatin = new List<object>();
             for (int i = 0; i < length; i++)
             {
@@ -163,7 +151,6 @@ namespace Api.Data
                 };
                 clientContactInformatin.Add(entity);
             };
-
             var currencies = configuration.GetSection("Catalogs:Currency").Get<List<Currency<TKey>>>();
             for (int i = 0; i < currencies.Count; i++)
             {
@@ -175,7 +162,6 @@ namespace Api.Data
                 entity.UpdatedAt = faker.Date.Between(entity.CreatedAt, DateTime.Now);
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
             }
-
             var clientContracts = new List<object>();
             foreach (var user in users)
             {
@@ -195,7 +181,6 @@ namespace Api.Data
                 };
                 clientContracts.Add(entity);
             };
-
             var documentStatusNames = configuration.GetSection("Catalogs:DocumentStatus").Get<List<string>>();
             var documentStatuses = new List<DocumentStatus<TKey>>();
             for (int i = 0; i < documentStatusNames.Count; i++)
@@ -211,7 +196,6 @@ namespace Api.Data
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 documentStatuses.Add(entity);
             }
-
             var documentTypeNames = configuration.GetSection("Catalogs:DocumentTypes").Get<List<string>>();
             var documentTypes = new List<DocumentType<TKey>>();
             for (int i = 0; i < documentTypeNames.Count; i++)
@@ -227,7 +211,6 @@ namespace Api.Data
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 documentTypes.Add(entity);
             }
-
             var organizations = new List<Organization<TKey>>();
             for (int i = 0; i < length; i++)
             {
@@ -242,7 +225,6 @@ namespace Api.Data
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 organizations.Add(entity);
             }
-
             var priceTypeNames = configuration.GetSection("Catalogs:PriceType").Get<List<string>>();
             var priceTypes = new List<PriceType<TKey>>();
             for (int i = 0; i < priceTypeNames.Count; i++)
@@ -258,7 +240,6 @@ namespace Api.Data
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 priceTypes.Add(entity);
             }
-
             var productCharacteristics = new List<ProductCharacteristic<TKey>>();
             for (int i = 0; i < length; i++)
             {
@@ -273,7 +254,6 @@ namespace Api.Data
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 productCharacteristics.Add(entity);
             }
-
             var productQuality = new List<ProductQuality<TKey>>();
             for (int i = 0; i < length; i++)
             {
@@ -288,7 +268,6 @@ namespace Api.Data
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 productQuality.Add(entity);
             }
-
             var productQuantityes = new List<ProductQuantity<TKey>>();
             for (int i = 0; i < length; i++)
             {
@@ -303,7 +282,6 @@ namespace Api.Data
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 productQuantityes.Add(entity);
             }
-
             var productSeries = new List<ProductSerie<TKey>>();
             for (int i = 0; i < length; i++)
             {
@@ -318,7 +296,6 @@ namespace Api.Data
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 productSeries.Add(entity);
             }
-
             var productTypes = new List<ProductType<TKey>>();
             for (int i = 0; i < length; i++)
             {
@@ -333,7 +310,6 @@ namespace Api.Data
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 productTypes.Add(entity);
             }
-
             var productUnitClassifiers = new List<ProductUnitClassifier<TKey>>();
             for (int i = 0; i < length; i++)
             {
@@ -348,7 +324,6 @@ namespace Api.Data
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 productUnitClassifiers.Add(entity);
             }
-
             var productUnitMeasurements = new List<ProductUnitMeasurement<TKey>>();
             for (int i = 0; i < length; i++)
             {
@@ -363,7 +338,6 @@ namespace Api.Data
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 productUnitMeasurements.Add(entity);
             }
-
             var storages = new List<Storage<TKey>>();
             for (int i = 0; i < length; i++)
             {
@@ -378,7 +352,6 @@ namespace Api.Data
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 storages.Add(entity);
             }
-
             var subdivisions = new List<Subdivision<TKey>>();
             for (int i = 0; i < length; i++)
             {
@@ -393,7 +366,6 @@ namespace Api.Data
                 entity.ConcurrencyStamp = Guid.NewGuid().ToString();
                 subdivisions.Add(entity);
             }
-
             var products = new List<Object>();
             for (int i = 1; i < length; i++)
             {
@@ -420,7 +392,6 @@ namespace Api.Data
                 };
                 products.Add(entity);
             }
-
             modelBuilder.Entity<Bank<TKey>>().HasData(banks);
             modelBuilder.Entity<BankAccount<TKey>>().HasData(bankAccounts);
             modelBuilder.Entity<CashDesk<TKey>>().HasData(cashDescks);
@@ -445,14 +416,12 @@ namespace Api.Data
             modelBuilder.Entity<Storage<TKey>>().HasData(storages);
             modelBuilder.Entity<Subdivision<TKey>>().HasData(subdivisions);
             modelBuilder.Entity<Product<TKey>>().HasData(products);
-
             var productProductCharacteristics = new List<object>();
             foreach (var product in products)
             {
                 var ProductId = product.GetType().GetProperty("Id").GetValue(product, null);
                 var ProductCharacteristicId = faker.PickRandom(productCharacteristics).Id;
                 modelBuilder.Entity("Products_ProductCharacteristics").HasData(new { ProductCharacteristicId = ProductCharacteristicId, ProductId = ProductId });
-
             }
         }
     }

@@ -4,6 +4,5 @@
         where TKey : IEquatable<TKey>
     {
         public virtual ICollection<Product<TKey>>? Products { get; set; }
-
     }
 }

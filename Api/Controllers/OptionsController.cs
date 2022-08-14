@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-
 namespace Api.Controllers
 {
-
     [ApiController]
     [Route("/")]
     public class OptionsController : ControllerBase
@@ -17,7 +15,6 @@ namespace Api.Controllers
                 ContentType = "text/html"
             };
         }
-
         [HttpGet]
         public ContentResult Index()
         {
@@ -38,9 +35,6 @@ namespace Api.Controllers
                     ContentType = "text/html"
                 };
             }
-
-
-
         }
     }
 }

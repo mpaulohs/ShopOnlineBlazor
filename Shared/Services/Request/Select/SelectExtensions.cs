@@ -1,9 +1,6 @@
-
 using System.Linq.Expressions;
 using Shared.Models;
-
 namespace Shared.Services.Request.Select;
-
 public static class SelectExtensions
 {
     public static IQueryable<T> Select<T>(
@@ -16,9 +13,6 @@ public static class SelectExtensions
         var selector = Expression.Lambda(property, parameter);
         return queryable;
     }
-
-
-
     // public static Func<T, T> SelectExpressionGenerator<T>(string fields = default)
     public static Expression<Func<T, T>> SelectExpressionGenerator<T>(string fields = default)
     {
@@ -30,33 +24,26 @@ public static class SelectExtensions
         {
             fieldsArr = fields.Split(',', StringSplitOptions.RemoveEmptyEntries);
         }
-
         // input parameter "entity"
         var parameterExpression = Expression.Parameter(typeof(T), "entity");
-
         // new statement "new Data()"
         var newExpression = Expression.New(typeof(T));
-
         var properties = typeof(T).GetProperties().ToList();
         // create initializers
         var bindings = fieldsArr.Select(propertyName =>
             {
                 propertyName = propertyName.Trim();
                 var propertyInfo = properties.Find(p => p.Name.Equals(propertyName, StringComparison.OrdinalIgnoreCase));
-
                 if (propertyInfo != default)
                 {
                     // original value "o.Field1"
                     var memberExpression = Expression.Property(parameterExpression, propertyInfo);
-
                     // set value "Field1 = o.Field1"
                     return Expression.Bind(propertyInfo, memberExpression);
                 }
-
                 return null;
             }
         );
-
         // initialization "new Data { Field1 = o.Field1, Field2 = o.Field2 }"
         var memberInitExpression = Expression.MemberInit(newExpression, bindings);
         // expression "o => new Data { Field1 = o.Field1, Field2 = o.Field2 }"
@@ -65,9 +52,6 @@ public static class SelectExtensions
         // return expression.Compile();
         return expression;
     }
-
-
-
     // Create lambda expression 
     private static Expression<Func<T, TModel>> MakeExpression<T, TModel>(params Expression<Func<T, object>>[] select)
     {
@@ -82,36 +66,29 @@ public static class SelectExtensions
                 .Select((p, i) => Expression.Bind(p, MakeParam(param, select[i])))
                 .ToArray()
         );
-
         return Expression.Lambda<Func<T, TModel>>(body, param);
     }
-
     // Replace parameter from given expression with param
     // All expressions must have same MyEntity parameter
     private static Expression MakeParam<T>(ParameterExpression param, Expression<Func<T, object>> select)
     {
         Expression body = select.Body;
-
         return new ParamVisitor<T>(param).Visit(body);
     }
 }
-
 class ParamVisitor<T> : ExpressionVisitor
 {
     private readonly ParameterExpression _param;
-
     public ParamVisitor(ParameterExpression param)
     {
         this._param = param;
     }
-
     protected override Expression VisitParameter(ParameterExpression node)
     {
         if (node.Type == typeof(T))
         {
             return this._param;
         }
-
         return base.VisitParameter(node);
     }
 }

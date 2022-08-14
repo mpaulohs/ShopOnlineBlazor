@@ -8,10 +8,8 @@ using Shared.Models.Documents;
 using System;
 using System.Threading.Tasks;
 using Swashbuckle.AspNetCore.Annotations;
-
 namespace Api.Controllers
 {
-
     public class ProductQualityController : GenericController<ProductQuality<Guid>, Guid>
     {
         public ProductQualityController(IRepository<ProductQuality<Guid>, Guid> repository, ILogger<ProductQuality<Guid>> loger) : base(repository, loger)

@@ -1,6 +1,5 @@
 ﻿using System.Linq.Expressions;
 using System.Reflection;
-
 namespace Shared.Services.Request.Search
 {
     public static class SearchExtensions
@@ -21,13 +20,11 @@ namespace Shared.Services.Request.Search
                     // {
                     //     continue;
                     // }
-
                     var member = Expression.PropertyOrField(parameter, property.Name);
                     MethodInfo method = typeof(string).GetMethod("Contains", new[] { typeof(string) });
                     var value = Expression.Constant(search, typeof(string));
                     var expressionContains = Expression.Call(member, method, value);
                     expression = expression == default ? expressionContains : Expression.MakeBinary(ExpressionType.OrElse, expression, expressionContains);
-
                 }
                 catch (Exception)
                 {
@@ -38,9 +35,8 @@ namespace Shared.Services.Request.Search
             {
                 return queryable;
             }
-            var exception = Expression.Lambda(expression, new[] { parameter });
-
-            return queryable.Provider.CreateQuery<T>(exception);
+            var expressionLambda = Expression.Lambda<Func<T, bool>>(expression, parameter);
+            return queryable.Where(expressionLambda);
         }
     }
 }

@@ -14,9 +14,7 @@ using Shared.Services.Repository;
 using Shared.Services.Request.Filter;
 using Shared.Services.Request.OrderBy;
 using Shared.Services.Request.Search;
-
 namespace Api.Data;
-
 public class RepositoryBase<TEntity, TKey, TDbContext> :
  IDisposable,
  IRepository<TEntity, TKey>
@@ -63,7 +61,6 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
             _disposed = true;
         }
     }
-
     protected virtual async Task<bool> SaveChanges(CancellationToken cancellationToken)
     {
         if (AutoSaveChanges)
@@ -212,7 +209,6 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
             return false;
         }
     }
-
     public async Task<IEnumerable<TOut>>? GetAsync<TOut>(
     string search = default,
     string filter = default,
@@ -221,16 +217,18 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
     int skip = default,
     CancellationToken cancellationToken = default)
     {
-
         cancellationToken.ThrowIfCancellationRequested();
         ThrowIfDisposed();
         var entities = Get(search, filter, orderBy, take, skip, cancellationToken);
         // //ToDo make global prof
         // var configuration = new MapperConfiguration(cfg => cfg.CreateProjection<TEntity, TOut>());
         // return await entities.ProjectTo<TOut>(configuration).ToListAsync<TOut>();
+        var configuration = new MapperConfiguration(cfg => cfg.CreateProjection<TEntity, TOut>());
+        // var entities = _entities.ProjectTo<TOut>(_mapper.ConfigurationProvider);
+        var result = await entities.ProjectTo<TOut>(configuration).ToListAsync<TOut>();
+        return result;
         return await entities.ProjectTo<TOut>(_mapper).ToListAsync<TOut>();
     }
-
     public async Task<IEnumerable<TEntity>>? GetAsync(
     string search = default,
     string filter = default,
@@ -239,13 +237,11 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
     int skip = default,
     CancellationToken cancellationToken = default)
     {
-
         cancellationToken.ThrowIfCancellationRequested();
         ThrowIfDisposed();
         var entities = Get(search, filter, orderBy, take, skip, cancellationToken);
         return await entities.ToListAsync<TEntity>();
     }
-
     private IQueryable<TEntity> Get(
     string search = default,
     string filter = default,
@@ -264,8 +260,6 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
             {
                 entities = entities.Search(search);
             }
-
-
             // var properties = typeof(TEntity).GetProperties().ToList();
             // Expression<Func<TEntity, bool>> searchExp = default;
             // if (search != default)
@@ -283,25 +277,17 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
             // else
             // {
             // searchExp = searchExp.OrElse<TEntity>(searchExpNew);
-            // }
-            // }
             // catch (Exception)
             // {
             // continue;
-            // }
-            // }
             // if (searchExp != default)
             // {
             // entities = entities.Where<TEntity>(searchExp);
-            // }
-            // }
             //Filter
-
             if (filter != default)
             {
                 entities = entities.FilterByRules(filter);
             }
-
             //Sort
             if (orderBy != default)
             {
@@ -326,8 +312,6 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
             throw new NotImplementedException();
         }
     }
-
-
     // private static FilterRule[] Rules = new[] {
     //     new FilterRule {
     //         PropertyName = "name",

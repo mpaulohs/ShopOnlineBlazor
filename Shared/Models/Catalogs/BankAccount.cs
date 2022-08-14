@@ -4,6 +4,5 @@
 where TKey : IEquatable<TKey>
     {
         public virtual Bank<TKey>? Bank { get; set; }
-
     }
 }

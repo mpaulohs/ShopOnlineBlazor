@@ -1,7 +1,5 @@
 using System.Linq.Expressions;
-
 namespace Shared.Services.Request.Filter;
-
 public class FilterOperation
 {
     public ExpressionType ExpressionType { get; set; }
@@ -9,7 +7,6 @@ public class FilterOperation
     public string ShortName { get; set; }
     public string Symbol { get; set; }
     public string Description { get; set; }
-
     public FilterOperation(ExpressionType expressionType, string name, string shortName, string symbol, string description)
     {
         ExpressionType = expressionType;
@@ -18,7 +15,6 @@ public class FilterOperation
         Symbol = symbol;
         Description = description;
     }
-
     public static FilterOperation GetOperation(ExpressionType expressionType = default, string name = default, string shortName = default, string symbol = default)
     {
         if (expressionType != default)
