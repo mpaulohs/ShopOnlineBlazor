@@ -22,13 +22,13 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
  where TDbContext : DbContext
  where TKey : IEquatable<TKey>
 {
-    public RepositoryBase(IConfigurationProvider mapper, TDbContext context, ILogger<TEntity> logger)
+    public RepositoryBase(IMapper mapper, TDbContext context, ILogger<TEntity> logger)
     {
-        this._mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
-        this._context = context ?? throw new ArgumentNullException(nameof(context));
-        this._logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        _context = context ?? throw new ArgumentNullException(nameof(context));
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
-    protected IConfigurationProvider _mapper { get; private set; }
+    protected IMapper _mapper { get; private set; }
     protected TDbContext _context { get; private set; }
     protected ILogger<TEntity> _logger { get; private set; }
     protected IQueryable<TEntity> _entities { get { return _context.Set<TEntity>(); } }
@@ -220,14 +220,7 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
         cancellationToken.ThrowIfCancellationRequested();
         ThrowIfDisposed();
         var entities = Get(search, filter, orderBy, take, skip, cancellationToken);
-        // //ToDo make global prof
-        // var configuration = new MapperConfiguration(cfg => cfg.CreateProjection<TEntity, TOut>());
-        // return await entities.ProjectTo<TOut>(configuration).ToListAsync<TOut>();
-        var configuration = new MapperConfiguration(cfg => cfg.CreateProjection<TEntity, TOut>());
-        // var entities = _entities.ProjectTo<TOut>(_mapper.ConfigurationProvider);
-        var result = await entities.ProjectTo<TOut>(configuration).ToListAsync<TOut>();
-        return result;
-        return await entities.ProjectTo<TOut>(_mapper).ToListAsync<TOut>();
+        return await _mapper.ProjectTo<TOut>(entities).ToListAsync<TOut>();
     }
     public async Task<IEnumerable<TEntity>>? GetAsync(
     string search = default,

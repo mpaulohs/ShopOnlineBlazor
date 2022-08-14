@@ -24,28 +24,40 @@ namespace Api.Controllers
         }
         [HttpGet]
         public async Task<ActionResult> Get(
-               // ToDo maybe in the future i
-               // ToDo maybe in the future implement this functional
-               // [FromQuery] string fields = default,
+               // [FromQuery] string fields = default, //ToDo try to implement "create from any entity type"
                [FromQuery] string search = default,
                [FromQuery] string filter = default,
                [FromQuery] string orderby = default,
                [FromQuery] int skip = default,
                [FromQuery] int take = default)
         {
-            //Test
-            Expression<Func<TEntity, bool>> lambda = entity => entity.CreatedAt >= DateTime.Today;
-            Expression<Func<Product<Guid>, bool>> lambda2 = entity => entity.FullName.Equals("xo");
             try
             {
                 var response = _repository.GetAsync<ProductDTO<Guid>>(search, filter, orderby, take, skip);
-                if (response != null)
+                if (response.Status == TaskStatus.RanToCompletion)
                 {
-                    //ToDo: "create extra information in response header"
-                    //Response.Headers.Add("x-pagination", JsonConvert.SerializeObject(response.MetaData));
-                    return StatusCode(200, response.Result);
+                    return StatusCode(200, response?.Result);
                 }
-                return StatusCode(404);
+                if (response.Status == TaskStatus.Canceled)
+                {
+                    return StatusCode(404);
+                }
+                if (response.Status == TaskStatus.Faulted)
+                {
+                    return StatusCode(500, "Internal server error");
+                }
+                return StatusCode(500, "Internal server error");
+
+
+
+                // if (response?.Result != null)
+                // {
+                //     //ToDo: "create extra information in response header"
+                //     //Response.Headers.Add("x-pagination", JsonConvert.SerializeObject(response.MetaData));
+
+                //     return StatusCode(200, response.Result);
+                // }
+                // return StatusCode(404);
             }
             catch (Exception exception)
             {

@@ -12,12 +12,12 @@ where TKey : IEquatable<TKey>
     public string? Comment { get; set; }
     public string? Article { get; set; }
     public string? FullName { get; set; }
-    public string? ProductType { get; set; }
     public ICollection<ProductCharacteristic<TKey>>? ProductCharacteristics { get; set; }
+    public bool IsPublic { get; set; }
+    public string? MainImageUrl { get; set; }
+    public string? ProductType { get; set; }
     public string? ProductQuality { get; set; }
     public string? ProductSerie { get; set; }
     public string? ProductUnitMeasurement { get; set; }
     public string? Description { get; set; }
-    public string? MainImageUrl { get; set; }
-    public bool IsPublic { get; set; }
 }
