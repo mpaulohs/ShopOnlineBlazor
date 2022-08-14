@@ -9,12 +9,20 @@ namespace Api.MappProfiles
     {
         public ProductProfile()
         {
-            new MapperConfiguration(conf =>
-            {
 
-                conf.CreateProjection<Product<Guid>, ProductDTO<Guid>>().ForMember(dest => dest.ProductSerie, act => act.MapFrom(source => source.ProductSerie.Name));
-                // .ForMember(destinationMember => destinationMember.ProductQuality, memberOptions => memberOptions.MapFrom(src => src.ProductQuality.Name));
-            });
+            new MapperConfiguration(cfg => cfg.CreateProjection<Product<Guid>, ProductDTO<Guid>>());
+            // return await entities.ProjectTo<TOut>(configuration).ToListAsync<TOut>();
+            // new MapperConfiguration(conf =>
+            // {
+            //     conf.CreateMap<Product<Guid>, ProductDTO<Guid>>().ReverseMap();
+
+
+
+            //     conf.CreateProjection<Product<Guid>, ProductDTO<Guid>>()
+            //     .ForMember(dest => dest.ProductSerie, act => act
+            //     .MapFrom(source => source.ProductSerie.Name));
+            //     // .ForMember(destinationMember => destinationMember.ProductQuality, memberOptions => memberOptions.MapFrom(src => src.ProductQuality.Name));
+            // });
         }
     }
 }

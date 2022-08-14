@@ -59,13 +59,10 @@ public static class SelectExtensions
 
         // initialization "new Data { Field1 = o.Field1, Field2 = o.Field2 }"
         var memberInitExpression = Expression.MemberInit(newExpression, bindings);
-
         // expression "o => new Data { Field1 = o.Field1, Field2 = o.Field2 }"
         var expression = Expression.Lambda<Func<T, T>>(memberInitExpression, parameterExpression);
-
         // compile to Func<Data, Data>
         // return expression.Compile();
-
         return expression;
     }
 
@@ -75,7 +72,6 @@ public static class SelectExtensions
     private static Expression<Func<T, TModel>> MakeExpression<T, TModel>(params Expression<Func<T, object>>[] select)
     {
         var param = Expression.Parameter(typeof(T));
-
         // Map expressions [select1, ..., selectN] with properties
         // For keeping things simple I map nth expression with nth property
         // eg. select1 with first property from MyClass

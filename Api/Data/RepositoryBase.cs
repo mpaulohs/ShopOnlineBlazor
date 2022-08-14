@@ -13,6 +13,7 @@ using Shared.Models;
 using Shared.Services.Repository;
 using Shared.Services.Request.Filter;
 using Shared.Services.Request.OrderBy;
+using Shared.Services.Request.Search;
 
 namespace Api.Data;
 
@@ -258,7 +259,13 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
         try
         {
             var entities = _entities;
-            // //Search
+            //Search
+            if (search != default)
+            {
+                entities = entities.Search(search);
+            }
+
+
             // var properties = typeof(TEntity).GetProperties().ToList();
             // Expression<Func<TEntity, bool>> searchExp = default;
             // if (search != default)
@@ -295,37 +302,6 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
                 entities = entities.FilterByRules(filter);
             }
 
-
-            // //Filter
-            // Expression<Func<TEntity, bool>> filterExp = default;
-            // if (filter != default)
-            // {
-            // var filterExpStrs = filter.Split(";", StringSplitOptions.RemoveEmptyEntries);
-            // foreach (var filterExpStr in filterExpStrs)
-            // {
-            // try
-            // {
-            // var filterExpNew = FilterExtensions.ToExpression<TEntity>(filterExpStr);
-            // if (filterExp == default)
-            // {
-            // filterExp = filterExpNew;
-            // }
-            // else
-            // {
-            // filterExp = filterExp.AndAlso<TEntity>(filterExpNew);
-            // }
-            // }
-            // catch (System.Exception exception)
-            // {
-            // _logger.LogError(exception.Message);
-            // continue;
-            // }
-            // }
-            // if (filterExp != default)
-            // {
-            // entities = entities.Where<TEntity>(filterExp);
-            // }
-            // }
             //Sort
             if (orderBy != default)
             {

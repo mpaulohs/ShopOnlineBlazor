@@ -24,12 +24,12 @@ public static class OrderByExtensions
             }
             var elementType = typeof(T);
             var parameter = Expression.Parameter(elementType);
-            var property = Expression.PropertyOrField(parameter, propertyOrFieldName);
-            var selector = Expression.Lambda(property, parameter);
+            var member = Expression.PropertyOrField(parameter, propertyOrFieldName);
+            var selector = Expression.Lambda(member, parameter);
             var orderByExpression = Expression.Call(
                 typeof(Queryable),
                 orderByMethodName,
-                new[] { elementType, property.Type },
+                new[] { elementType, member.Type },
                 queryable.Expression,
                 selector
             );

@@ -31,11 +31,11 @@ namespace Api
         {
 
             services.AddControllers().AddNewtonsoftJson();
-            services.AddAutoMapper(cfg =>
-            {
-                cfg.AddProfile<ProductProfile>();
-                cfg.CreateProjection<Product<Guid>, ProductDTO<Guid>>();
-            });
+            // services.AddAutoMapper(cfg =>
+            // {
+            //     cfg.AddProfile<ProductProfile>();
+            //     //cfg.CreateProjection<Product<Guid>, ProductDTO<Guid>>();
+            // });
 
             // );
             services.AddAutoMapper(typeof(Startup).Assembly);
