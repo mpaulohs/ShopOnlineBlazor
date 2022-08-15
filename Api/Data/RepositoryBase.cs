@@ -34,9 +34,6 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
     protected IQueryable<TEntity> _entities { get { return _context.Set<TEntity>(); } }
     public bool AutoSaveChanges { get; set; } = true;
     private bool _disposed;
-    /// <summary>
-    /// Throws if this class has been disposed.
-    /// </summary>
     protected void ThrowIfDisposed()
     {
         if (_disposed)
@@ -55,7 +52,6 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
         {
             return;
         }
-        // Dispose of managed resources here.
         if (disposing)
         {
             _disposed = true;
@@ -120,7 +116,7 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
         if (newEntity.ConcurrencyStamp != origEntity.ConcurrencyStamp)
         {
             _logger.LogInformation("Can't change {0} to {1}.\nThe original was changed before", origEntity, newEntity);
-            throw new ArgumentException();
+            throw new Exception("The entity was changed by another request. Place update your data");
         }
         //ToDo: Check about paralel changed models
         //Context.Attach(origEntity);
@@ -148,7 +144,6 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
             _logger.LogError("An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod()?.Name);
             throw new ArgumentNullException(nameof(entity));
         }
-        // works var origEntity = await Entities.SingleOrDefaultAsync(e => e.Id.Equals(id), cancellationToken); 
         var origEntity = await GetByIdAsync(id, cancellationToken);
         if (origEntity == null)
         {
@@ -245,76 +240,33 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
     {
         cancellationToken.ThrowIfCancellationRequested();
         ThrowIfDisposed();
-        try
+        var entities = _entities;
+        //Search
+        if (search != default)
         {
-            var entities = _entities;
-            //Search
-            if (search != default)
-            {
-                entities = entities.Search(search);
-            }
-            // var properties = typeof(TEntity).GetProperties().ToList();
-            // Expression<Func<TEntity, bool>> searchExp = default;
-            // if (search != default)
-            // {
-            // foreach (var property in properties)
-            // {
-            // try
-            // {
-            // var searchStrExp = string.Format("entity => entity.{0}.Contains(\"{1}\")", property.Name, search);
-            // var searchExpNew = FilterExtensions.ToExpression<TEntity>(searchStrExp);
-            // if (searchExp == default)
-            // {
-            // searchExp = searchExpNew;
-            // }
-            // else
-            // {
-            // searchExp = searchExp.OrElse<TEntity>(searchExpNew);
-            // catch (Exception)
-            // {
-            // continue;
-            // if (searchExp != default)
-            // {
-            // entities = entities.Where<TEntity>(searchExp);
-            //Filter
-            if (filter != default)
-            {
-                entities = entities.FilterByRules(filter);
-            }
-            //Sort
-            if (orderBy != default)
-            {
-                entities = entities.OrderByPropertyOrField(orderBy);
-            }
-            //Skip
-            if (skip != default)
-            {
-                entities = entities.Skip<TEntity>(skip);
-            }
-            //Take
-            if (take != default)
-            {
-                entities = entities.Take<TEntity>(take);
-            }
-            return entities;
+            entities = entities.Search(search);
         }
-        catch (Exception exception)
+        //Filter
+        if (filter != default)
         {
-            //ToDo make handler for this epxeption
-            _logger.LogError(exception, "An exception on {0}", System.Reflection.MethodBase.GetCurrentMethod().Name);
-            throw new NotImplementedException();
+            entities = entities.FilterByRules(filter);
         }
+        //Sort
+        if (orderBy != default)
+        {
+            entities = entities.OrderByPropertyOrField(orderBy);
+        }
+        //Skip
+        if (skip != default)
+        {
+            entities = entities.Skip<TEntity>(skip);
+        }
+        //Take
+        if (take != default)
+        {
+            entities = entities.Take<TEntity>(take);
+        }
+        return entities;
+
     }
-    // private static FilterRule[] Rules = new[] {
-    //     new FilterRule {
-    //         PropertyName = "name",
-    //         Operation = FilterOperation.GetOperation(ExpressionType.Equal),
-    //         Value = "Hat"
-    //     },
-    //     new FilterRule {
-    //         PropertyName = "createdAt",
-    //         Operation =FilterOperation.GetOperation( ExpressionType.GreaterThan),
-    //         Value = new DateTime(2018, 1, 1)
-    //     }
-    // };
 }
