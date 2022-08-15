@@ -8,9 +8,17 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Api
 build_property.RootNamespace = Api
+<<<<<<< HEAD
 build_property.ProjectDir = /Users/igormelnyk/Projects/ShopOnlinePWA/Api/
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = /Users/igormelnyk/Projects/ShopOnlinePWA/Api
+=======
+build_property.ProjectDir = c:\Users\melnik.igor.CORPUZSERVICE\source\repos\developmentservice\ShopOnlinePWA\Api\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = c:\Users\melnik.igor.CORPUZSERVICE\source\repos\developmentservice\ShopOnlinePWA\Api
+>>>>>>> 0e71f15f1900dcf0c5828fbf033dd69041ad61ed
 build_property._RazorSourceGeneratorDebug = 
