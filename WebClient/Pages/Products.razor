@@ -1,7 +1,8 @@
 ﻿@page "/products"
+@using global::Shared.Services.Request.Pagination
 @using global::Shared.Models.Dtos
 @using global::Shared.Models.Catalogs
-@using global::Shared.Services.Repository;
+@using global::Shared.Services.Repository
 @inject IRepository<Product<Guid>,Guid> Repository
 
 <PageTitle>Products</PageTitle>
@@ -28,7 +29,7 @@ else
         </tr>
     </thead>
     <tbody>
-        @for (int i = 1; i < tottalItems; i++)
+        @for (int i = Pagination.Skip + 1; i <= Pagination.Count; i++)
             {
                 <tr>
                     <td>@i.ToString()</td>
@@ -41,27 +42,23 @@ else
             }
         </tbody>
     </table>
-
-
 }
 @code {
     private IEnumerable<ProductDTO<Guid>> products { get; set; } = null;
-    private int pageCurrent = 1;
-    private int pageSize = 25;
-    private int tottalItems = 1;
+    public Pagination Pagination { get; set; } = default;
 
     protected override async Task OnInitializedAsync()
     {
         products = await GetProducts();
-        tottalItems = products.Count();
+        Pagination.Count = products.Count();
     }
     public async Task<IEnumerable<ProductDTO<Guid>>> GetProducts()
     {
         string search = default;
         string filter = default;
         string sorts = default;
-        int take = default;
-        int skip = default;
+        int take = Pagination.Take;
+        int skip = Pagination.Skip;
         return await Repository.GetAsync<ProductDTO<Guid>>(search, filter, sorts, take, skip);
     }
 }

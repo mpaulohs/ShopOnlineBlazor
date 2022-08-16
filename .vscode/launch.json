@@ -93,7 +93,7 @@
             ]
         },
         {
-            "name": "Api watch + WebClient debug hot",
+            "name": "WebClient debug hot",
             "configurations": [
                 "WebClient watch",
                 "WebClient attach"

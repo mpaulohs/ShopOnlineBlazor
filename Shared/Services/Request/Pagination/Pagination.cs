@@ -1,5 +1,5 @@
 namespace Shared.Services.Request.Pagination;
-class Pagination
+public partial class Pagination
 {
     public int Take { get; set; }
     public int Skip { get; set; }
