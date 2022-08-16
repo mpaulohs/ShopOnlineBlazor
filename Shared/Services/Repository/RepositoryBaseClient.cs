@@ -19,18 +19,19 @@ namespace Shared.Services.Repository
     {
         public RepositoryBaseClient(HttpClient httpClient, NavigationManager navManager, ILogger<TEntity> logger)
         {
-            HttpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
-            Logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            RequestUri = new Uri(HttpClient.BaseAddress + GetTypeName(typeof(TEntity)));
+            _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            //_requestUri = new Uri(_httpClient.BaseAddress + GetTypeName(typeof(TEntity)));
+            _requestUri = new Uri(_httpClient.BaseAddress + "Product");
             Console.WriteLine(typeof(TEntity));
-            _options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            _jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             //BaseUri = new Uri ("api/" + typeof(TEntity).Name.ToLower() + "/");
             //Url = "api/" + typeof(TEntity).Name.ToLower() + "/";
         }
-        protected Uri RequestUri { get; set; }
-        protected HttpClient HttpClient { get; private set; }
-        private readonly JsonSerializerOptions _options;
-        protected ILogger<TEntity> Logger { get; set; }
+        private Uri _requestUri { get; set; }
+        private HttpClient _httpClient { get; set; }
+        private readonly JsonSerializerOptions _jsonOptions;
+        protected ILogger<TEntity> _logger { get; set; }
         public Task<TKey> CreateAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
@@ -51,37 +52,37 @@ namespace Shared.Services.Repository
         {
             throw new NotImplementedException();
         }
-        public async Task<PaginationList<TEntity>> GetByFiltersAsync(PaginationParameters paginationParameters, SearchParameters searchParameters = default, CancellationToken cancellationToken = default, Expression<Func<TEntity, bool>>[] filters = default)
-        {
-            var queryParams = new Dictionary<string, string>
-            {
-                ["curentPage"] = paginationParameters.curentPage.ToString(),
-                ["searchTerm"] = searchParameters.SearchTerm == null ? "" : searchParameters.SearchTerm
-            };
-            var uri = QueryHelpers.AddQueryString(RequestUri.OriginalString, queryParams);
-            var response = await HttpClient.GetAsync(uri, cancellationToken);
-            var content = await response.Content.ReadAsStringAsync();
-            if (!response.IsSuccessStatusCode)
-            {
-                throw new ApplicationException(content);
-            }
-            string contextHeaderPagination = response.Headers.GetValues("x-pagination").FirstOrDefault();
-            var PaginationList = new PaginationList<TEntity>
-            {
-                Entities = JsonConvert.DeserializeObject<IEnumerable<TEntity>>(content),
-                MetaData = JsonConvert.DeserializeObject<PaginationMetaData>(contextHeaderPagination)
-            };
-            return PaginationList;
-        }
+        // public async Task<PaginationList<TEntity>> GetByFiltersAsync(PaginationParameters paginationParameters, SearchParameters searchParameters = default, CancellationToken cancellationToken = default, Expression<Func<TEntity, bool>>[] filters = default)
+        // {
+        //     var queryParams = new Dictionary<string, string>
+        //     {
+        //         ["curentPage"] = paginationParameters.curentPage.ToString(),
+        //         ["searchTerm"] = searchParameters.SearchTerm == null ? "" : searchParameters.SearchTerm
+        //     };
+        //     var uri = QueryHelpers.AddQueryString(_requestUri.OriginalString, queryParams);
+        //     var response = await _httpClient.GetAsync(uri, cancellationToken);
+        //     var content = await response.Content.ReadAsStringAsync();
+        //     if (!response.IsSuccessStatusCode)
+        //     {
+        //         throw new ApplicationException(content);
+        //     }
+        //     string contextHeaderPagination = response.Headers.GetValues("x-pagination").FirstOrDefault();
+        //     var PaginationList = new PaginationList<TEntity>
+        //     {
+        //         Entities = JsonConvert.DeserializeObject<IEnumerable<TEntity>>(content),
+        //         MetaData = JsonConvert.DeserializeObject<PaginationMetaData>(contextHeaderPagination)
+        //     };
+        //     return PaginationList;
+        // }
         public async Task<TEntity> GetByIdAsync(TKey id, CancellationToken cancellationToken = default)
         {
-            return await HttpClient.GetFromJsonAsync<TEntity>(RequestUri + id.ToString(), cancellationToken);
+            return await _httpClient.GetFromJsonAsync<TEntity>(_requestUri + id.ToString(), cancellationToken);
         }
         public async Task<bool> UpdateAsync(TKey id, TEntity entity, CancellationToken cancellationToken = default)
         {
             try
             {
-                var result = await HttpClient.PutAsJsonAsync(RequestUri + id.ToString(), entity, cancellationToken);
+                var result = await _httpClient.PutAsJsonAsync(_requestUri + id.ToString(), entity, cancellationToken);
                 return true;
             }
             catch (Exception)
@@ -107,9 +108,39 @@ namespace Shared.Services.Repository
         }
         public async Task<List<TEntity>>? GetAsync(string fields = null, string search = null, string filter = null, string sorts = null, int pageSize = 0, int pageCurrent = 0, CancellationToken cancellationToken = default)
         {
-            return await HttpClient.GetFromJsonAsync<List<TEntity>>(RequestUri, cancellationToken);
+            return await _httpClient.GetFromJsonAsync<List<TEntity>>(_requestUri, cancellationToken);
         }
         public Task<IEnumerable<TEntity>>? GetAsync(string fields = null, string search = null, Expression<Func<TEntity, bool>>[] filters = null, string sorts = null, int pageSize = 0, int pageCurrent = 0, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<TOut>>? GetAsync<TOut>(string search = null, string filter = null, string sorts = null, int take = 0, int skip = 0, CancellationToken cancellationToken = default)
+        {
+            // var queryParams = new Dictionary<string, string>();
+            // var uri = QueryHelpers.AddQueryString(_requestUri.OriginalString, queryParams);
+            var uri = QueryHelpers.AddQueryString(_requestUri.OriginalString, "what", "that");
+            var response = await _httpClient.GetAsync(uri, cancellationToken);
+            var content = await response.Content.ReadAsStringAsync();
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ApplicationException(content);
+            }
+            string contextHeaderPagination = response.Headers.GetValues("x-pagination").FirstOrDefault();
+            var PaginationList = new PaginationList<TEntity>
+            {
+                Entities = JsonConvert.DeserializeObject<IEnumerable<TEntity>>(content),
+                MetaData = JsonConvert.DeserializeObject<PaginationMetaData>(contextHeaderPagination)
+            };
+            return new List<TOut>();
+        }
+
+        public Task<bool> DeleteAsync(TKey id, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<TOut>? GetByIdAsync<TOut>(TKey id, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }

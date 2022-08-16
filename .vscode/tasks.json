@@ -26,7 +26,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "Api watch",
+            "label": "ApiWatch",
             "command": "dotnet",
             "type": "process",
             "args": [
@@ -38,7 +38,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "WebClient watch",
+            "label": "WebClientWatch",
             "command": "dotnet",
             "type": "process",
             "args": [
@@ -50,7 +50,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "WebServer watch",
+            "label": "WebServerWatch",
             "command": "dotnet",
             "type": "process",
             "args": [
@@ -66,8 +66,8 @@
             "dependsOn": ["cleanSolution", "buildsolution"]
         },
         {
-            "label": "Watch all projects",
-            "dependsOn": ["Api watch", "WebClient watch"]
+            "label": "WatchAllProjects",
+            "dependsOn": ["ApiWatch", "WebClientWatch"]
         }
     ]
 }

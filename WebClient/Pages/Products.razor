@@ -1,4 +1,5 @@
 ﻿@page "/products"
+@using global::Shared.Models.Dtos
 @using global::Shared.Models.Catalogs
 @using global::Shared.Services.Repository;
 @inject IRepository<Product<Guid>,Guid> Repository
@@ -11,17 +12,17 @@
 }
 else
 {
-    @for (int i = 1; i < @ProductsList.Count<Product<Guid>>(); i++)
+    @for (int i = 1; i < @ProductsList.Count<ProductDTO<Guid>>(); i++)
     {
 
                 <tr>
                     <td>@i.ToString()</td>
-                    <td>@(ProductsList.ElementAt<@Product<Guid>>(i).Id.ToString())</td>
-                    <td>@(ProductsList.ElementAt<@Product<Guid>>(i).Name.ToString())</td>
-                    <td>@(ProductsList.ElementAt<@Product<Guid>>(i).FullName.ToString())</td>
-                    <td>@(ProductsList.ElementAt<@Product<Guid>>(i).CreatedAt.ToString())</td>
-                    <td>@(ProductsList.ElementAt<@Product<Guid>>(i).UpdatedAt.ToString())</td>
-                    <td>@(ProductsList.ElementAt<@Product<Guid>>(i).Article.ToString())</td>
+                    <td>@(ProductsList.ElementAt<@ProductDTO<Guid>>(i).Id.ToString())</td>
+                    <td>@(ProductsList.ElementAt<@ProductDTO<Guid>>(i).Name.ToString())</td>
+                    <td>@(ProductsList.ElementAt<@ProductDTO<Guid>>(i).FullName.ToString())</td>
+                    <td>@(ProductsList.ElementAt<@ProductDTO<Guid>>(i).CreatedAt.ToString())</td>
+                    <td>@(ProductsList.ElementAt<@ProductDTO<Guid>>(i).UpdatedAt.ToString())</td>
+                    <td>@(ProductsList.ElementAt<@ProductDTO<Guid>>(i).Article.ToString())</td>
                 </tr>
     }
 }
@@ -30,7 +31,7 @@ else
 
 
 @code {
-    public IEnumerable<Product<Guid>> ProductsList { get; set; }
+    public IEnumerable<ProductDTO<Guid>> ProductsList { get; set; } = null;
 
     private int pageCurrent = 1;
 
@@ -47,7 +48,11 @@ else
 
     private async Task GetProducts()
     {
-        var sorts = "name";
-        //ToDo: ProductsList = await Repository.GetAsync(sorts: sorts, pageSize: pageSize, pageCurrent: pageCurrent);
+        string search = default;
+        string filter = default;
+        string sorts = default;
+        int take = default;
+        int skip = default;
+        ProductsList = await Repository.GetAsync<ProductDTO<Guid>>(search, filter,sorts, take, skip);
     }
 }

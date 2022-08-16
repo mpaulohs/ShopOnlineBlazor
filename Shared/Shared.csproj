@@ -18,7 +18,7 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7" />
 		<PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="6.0.7" />
 		<!--<PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.1" />-->
-		<Compile Remove="Services/Repository/RepositoryBaseClient.cs" />
+		<!-- <Compile Remove="Services/Repository/RepositoryBaseClient.cs" /> -->
 
 	</ItemGroup>
 
