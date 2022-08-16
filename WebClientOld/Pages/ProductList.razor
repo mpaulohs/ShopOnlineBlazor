@@ -1,0 +1,95 @@
+﻿@page "/products"
+@using Components
+@*@using global::Shared.Services.Request.Pagination*@
+@using global::Shared.Services.Request.Search
+@inject IRepository<Product,Guid> Repository
+
+<PageTitle>Products</PageTitle>
+
+<div class="row">
+    <div class="col-md-10">
+        <Search OnSearchChanged=SearchChanged></Search>
+    </div>
+    <div class="col-md-2">
+        <a href="/createProduct">Create Product</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        @*<ProductTable Products=@Products />*@
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        @*<Pagination MetaData="MetaData" SelectedPage="SelectedPage" Spread="2"></Pagination>*@
+        <Pagination TotalPages="10" CurentPage="2"></Pagination>
+    </div>
+</div>
+
+@*<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        @for (var i = 1; i <= paginationPagesMetaData.TotalPages; i++)
+        {
+            if (i == CurrentPage)
+            {
+                <li @onclick="()=>OnSelectedPage(i)" style="cursor: pointer;" class="page-item">
+                    <span class="page-link" style="background-color: blue" href="#">@i</span>
+                </li>
+            }
+            else
+            {
+                <li @onclick="()=>OnSelectedPage(i)" style="cursor: pointer;" class="page-item">
+                    <span class="page-link" href="#">@i</span>
+                </li>
+            }
+        }
+        <li style="cursor: pointer;" class="page-item">
+            <input @bind-value=paginationPagesMetaData.PageSize>
+            <span class="page-link" href="#">@paginationPagesMetaData.PageSize</span>
+        </li>
+        <li style="cursor: pointer;" class="page-item">
+            <span class="page-link" href="#">@paginationPagesMetaData.CurrentPage</span>
+        </li>
+        <li style="cursor: pointer;" class="page-item">
+            <span class="page-link" href="#">@paginationPagesMetaData.TotalPages</span>
+        </li>
+    </ul>
+</nav>*@
+
+
+@code {
+    public IEnumerable<Product>? Products { get; set; } = new List<Product>();
+
+    public int CurrentPage { get; set; }
+
+    //public PaginationPagesMetaData MetaData { get; set; } = new PaginationPagesMetaData();
+
+    //private PaginationParameters paginationParameters = new PaginationParameters();
+
+    //private SearchParameters searchParameters = new SearchParameters();
+
+    protected async override Task OnInitializedAsync()
+    {
+        await GetProducts();
+    }
+
+
+    private async Task SearchChanged(string searchTerm)
+    {
+        //Console.WriteLine(searchTerm);
+        //paginationParameters.pageCerent = 1;
+        //searchParameters.SearchTerm = searchTerm;
+        await GetProducts();
+    }
+
+    private async Task GetProducts()
+    {
+        
+        //MetaData.CurrentPage = selectdPage;
+        //paginationEntitiesMetaData = PaginationEntitiesMetaData.ToPaginationEntitiesMetaData(paginationPagesMetaData);
+        //var response = Repository.GetByFiltersAsync(limit: paginationEntitiesMetaData.Limit, offset: paginationEntitiesMetaData.Offset);
+        //products = response.Result.Value.entities;
+        //paginationEntitiesMetaData = response.Result.Value.paginationEntitiesMetaData;
+        //paginationPagesMetaData = PaginationPagesMetaData.ToPaginationPagesMetaData(paginationEntitiesMetaData);
+    }
+}
