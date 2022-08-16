@@ -119,20 +119,23 @@ namespace Shared.Services.Repository
         {
             // var queryParams = new Dictionary<string, string>();
             // var uri = QueryHelpers.AddQueryString(_requestUri.OriginalString, queryParams);
-            var uri = QueryHelpers.AddQueryString(_requestUri.OriginalString, "what", "that");
-            var response = await _httpClient.GetAsync(uri, cancellationToken);
+            // var uri = QueryHelpers.AddQueryString(_requestUri.OriginalString, "", "");
+            // var response = await _httpClient.GetAsync(uri, cancellationToken);
+            var response = await _httpClient.GetAsync(_requestUri.OriginalString, cancellationToken);
             var content = await response.Content.ReadAsStringAsync();
             if (!response.IsSuccessStatusCode)
             {
                 throw new ApplicationException(content);
             }
-            string contextHeaderPagination = response.Headers.GetValues("x-pagination").FirstOrDefault();
-            var PaginationList = new PaginationList<TEntity>
-            {
-                Entities = JsonConvert.DeserializeObject<IEnumerable<TEntity>>(content),
-                MetaData = JsonConvert.DeserializeObject<PaginationMetaData>(contextHeaderPagination)
-            };
-            return new List<TOut>();
+           // string contextHeaderPagination = response.Headers.GetValues("x-pagination").FirstOrDefault();
+            //var PaginationList = new PaginationList<TEntity>
+            //{
+            //    Entities = JsonConvert.DeserializeObject<IEnumerable<TEntity>>(content),
+            //    MetaData = JsonConvert.DeserializeObject<PaginationMetaData>(contextHeaderPagination)
+            //};
+            IEnumerable<TOut> entities = JsonConvert.DeserializeObject<IEnumerable<TOut>>(content);
+
+            return entities;
         }
 
         public Task<bool> DeleteAsync(TKey id, CancellationToken cancellationToken = default)

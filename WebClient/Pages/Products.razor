@@ -12,41 +12,45 @@
 }
 else
 {
-    @for (int i = 1; i < @ProductsList.Count<ProductDTO<Guid>>(); i++)
-    {
-
-                <tr>
-                    <td>@i.ToString()</td>
-                    <td>@(ProductsList.ElementAt<@ProductDTO<Guid>>(i).Id.ToString())</td>
-                    <td>@(ProductsList.ElementAt<@ProductDTO<Guid>>(i).Name.ToString())</td>
-                    <td>@(ProductsList.ElementAt<@ProductDTO<Guid>>(i).FullName.ToString())</td>
-                    <td>@(ProductsList.ElementAt<@ProductDTO<Guid>>(i).CreatedAt.ToString())</td>
-                    <td>@(ProductsList.ElementAt<@ProductDTO<Guid>>(i).UpdatedAt.ToString())</td>
-                    <td>@(ProductsList.ElementAt<@ProductDTO<Guid>>(i).Article.ToString())</td>
-                </tr>
-    }
+    @*<table class="table">
+        <thead>
+            <tr>
+                <th>N</th>
+                <th>Article</th>
+                <th>Name</th>
+                <th>FullName</th>
+                <th>Description</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 1; i < tottalItems; i++)
+                {
+                            <tr>
+                                <td>@i.ToString()</td>
+                                <td>@(ProductsList.ElementAtOrDefault(i)?.Article)</td>
+                                <td>@(ProductsList.ElementAtOrDefault(i)?.Name)</td>
+                                <td>@(ProductsList.ElementAtOrDefault(i)?.FullName)</td>
+                                <td>@(ProductsList.ElementAtOrDefault(i)?.Description)</td>
+                                <td>@(ProductsList.ElementAtOrDefault(i)?.MainImageUrl)</td>
+                            </tr>
+                }
+        </tbody>
+    </table>*@
 }
-
-
-
+   
 
 @code {
-    public IEnumerable<ProductDTO<Guid>> ProductsList { get; set; } = null;
-
-    private int pageCurrent = 1;
-
-    private int pageSize = 25;
-
-    private int tottalItems = 1;
-
-
+    public IEnumerable<ProductDTO<Guid>> ProductsList { get; set; } = null;     
+    public  int pageCurrent = 1;
+    public int pageSize = 25;
+    public int tottalItems = 1;
     protected override Task OnInitializedAsync()
     {
         GetProducts();
         return null;
     }
-
-    private async Task GetProducts()
+    public async Task GetProducts()
     {
         string search = default;
         string filter = default;
@@ -54,5 +58,6 @@ else
         int take = default;
         int skip = default;
         ProductsList = await Repository.GetAsync<ProductDTO<Guid>>(search, filter,sorts, take, skip);
+        tottalItems = ProductsList.Count();
     }
 }

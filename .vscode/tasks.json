@@ -63,11 +63,19 @@
         },
         {
             "label": "RebuildSolution",
-            "dependsOn": ["cleanSolution", "buildsolution"]
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "cleanSolution",
+                "buildsolution"
+            ]
         },
         {
             "label": "WatchAllProjects",
-            "dependsOn": ["ApiWatch", "WebClientWatch"]
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "ApiWatch",
+                "WebClientWatch"
+            ]
         }
     ]
 }

@@ -2,14 +2,23 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "RebuildSolution",
-            "preLaunchTask": "RebuildSolution"
-        },
-        {
-            "name": "Api Debug",
+            "name": "Api watch",
             "type": "coreclr",
             "request": "launch",
-            // "preLaunchTask": "build",
+            "cwd": "${workspaceFolder}/Api",
+            "program": "dotnet",
+            "args": [
+                "watch",
+                "--project",
+                ".",
+                "--verbose" // Let's us confirm browser connects with hot reload capabilities
+            ],
+        },
+        {
+            "name": "Api debug",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "RebuildSolution",
             "program": "${workspaceFolder}\\Api\\bin\\Debug\\net6.0\\Api.dll",
             "args": [],
             "cwd": "${workspaceFolder}\\Api\\",
@@ -26,7 +35,7 @@
             }
         },
         {
-            "name": "WebClient Watch",
+            "name": "WebClient watch",
             "type": "coreclr",
             "request": "launch",
             "cwd": "${workspaceFolder}/WebClient",
@@ -37,10 +46,10 @@
                 ".",
                 "--verbose" // Let's us confirm browser connects with hot reload capabilities
             ],
-            "preLaunchTask": "build" // Ensure we don't watch an unbuilt site
+            // "preLaunchTask": "build" // Ensure we don't watch an unbuilt site
         },
         {
-            "name": "WebClient Attach",
+            "name": "WebClient attach",
             "type": "blazorwasm",
             "request": "attach",
             "browser": "chrome",
@@ -49,7 +58,7 @@
             "timeout": 120000, // Allows time for the site to launch
         },
         {
-            "name": "WebClient Debug Standalone",
+            "name": "WebClient debug standalone",
             "type": "blazorwasm",
             "request": "launch",
             "cwd": "${workspaceFolder}/WebClient",
@@ -58,28 +67,39 @@
     ],
     "compounds": [
         {
-            "name": "Debug Api + Watch WebClient",
+            "name": "Api watch + WebClient watch",
             "configurations": [
-                "RebuildSolution",
-                "Api Debug",
-                "WebClient Watch"
+                "Api watch",
+                "WebClient watch"
             ]
         },
         {
-            "name": "Debug Api + Debug WebClient",
+            "name": "Api debug + WebClient watch",
             "configurations": [
-                "RebuildSolution",
-                "Api Debug",
-                "WebClient Debug Standalone Blazor WebAssembly App"
+                "Api debug",
+                "WebClient watch"
             ]
         },
         {
-            "name": "Debug API + Debug WebClient Hot Reload",
+            "name": "Api debug + WebClient debug standalone",
             "configurations": [
-                "RebuildSolution",
-                "Api Debug",
-                "WebClient Watch",
-                "WebClient Attach"
+                "Api debug",
+                "WebClient debug standalone"
+            ]
+        },
+        {
+            "name": "Api watch + WebClient debug standalone",
+            "configurations": [
+                "Api watch",
+                "WebClient debug standalone"
+            ]
+        },
+        {
+            "name": "Api watch + WebClient debug hot reload",
+            "configurations": [
+                "Api watch",
+                "WebClient watch",
+                "WebClient attach"
             ]
         }
     ]

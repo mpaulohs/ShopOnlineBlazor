@@ -1,13 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
-
-
-	<ItemGroup>
+<ItemGroup>
 		<PackageReference Include="bogus" Version="34.0.2" />
 		<PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.19" />
 		<SupportedPlatform Include="browser" />
@@ -17,9 +14,5 @@
 		<PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7" />
 		<PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="6.0.7" />
-		<!--<PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.1" />-->
-		<!-- <Compile Remove="Services/Repository/RepositoryBaseClient.cs" /> -->
-
 	</ItemGroup>
-
 </Project>
