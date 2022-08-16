@@ -1,4 +1,4 @@
-﻿namespace Shared.Services.Request.Pagination;
+﻿namespace Shared.Services.Request.PaginationOld;
 public class PaginationMetaData
 {
     public int CurrentPage { get; set; }
