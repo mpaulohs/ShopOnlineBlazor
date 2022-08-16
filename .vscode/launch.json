@@ -5,7 +5,7 @@
             "name": "Api watch",
             "type": "coreclr",
             "request": "launch",
-            "cwd": "${workspaceFolder}/Api",
+            "cwd": "${workspaceFolder}\\Api\\",
             "program": "dotnet",
             "args": [
                 "watch",
@@ -18,7 +18,6 @@
             "name": "Api debug",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "RebuildSolution",
             "program": "${workspaceFolder}\\Api\\bin\\Debug\\net6.0\\Api.dll",
             "args": [],
             "cwd": "${workspaceFolder}\\Api\\",
@@ -38,7 +37,7 @@
             "name": "WebClient watch",
             "type": "coreclr",
             "request": "launch",
-            "cwd": "${workspaceFolder}/WebClient",
+            "cwd": "${workspaceFolder}\\WebClient\\",
             "program": "dotnet",
             "args": [
                 "watch",
@@ -46,30 +45,29 @@
                 ".",
                 "--verbose" // Let's us confirm browser connects with hot reload capabilities
             ],
-            // "preLaunchTask": "build" // Ensure we don't watch an unbuilt site
         },
         {
             "name": "WebClient attach",
             "type": "blazorwasm",
             "request": "attach",
             "browser": "chrome",
-            "cwd": "${workspaceFolder}/WebClient",
-            "url": "https://localhost:6001", // Tell launch where to find site
-            "timeout": 120000, // Allows time for the site to launch
+            "cwd": "${workspaceFolder}\\WebClient\\",
+            "url": "https://localhost:6001",
+            "timeout": 120000,
         },
         {
-            "name": "WebClient debug standalone",
+            "name": "WebClient debug",
             "type": "blazorwasm",
             "request": "launch",
-            "cwd": "${workspaceFolder}/WebClient",
-            "url": "https://localhost:6001" // Tell launch where to find site
+            "cwd": "${workspaceFolder}\\WebClient\\",
+            "url": "https://localhost:6001"
         }
     ],
     "compounds": [
         {
             "name": "Api watch + WebClient watch",
+            "preLaunchTask": "rebuildAndApi",
             "configurations": [
-                "Api watch",
                 "WebClient watch"
             ]
         },
@@ -81,60 +79,25 @@
             ]
         },
         {
-            "name": "Api debug + WebClient debug standalone",
+            "name": "Api debug + WebClient debug",
             "configurations": [
                 "Api debug",
-                "WebClient debug standalone"
+                "WebClient debug"
             ]
         },
         {
-            "name": "Api watch + WebClient debug standalone",
+            "name": "Api watch + WebClient debug",
             "configurations": [
                 "Api watch",
-                "WebClient debug standalone"
+                "WebClient debug"
             ]
         },
         {
-            "name": "Api watch + WebClient debug hot reload",
+            "name": "Api watch + WebClient debug hot",
             "configurations": [
-                "Api watch",
                 "WebClient watch",
                 "WebClient attach"
             ]
         }
     ]
 }
-// {
-//     "version": "0.2.0",
-//     "configurations": [
-//         {
-//             "name": "Api",
-//             "type": "coreclr",
-//             "request": "launch",
-//             "preLaunchTask": "build",
-//             "program": "${workspaceFolder}\\Api\\bin\\Debug\\net6.0\\Api.dll",
-//             "args": [],
-//             "cwd": "${workspaceFolder}\\Api\\",
-//             "stopAtEntry": false,
-//             "serverReadyAction": {
-//                 "action": "openExternally",
-//                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
-//             },
-//             "env": {
-//                 "ASPNETCORE_ENVIRONMENT": "Development"
-//             },
-//             "sourceFileMap": {
-//                 "/Views": "${workspaceFolder}/Views"
-//             }
-//         }
-//            ],
-//     "compounds": [
-//         {
-//             "name": "Api + WebClient",
-//             "configurations": [
-//                 "Api",
-//                 "WebClient"
-//             ]
-//         }
-//     ]
-// }

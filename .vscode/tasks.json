@@ -14,7 +14,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "buildsolution",
+            "label": "buildSolution",
             "command": "dotnet",
             "type": "process",
             "args": [
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/Api/Api.csproj",
+                "${workspaceFolder}/Api/Api.csproj"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -45,7 +45,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/WebClient/WebClient.csproj",
+                "${workspaceFolder}/WebClient/WebClient.csproj"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -57,24 +57,25 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/WebServer/WebServer.csproj",
+                "${workspaceFolder}/WebServer/WebServer.csproj"
             ],
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "RebuildSolution",
+            "label": "rebuildSolution",
             "dependsOrder": "sequence",
             "dependsOn": [
                 "cleanSolution",
-                "buildsolution"
-            ]
+                "buildSolution"
+            ],
+            "problemMatcher": []
         },
         {
-            "label": "WatchAllProjects",
+            "label": "rebuildAndApi",
             "dependsOrder": "sequence",
             "dependsOn": [
-                "ApiWatch",
-                "WebClientWatch"
+                "rebuildSolution",
+                "ApiWatch"
             ]
         }
     ]

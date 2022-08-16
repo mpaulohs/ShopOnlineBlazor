@@ -4,60 +4,62 @@
 @using global::Shared.Services.Repository;
 @inject IRepository<Product<Guid>,Guid> Repository
 
-<h3>Products</h3>
+<PageTitle>Products</PageTitle>
 
-@if (ProductsList == null)
+<h1>Products</h1>
+
+<p>Product list</p>
+
+@if (products == null)
 {
-        <p><em>Loading...</em></p>
+    <p><em>Loading...</em></p>
 }
 else
 {
-    @*<table class="table">
-        <thead>
-            <tr>
-                <th>N</th>
-                <th>Article</th>
-                <th>Name</th>
-                <th>FullName</th>
-                <th>Description</th>
-                <th>Image</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (int i = 1; i < tottalItems; i++)
-                {
-                            <tr>
-                                <td>@i.ToString()</td>
-                                <td>@(ProductsList.ElementAtOrDefault(i)?.Article)</td>
-                                <td>@(ProductsList.ElementAtOrDefault(i)?.Name)</td>
-                                <td>@(ProductsList.ElementAtOrDefault(i)?.FullName)</td>
-                                <td>@(ProductsList.ElementAtOrDefault(i)?.Description)</td>
-                                <td>@(ProductsList.ElementAtOrDefault(i)?.MainImageUrl)</td>
-                            </tr>
-                }
+    <table class="table">
+    <thead>
+        <tr>
+            <th>N</th>
+            <th>Article</th>
+            <th>Name</th>
+            <th>Full name</th>
+            <th>Description</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 1; i < tottalItems; i++)
+            {
+                <tr>
+                    <td>@i.ToString()</td>
+                    <td>@(products.ElementAtOrDefault(i)?.Article)</td>
+                    <td>@(products.ElementAtOrDefault(i)?.Name)</td>
+                    <td>@(products.ElementAtOrDefault(i)?.FullName)</td>
+                    <td>@(products.ElementAtOrDefault(i)?.Description)</td>
+                    <td>@(products.ElementAtOrDefault(i)?.MainImageUrl)</td>
+                </tr>
+            }
         </tbody>
-    </table>*@
+    </table>
 }
-   
-
 @code {
-    public IEnumerable<ProductDTO<Guid>> ProductsList { get; set; } = null;     
-    public  int pageCurrent = 1;
-    public int pageSize = 25;
-    public int tottalItems = 1;
-    protected override Task OnInitializedAsync()
+    private IEnumerable<ProductDTO<Guid>> products { get; set; } = null;
+    private int pageCurrent = 1;
+    private int pageSize = 25;
+    private int tottalItems = 1;
+
+    protected override async Task OnInitializedAsync()
     {
-        GetProducts();
-        return null;
+        products = await GetProducts();
+        tottalItems = products.Count();
     }
-    public async Task GetProducts()
+    public async Task<IEnumerable<ProductDTO<Guid>>> GetProducts()
     {
         string search = default;
         string filter = default;
         string sorts = default;
         int take = default;
         int skip = default;
-        ProductsList = await Repository.GetAsync<ProductDTO<Guid>>(search, filter,sorts, take, skip);
-        tottalItems = ProductsList.Count();
+        return await Repository.GetAsync<ProductDTO<Guid>>(search, filter, sorts, take, skip);
     }
 }
