@@ -2,10 +2,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "RebuildSolution",
+            "preLaunchTask": "RebuildSolution"
+        },
+        {
             "name": "Api Debug",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
+            // "preLaunchTask": "build",
             "program": "${workspaceFolder}\\Api\\bin\\Debug\\net6.0\\Api.dll",
             "args": [],
             "cwd": "${workspaceFolder}\\Api\\",
@@ -39,9 +43,9 @@
             "name": "WebClient Attach",
             "type": "blazorwasm",
             "request": "attach",
-            "browser": "edge",
+            "browser": "chrome",
             "cwd": "${workspaceFolder}/WebClient",
-            "url": "https://localhost:6001",  // Tell launch where to find site
+            "url": "https://localhost:6001", // Tell launch where to find site
             "timeout": 120000, // Allows time for the site to launch
         },
         {
@@ -55,53 +59,62 @@
     "compounds": [
         {
             "name": "Debug Api + Watch WebClient",
-            "configurations": ["Api Debug", "WebClient Watch"]
+            "configurations": [
+                "RebuildSolution",
+                "Api Debug",
+                "WebClient Watch"
+            ]
         },
         {
             "name": "Debug Api + Debug WebClient",
-            "configurations": ["Api Debug", "WebClient Debug Standalone Blazor WebAssembly App"]
+            "configurations": [
+                "RebuildSolution",
+                "Api Debug",
+                "WebClient Debug Standalone Blazor WebAssembly App"
+            ]
         },
         {
             "name": "Debug API + Debug WebClient Hot Reload",
-            "configurations": [ "Api Debug","WebClient Watch", "WebClient Attach" ]
+            "configurations": [
+                "RebuildSolution",
+                "Api Debug",
+                "WebClient Watch",
+                "WebClient Attach"
+            ]
         }
     ]
 }
-
-
-
-
 // {
-    //     "version": "0.2.0",
-    //     "configurations": [
-        //         {
-            //             "name": "Api",
-            //             "type": "coreclr",
-            //             "request": "launch",
-            //             "preLaunchTask": "build",
-            //             "program": "${workspaceFolder}\\Api\\bin\\Debug\\net6.0\\Api.dll",
-            //             "args": [],
-            //             "cwd": "${workspaceFolder}\\Api\\",
-            //             "stopAtEntry": false,
-            //             "serverReadyAction": {
-                //                 "action": "openExternally",
-                //                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
-                //             },
-                //             "env": {
-                    //                 "ASPNETCORE_ENVIRONMENT": "Development"
-                    //             },
-                    //             "sourceFileMap": {
-                        //                 "/Views": "${workspaceFolder}/Views"
-                        //             }
-                        //         }
-                        //            ],
-                        //     "compounds": [
-                            //         {
-                                //             "name": "Api + WebClient",
-                                //             "configurations": [
-                                    //                 "Api",
-                                    //                 "WebClient"
-                                    //             ]
-                                    //         }
-                                    //     ]
-                                    // }
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "name": "Api",
+//             "type": "coreclr",
+//             "request": "launch",
+//             "preLaunchTask": "build",
+//             "program": "${workspaceFolder}\\Api\\bin\\Debug\\net6.0\\Api.dll",
+//             "args": [],
+//             "cwd": "${workspaceFolder}\\Api\\",
+//             "stopAtEntry": false,
+//             "serverReadyAction": {
+//                 "action": "openExternally",
+//                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+//             },
+//             "env": {
+//                 "ASPNETCORE_ENVIRONMENT": "Development"
+//             },
+//             "sourceFileMap": {
+//                 "/Views": "${workspaceFolder}/Views"
+//             }
+//         }
+//            ],
+//     "compounds": [
+//         {
+//             "name": "Api + WebClient",
+//             "configurations": [
+//                 "Api",
+//                 "WebClient"
+//             ]
+//         }
+//     ]
+// }
