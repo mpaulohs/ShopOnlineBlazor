@@ -29,11 +29,12 @@
         return base.OnInitializedAsync();
     }
 
-    private async Task OnSelectedPage(int page)
+    public async Task OnSelectedPage(int page)
     {
         if (pagination.CurentPage == page){
             return;
         }
-        await OnPageSelected.InvokeAsync(page);   
+       // InvokeAsync(StateHasChanged);
+       await OnPageSelected.InvokeAsync(page);   
     }
 }
