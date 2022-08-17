@@ -1,14 +1,14 @@
 ﻿@page "/products"
-@using global::Shared.Services.Request.Pagination
+@using WebClient.Helpers.Pagination
+@using WebClient.Components
 @using global::Shared.Models.Dtos
 @using global::Shared.Models.Catalogs
 @using global::Shared.Services.Repository
-@inject IRepository<Product<Guid>,Guid> Repository
+@inject IRepository<Product<Guid>,Guid> repository
 
 <PageTitle>Products</PageTitle>
 
 <h1>Products</h1>
-
 <p>Product list</p>
 
 @if (products == null)
@@ -29,10 +29,10 @@ else
         </tr>
     </thead>
     <tbody>
-        @for (int i = Pagination.Skip + 1; i <= Pagination.Count; i++)
+            @for (int i = pagination.Skip; i <(pagination.Skip + pagination.Take); i++)
             {
                 <tr>
-                    <td>@i.ToString()</td>
+                    <td>@((i+1).ToString())</td>
                     <td>@(products.ElementAtOrDefault(i)?.Article)</td>
                     <td>@(products.ElementAtOrDefault(i)?.Name)</td>
                     <td>@(products.ElementAtOrDefault(i)?.FullName)</td>
@@ -42,23 +42,39 @@ else
             }
         </tbody>
     </table>
+ @if (true)
+    {
+        <CPagination pagination="@pagination" OnPageSelected="@OnPageSelected"></CPagination>
+    }
 }
 @code {
     private IEnumerable<ProductDTO<Guid>> products { get; set; } = null;
-    public Pagination Pagination { get; set; } = default;
+    public Pagination pagination { get; set; } = new Pagination();
 
     protected override async Task OnInitializedAsync()
     {
-        products = await GetProducts();
-        Pagination.Count = products.Count();
+        var result = await GetProducts();
+        products = result.Item1;
+        var count = result.Item2;
+        pagination.Count = count;
     }
-    public async Task<IEnumerable<ProductDTO<Guid>>> GetProducts()
+    public async Task<(IEnumerable<ProductDTO<Guid>>,int)> GetProducts()
     {
         string search = default;
         string filter = default;
         string sorts = default;
-        int take = Pagination.Take;
-        int skip = Pagination.Skip;
-        return await Repository.GetAsync<ProductDTO<Guid>>(search, filter, sorts, take, skip);
+        int take = pagination.Take;
+        int skip = pagination.Skip;
+        return await repository.GetAsync<ProductDTO<Guid>>(search, filter, sorts, take, skip);
+    }
+
+    public async Task OnPageSelected(int page){
+        InvokeAsync(StateHasChanged);
+        pagination.CurentPage = page;
+        var result = await GetProducts();
+        products = result.Item1;
+        var count = result.Item2;
+        pagination.Count = count;
+        //InvokeAsync(() =>StateHasChanged());
     }
 }

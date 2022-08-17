@@ -1,0 +1,39 @@
+@using Helpers.Pagination
+<nav aria-label="Page pagination">
+  <ul class="pagination">
+    <li @onclick="@(()=>OnSelectedPage(curentPage-1))" class=" page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span> </a></li>
+    @for (int i=1; i <= @totalPages; i++)
+    {
+        var row = i;
+            <li @onclick="@(()=>OnSelectedPage(row))" class="page-item @(row==curentPage?"active":"")"><a class="page-link" href="#">@row</a></li>
+    }
+    <li @onclick="@(()=>OnSelectedPage(curentPage+1))" class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+  </ul>
+</nav>
+
+@code {
+    [Parameter]
+    public Pagination pagination { get; set; }
+
+    [Parameter]
+    public EventCallback<int> OnPageSelected { get; set; }
+
+
+    public int totalPages { get; set; }
+    public int curentPage { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        totalPages = pagination.totalPages();
+        curentPage = pagination.CurentPage;
+        return base.OnInitializedAsync();
+    }
+
+    private async Task OnSelectedPage(int page)
+    {
+        if (pagination.CurentPage == page){
+            return;
+        }
+        await OnPageSelected.InvokeAsync(page);   
+    }
+}

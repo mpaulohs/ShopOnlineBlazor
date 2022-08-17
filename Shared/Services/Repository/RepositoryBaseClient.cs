@@ -4,8 +4,6 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Shared.Models;
-using Shared.Services.Request.Pagination;
-using Shared.Services.Request.Search;
 using System.Linq.Expressions;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -115,27 +113,39 @@ namespace Shared.Services.Repository
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<TOut>>? GetAsync<TOut>(string search = null, string filter = null, string sorts = null, int take = 0, int skip = 0, CancellationToken cancellationToken = default)
+        public async Task<(IEnumerable<TOut>,int)>? GetAsync<TOut>(string search = null, string filter = null, string sorts = null, int take = 0, int skip = 0, CancellationToken cancellationToken = default)
         {
-            // var queryParams = new Dictionary<string, string>();
-            // var uri = QueryHelpers.AddQueryString(_requestUri.OriginalString, queryParams);
-            // var uri = QueryHelpers.AddQueryString(_requestUri.OriginalString, "", "");
-            // var response = await _httpClient.GetAsync(uri, cancellationToken);
-            var response = await _httpClient.GetAsync(_requestUri.OriginalString, cancellationToken);
-            var content = await response.Content.ReadAsStringAsync();
+            var queryParams = new Dictionary<string, string>();
+            if (take != default)
+                queryParams.Add("take", take.ToString());
+            if (search != default)
+                queryParams.Add("search", search);
+            if (filter != default)
+                queryParams.Add("filter", filter);
+            if (sorts != default)
+                queryParams.Add("sorts", sorts);
+            if (skip != default)
+                queryParams.Add("skip", skip.ToString());
+            var uri = QueryHelpers.AddQueryString(_requestUri.OriginalString, queryParams);
+            var response = await _httpClient.GetAsync(uri, cancellationToken);
+            int count = 0;
             if (!response.IsSuccessStatusCode)
             {
-                throw new ApplicationException(content);
+                throw new ApplicationException();
             }
-           // string contextHeaderPagination = response.Headers.GetValues("x-pagination").FirstOrDefault();
-            //var PaginationList = new PaginationList<TEntity>
-            //{
-            //    Entities = JsonConvert.DeserializeObject<IEnumerable<TEntity>>(content),
-            //    MetaData = JsonConvert.DeserializeObject<PaginationMetaData>(contextHeaderPagination)
-            //};
-            IEnumerable<TOut> entities = JsonConvert.DeserializeObject<IEnumerable<TOut>>(content);
+            string header_pagination = response.Headers.GetValues("x-pagination").FirstOrDefault();
+            if (header_pagination == null)
+            {
+                return (null, 0);
+            }
+            Int32.TryParse(header_pagination, out count);
+            if (count == 0)
+            {
+                return (null, 0);
+            }
 
-            return entities;
+            var entities = await response.Content.ReadFromJsonAsync<IEnumerable<TOut>>();
+            return (entities,count);
         }
 
         public Task<bool> DeleteAsync(TKey id, CancellationToken cancellationToken = default)
