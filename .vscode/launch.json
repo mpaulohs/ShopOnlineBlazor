@@ -56,7 +56,7 @@
             "timeout": 120000,
         },
         {
-            "name": "WebClient debug",
+   ``         "name": "WebClient debug",
             "type": "blazorwasm",
             "request": "launch",
             "cwd": "${workspaceFolder}\\WebClient\\",

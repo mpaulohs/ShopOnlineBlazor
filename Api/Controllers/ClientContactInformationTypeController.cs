@@ -8,7 +8,7 @@ using System;
 using System.Threading.Tasks;
 namespace Api.Controllers
 {
-    public class ClientContactInformationTypeTypeController : GenericController<ClientContactInformationType<Guid>, Guid>
+    public class ClientContactInformationTypeTypeController : GenericController<ClientContactInformationType<Guid>, ClientContactInformationType<Guid>, Guid>
     {
         public ClientContactInformationTypeTypeController(IRepository<ClientContactInformationType<Guid>, Guid> repository, ILogger<ClientContactInformationType<Guid>> loger) : base(repository, loger)
         {

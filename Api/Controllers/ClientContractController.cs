@@ -9,7 +9,7 @@ using System;
 using System.Threading.Tasks;
 namespace Api.Controllers
 {
-    public class ClientContractController : GenericController<ClientContract<Guid>, Guid>
+    public class ClientContractController : GenericController<ClientContract<Guid>, ClientContract<Guid>, Guid>
     {
         public ClientContractController(IRepository<ClientContract<Guid>, Guid> repository, ILogger<ClientContract<Guid>> loger) : base(repository, loger)
         {

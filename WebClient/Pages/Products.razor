@@ -10,7 +10,6 @@
 
 <h1>Products</h1>
 <p>Product list</p>
-
 @if (products == null)
 {
     <p><em>Loading...</em></p>
@@ -29,7 +28,7 @@ else
         </tr>
     </thead>
     <tbody>
-            @for (int i = pagination.Skip; i <(pagination.Skip + pagination.Take); i++)
+        @for (int i = pagination.Skip; i < (pagination.Skip + pagination.Take); i++)
             {
                 <tr>
                     <td>@((i+1).ToString())</td>
@@ -42,39 +41,36 @@ else
             }
         </tbody>
     </table>
- @if (true)
+    @if (pagination != null && pagination.TotalPages() > 1)
     {
         <CPagination pagination="@pagination" OnPageSelected="@OnPageSelected"></CPagination>
     }
 }
 @code {
-    private IEnumerable<ProductDTO<Guid>> products { get; set; } = null;
-    public Pagination pagination { get; set; } = new Pagination();
-
+    private IEnumerable<ProductDTO<Guid>>? products { get; set; } = null;
+    public Pagination? pagination { get; set; } = new Pagination();
+    public string Search { get; set; } = default;
+    public string Filter { get; set; } = default;
+    public string Sorts { get; set; } = default;
     protected override async Task OnInitializedAsync()
     {
-        var result = await GetProducts();
-        products = result.Item1;
-        var count = result.Item2;
-        pagination.Count = count;
+        await Update();
     }
-    public async Task<(IEnumerable<ProductDTO<Guid>>,int)> GetProducts()
+    public async Task Update(int take = default, int curentPage = default)
     {
-        string search = default;
-        string filter = default;
-        string sorts = default;
-        int take = pagination.Take;
-        int skip = pagination.Skip;
-        return await repository.GetAsync<ProductDTO<Guid>>(search, filter, sorts, take, skip);
+        if (take == default)
+        {
+            take = pagination.Take;
+        }
+        int skip = curentPage == default ? 0 : take * (curentPage - 1);
+        var request = await repository.GetAsync<ProductDTO<Guid>>(Search, Filter, Sorts, take: take, skip: skip);
+        products = request.Item1;
+        pagination = new Pagination(request.Item2, skip, take);
     }
 
-    public async Task OnPageSelected(int page){
-        //InvokeAsync(StateHasChanged);
-        pagination.CurentPage = page;
-        var result = await GetProducts();
-        products = result.Item1;
-        var count = result.Item2;
-        pagination.Count = count;
-        //InvokeAsync(() =>StateHasChanged());
+    public async Task OnPageSelected(int curentPage)
+    {
+        await Update(curentPage: curentPage);
+        InvokeAsync(() => StateHasChanged());
     }
 }

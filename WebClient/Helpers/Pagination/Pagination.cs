@@ -3,67 +3,57 @@ public class Pagination
 {
     public int Take { get; set; }
     public int Skip { get; set; }
-    public int Count
-    {
-        get => count;
-        set
-        {
-            if (count != value)
-            {
-                count = value;
-                Page = 1;
-            }
-        }
-    }
-    public Pagination()
-    {
-        Take = 10;
-        Page = 1;
-    }
-    public Pagination(int count, int skip, int take)
-    {
-        Count = count;
-        Skip = skip;
-        Take = take;
-    }
 
-
-    public int CurentPage { 
-        get=>Skip / Take + 1;
-        set =>Skip=(value-1) * Take;}
-
-
-
-    public int totalPages()
+    public Pagination(int totalItems = default, int skip = 0, int take = 10)
     {
-        return Count / Take + 1;
+
+        this.Skip = skip;
+        this.Take = take;
+        if (totalItems != default)
+            this.TotalItems = totalItems;
+        this.curentPage = Skip / Take + 1;
     }
-    public bool hasNextPage()
+    public int TotalPages()
     {
-        return (Count - Skip - Take > 0);
+        return TotalItems / Take + 1;
     }
-    public bool hasPreviusPage()
+    public bool HasNextPage()
+    {
+        return (TotalItems - Skip - Take > 0);
+    }
+    public bool HasPreviusPage()
     {
         return ((Skip - Take) > 0);
     }
-    private int page;
-    private int count;
-
-    public int Page
+    private int curentPage;
+    public int CurentPage
     {
-        get { return Skip / Take + 1; }
+        get { return curentPage; }
         set
         {
-            page = value;
-            if (page > Count / Take)
+            curentPage = value;
+            if (curentPage > TotalItems / Take)
             {
-                page = Count / Take;
+                curentPage = TotalItems / Take;
             }
-            if (page < 1)
+            if (curentPage < 1)
             {
-                page = 1;
+                curentPage = 1;
             }
-            Skip = (page - 1) * Take;
+            Skip = (curentPage - 1) * Take;
+        }
+    }
+    private int totalItems;
+    public int TotalItems
+    {
+        get => totalItems;
+        set
+        {
+            if (totalItems != value)
+            {
+                totalItems = value;
+                CurentPage = 1;
+            }
         }
     }
 }

@@ -9,7 +9,7 @@ using System;
 using System.Threading.Tasks;
 namespace Api.Controllers
 {
-    public class DocumentTypeController : GenericController<DocumentType<Guid>, Guid>
+    public class DocumentTypeController : GenericController<DocumentType<Guid>, DocumentType<Guid>, Guid>
     {
         public DocumentTypeController(IRepository<DocumentType<Guid>, Guid> repository, ILogger<DocumentType<Guid>> loger) : base(repository, loger)
         {

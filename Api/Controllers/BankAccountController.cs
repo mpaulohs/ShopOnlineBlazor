@@ -9,7 +9,7 @@ using System;
 using System.Threading.Tasks;
 namespace Api.Controllers
 {
-    public class BankAccountController : GenericController<BankAccount<Guid>, Guid>
+    public class BankAccountController : GenericController<BankAccount<Guid>, BankAccount<Guid>, Guid>
     {
         public BankAccountController(IRepository<BankAccount<Guid>, Guid> repository, ILogger<BankAccount<Guid>> loger) : base(repository, loger)
         {

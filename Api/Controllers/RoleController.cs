@@ -6,7 +6,7 @@ using System;
 using System.Threading.Tasks;
 namespace Api.Controllers
 {
-    public class RoleController : GenericController<Role<Guid>, Guid>
+    public class RoleController : GenericController<Role<Guid>, Role<Guid>, Guid>
     {
         public RoleController(IRepository<Role<Guid>, Guid> repository, ILogger<Role<Guid>> loger) : base(repository, loger)
         {

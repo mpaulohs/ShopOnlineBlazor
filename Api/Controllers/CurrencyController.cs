@@ -9,7 +9,7 @@ using System;
 using System.Threading.Tasks;
 namespace Api.Controllers
 {
-    public class CurrencyController : GenericController<Currency<Guid>, Guid>
+    public class CurrencyController : GenericController<Currency<Guid>, Currency<Guid>, Guid>
     {
         public CurrencyController(IRepository<Currency<Guid>, Guid> repository, ILogger<Currency<Guid>> loger) : base(repository, loger)
         {
