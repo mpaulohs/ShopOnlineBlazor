@@ -1,29 +1,36 @@
 namespace WebClient.Helpers.Pagination;
 public class Pagination
 {
-    public int Take { get; set; }
-    public int Skip { get; set; }
-
-    public Pagination(int totalItems = default, int skip = 0, int take = 10)
+    public Pagination(int totalItems = default, int skip = 0, int take = 10, int[] range = default)
     {
-
+        if (range == default)
+        {
+            this.Range = new[] { 5, 10, 20, 50 };
+        }
+        else
+        {
+            this.Range = range;
+        }
         this.Skip = skip;
         this.Take = take;
         if (totalItems != default)
             this.TotalItems = totalItems;
         this.curentPage = Skip / Take + 1;
     }
+    public int Take { get; set; }
+    public int Skip { get; set; }
+    public int[] Range { get; set; }
     public int TotalPages()
     {
-        return TotalItems / Take + 1;
+        return (int)Math.Ceiling((double)TotalItems / Take);
     }
-    public bool HasNextPage()
+    public bool HideNextButton()
     {
-        return (TotalItems - Skip - Take > 0);
+        return !(CurentPage < TotalPages());
     }
-    public bool HasPreviusPage()
+    public bool HidePreviusButton()
     {
-        return ((Skip - Take) > 0);
+        return !(CurentPage > 1);
     }
     private int curentPage;
     public int CurentPage
@@ -32,9 +39,9 @@ public class Pagination
         set
         {
             curentPage = value;
-            if (curentPage > TotalItems / Take)
+            if (curentPage > TotalPages())
             {
-                curentPage = TotalItems / Take;
+                curentPage = TotalPages();
             }
             if (curentPage < 1)
             {
@@ -52,7 +59,6 @@ public class Pagination
             if (totalItems != value)
             {
                 totalItems = value;
-                CurentPage = 1;
             }
         }
     }

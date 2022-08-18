@@ -4,47 +4,51 @@
 {
     <nav aria-label="Page pagination">
     <ul class="pagination">
-        <li @onclick="@(()=>OnSelectedPage(@pagination.CurentPage-1))" class=" page-item"><a class="page-link"
-                aria-label="Previous"><span aria-hidden="true">&laquo;</span> </a></li>
+        <li hidden="@pagination.HidePreviusButton()" @onclick="@(()=>OnChange(@pagination.CurentPage-1))"
+            class=" page-item"><a class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span> </a>
+        </li>
         @for (int i = 1; i <= @pagination.TotalPages(); i++)
             {
                 var row = i;
-                <li @onclick="@(()=>OnSelectedPage(row))" class="page-item @(row==@pagination.CurentPage?"active":"")"><a
+                <li @onclick="@(()=>OnChange(row))" class="page-item @(row==@pagination.CurentPage?"active":"")"><a
                 class="page-link">@row</a></li>
             }
-            <li @onclick="@(()=>OnSelectedPage(@pagination.CurentPage+1))" class="page-item"><a class="page-link"
-                aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+            <li hidden="@pagination.HideNextButton()" @onclick="@(()=>OnChange(@pagination.CurentPage+1))"
+            class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+            </li>
+            <li class="page-item">
+                <select class="dropdown-menu">
+                    <option selected class="dropdown-item">10</option>
+                    <option class="dropdown-item">20</option>
+                    <option class="dropdown-item">50</option>
+                    <option class="dropdown-item">100</option>
+                </select>
+            </li>
         </ul>
     </nav>
-
 }
-
 
 @code {
     [Parameter]
     public Pagination pagination { get; set; }
-
     [Parameter]
-    public EventCallback<int> OnPageSelected { get; set; }
-
-    @*
-        public int totalPages { get; set; }
-        public int curentPage { get; set; } *@
-
-    @* protected override Task OnInitializedAsync()
-        {
-        totalPages = pagination.totalPages();
-        curentPage = pagination.CurentPage;
-        return base.OnInitializedAsync();
-        } *@
-
-    public async Task OnSelectedPage(int page)
+    public EventCallback<int> CalbackOnChange { get; set; }
+    public async Task OnChange(int page)
     {
-        if (pagination.CurentPage == page)
+        if (pagination.CurentPage != page)
         {
-            return;
+            //pagination.CurentPage = page;
+            await CalbackOnChange.InvokeAsync(page);
         }
-        // InvokeAsync(StateHasChanged);
-        await OnPageSelected.InvokeAsync(page);
+    }
+    int[] range = new[] { 5, 10, 20, 50 };
+    void OnChangeTake(ChangeEventArgs e)
+    {
+        if (pagination.Take != (int)e.Value)
+        {
+            pagination.Take = (int)e.Value;
+            pagination.CurentPage = 1;
+            CalbackOnChange.InvokeAsync(1);
+        }
     }
 }

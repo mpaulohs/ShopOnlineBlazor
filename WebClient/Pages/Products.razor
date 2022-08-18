@@ -10,6 +10,10 @@
 
 <h1>Products</h1>
 <p>Product list</p>
+    @if (pagination != null && pagination.TotalPages() > 1)
+    {
+        <CPagination pagination="@pagination" CalbackOnChange="@OnPageSelected"></CPagination>
+    }
 @if (products == null)
 {
     <p><em>Loading...</em></p>
@@ -28,23 +32,19 @@ else
         </tr>
     </thead>
     <tbody>
-        @for (int i = pagination.Skip; i < (pagination.Skip + pagination.Take); i++)
+        @for ((int e, int num) = (0, pagination.Skip + 1); (e < pagination.Take&&num<=pagination.TotalItems); e++, num++)
             {
                 <tr>
-                    <td>@((i+1).ToString())</td>
-                    <td>@(products.ElementAtOrDefault(i)?.Article)</td>
-                    <td>@(products.ElementAtOrDefault(i)?.Name)</td>
-                    <td>@(products.ElementAtOrDefault(i)?.FullName)</td>
-                    <td>@(products.ElementAtOrDefault(i)?.Description)</td>
-                    <td>@(products.ElementAtOrDefault(i)?.MainImageUrl)</td>
+                    <td>@((num).ToString())</td>
+                    <td>@(products.ElementAtOrDefault(e)?.Article)</td>
+                    <td>@(products.ElementAtOrDefault(e)?.Name)</td>
+                    <td>@(products.ElementAtOrDefault(e)?.FullName)</td>
+                    <td>@(products.ElementAtOrDefault(e)?.Description)</td>
+                    <td>@(products.ElementAtOrDefault(e)?.MainImageUrl)</td>
                 </tr>
             }
         </tbody>
     </table>
-    @if (pagination != null && pagination.TotalPages() > 1)
-    {
-        <CPagination pagination="@pagination" OnPageSelected="@OnPageSelected"></CPagination>
-    }
 }
 @code {
     private IEnumerable<ProductDTO<Guid>>? products { get; set; } = null;
@@ -71,6 +71,6 @@ else
     public async Task OnPageSelected(int curentPage)
     {
         await Update(curentPage: curentPage);
-        InvokeAsync(() => StateHasChanged());
+        //InvokeAsync(() => StateHasChanged());
     }
 }

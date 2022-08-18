@@ -39,6 +39,7 @@
             "request": "launch",
             "cwd": "${workspaceFolder}\\WebClient\\",
             "program": "dotnet",
+            "console": "internalConsole",
             "args": [
                 "watch",
                 "--project",
@@ -50,13 +51,13 @@
             "name": "WebClient attach",
             "type": "blazorwasm",
             "request": "attach",
-            "browser": "chrome",
             "cwd": "${workspaceFolder}\\WebClient\\",
             "url": "https://localhost:6001",
             "timeout": 120000,
         },
         {
-   ``         "name": "WebClient debug",
+            "name": "WebClient debug",
+            "preLaunchTask": "buildSolution",
             "type": "blazorwasm",
             "request": "launch",
             "cwd": "${workspaceFolder}\\WebClient\\",
