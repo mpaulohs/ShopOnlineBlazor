@@ -16,16 +16,21 @@
             <li hidden="@pagination.HideNextButton()" @onclick="@(()=>OnChange(@pagination.CurentPage+1))"
             class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
             </li>
-            <li class="page-item">
-                <select class="dropdown-menu">
-                    <option selected class="dropdown-item">10</option>
-                    <option class="dropdown-item">20</option>
-                    <option class="dropdown-item">50</option>
-                    <option class="dropdown-item">100</option>
-                </select>
-            </li>
-        </ul>
-    </nav>
+            <li>
+                <InputSelect @bind-Value="pagination.Take" class="form-control">
+                    @if (pagination?.Range != null)
+                    {
+                    @foreach (var take in pagination.Range)
+                        {
+                        <option value="@take">@take.ToString()</option>
+                        }
+                    }
+            </InputSelect>
+
+        </li>
+    </ul>
+</nav>
+    <h1>Check</h1>
 }
 
 @code {
