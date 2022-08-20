@@ -10,9 +10,11 @@
 
 <h1>Products</h1>
 <p>Product list</p>
+<SearchComponent OnSearchCallback="@OnSearchChange"></SearchComponent>
+
     @if (pagination != null && pagination.TotalPages() > 1)
     {
-        <CPagination pagination="@pagination" CalbackOnChange="@OnPageSelected"></CPagination>
+        <PaginationComponent pagination="@pagination" CalbackOnChange="@OnPageSelected"></PaginationComponent>
     }
 @if (products == null)
 {
@@ -56,13 +58,17 @@ else
     {
         await Update();
     }
-    public async Task Update(int take = default, int curentPage = default)
+    public async Task Update(string search = default, string filter = default, string sorts = default, int take = default, int skip = default, int curentPage = default)
     {
         if (take == default)
         {
             take = pagination.Take;
         }
-        int skip = curentPage == default ? 0 : take * (curentPage - 1);
+        if (skip == default)
+        {
+            skip = curentPage == default ? 0 : take * (curentPage - 1);
+        }
+       
         var request = await repository.GetAsync<ProductDTO<Guid>>(Search, Filter, Sorts, take: take, skip: skip);
         products = request.Item1;
         pagination = new Pagination(request.Item2, skip, take);
@@ -70,7 +76,10 @@ else
 
     public async Task OnPageSelected(int curentPage)
     {
-        await Update(curentPage: curentPage);
-        //InvokeAsync(() => StateHasChanged());
+    await Update(curentPage: curentPage);
+    }
+
+    public async Task OnSearchChange(string search){
+      await  Update(search: search);
     }
 }
