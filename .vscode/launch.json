@@ -2,30 +2,22 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": ".NET Core Launch (web)",
+            "name": "Api watch",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceFolder}/WebClient/bin/Debug/net6.0/WebClient.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}",
-            "stopAtEntry": false,
-            "serverReadyAction": {
-                "action": "openExternally",
-                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
-            },
-            "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
-            },
-            "sourceFileMap": {
-                "/Views": "${workspaceFolder}/Views"
-            }
+            "cwd": "${workspaceFolder}\\Api\\",
+            "program": "dotnet",
+            "args": [
+                "watch",
+                "--project",
+                ".",
+                "--verbose" // Let's us confirm browser connects with hot reload capabilities
+            ],
         },
         {
-            "name": "Api",
+            "name": "Api debug",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
             "program": "${workspaceFolder}\\Api\\bin\\Debug\\net6.0\\Api.dll",
             "args": [],
             "cwd": "${workspaceFolder}\\Api\\",
@@ -42,42 +34,70 @@
             }
         },
         {
-            "name": "WebClient",
+            "name": "WebClient watch",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceFolder}\\WebClient\\bin\\Debug\\net6.0\\WebClient.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}/WebClient",
-            "stopAtEntry": false,
-            "launchBrowser": {
-                "enabled": true,
-                "args": "${auto-detect-url}",
-                "windows": {
-                    "command": "cmd.exe",
-                    "args": "/C start ${auto-detect-url}"
-                },
-                "osx": {
-                    "command": "open"
-                },
-                "linux": {
-                    "command": "xdg-open"
-                }
-            },
-            "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
-            },
-            "sourceFileMap": {
-                "/Views": "${workspaceFolder}\\Views"
-            }
+            "cwd": "${workspaceFolder}\\WebClient\\",
+            "program": "dotnet",
+            "console": "internalConsole",
+            "args": [
+                "watch",
+                "--project",
+                ".",
+                "--verbose" // Let's us confirm browser connects with hot reload capabilities
+            ],
+        },
+        {
+            "name": "WebClient attach",
+            "type": "blazorwasm",
+            "request": "attach",
+            "cwd": "${workspaceFolder}\\WebClient\\",
+            "url": "https://localhost:6001",
+            "timeout": 120000,
+        },
+        {
+            "name": "WebClient debug",
+            "preLaunchTask": "buildSolution",
+            "type": "blazorwasm",
+            "request": "launch",
+            "cwd": "${workspaceFolder}\\WebClient\\",
+            "url": "https://localhost:6001"
         }
     ],
     "compounds": [
         {
-            "name": "Api + WebClient",
+            "name": "Api watch + WebClient watch",
+            "preLaunchTask": "rebuildAndApi",
             "configurations": [
-                "Api",
-                "WebClient"
+                "WebClient watch"
+            ]
+        },
+        {
+            "name": "Api debug + WebClient watch",
+            "configurations": [
+                "Api debug",
+                "WebClient watch"
+            ]
+        },
+        {
+            "name": "Api debug + WebClient debug",
+            "configurations": [
+                "Api debug",
+                "WebClient debug"
+            ]
+        },
+        {
+            "name": "Api watch + WebClient debug",
+            "configurations": [
+                "Api watch",
+                "WebClient debug"
+            ]
+        },
+        {
+            "name": "WebClient debug hot",
+            "configurations": [
+                "WebClient watch",
+                "WebClient attach"
             ]
         }
     ]

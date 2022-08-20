@@ -204,7 +204,7 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
             return false;
         }
     }
-    public async Task<IEnumerable<TOut>>? GetAsync<TOut>(
+    public async Task<(IEnumerable<TOut>,int)>? GetAsync<TOut>(
     string search = default,
     string filter = default,
     string orderBy = default,
@@ -214,8 +214,16 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
     {
         cancellationToken.ThrowIfCancellationRequested();
         ThrowIfDisposed();
+       //Get all entities wisout skip and take
+        var all = Get(search, filter, orderBy, cancellationToken: cancellationToken);
+        int count = all.Count();
+        if (count == 0)
+        {
+            return (null, 0);
+        }
         var entities = Get(search, filter, orderBy, take, skip, cancellationToken);
-        return await _mapper.ProjectTo<TOut>(entities).ToListAsync<TOut>();
+        var result = await _mapper.ProjectTo<TOut>(entities).ToListAsync<TOut>();
+        return (result, count);
     }
     public async Task<IEnumerable<TEntity>>? GetAsync(
     string search = default,

@@ -8,7 +8,7 @@ using System;
 using System.Threading.Tasks;
 namespace Api.Controllers
 {
-    public class DocumentSaleController : GenericController<DocumentSale<Guid>, Guid>
+    public class DocumentSaleController : GenericController<DocumentSale<Guid>, DocumentSale<Guid>, Guid>
     {
         public DocumentSaleController(IRepository<DocumentSale<Guid>, Guid> repository, ILogger<DocumentSale<Guid>> loger) : base(repository, loger)
         {

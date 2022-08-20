@@ -6,7 +6,7 @@
 		<RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
 	</PropertyGroup>
 
-	<ItemGroup>
+	<!-- <ItemGroup>
 		<Compile Remove="Controllers\AdditionalInformationController.cs" />
 		<Compile Remove="Controllers\BankAccountController.cs" />
 		<Compile Remove="Controllers\BankController.cs" />
@@ -32,7 +32,7 @@
 		<Compile Remove="Controllers\SubdivisionController.cs" />
 		<Compile Remove="Controllers\UserController.cs" />
 		<Compile Remove="Controllers\RoleController.cs" />
-	</ItemGroup>
+	</ItemGroup> -->
 
 	<ItemGroup>
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />

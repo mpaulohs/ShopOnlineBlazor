@@ -37,8 +37,8 @@ public class FilterOperation
     }
     private static FilterOperation[] operations = new[]
     {
-        new FilterOperation(ExpressionType.Equal, "Equal", "eg", "=", "represent equal operator"),
-        new FilterOperation(ExpressionType.NotEqual, "Not equal", "neg", "!=", "represent not equal operator"),
+        new FilterOperation(ExpressionType.Equal, "Equal", "eq", "=", "represent equal operator"),
+        new FilterOperation(ExpressionType.NotEqual, "Not equal", "neq", "!=", "represent not equal operator"),
         new FilterOperation(ExpressionType.GreaterThan, "Greater than", "gt", ">", "represent greater than operator"),
         new FilterOperation(ExpressionType.GreaterThanOrEqual, "Greater than or equal", "gte", ">=", "rgepresent greater than or equal operator"),
         new FilterOperation(ExpressionType.LessThan, "Less than", "lt", "<", "rgepresent less than operator"),

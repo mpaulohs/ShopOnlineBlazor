@@ -9,7 +9,7 @@ using System;
 using System.Threading.Tasks;
 namespace Api.Controllers
 {
-    public class ProductCharacteristicController : GenericController<ProductCharacteristic<Guid>, Guid>
+    public class ProductCharacteristicController : GenericController<ProductCharacteristic<Guid>, ProductCharacteristic<Guid>, Guid>
     {
         public ProductCharacteristicController(IRepository<ProductCharacteristic<Guid>, Guid> repository, ILogger<ProductCharacteristic<Guid>> loger) : base(repository, loger)
         {

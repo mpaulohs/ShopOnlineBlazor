@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 using Microsoft.AspNetCore.JsonPatch;
 namespace Api.Controllers
 {
-    public class AdditionalInformationController : GenericController<AdditionalInformation<Guid>, Guid>
+    public class AdditionalInformationController : GenericController<AdditionalInformation<Guid>, AdditionalInformation<Guid>, Guid>
     {
         public AdditionalInformationController(IRepository<AdditionalInformation<Guid>, Guid> repository, ILogger<AdditionalInformation<Guid>> loger) : base(repository, loger)
         {

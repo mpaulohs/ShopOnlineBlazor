@@ -9,7 +9,7 @@ using System;
 using System.Threading.Tasks;
 namespace Api.Controllers
 {
-    public class ProductSerieController : GenericController<ProductSerie<Guid>, Guid>
+    public class ProductSerieController : GenericController<ProductSerie<Guid>, ProductSerie<Guid>, Guid>
     {
         public ProductSerieController(IRepository<ProductSerie<Guid>, Guid> repository, ILogger<ProductSerie<Guid>> loger) : base(repository, loger)
         {

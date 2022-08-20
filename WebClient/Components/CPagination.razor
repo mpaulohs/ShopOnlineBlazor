@@ -1,0 +1,59 @@
+@using Helpers.Pagination
+
+@if (pagination != null)
+{
+    <nav aria-label="Page pagination">
+    <ul class="pagination">
+        <li hidden="@pagination.HidePreviusButton()" @onclick="@(()=>OnChange(@pagination.CurentPage-1))"
+            class=" page-item"><a class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span> </a>
+        </li>
+        @for (int i = 1; i <= @pagination.TotalPages(); i++)
+            {
+                var row = i;
+                <li @onclick="@(()=>OnChange(row))" class="page-item @(row==@pagination.CurentPage?"active":"")"><a
+                class="page-link">@row</a></li>
+            }
+            <li hidden="@pagination.HideNextButton()" @onclick="@(()=>OnChange(@pagination.CurentPage+1))"
+            class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+            </li>
+            <li>
+                <InputSelect @bind-Value="pagination.Take" class="form-control">
+                    @if (pagination?.Range != null)
+                    {
+                    @foreach (var take in pagination.Range)
+                        {
+                        <option value="@take">@take.ToString()</option>
+                        }
+                    }
+            </InputSelect>
+
+        </li>
+    </ul>
+</nav>
+    <h1>Check</h1>
+}
+
+@code {
+    [Parameter]
+    public Pagination pagination { get; set; }
+    [Parameter]
+    public EventCallback<int> CalbackOnChange { get; set; }
+    public async Task OnChange(int page)
+    {
+        if (pagination.CurentPage != page)
+        {
+            //pagination.CurentPage = page;
+            await CalbackOnChange.InvokeAsync(page);
+        }
+    }
+    int[] range = new[] { 5, 10, 20, 50 };
+    void OnChangeTake(ChangeEventArgs e)
+    {
+        if (pagination.Take != (int)e.Value)
+        {
+            pagination.Take = (int)e.Value;
+            pagination.CurentPage = 1;
+            CalbackOnChange.InvokeAsync(1);
+        }
+    }
+}

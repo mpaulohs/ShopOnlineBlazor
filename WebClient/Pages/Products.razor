@@ -1,53 +1,76 @@
 ﻿@page "/products"
+@using WebClient.Helpers.Pagination
+@using WebClient.Components
+@using global::Shared.Models.Dtos
 @using global::Shared.Models.Catalogs
-@using global::Shared.Services.Repository;
-@inject IRepository<Product<Guid>,Guid> Repository
+@using global::Shared.Services.Repository
+@inject IRepository<Product<Guid>,Guid> repository
 
-<h3>Products</h3>
+<PageTitle>Products</PageTitle>
 
-@if (ProductsList == null)
+<h1>Products</h1>
+<p>Product list</p>
+    @if (pagination != null && pagination.TotalPages() > 1)
+    {
+        <CPagination pagination="@pagination" CalbackOnChange="@OnPageSelected"></CPagination>
+    }
+@if (products == null)
 {
-        <p><em>Loading...</em></p>
+    <p><em>Loading...</em></p>
 }
 else
 {
-    @for (int i = 1; i < @ProductsList.Count<Product<Guid>>(); i++)
-    {
-
+    <table class="table">
+    <thead>
+        <tr>
+            <th>N</th>
+            <th>Article</th>
+            <th>Name</th>
+            <th>Full name</th>
+            <th>Description</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for ((int e, int num) = (0, pagination.Skip + 1); (e < pagination.Take&&num<=pagination.TotalItems); e++, num++)
+            {
                 <tr>
-                    <td>@i.ToString()</td>
-                    <td>@(ProductsList.ElementAt<@Product<Guid>>(i).Id.ToString())</td>
-                    <td>@(ProductsList.ElementAt<@Product<Guid>>(i).Name.ToString())</td>
-                    <td>@(ProductsList.ElementAt<@Product<Guid>>(i).FullName.ToString())</td>
-                    <td>@(ProductsList.ElementAt<@Product<Guid>>(i).CreatedAt.ToString())</td>
-                    <td>@(ProductsList.ElementAt<@Product<Guid>>(i).UpdatedAt.ToString())</td>
-                    <td>@(ProductsList.ElementAt<@Product<Guid>>(i).Article.ToString())</td>
+                    <td>@((num).ToString())</td>
+                    <td>@(products.ElementAtOrDefault(e)?.Article)</td>
+                    <td>@(products.ElementAtOrDefault(e)?.Name)</td>
+                    <td>@(products.ElementAtOrDefault(e)?.FullName)</td>
+                    <td>@(products.ElementAtOrDefault(e)?.Description)</td>
+                    <td>@(products.ElementAtOrDefault(e)?.MainImageUrl)</td>
                 </tr>
-    }
+            }
+        </tbody>
+    </table>
 }
-
-
-
-
 @code {
-    public IEnumerable<Product<Guid>> ProductsList { get; set; }
-
-    private int pageCurrent = 1;
-
-    private int pageSize = 25;
-
-    private int tottalItems = 1;
-
-
-    protected override Task OnInitializedAsync()
+    private IEnumerable<ProductDTO<Guid>>? products { get; set; } = null;
+    public Pagination? pagination { get; set; } = new Pagination();
+    public string Search { get; set; } = default;
+    public string Filter { get; set; } = default;
+    public string Sorts { get; set; } = default;
+    protected override async Task OnInitializedAsync()
     {
-        GetProducts();
-        return null;
+        await Update();
+    }
+    public async Task Update(int take = default, int curentPage = default)
+    {
+        if (take == default)
+        {
+            take = pagination.Take;
+        }
+        int skip = curentPage == default ? 0 : take * (curentPage - 1);
+        var request = await repository.GetAsync<ProductDTO<Guid>>(Search, Filter, Sorts, take: take, skip: skip);
+        products = request.Item1;
+        pagination = new Pagination(request.Item2, skip, take);
     }
 
-    private async Task GetProducts()
+    public async Task OnPageSelected(int curentPage)
     {
-        var sorts = "name";
-        //ToDo: ProductsList = await Repository.GetAsync(sorts: sorts, pageSize: pageSize, pageCurrent: pageCurrent);
+        await Update(curentPage: curentPage);
+        //InvokeAsync(() => StateHasChanged());
     }
 }

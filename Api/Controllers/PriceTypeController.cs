@@ -9,7 +9,7 @@ using System;
 using System.Threading.Tasks;
 namespace Api.Controllers
 {
-    public class PriceTypeController : GenericController<PriceType<Guid>, Guid>
+    public class PriceTypeController : GenericController<PriceType<Guid>, PriceType<Guid>, Guid>
     {
         public PriceTypeController(IRepository<PriceType<Guid>, Guid> repository, ILogger<PriceType<Guid>> loger) : base(repository, loger)
         {
