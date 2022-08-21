@@ -14,7 +14,7 @@
 
     @if (pagination != null && pagination.TotalPages() > 1)
     {
-        <PaginationComponent pagination="@pagination" CalbackOnChange="@OnPageSelected"></PaginationComponent>
+        <PaginationComponent pagination="@pagination" CalbackOnChange="PaginationOnChange"></PaginationComponent>
     }
 @if (products == null)
 {
@@ -65,16 +65,29 @@ else
         {
             skip = curentPage == default ? 0 : take * (curentPage - 1);
         }
-       
+
         var request = await repository.GetAsync<ProductDTO<Guid>>(search: search, filter: filter, sorts: sorts, take: take, skip: skip);
         products = request.Item1;
         pagination = new Pagination(request.Item2, skip, take);
     }
     public async Task OnPageSelected(int curentPage)
     {
-    await Update(curentPage: curentPage);
+        await Update(curentPage: curentPage);
     }
     public async Task OnSearchChange(string search){
-      await  Update(search: search);
+        await  Update(search: search);
+    }
+
+    public async Task PaginationOnChange (Pagination newPagination)
+    {
+        if (newPagination.CurentPage!= pagination.CurentPage
+        || newPagination.Take != pagination.Take
+        || newPagination.TotalPages != pagination.TotalPages
+        )
+        {
+            pagination = newPagination;
+            await Update();
+        }
+       
     }
 }

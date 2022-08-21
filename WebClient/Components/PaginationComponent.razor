@@ -3,62 +3,64 @@
 @if (pagination != null)
 {
     <nav aria-label="Page pagination">
-    <ul class="pagination">
-        <li hidden="@pagination.HidePreviusButton()" @onclick="@(()=>OnChange(@pagination.CurentPage-1))"
+        <ul class="pagination">
+            <li hidden="@pagination.HidePreviusButton()" @onclick="@(()=>PageOnSelect(@pagination.CurentPage-1))"
             class=" page-item"><a class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span> </a>
-        </li>
-        @for (int i = 1; i <= @pagination.TotalPages(); i++)
+            </li>
+             @for (int i = 1; i <= @pagination.TotalPages(); i++)
             {
                 var row = i;
-                <li @onclick="@(()=>OnChange(row))" class="page-item @(row==@pagination.CurentPage?"active":"")"><a
+                <li @onclick="@(()=>PageOnSelect(row))" class="page-item @(row==@pagination.CurentPage?"active":"")"><a
                 class="page-link">@row</a></li>
             }
-            <li hidden="@pagination.HideNextButton()" @onclick="@(()=>OnChange(@pagination.CurentPage+1))"
+            <li hidden="@pagination.HideNextButton()" @onclick="@(()=>PageOnSelect(@pagination.CurentPage+1))"
             class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
             </li>
+            @if (pagination?.Range != null)
+            {
             <li>
-                <InputSelect @bind-Value="pagination.Take" class="form-control">
-                    @if (pagination?.Range != null)
-                    {
+                <select @onselect="OnChange" @bind="pagination.Take" class="form-control">               
                     @foreach (var take in pagination.Range)
                         {
                         <option value="@take">@take.ToString()</option>
-                        }
-                    }
-            </InputSelect>
-
-        </li>
-    </ul>
-        @if (pagination.TotalItems>0)
-        {
-            <h5>
-            @String.Format("Show {0} - {1) items from {2}",(pagination.Skip + 1).ToString(), (pagination.Skip + 1 + pagination.Take).ToString(),pagination.TotalItems.ToString());
-            </h5>
-        }
+                        }   
+                </select>
+             </li>
+            }
+        </ul>
     </nav>
+@*    @if (pagination.TotalItems > 0)
+    {
+        <h5>
+            @String.Format("Show {0} - {1) items from {2}",(pagination.Skip + 1).ToString(), (pagination.Skip + 1 + pagination.Take).ToString(),pagination.TotalItems.ToString());
+        </h5>
+    }*@
 }
 
 @code {
     [Parameter]
     public Pagination pagination { get; set; } = new Pagination();
     [Parameter]
-    public EventCallback<int> CalbackOnChange { get; set; }
-    public async Task OnChange(int page)
+    public EventCallback<Pagination> CalbackOnChange { get; set; }
+    int[] range = new[] { 5, 10, 20, 50 };
+    private void OnChange(){
+        CalbackOnChange.InvokeAsync(pagination);
+    }
+    public async Task PageOnSelect(int page)
     {
         if (pagination.CurentPage != page)
         {
-            //pagination.CurentPage = page;
-            await CalbackOnChange.InvokeAsync(page);
+            pagination.CurentPage = page;
+            await CalbackOnChange.InvokeAsync(pagination);
         }
     }
-    int[] range = new[] { 5, 10, 20, 50 };
-    void OnChangeTake(ChangeEventArgs e)
-    {
-        if (pagination.Take != (int)e.Value)
-        {
-            pagination.Take = (int)e.Value;
-            pagination.CurentPage = 1;
-            CalbackOnChange.InvokeAsync(1);
-        }
-    }
+    //void OnChangeTake(ChangeEventArgs e)
+    //{
+    //    if (pagination.Take != (int)e.Value)
+    //    {
+    //        pagination.Take = (int)e.Value;
+    //        pagination.CurentPage = 1;
+    //        CalbackOnChange.InvokeAsync(1);
+    //    }
+    //}
 }
