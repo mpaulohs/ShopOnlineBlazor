@@ -51,6 +51,7 @@
             "name": "WebClient attach",
             "type": "blazorwasm",
             "request": "attach",
+            "browser": "chrome",
             "cwd": "${workspaceFolder}\\WebClient\\",
             "url": "https://localhost:6001",
             "timeout": 120000,

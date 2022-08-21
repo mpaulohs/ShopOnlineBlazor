@@ -51,9 +51,6 @@ else
 @code {
     private IEnumerable<ProductDTO<Guid>>? products { get; set; } = null;
     public Pagination? pagination { get; set; } = new Pagination();
-    public string Search { get; set; } = default;
-    public string Filter { get; set; } = default;
-    public string Sorts { get; set; } = default;
     protected override async Task OnInitializedAsync()
     {
         await Update();
@@ -69,16 +66,14 @@ else
             skip = curentPage == default ? 0 : take * (curentPage - 1);
         }
        
-        var request = await repository.GetAsync<ProductDTO<Guid>>(Search, Filter, Sorts, take: take, skip: skip);
+        var request = await repository.GetAsync<ProductDTO<Guid>>(search: search, filter: filter, sorts: sorts, take: take, skip: skip);
         products = request.Item1;
         pagination = new Pagination(request.Item2, skip, take);
     }
-
     public async Task OnPageSelected(int curentPage)
     {
     await Update(curentPage: curentPage);
     }
-
     public async Task OnSearchChange(string search){
       await  Update(search: search);
     }

@@ -29,13 +29,18 @@
 
         </li>
     </ul>
-</nav>
-    <h1>Check</h1>
+        @if (pagination.TotalItems>0)
+        {
+            <h5>
+            @String.Format("Show {0} - {1) items from {2}",(pagination.Skip + 1).ToString(), (pagination.Skip + 1 + pagination.Take).ToString(),pagination.TotalItems.ToString());
+            </h5>
+        }
+    </nav>
 }
 
 @code {
     [Parameter]
-    public Pagination pagination { get; set; }
+    public Pagination pagination { get; set; } = new Pagination();
     [Parameter]
     public EventCallback<int> CalbackOnChange { get; set; }
     public async Task OnChange(int page)
