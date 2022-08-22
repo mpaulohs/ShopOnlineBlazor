@@ -143,7 +143,6 @@ namespace Shared.Services.Repository
             {
                 return (null, 0);
             }
-
             var entities = await response.Content.ReadFromJsonAsync<IEnumerable<TOut>>();
             return (entities,count);
         }
