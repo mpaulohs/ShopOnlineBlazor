@@ -15,22 +15,31 @@ public class Pagination
         this.Take = take;
         if (totalItems != default)
             this.TotalItems = totalItems;
-        this.curentPage = Skip / Take + 1;
+        this.CurentPage = Skip / Take + 1;
     }
-    public int Take { get; set; }
+
+    private int take;
+    public int Take {
+        get { return take; }
+        set {if (take!=value){
+        take = value;
+        CurentPage = 1;
+    }
+        }
+    }
     public int Skip { get; set; }
     public int[] Range { get; set; }
     public int TotalPages()
     {
         return (int)Math.Ceiling((double)TotalItems / Take);
     }
-    public bool HideNextButton()
+    public bool HasNextPage()
     {
-        return !(CurentPage < TotalPages());
+        return (CurentPage < TotalPages());
     }
-    public bool HidePreviusButton()
+    public bool HasPreviusPage()
     {
-        return !(CurentPage > 1);
+        return (CurentPage > 1);
     }
     private int curentPage;
     public int CurentPage
