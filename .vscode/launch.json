@@ -35,6 +35,7 @@
         },
         {
             "name": "WebClient watch",
+            "preLaunchTask": "buildSolution",
             "type": "coreclr",
             "request": "launch",
             "cwd": "${workspaceFolder}\\WebClient\\",
@@ -51,18 +52,26 @@
             "name": "WebClient attach",
             "type": "blazorwasm",
             "request": "attach",
-            "browser": "chrome",
+            "urlFilter": "https://localhost:6001/*",
             "cwd": "${workspaceFolder}\\WebClient\\",
-            "url": "https://localhost:6001",
             "timeout": 120000,
+        },
+        {
+            "name": "Attach Chrome",
+            "type": "chrome",
+            "request": "attach",
+            "port": 6001,
+            "url": "https://localhost:6001/*",
+            "webRoot": "${workspaceFolder}"
         },
         {
             "name": "WebClient debug",
             "preLaunchTask": "buildSolution",
             "type": "blazorwasm",
             "request": "launch",
+            "browser": "chrome",
+            "url": "https://localhost:6001",
             "cwd": "${workspaceFolder}\\WebClient\\",
-            "url": "https://localhost:6001"
         }
     ],
     "compounds": [

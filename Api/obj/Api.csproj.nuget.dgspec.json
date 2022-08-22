@@ -48,47 +48,47 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.AspNetCore.JsonPatch": {
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[6.0.8, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.3.2, )"
+              "version": "[6.4.0, )"
             },
             "Swashbuckle.AspNetCore.Annotations": {
               "target": "Package",
@@ -154,7 +154,7 @@
           "dependencies": {
             "Microsoft.AspNetCore.Components": {
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
@@ -162,7 +162,7 @@
             },
             "Microsoft.AspNetCore.JsonPatch": {
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.AspNetCore.WebUtilities": {
               "target": "Package",
@@ -170,11 +170,11 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[6.0.8, )"
             },
             "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[6.0.8, )"
             },
             "System.Linq.Dynamic.Core": {
               "target": "Package",

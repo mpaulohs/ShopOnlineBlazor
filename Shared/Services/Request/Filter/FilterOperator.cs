@@ -35,7 +35,7 @@ public class FilterOperation
         }
         return default;
     }
-    private static FilterOperation[] operations = new[]
+    private readonly static FilterOperation[] operations = new[]
     {
         new FilterOperation(ExpressionType.Equal, "Equal", "eq", "=", "represent equal operator"),
         new FilterOperation(ExpressionType.NotEqual, "Not equal", "neq", "!=", "represent not equal operator"),

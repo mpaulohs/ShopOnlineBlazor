@@ -113,7 +113,7 @@ namespace Shared.Services.Repository
             throw new NotImplementedException();
         }
 
-        public async Task<(IEnumerable<TOut>,int)>? GetAsync<TOut>(string search = null, string filter = null, string sorts = null, int take = 0, int skip = 0, CancellationToken cancellationToken = default)
+        public async Task<(IEnumerable<TOut>, int)>? GetAsync<TOut>(string search = null, string filter = null, string sorts = null, int take = 0, int skip = 0, CancellationToken cancellationToken = default)
         {
             var queryParams = new Dictionary<string, string>();
             if (take != default)
@@ -144,7 +144,7 @@ namespace Shared.Services.Repository
                 return (null, 0);
             }
             var entities = await response.Content.ReadFromJsonAsync<IEnumerable<TOut>>();
-            return (entities,count);
+            return (entities, count);
         }
 
         public Task<bool> DeleteAsync(TKey id, CancellationToken cancellationToken = default)

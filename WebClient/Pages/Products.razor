@@ -14,7 +14,7 @@
 
     @if (pagination != null && pagination.TotalPages() > 1)
     {
-        <PaginationComponent pagination="@pagination" CalbackOnChange="PaginationOnChange"></PaginationComponent>
+        <PaginationComponent pagination="@pagination" CalbackOnChange="OnPaginationChange"></PaginationComponent>
     }
 @if (products == null)
 {
@@ -55,7 +55,7 @@ else
     {
         await Update();
     }
-    public async Task Update(string search = default, string filter = default, string sorts = default, int take = default, int skip = default, int curentPage = default)
+    public async Task Update(string search = default, string filter = default, string sorts = default, int take = default, int skip = default)
     {
         if (take == default)
         {
@@ -63,31 +63,18 @@ else
         }
         if (skip == default)
         {
-            skip = curentPage == default ? 0 : take * (curentPage - 1);
+            skip = pagination.Skip;
         }
-
         var request = await repository.GetAsync<ProductDTO<Guid>>(search: search, filter: filter, sorts: sorts, take: take, skip: skip);
         products = request.Item1;
-        pagination = new Pagination(request.Item2, skip, take);
-    }
-    public async Task OnPageSelected(int curentPage)
-    {
-        await Update(curentPage: curentPage);
+        pagination = new Pagination( totalItems:request.Item2, skip: skip, take: take);
     }
     public async Task OnSearchChange(string search){
-        await  Update(search: search);
+        await Update(search: search);
     }
 
-    public async Task PaginationOnChange (Pagination newPagination)
+    public async Task OnPaginationChange ()
     {
-        if (newPagination.CurentPage!= pagination.CurentPage
-        || newPagination.Take != pagination.Take
-        || newPagination.TotalPages != pagination.TotalPages
-        )
-        {
-            pagination = newPagination;
-            await Update();
-        }
-       
+        await Update();
     }
 }

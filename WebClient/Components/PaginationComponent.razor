@@ -20,7 +20,7 @@
                         <a class="page-link">@row</a>
                     </li>
                 }
-                         @if (pagination.HasNextPage())
+                    @if (pagination.HasNextPage())
             {
                 <li class="page-item" @onclick="@(()=>PageOnSelect(@pagination.CurentPage+1))">
                        <a class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
@@ -34,7 +34,7 @@
                 {
                     <li class="page-item"><span>   </span></li>
                     <li class="page-item">
-                        <select style="background-color: red;" @onselect="OnChange" @bind="pagination.Take" class="form-control">
+                        <select class="form-control" style="background-color: green;" value=@pagination.Take @onchange="OnChangeRange">
                             @foreach (var take in pagination.Range)
                             {
                                 <option value="@take">@take.ToString()</option>
@@ -50,37 +50,31 @@
                 </h5>
             }
         </nav>
-
     }
             @code {
                 [Parameter]
                 public Pagination pagination { get; set; } = new Pagination();
                 [Parameter]
-                public EventCallback<Pagination> CalbackOnChange { get; set; }
+                public EventCallback CalbackOnChange { get; set; }
                 int[] range = new[] { 5, 10, 20, 50 };
-                private void OnChange()
-                {
-                    CalbackOnChange.InvokeAsync(pagination);
-                }
+                
                 public async Task PageOnSelect(int page)
                 {
                     if (pagination.CurentPage != page)
                     {
                         pagination.CurentPage = page;
-                        await CalbackOnChange.InvokeAsync(pagination);
+                        await CalbackOnChange.InvokeAsync();
                     }
                 }
-                public async Task RangeOnSelect()
+             
+                private async Task OnChangeRange (ChangeEventArgs e)
                 {
-
+                    var take =int.Parse(e.Value.ToString());
+                if (pagination.Take != take)
+                    {
+                    pagination.Take = take;
+                    pagination.Skip = 0;
+                    CalbackOnChange.InvokeAsync();
+                    }
                 }
-                //void OnChangeTake(ChangeEventArgs e)
-                //{
-                // if (pagination.Take != (int)e.Value)
-                // {
-                // pagination.Take = (int)e.Value;
-                // pagination.CurentPage = 1;
-                // CalbackOnChange.InvokeAsync(1);
-                // }
-                //}
             }

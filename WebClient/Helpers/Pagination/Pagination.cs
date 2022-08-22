@@ -14,19 +14,11 @@ public class Pagination
         this.Skip = skip;
         this.Take = take;
         if (totalItems != default)
+        {
             this.TotalItems = totalItems;
-        this.CurentPage = Skip / Take + 1;
-    }
-
-    private int take;
-    public int Take {
-        get { return take; }
-        set {if (take!=value){
-        take = value;
-        CurentPage = 1;
-    }
         }
     }
+    public int Take { get; set; }
     public int Skip { get; set; }
     public int[] Range { get; set; }
     public int TotalPages()
@@ -44,7 +36,14 @@ public class Pagination
     private int curentPage;
     public int CurentPage
     {
-        get { return curentPage; }
+        get
+        {
+            if (curentPage != 0)
+            {
+                return curentPage;
+            }
+            return (Skip / Take + 1);
+        }
         set
         {
             curentPage = value;

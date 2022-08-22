@@ -11,7 +11,7 @@ namespace Api.Data
 {
     public class ApplicationDbContext<TKey> : IdentityDbContext<User<TKey>, Role<TKey>, TKey, UserClaim<TKey>, UserRole<TKey>, UserLogin<TKey>, RoleClaim<TKey>, UserToken<TKey>> where TKey : IEquatable<TKey>
     {
-        private IConfiguration configuration;
+        private readonly IConfiguration configuration;
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext<TKey>> options, IConfiguration configuration)
         : base(options)
         {
