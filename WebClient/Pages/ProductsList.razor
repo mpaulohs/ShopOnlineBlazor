@@ -1,4 +1,5 @@
 ﻿@page "/products"
+@using WebClient.Components
 @using WebClient.Helpers.Pagination
 @using global::Shared.Models.Dtos
 @using global::Shared.Models.Catalogs
@@ -7,17 +8,14 @@
 
 <PageTitle>Products</PageTitle>
 <h1>Products</h1>
-<WebClient.Components.SearchComponent OnSearchCallback="@OnSearchChange"></WebClient.Components.SearchComponent>
+<SearchComponent OnSearchCallback="@OnSearchChange"></SearchComponent>
 @if (pagination != null && pagination?.TotalPages() > 1)
 {
-    <WebClient.Components.PaginationComponent pagination="@pagination" CalbackOnChange="@OnPaginationChange"></WebClient.Components.PaginationComponent>
+    <PaginationComponent pagination="@pagination" CalbackOnChange="@OnPaginationChange"></PaginationComponent>
 }
-@if (products != default)
-{
+@if (products == default){
     <p><em>Loading...</em></p>
-}
-else
-{
+}else{
     <table class="table">
         <thead>
             <tr>
@@ -30,8 +28,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @for ((int e, int num) = (0, pagination.Skip + 1); (e < pagination.Take && num <= pagination.TotalItems); e++, num++)
-            {
+            @for ((int e, int num) = (0, pagination.Skip + 1); (e < pagination.Take && num <= pagination.TotalItems); e++, num++){
                 <tr>
                     <td>@((num).ToString())</td>
                     <td>@(products.ElementAtOrDefault(e)?.Article)</td>
@@ -46,7 +43,7 @@ else
 }
 
 @code {
-    private IEnumerable<ProductDTO<Guid>>? products { get; set; } = new List<ProductDTO<Guid>>();
+    private IEnumerable<ProductDTO<Guid>>? products { get; set; } = default;
     private WebClient.Helpers.Pagination.Pagination? pagination { get; set; } = new Pagination();
     protected override async Task OnInitializedAsync()
     {
@@ -63,11 +60,9 @@ else
         {
             skip = pagination.Skip;
         }
-        var response = await _repository.GetAsync<ProductDTO<Guid>>(search: search, filter: filter, sorts: sorts, take:
-        take,
-        skip: skip);
-        products = response.Item1;
-        pagination = new Pagination(totalItems: response.Item2, skip: skip, take: take);
+        var response = await _repository.GetAsync<ProductDTO<Guid>>(search: search, filter: filter, sorts: sorts, take:take, skip: skip);
+        this.products = response.Item1;
+        this.pagination = new Pagination(totalItems: response.Item2, skip: skip, take: take);
     }
     public async Task OnSearchChange(string search)
     {
