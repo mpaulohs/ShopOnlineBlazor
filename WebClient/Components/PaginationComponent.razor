@@ -1,80 +1,92 @@
 @using WebClient.Helpers.Pagination;
 
-@if (pagination != null){
+@if (pagination != null)
+{
     <nav aria-label="Page pagination">
-        <ul class="pagination">
-            @if (pagination.HasPreviusPage())
-            {
-                <li class="page-item" @onclick="@(()=>PageOnSelect(@pagination.CurentPage-1))">
-                       <a class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-                </li>
-            }else{
-                <li class="page-item disabled">
-                       <a class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-                </li>
-            }
-            @for (int i = 1; i <= @pagination.TotalPages(); i++)
+        <div class="d-flex flex-row">
+            <ul class="pagination">
+
+                @if (pagination.HasPreviusPage())
+                {
+                    <li class="page-item" @onclick="@(()=>PageOnSelect(@pagination.CurentPage-1))">
+                        <a class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item disabled">
+                        <a class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+                    </li>
+                }
+                @for (int i = 1; i <= @pagination.TotalPages(); i++)
                 {
                     var row = i;
                     <li @onclick="@(()=>PageOnSelect(row))" class="page-item @(row==@pagination.CurentPage?"active":"")">
                         <a class="page-link">@row</a>
                     </li>
                 }
-                    @if (pagination.HasNextPage())
-            {
-                <li class="page-item" @onclick="@(()=>PageOnSelect(@pagination.CurentPage+1))">
-                       <a class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-                </li>
-            }else{
-                <li class="page-item disabled">
-                       <a class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-                </li>
-            }
-                @if (pagination?.Range != null)
+                @if (pagination.HasNextPage())
                 {
-                    <li class="page-item"><span>   </span></li>
-                    <li class="page-item">
-                        <select class="form-control" style="background-color: green;" value=@pagination.Take @onchange="OnChangeRange">
-                            @foreach (var take in pagination.Range)
-                            {
-                                <option value="@take">@take.ToString()</option>
-                            }
-                        </select>
+                    <li class="page-item" @onclick="@(()=>PageOnSelect(@pagination.CurentPage+1))">
+                        <a class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item disabled">
+                        <a class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
                     </li>
                 }
             </ul>
-            @if (pagination.TotalItems > 0)
+
+            @if (pagination?.Range != null)
             {
-                <h5>
-                    @($"show {pagination.Skip + 1} - {(pagination.TotalItems > (pagination.Skip + pagination.Take) ? pagination.Skip + pagination.Take:pagination.TotalItems)} items from {pagination.TotalItems}")
-                </h5>
+                <div>
+                    <select class="btn btn-primary btn-rounded p-lg-2" value=@pagination.Take @onchange="OnChangeRange">
+                        @foreach (var take in pagination.Range)
+                        {
+                            <option value="@take">@take.ToString()</option>
+                        }
+                    </select>
+                </div>
             }
-        </nav>
+
+        </div>
+        @if (pagination.TotalItems > 0)
+        {
+            <div class="align-items-center">
+                @($"show {pagination.Skip + 1} - {(pagination.TotalItems > (pagination.Skip + pagination.Take) ? pagination.Skip + pagination.Take : pagination.TotalItems)} items from {pagination.TotalItems}")
+            </div>
+        }
+    </nav>
+}
+
+
+
+@code {
+    [Parameter]
+    public Pagination pagination { get; set; } = new Pagination();
+    [Parameter]
+    public EventCallback CalbackOnChange { get; set; }
+    int[] range = new[] { 5, 10, 20, 50 };
+
+    public async Task PageOnSelect(int page)
+    {
+        if (pagination.CurentPage != page)
+        {
+            pagination.CurentPage = page;
+            await CalbackOnChange.InvokeAsync();
+        }
     }
-            @code {
-                [Parameter]
-                public Pagination pagination { get; set; } = new Pagination();
-                [Parameter]
-                public EventCallback CalbackOnChange { get; set; }
-                int[] range = new[] { 5, 10, 20, 50 };
-                
-                public async Task PageOnSelect(int page)
-                {
-                    if (pagination.CurentPage != page)
-                    {
-                        pagination.CurentPage = page;
-                        await CalbackOnChange.InvokeAsync();
-                    }
-                }
-             
-                private async Task OnChangeRange (ChangeEventArgs e)
-                {
-                    var take =int.Parse(e.Value.ToString());
-                if (pagination.Take != take)
-                    {
-                    pagination.Take = take;
-                    pagination.Skip = 0;
-                    CalbackOnChange.InvokeAsync();
-                    }
-                }
-            }
+
+    private async Task OnChangeRange(ChangeEventArgs e)
+    {
+        var take = int.Parse(e.Value.ToString());
+        if (pagination.Take != take)
+        {
+            pagination.Take = take;
+            pagination.Skip = 0;
+            CalbackOnChange.InvokeAsync();
+        }
+    }
+}

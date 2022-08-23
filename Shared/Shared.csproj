@@ -4,6 +4,9 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	  <WarningLevel>4</WarningLevel>
+	</PropertyGroup>
 <ItemGroup>
 		<PackageReference Include="bogus" Version="34.0.2" />
 		<PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.19" />

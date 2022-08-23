@@ -1,9 +1,7 @@
 <dir class="input-group">
     <input @bind-value="Search" type="text" class="form-control" placeholder="search" />
-    <button type="button" class="btn-success input-group-text" @onclick="OnSearch">Search</button>
+    <button type="button" class="btn-success btn-primary input-group-text" @onclick="OnSearch">Search</button>
 </dir>
-<br />
-<h4>@Search</h4>
 
 @code {
     private string Search { get; set; } = string.Empty;

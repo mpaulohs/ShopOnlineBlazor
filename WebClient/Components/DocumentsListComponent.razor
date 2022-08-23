@@ -1,0 +1,39 @@
+@using global::Shared.Models.Dtos
+@if (documents != default && documents.Count() > 0)
+{
+    <table>
+    <caption>Documents</caption>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>N</th>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Client</th>
+            <th>Amount</th>
+            <th>Currency</th>
+            <th>Comment</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var document in documents)
+            {
+                <tr>
+                    <td>document.Id</td>
+                    <td>document.Number</td>
+                    <td>document.DateTime</td>
+                    <td>document.DocumentType</td>
+                    <td>document.Client</td>
+                    <td>document.DocumentAmount</td>
+                    <td>document.DocumentCurrency</td>
+                    <td>document.Comment</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@code {
+    [Parameter]
+    public IEnumerable<DocumentsListDTO<Guid>> documents { get; set; } = default;
+}
