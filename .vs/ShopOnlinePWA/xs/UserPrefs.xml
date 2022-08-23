@@ -1,20 +1,31 @@
-﻿<Properties StartupConfiguration="Multiple Projects">
+﻿<Properties StartupConfiguration="{A63289D8-BB5A-446E-ABE1-F81585019CAA}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Api PreferredExecutionTarget="/Applications/Safari.app" />
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects">
+      <Items>
+        <StartupItem ItemId="{A63289D8-BB5A-446E-ABE1-F81585019CAA}" ItemName="Api" ConfigurationId="Default" />
+        <StartupItem ItemId="{D1FAEED8-31CE-4540-9445-5F917E3855C9}" ItemName="WebClient" ConfigurationId="Default" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+  <MonoDevelop.Ide.ItemProperties.Api PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.ItemProperties.WebClient PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <Debugger.DebugSourceFolders />
-  <MonoDevelop.Ide.Workbench ActiveDocument="WebClient/Components/ProductListComponent.razor">
-    <Files>
-      <File FileName="WebClient/Pages/ProductsList.razor" Line="16" Column="26" />
-      <File FileName="WebClient/Components/ProductListComponent.razor" Line="4" Column="54" />
-    </Files>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/igormelnyk/Projects/ShopOnlinePWA/WebClient/Pages/ProductsList.razor" relfile="WebClient/Pages/ProductsList.razor" line="69" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ShopOnlinePWA" expanded="True">
             <Node name="WebClient" expanded="True">
-              <Node name="Components" expanded="True" />
-              <Node name="Pages" expanded="True" />
+              <Node name="Pages" expanded="True">
+                <Node name="ProductsList.razor" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
@@ -24,18 +35,4 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/igormelnyk/Projects/ShopOnlinePWA/WebClient/Components/PaginationComponent.razor" relfile="WebClient/Components/PaginationComponent.razor" line="72" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations>
-    <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects">
-      <Items>
-        <StartupItem ItemId="{A63289D8-BB5A-446E-ABE1-F81585019CAA}" ItemName="Api" ConfigurationId="Default" />
-        <StartupItem ItemId="{D1FAEED8-31CE-4540-9445-5F917E3855C9}" ItemName="WebClient" ConfigurationId="Default" />
-      </Items>
-    </MultiItemSolutionRunConfiguration>
-  </MultiItemStartupConfigurations>
 </Properties>

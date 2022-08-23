@@ -1,25 +1,53 @@
 ﻿@page "/products"
-@using WebClient.Components
 @using WebClient.Helpers.Pagination
-@using dto=global::Shared.Models.Dtos
+@using global::Shared.Models.Dtos
 @using global::Shared.Models.Catalogs
 @using global::Shared.Services.Repository
-@inject IRepository<Product<Guid>,Guid> _repository
+@inject IRepository<Product<Guid>, Guid> _repository
 
 <PageTitle>Products</PageTitle>
 <h1>Products</h1>
-<SearchComponent OnSearchCallback="@OnSearchChange"></SearchComponent>
+<WebClient.Components.SearchComponent OnSearchCallback="@OnSearchChange"></WebClient.Components.SearchComponent>
 @if (pagination != null && pagination?.TotalPages() > 1)
 {
-    <PaginationComponent pagination="@pagination" CalbackOnChange="@OnPaginationChange"></PaginationComponent>
+    <WebClient.Components.PaginationComponent pagination="@pagination" CalbackOnChange="@OnPaginationChange"></WebClient.Components.PaginationComponent>
 }
 @if (products != default)
 {
-    <ProductListComponent pagination="@pagination" productList="@products"></ProductListComponent>
+    <p><em>Loading...</em></p>
 }
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>N</th>
+                <th>Article</th>
+                <th>Name</th>
+                <th>Full name</th>
+                <th>Description</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for ((int e, int num) = (0, pagination.Skip + 1); (e < pagination.Take && num <= pagination.TotalItems); e++, num++)
+            {
+                <tr>
+                    <td>@((num).ToString())</td>
+                    <td>@(products.ElementAtOrDefault(e)?.Article)</td>
+                    <td>@(products.ElementAtOrDefault(e)?.Name)</td>
+                    <td>@(products.ElementAtOrDefault(e)?.FullName)</td>
+                    <td>@(products.ElementAtOrDefault(e)?.Description)</td>
+                    <td>@(products.ElementAtOrDefault(e)?.MainImageUrl)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
 @code {
-    private IEnumerable<dto.ProductDTO<Guid>>? products { get; set; } = default;
-    private Pagination? pagination { get; set; } = new Pagination();
+    private IEnumerable<ProductDTO<Guid>>? products { get; set; } = new List<ProductDTO<Guid>>();
+    private WebClient.Helpers.Pagination.Pagination? pagination { get; set; } = new Pagination();
     protected override async Task OnInitializedAsync()
     {
         await Update();
@@ -35,7 +63,8 @@
         {
             skip = pagination.Skip;
         }
-        var response = await _repository.GetAsync<dto.ProductDTO<Guid>>(search: search, filter: filter, sorts: sorts, take: take,
+        var response = await _repository.GetAsync<ProductDTO<Guid>>(search: search, filter: filter, sorts: sorts, take:
+        take,
         skip: skip);
         products = response.Item1;
         pagination = new Pagination(totalItems: response.Item2, skip: skip, take: take);
