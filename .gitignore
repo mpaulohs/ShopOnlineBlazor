@@ -16,8 +16,16 @@ Thumbs.db
 
 ### DotnetCore ###
 # .NET Core build folders
-bin/
-obj/
+Api/bin/
+Api/obj/
+WebClient/bin/
+WebClient/obj/
+WebServer/bin/
+WebServer/obj/
+Shared/bin/
+Shared/obj/
+
+
 
 # Common node modules locations
 /node_modules
@@ -83,3 +91,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,dotnetcore
+.vs/
