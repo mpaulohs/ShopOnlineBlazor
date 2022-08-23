@@ -1,20 +1,20 @@
-﻿<Properties StartupConfiguration="{D1FAEED8-31CE-4540-9445-5F917E3855C9}|Default">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+﻿<Properties StartupConfiguration="Multiple Projects">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Api PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="WebClient/Components/PaginationComponent.razor">
+  <MonoDevelop.Ide.ItemProperties.WebClient PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <Debugger.DebugSourceFolders />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WebClient/Components/ProductListComponent.razor">
     <Files>
-      <File FileName="WebClient/Pages/Products.razor" Line="1" Column="1" />
-      <File FileName="WebClient/Components/PaginationComponent.razor" Line="72" Column="1" />
+      <File FileName="WebClient/Pages/ProductsList.razor" Line="16" Column="26" />
+      <File FileName="WebClient/Components/ProductListComponent.razor" Line="4" Column="54" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ShopOnlinePWA" expanded="True">
             <Node name="WebClient" expanded="True">
-              <Node name="Components" expanded="True">
-                <Node name="PaginationComponent.razor" selected="True" />
-              </Node>
+              <Node name="Components" expanded="True" />
+              <Node name="Pages" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -24,11 +24,18 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.WebClient PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/igormelnyk/Projects/ShopOnlinePWA/WebClient/Components/PaginationComponent.razor" relfile="WebClient/Components/PaginationComponent.razor" line="72" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects">
+      <Items>
+        <StartupItem ItemId="{A63289D8-BB5A-446E-ABE1-F81585019CAA}" ItemName="Api" ConfigurationId="Default" />
+        <StartupItem ItemId="{D1FAEED8-31CE-4540-9445-5F917E3855C9}" ItemName="WebClient" ConfigurationId="Default" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
 </Properties>

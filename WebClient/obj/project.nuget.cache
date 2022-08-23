@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7zMMxhsDjAH1QTucKoyBqDpfHXcNWsS+OYuxjbR34SPPvolmp2zeH90LzzkHFVrqTaT5r+8sN1u/G2jD84x4nA==",
+  "dgSpecHash": "tfUwPKtP8YogkLs2PGP1SwijOQRqP5JZGs4I8ZVQUDDFX+5LqEbhy2eXEqmwG/YPr/sAC6ehPe/FZsoVD/rxGQ==",
   "success": true,
   "projectFilePath": "/Users/igormelnyk/Projects/ShopOnlinePWA/WebClient/WebClient.csproj",
   "expectedPackageFiles": [
@@ -76,8 +76,7 @@
     "/Users/igormelnyk/.nuget/packages/system.security.permissions/4.5.0/system.security.permissions.4.5.0.nupkg.sha512",
     "/Users/igormelnyk/.nuget/packages/system.security.principal.windows/4.5.0/system.security.principal.windows.4.5.0.nupkg.sha512",
     "/Users/igormelnyk/.nuget/packages/system.text.encodings.web/6.0.0/system.text.encodings.web.6.0.0.nupkg.sha512",
-    "/Users/igormelnyk/.nuget/packages/system.text.json/6.0.0/system.text.json.6.0.0.nupkg.sha512",
-    "/Users/igormelnyk/.nuget/packages/microsoft.netcore.app.runtime.mono.browser-wasm/6.0.8/microsoft.netcore.app.runtime.mono.browser-wasm.6.0.8.nupkg.sha512"
+    "/Users/igormelnyk/.nuget/packages/system.text.json/6.0.0/system.text.json.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

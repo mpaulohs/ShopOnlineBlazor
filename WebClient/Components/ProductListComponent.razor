@@ -1,0 +1,42 @@
+@using Helpers.Pagination
+@using dto = global::Shared.Models.Dtos
+
+@if (productList == default || pagination == default)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>N</th>
+                <th>Article</th>
+                <th>Name</th>
+                <th>Full name</th>
+                <th>Description</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for ((int e, int num) = (0, pagination.Skip + 1); (e < pagination.Take && num <= pagination.TotalItems); e++, num++)
+            {
+                <tr>
+                    <td>@((num).ToString())</td>
+                    <td>@(productList.ElementAtOrDefault(e)?.Article)</td>
+                    <td>@(productList.ElementAtOrDefault(e)?.Name)</td>
+                    <td>@(productList.ElementAtOrDefault(e)?.FullName)</td>
+                    <td>@(productList.ElementAtOrDefault(e)?.Description)</td>
+                    <td>@(productList.ElementAtOrDefault(e)?.MainImageUrl)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@code {
+    [Parameter]
+    public IEnumerable<dto.ProductDTO<Guid>>? productList { get; set; } = default;
+
+    [Parameter]
+    public Pagination? pagination { get; set; } = default;
+}
