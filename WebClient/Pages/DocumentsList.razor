@@ -1,0 +1,83 @@
+﻿@page "/documents"
+@using global::Shared.Models.Dtos
+@using global::Shared.Models.Documents
+@using WebClient.Helpers.Pagination
+@using global::Shared.Services.Repository
+@inject IRepository<DocumentSale<Guid>, Guid> _repository
+
+@if (documents == default)
+{
+    <em>Loading..</em>
+}
+else
+{
+    <table>
+        <caption>Documetns</caption>
+        <thead>
+            <tr>
+                <th>N</th>
+                <th class="hiden">Id</th>
+                <th>Date</th>
+                <th>Number</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Client</th>
+                <th>Amount</th>
+                <th>Currency</th>
+                <th>Comment</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var document in documents)
+            {
+                <tr>
+                    <td>++Num</td>
+                    <td class="hiden">@document.Id</td>
+                    <td>@document.DateTime</td>
+                    <td>@document.Number.</td>
+                    <td>@document.DocumentType</td>
+                    <td>@document.DocumentStatus</td>
+                    <td>@document.Client</td>
+                    <td>@document.DocumentAmount</td>
+                    <td>@document.DocumentCurrency.</td>
+                    <td>@document.Comment</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@code{
+    private IEnumerable<DocumentsListDTO<Guid>> documents { get; set; } = default;
+    private Pagination pagination { get; set; } = default;
+    private int Num { get; set; } = default;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Update();
+        await base.OnInitializedAsync();
+    }
+    private async Task Update(string search = default, string filter = default, string sorts = default, int take = default,
+    int skip = default)
+    {
+        if (take == default)
+        {
+            take = pagination.Take;
+        }
+        if (skip == default)
+        {
+            skip = pagination.Skip;
+        }
+        var response = await _repository.GetAsync<DocumentsListDTO<Guid>>(search: search, filter: filter, sorts: sorts, take: take, skip: skip);
+        this.documents = response.Item1;
+        this.pagination = new Pagination(totalItems: response.Item2, skip: skip, take: take);
+    }
+    private async Task OnSearchChange(string search)
+    {
+        await Update(search: search);
+    }
+
+    private async Task OnPaginationChange()
+    {
+        await Update();
+    }
+}

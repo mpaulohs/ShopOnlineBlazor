@@ -48,8 +48,9 @@
     protected override async Task OnInitializedAsync()
     {
         await Update();
+        await base.OnInitializedAsync();
     }
-    public async Task Update(string search = default, string filter = default, string sorts = default, int take = default,
+    private async Task Update(string search = default, string filter = default, string sorts = default, int take = default,
     int skip = default)
     {
         if (take == default)
@@ -64,12 +65,12 @@
         this.products = response.Item1;
         this.pagination = new Pagination(totalItems: response.Item2, skip: skip, take: take);
     }
-    public async Task OnSearchChange(string search)
+    private async Task OnSearchChange(string search)
     {
         await Update(search: search);
     }
 
-    public async Task OnPaginationChange()
+    private async Task OnPaginationChange()
     {
         await Update();
     }

@@ -1,6 +1,7 @@
 namespace Shared.Models.Dtos;
 
-public class DocumentsListDTO<TKey> where TKey : IEquatable<TKey>
+public class DocumentsListDTO<TKey>
+    where TKey : IEquatable<TKey>
 {
     public TKey Id { get; set; }
     public string? Number { get; set; }
