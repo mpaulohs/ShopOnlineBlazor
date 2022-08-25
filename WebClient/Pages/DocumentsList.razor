@@ -17,7 +17,7 @@ else
             <tr>
                 <th>N</th>
                 <th class="hiden">Id</th>
-                <th>Date</th>
+                <th >Date</th>
                 <th>Number</th>
                 <th>Type</th>
                 <th>Status</th>
@@ -31,15 +31,15 @@ else
             @foreach (var document in documents)
             {
                 <tr>
-                    <td>++Num</td>
+                    <td>@(++Num)</td>
                     <td class="hiden">@document.Id</td>
-                    <td>@document.DateTime</td>
-                    <td>@document.Number.</td>
+                    <td>@document.DateTime.ToString("yyyy-MM-dd")</td>
+                    <td>@document.Number</td>
                     <td>@document.DocumentType</td>
                     <td>@document.DocumentStatus</td>
                     <td>@document.Client</td>
                     <td>@document.DocumentAmount</td>
-                    <td>@document.DocumentCurrency.</td>
+                    <td>@document.DocumentCurrency</td>
                     <td>@document.Comment</td>
                 </tr>
             }
@@ -48,13 +48,13 @@ else
 }
 @code{
     private IEnumerable<DocumentsListDTO<Guid>> documents { get; set; } = default;
-    private Pagination pagination { get; set; } = default;
+    private Pagination pagination { get; set; } = new Pagination();
     private int Num { get; set; } = default;
 
     protected override async Task OnInitializedAsync()
     {
         await Update();
-        await base.OnInitializedAsync();
+        //await base.OnInitializedAsync();
     }
     private async Task Update(string search = default, string filter = default, string sorts = default, int take = default,
     int skip = default)
@@ -70,6 +70,7 @@ else
         var response = await _repository.GetAsync<DocumentsListDTO<Guid>>(search: search, filter: filter, sorts: sorts, take: take, skip: skip);
         this.documents = response.Item1;
         this.pagination = new Pagination(totalItems: response.Item2, skip: skip, take: take);
+        this.Num = this.pagination.Skip;
     }
     private async Task OnSearchChange(string search)
     {

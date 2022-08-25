@@ -13,22 +13,27 @@
 {
     <PaginationComponent pagination="@pagination" CalbackOnChange="@OnPaginationChange"></PaginationComponent>
 }
-@if (products == default){
+@if (products == default)
+{
     <p><em>Loading...</em></p>
-}else{
+}
+else
+{
     <table class="table">
-        <thead>
-            <tr>
-                <th>N</th>
-                <th>Article</th>
-                <th>Name</th>
-                <th>Full name</th>
-                <th>Description</th>
-                <th>Image</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for ((int e, int num) = (0, pagination.Skip + 1); (e < pagination.Take && num <= pagination.TotalItems); e++, num++){
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">N</th>
+            <th scope="col">Article</th>
+            <th scope="col">Name</th>
+            <th scope="col">Full name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for ((int e, int num) = (0, pagination.Skip + 1); (e < pagination.Take && num <= pagination.TotalItems); e++,
+           num++)
+            {
                 <tr>
                     <td>@((num).ToString())</td>
                     <td>@(products.ElementAtOrDefault(e)?.Article)</td>
@@ -61,7 +66,8 @@
         {
             skip = pagination.Skip;
         }
-        var response = await _repository.GetAsync<ProductDTO<Guid>>(search: search, filter: filter, sorts: sorts, take:take, skip: skip);
+        var response = await _repository.GetAsync<ProductDTO<Guid>>(search: search, filter: filter, sorts: sorts, take: take,
+        skip: skip);
         this.products = response.Item1;
         this.pagination = new Pagination(totalItems: response.Item2, skip: skip, take: take);
     }

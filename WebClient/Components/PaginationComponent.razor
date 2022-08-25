@@ -54,7 +54,7 @@
         </div>
         @if (pagination.TotalItems > 0)
         {
-            <div class="align-items-center">
+            <div class="align-items-center text-primary text-uppercase font-weight-bold">
                 @($"show {pagination.Skip + 1} - {(pagination.TotalItems > (pagination.Skip + pagination.Take) ? pagination.Skip + pagination.Take : pagination.TotalItems)} items from {pagination.TotalItems}")
             </div>
         }
