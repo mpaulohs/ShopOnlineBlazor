@@ -18,10 +18,10 @@ namespace Api.Data
     {
         public static void Seed<TKey>(this ModelBuilder modelBuilder, int length, IConfiguration configuration) where TKey : IEquatable<TKey>
         {
-            if (System.Diagnostics.Debugger.IsAttached == false)
-            {
-                System.Diagnostics.Debugger.Launch();
-            }
+            //if (System.Diagnostics.Debugger.IsAttached == false)
+            //{
+            //    System.Diagnostics.Debugger.Launch();
+            //}
 
 
             var faker = new Faker();
@@ -410,26 +410,26 @@ namespace Api.Data
                     ExchangeId = Guid.NewGuid().ToString(),
                     CreatedAt = CreatedAt,
                     UpdatedAt = faker.Date.Between(CreatedAt, DateTime.Now),
-                    DocumentType = faker.PickRandom<DocumentType<TKey>>(documentTypes),
+                    DocumentTypeId = faker.PickRandom<DocumentType<TKey>>(documentTypes).Id,
                     DateTime = faker.Date.Between(CreatedAt, DateTime.Now),
                     ExchangeDateTime = faker.Date.Between(CreatedAt, DateTime.Now),
-                    Organization = faker.PickRandom<Organization<TKey>>(organizations),
-                    Client = faker.PickRandom<User<TKey>>(users),
-                    ClientContract = faker.PickRandom<ClientContract<TKey>>(clientContracts as List<ClientContract<TKey>>),
-                    PriceType = faker.PickRandom<PriceType<TKey>>(priceTypes),
-                    DocumentCurrency = faker.PickRandom<Currency<TKey>>(currencies),
+                    OrganizationId = faker.PickRandom<Organization<TKey>>(organizations).Id,
+                    ClientId = faker.PickRandom<User<TKey>>(users).Id,
+                    //ClientContract = faker.PickRandom<ClientContract<TKey>>(clientContracts as List<ClientContract<TKey>>),
+                    PriceTypeId = faker.PickRandom<PriceType<TKey>>(priceTypes).Id,
+                    DocumentCurrencyId = faker.PickRandom<Currency<TKey>>(currencies).Id,
                     DocumentCurrencyValue = faker.Random.Decimal(),
                     MultiplicityMutalSettlements = faker.Random.Decimal(),
                     DocumentAmount = faker.Random.Decimal(),
                     ContractAmount = faker.Random.Decimal(),
-                    Responsible = faker.PickRandom<User<TKey>>(users),
+                    ResponsibleId = faker.PickRandom<User<TKey>>(users).Id,
                     Comment = faker.Lorem.Sentence(),
-                    Subdivision = faker.PickRandom<Subdivision<TKey>>(subdivisions),
+                    SubdivisionId = faker.PickRandom<Subdivision<TKey>>(subdivisions).Id,
                     ConcurrencyStamp = Guid.NewGuid().ToString(),
-                    Storage = faker.PickRandom<Storage<TKey>>(storages),
-                    Reciver = faker.PickRandom<User<TKey>>(users),
+                    StorageId= faker.PickRandom<Storage<TKey>>(storages).Id,
+                    ReciverId = faker.PickRandom<User<TKey>>(users).Id,
                     ReciverAddres = faker.Address.FullAddress(),
-                    DocumentStatus = faker.PickRandom<DocumentStatus<TKey>>(documentStatuses)
+                    DocumentStatusId = faker.PickRandom<DocumentStatus<TKey>>(documentStatuses).Id
                 };
                 documentsSale.Add(entity);
             }

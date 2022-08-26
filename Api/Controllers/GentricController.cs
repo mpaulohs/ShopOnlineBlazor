@@ -33,12 +33,12 @@ namespace Api.Controllers
         {
             try
             {
-                var response = _repository.GetAsync<ProductDTO<Guid>>( search, filter, orderby, take, skip);
+                var response = _repository.GetAsync<TOut>(search, filter, orderby, take, skip);
                 if (response.Status == TaskStatus.RanToCompletion)
                 {
                     var items = response?.Result.Item1;
                     var count = response?.Result.Item2;
-                    Response.Headers.Add("x-pagination", count.ToString()); 
+                    Response.Headers.Add("x-pagination", count.ToString());
                     return StatusCode(200, items);
                 }
                 if (response.Status == TaskStatus.Canceled)

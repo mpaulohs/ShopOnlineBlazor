@@ -119,8 +119,8 @@ namespace Api.Data
             //Documents
             modelBuilder.Entity<DocumentStatus<TKey>>().ToTable("DocumentStatuses");
             modelBuilder.Entity<DocumentType<TKey>>().ToTable("DocumentTypes");
-            modelBuilder.Entity<DocumentSale<TKey>>(b => b.ToTable("Documents"));
-            modelBuilder.Entity<DocumentPayment<TKey>>(b => b.ToTable("Payments"));
+            modelBuilder.Entity<DocumentSale<TKey>>(b => b.ToTable("DocumentSale"));
+            modelBuilder.Entity<DocumentPayment<TKey>>(b => b.ToTable("DocumentPayment"));
             //modelBuilder.Entity<DocumentAdjustment<TKey>>(b => b.ToTable("Adjustments"));
             modelBuilder.Entity<Mesage<TKey>>(b => b.ToTable("Mesages"));
             int length = 100;

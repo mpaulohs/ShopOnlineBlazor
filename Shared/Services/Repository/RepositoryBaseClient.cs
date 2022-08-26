@@ -19,14 +19,16 @@ namespace Shared.Services.Repository
         {
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            //_requestUri = new Uri(_httpClient.BaseAddress + GetTypeName(typeof(TEntity)));
-            _requestUri = new Uri(_httpClient.BaseAddress + "DocumentSale");
+            string uri = GetTypeName(typeof(TEntity)).Split('<')[0];
+            _requestUri = new Uri(_httpClient.BaseAddress + uri );
+            //_requestUri = _httpClient.BaseAddress;
+            //_requestUri = new Uri(_httpClient.BaseAddress + "DocumentSale");
             Console.WriteLine(typeof(TEntity));
             _jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             //BaseUri = new Uri ("api/" + typeof(TEntity).Name.ToLower() + "/");
             //Url = "api/" + typeof(TEntity).Name.ToLower() + "/";
         }
-        private Uri _requestUri { get; set; }
+        public Uri _requestUri { get; set; }
         private HttpClient _httpClient { get; set; }
         private readonly JsonSerializerOptions _jsonOptions;
         protected ILogger<TEntity> _logger { get; set; }
