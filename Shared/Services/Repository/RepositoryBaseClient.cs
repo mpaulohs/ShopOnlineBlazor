@@ -20,7 +20,7 @@ namespace Shared.Services.Repository
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             //_requestUri = new Uri(_httpClient.BaseAddress + GetTypeName(typeof(TEntity)));
-            _requestUri = new Uri(_httpClient.BaseAddress + "Product");
+            _requestUri = new Uri(_httpClient.BaseAddress + "DocumentSale");
             Console.WriteLine(typeof(TEntity));
             _jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             //BaseUri = new Uri ("api/" + typeof(TEntity).Name.ToLower() + "/");

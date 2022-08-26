@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using Shared.Models.Catalogs;
+using Shared.Models.Documents;
 using Shared.Models.Identities;
 namespace Api.Data
 {
@@ -17,6 +18,12 @@ namespace Api.Data
     {
         public static void Seed<TKey>(this ModelBuilder modelBuilder, int length, IConfiguration configuration) where TKey : IEquatable<TKey>
         {
+            if (System.Diagnostics.Debugger.IsAttached == false)
+            {
+                System.Diagnostics.Debugger.Launch();
+            }
+
+
             var faker = new Faker();
             int counter = 0;
             //Identity
@@ -392,6 +399,43 @@ namespace Api.Data
                 };
                 products.Add(entity);
             }
+            var documentsSale = new List<Object>();
+            for (int i = 0; i < length; i++)
+            {
+                var CreatedAt = faker.Date.Past(5);
+                var name = faker.Commerce.Product();
+                var entity = new
+                {
+                    Id = (typeof(TKey) == typeof(Guid)) ? Guid.NewGuid().ChangeType<TKey>() : (TKey)Convert.ChangeType(counter, typeof(TKey)),
+                    ExchangeId = Guid.NewGuid().ToString(),
+                    CreatedAt = CreatedAt,
+                    UpdatedAt = faker.Date.Between(CreatedAt, DateTime.Now),
+                    DocumentType = faker.PickRandom<DocumentType<TKey>>(documentTypes),
+                    DateTime = faker.Date.Between(CreatedAt, DateTime.Now),
+                    ExchangeDateTime = faker.Date.Between(CreatedAt, DateTime.Now),
+                    Organization = faker.PickRandom<Organization<TKey>>(organizations),
+                    Client = faker.PickRandom<User<TKey>>(users),
+                    ClientContract = faker.PickRandom<ClientContract<TKey>>(clientContracts as List<ClientContract<TKey>>),
+                    PriceType = faker.PickRandom<PriceType<TKey>>(priceTypes),
+                    DocumentCurrency = faker.PickRandom<Currency<TKey>>(currencies),
+                    DocumentCurrencyValue = faker.Random.Decimal(),
+                    MultiplicityMutalSettlements = faker.Random.Decimal(),
+                    DocumentAmount = faker.Random.Decimal(),
+                    ContractAmount = faker.Random.Decimal(),
+                    Responsible = faker.PickRandom<User<TKey>>(users),
+                    Comment = faker.Lorem.Sentence(),
+                    Subdivision = faker.PickRandom<Subdivision<TKey>>(subdivisions),
+                    ConcurrencyStamp = Guid.NewGuid().ToString(),
+                    Storage = faker.PickRandom<Storage<TKey>>(storages),
+                    Reciver = faker.PickRandom<User<TKey>>(users),
+                    ReciverAddres = faker.Address.FullAddress(),
+                    DocumentStatus = faker.PickRandom<DocumentStatus<TKey>>(documentStatuses)
+                };
+                documentsSale.Add(entity);
+            }
+
+
+
             modelBuilder.Entity<Bank<TKey>>().HasData(banks);
             modelBuilder.Entity<BankAccount<TKey>>().HasData(bankAccounts);
             modelBuilder.Entity<CashDesk<TKey>>().HasData(cashDescks);
@@ -423,6 +467,7 @@ namespace Api.Data
                 var ProductCharacteristicId = faker.PickRandom(productCharacteristics).Id;
                 modelBuilder.Entity("Products_ProductCharacteristics").HasData(new { ProductCharacteristicId = ProductCharacteristicId, ProductId = ProductId });
             }
+            modelBuilder.Entity<DocumentSale<TKey>>().HasData(documentsSale);
         }
     }
 }

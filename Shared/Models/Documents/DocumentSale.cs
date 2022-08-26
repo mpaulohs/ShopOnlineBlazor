@@ -12,6 +12,6 @@ namespace Shared.Models.Documents
         public string? ReciverAddres { get; set; }
         [MaxLength(20)]
         public string? ReciverPhoneNumber { get; set; }
-        public DocumentStatus<TKey> DocumentStatus { get; set; }
+        public DocumentStatus<TKey>? DocumentStatus { get; set; }
     }
 }

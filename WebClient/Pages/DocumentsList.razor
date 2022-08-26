@@ -17,7 +17,7 @@ else
             <tr>
                 <th>N</th>
                 <th class="hiden">Id</th>
-                <th >Date</th>
+                <th>Date</th>
                 <th>Number</th>
                 <th>Type</th>
                 <th>Status</th>
@@ -54,7 +54,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         await Update();
-        //await base.OnInitializedAsync();
+        await base.OnInitializedAsync();
     }
     private async Task Update(string search = default, string filter = default, string sorts = default, int take = default,
     int skip = default)
