@@ -204,7 +204,7 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
             return false;
         }
     }
-    public async Task<(IEnumerable<TOut>,int)>? GetAsync<TOut>(
+    public async Task<(IEnumerable<TOut>, int)>? GetAsync<TOut>(
     string search = default,
     string filter = default,
     string orderBy = default,
@@ -214,7 +214,8 @@ public class RepositoryBase<TEntity, TKey, TDbContext> :
     {
         cancellationToken.ThrowIfCancellationRequested();
         ThrowIfDisposed();
-       //Get all entities wisout skip and take
+        //Get all entities wisout skip and take
+        //ToDo optimize function
         var all = Get(search, filter, orderBy, cancellationToken: cancellationToken);
         int count = all.Count();
         if (count == 0)

@@ -1,52 +1,63 @@
 ﻿@page "/documents"
+@using WebClient.Components
 @using global::Shared.Models.Dtos
 @using global::Shared.Models.Documents
 @using WebClient.Helpers.Pagination
 @using global::Shared.Services.Repository
 @inject IRepository<DocumentSale<Guid>, Guid> _repository
 
+
+<PageTitle>Products</PageTitle>
+<h1>Documetns</h1>
+<SearchComponent OnSearchCallback="@OnSearchChange"></SearchComponent>
+@if (pagination != null && pagination?.TotalPages() > 1)
+{
+    <PaginationComponent pagination="@pagination" CalbackOnChange="@OnPaginationChange"></PaginationComponent>
+}
 @if (documents == default)
 {
-    <em>Loading..</em>
+    <em>Loading...</em>
 }
 else
 {
-    <table>
+    <div class=".table-responsive">
+    <table class="table table-hover">
         <caption>Documetns</caption>
-        <thead>
+        <thead class="thead-dark">
             <tr>
-                <th>N</th>
-                <th class="hiden">Id</th>
-                <th>Date</th>
-                <th>Number</th>
-                <th>Type</th>
-                <th>Status</th>
-                <th>Client</th>
-                <th>Amount</th>
-                <th>Currency</th>
-                <th>Comment</th>
+                <th scope="col">N</th>
+                <th scope="col" class="hiden">Id</th>
+                <th scope="col">Date</th>
+                <th scope="col">Number</th>
+                <th scope="col">Type</th>
+                <th scope="col">Status</th>
+                <th scope="col">Client</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Currency</th>
+                <th scope="col">Comment</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var document in documents)
-            {
-                <tr>
-                    <td>@(++Num)</td>
-                    <td class="hiden">@document.Id</td>
-                    <td>@document.DateTime.ToString("yyyy-MM-dd")</td>
-                    <td>@document.Number</td>
-                    <td>@document.DocumentType</td>
-                    <td>@document.DocumentStatus</td>
-                    <td>@document.Client</td>
-                    <td>@document.DocumentAmount</td>
-                    <td>@document.DocumentCurrency</td>
-                    <td>@document.Comment</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+                {
+                    <tr>
+                        <td scope="row">@(++Num)</td>
+                        <td class="hiden">@document.Id</td>
+                        <td>@document.DateTime.ToString("yyyy-MM-dd")</td>
+                        <td>@document.Number</td>
+                        <td>@document.DocumentType</td>
+                        <td>@document.DocumentStatus</td>
+                        <td>@document.Client</td>
+                        <td>@document.DocumentAmount</td>
+                        <td>@document.DocumentCurrency</td>
+                        <td>@document.Comment</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 }
-@code{
+@code {
     private IEnumerable<DocumentsListDTO<Guid>> documents { get; set; } = default;
     private Pagination pagination { get; set; } = new Pagination();
     private int Num { get; set; } = default;
@@ -67,7 +78,8 @@ else
         {
             skip = pagination.Skip;
         }
-        var response = await _repository.GetAsync<DocumentsListDTO<Guid>>(search: search, filter: filter, sorts: sorts, take: take, skip: skip);
+        var response = await _repository.GetAsync<DocumentsListDTO<Guid>>(search: search, filter: filter, sorts: sorts, take:
+        take, skip: skip);
         this.documents = response.Item1;
         this.pagination = new Pagination(totalItems: response.Item2, skip: skip, take: take);
         this.Num = this.pagination.Skip;
