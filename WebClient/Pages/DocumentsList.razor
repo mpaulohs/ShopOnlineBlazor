@@ -1,48 +1,67 @@
 ﻿@page "/documents"
+@using System.Reflection
+@using System.ComponentModel
+@using System.Reflection.Metadata
 @using WebClient.Components
 @using global::Shared.Models.Dtos
 @using global::Shared.Models.Documents
 @using WebClient.Helpers.Pagination
+@using System.ComponentModel.DataAnnotations
 @using global::Shared.Services.Repository
 @inject IRepository<DocumentSale<Guid>, Guid> _repository
 
 
-<PageTitle>Products</PageTitle>
+<PageTitle>Documents</PageTitle>
 <h1>Documetns</h1>
 <SearchComponent OnSearchCallback="@OnSearchChange"></SearchComponent>
-@if (pagination != null && pagination?.TotalPages() > 1)
+@if (_pagination != null && _pagination?.TotalPages() > 1)
 {
-    <PaginationComponent pagination="@pagination" CalbackOnChange="@OnPaginationChange"></PaginationComponent>
+    <PaginationComponent pagination="@_pagination" CalbackOnChange="@OnPaginationChange"></PaginationComponent>
 }
-@if (documents == default)
+@if (_documents == default)
 {
     <em>Loading...</em>
 }
 else
 {
     <div class=".table-responsive">
-    <table class="table table-hover">
-        <caption>Documetns</caption>
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">N</th>
-                <th scope="col" class="hiden">Id</th>
-                <th scope="col">Date</th>
-                <th scope="col">Number</th>
-                <th scope="col">Type</th>
-                <th scope="col">Status</th>
-                <th scope="col">Client</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Currency</th>
-                <th scope="col">Comment</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var document in documents)
+        <table class="table table-hover">
+            <caption>Documetns</caption>
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">N</th>
+                    @foreach (var property in _properties)
+                    {
+                        var col = GetDisplayName(property);
+                        if (col == null)
+                        {
+                            <th hidden scope="col">@property.Name</th>
+                        }
+                        else
+                        {
+                            <th scope="col">@col</th>
+                        }
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var document in _documents)
                 {
                     <tr>
-                        <td scope="row">@(++Num)</td>
-                        <td class="hiden">@document.Id</td>
+                        <td scope="row">@(++_num)</td>
+                        @foreach (var property in _properties)
+                        {
+                            var col = GetDisplayName(property);
+                            if (col == null)
+                            {
+                                <td hidden scope="col">@property.GetValue(document)</td>
+                            }
+                            else
+                            {
+                                <td scope="col">@property.GetValue(document)</td>
+                            }
+                        }
+                        @*<td hidden>@document.Id</td>
                         <td>@document.DateTime.ToString("yyyy-MM-dd")</td>
                         <td>@document.Number</td>
                         <td>@document.DocumentType</td>
@@ -50,7 +69,7 @@ else
                         <td>@document.Client</td>
                         <td>@document.DocumentAmount</td>
                         <td>@document.DocumentCurrency</td>
-                        <td>@document.Comment</td>
+                        <td>@document.Comment</td>*@
                     </tr>
                 }
             </tbody>
@@ -58,9 +77,10 @@ else
     </div>
 }
 @code {
-    private IEnumerable<DocumentsListDTO<Guid>> documents { get; set; } = default;
-    private Pagination pagination { get; set; } = new Pagination();
-    private int Num { get; set; } = default;
+    private IEnumerable<DocumentsListDTO<Guid>> _documents { get; set; } = default;
+    private Pagination _pagination { get; set; } = new Pagination();
+    private List<PropertyInfo> _properties { get; set; } = typeof(DocumentsListDTO<Guid>)?.GetProperties().OrderBy(p => (p?.GetCustomAttribute(typeof(DisplayAttribute)) as DisplayAttribute).GetOrder()).ToList();
+    private int _num { get; set; } = default;
 
     protected override async Task OnInitializedAsync()
     {
@@ -72,17 +92,17 @@ else
     {
         if (take == default)
         {
-            take = pagination.Take;
+            take = _pagination.Take;
         }
         if (skip == default)
         {
-            skip = pagination.Skip;
+            skip = _pagination.Skip;
         }
         var response = await _repository.GetAsync<DocumentsListDTO<Guid>>(search: search, filter: filter, sorts: sorts, take:
         take, skip: skip);
-        this.documents = response.Item1;
-        this.pagination = new Pagination(totalItems: response.Item2, skip: skip, take: take);
-        this.Num = this.pagination.Skip;
+        this._documents = response.Item1;
+        this._pagination = new Pagination(totalItems: response.Item2, skip: skip, take: take);
+        this._num = this._pagination.Skip;
     }
     private async Task OnSearchChange(string search)
     {
@@ -93,4 +113,45 @@ else
     {
         await Update();
     }
+
+
+    public string GetDisplayName(string col)
+    {
+        MemberInfo property = typeof(DocumentsListDTO<Guid>)?.GetProperty(col);
+        var displayAttribute = property?.GetCustomAttribute(typeof(DisplayNameAttribute)) as DisplayNameAttribute;
+        if (displayAttribute != null && displayAttribute?.DisplayName != null)
+        {
+            return displayAttribute?.DisplayName;
+        }
+        return col;
+    }
+
+    public string GetDisplayName(MemberInfo property)
+    {
+        var displayAttribute = property?.GetCustomAttribute(typeof(DisplayAttribute)) as DisplayAttribute;
+        if (displayAttribute == null)
+        {
+            return property?.Name;
+        }
+        if (displayAttribute?.GetAutoGenerateField() == null || displayAttribute?.GetAutoGenerateField() == false)
+        {
+            return null;
+        }
+        return displayAttribute.Name;
+
+    }
+
+    //public string GetAttributeValue(MemberInfo property, Attribute attribute, string valueName )
+    //{
+    //    var propAttribute = property?.GetCustomAttribute(attribute.GetType());
+    //    if (propAttribute == null)
+    //    {
+    //        return null;
+    //    }
+    //    if (propAttribute. )
+    //    {
+    //        return null;
+    //    }
+
+    //}
 }
