@@ -1,0 +1,41 @@
+@page "/document"
+@using global::Shared.Models.Dtos
+@using Microsoft.Extensions.Logging
+@inject ILogger<DocumentEdit> Logger
+
+
+<PageTitle>Document</PageTitle>
+<h1>Document edit</h1>
+<EditForm Model="@Document" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div>
+        <Laber>Type
+            <InputSelect @bind-Value="Document.DocumentType" />
+        </Laber>
+    </div>
+
+    <InputText @bind-Value="Document.ExchangeId" />
+    <InputDate id="date" @bind-Value="Document.DateTime" />
+    <InputSelect @bind-Value="Document.Organization" />
+    <InputSelect @bind-Value="Document.Client" />
+    <InputSelect @bind-Value="Document.ClientContract" />
+    <InputSelect @bind-Value="Document.DocumentStatus" />
+    <InputSelect @bind-Value="Document.Responsible" />
+    <InputSelect @bind-Value="Document.ClientContract" />
+    <InputSelect @bind-Value="Document.ExchangeDateTime" />
+
+
+
+</EditForm>
+
+@code {
+    public DocumentDTO<Guid> Document { get; set; } = new();
+
+    private void HandleValidSubmit()
+    {
+        Logger.LogInformation("HandleValidSubmit called");
+
+        // Process the valid form
+    }
+}

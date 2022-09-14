@@ -1,7 +1,6 @@
 ﻿@page "/documents"
 @using System.Reflection
 @using System.ComponentModel
-@using System.Reflection.Metadata
 @using WebClient.Components
 @using global::Shared.Models.Dtos
 @using global::Shared.Models.Documents
@@ -61,15 +60,6 @@ else
                                 <td scope="col">@property.GetValue(document)</td>
                             }
                         }
-                        @*<td hidden>@document.Id</td>
-                        <td>@document.DateTime.ToString("yyyy-MM-dd")</td>
-                        <td>@document.Number</td>
-                        <td>@document.DocumentType</td>
-                        <td>@document.DocumentStatus</td>
-                        <td>@document.Client</td>
-                        <td>@document.DocumentAmount</td>
-                        <td>@document.DocumentCurrency</td>
-                        <td>@document.Comment</td>*@
                     </tr>
                 }
             </tbody>

@@ -1,5 +1,3 @@
-using Bogus.DataSets;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Shared.Models.Dtos;
