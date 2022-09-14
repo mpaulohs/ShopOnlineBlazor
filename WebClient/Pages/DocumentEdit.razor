@@ -10,13 +10,12 @@
     <DataAnnotationsValidator />
     <ValidationSummary />
     <div>
-        <Laber>Type
+        <label>Type
             <InputSelect @bind-Value="Document.DocumentType" />
-        </Laber>
+        </label>
     </div>
-
     <InputText @bind-Value="Document.ExchangeId" />
-    <InputDate id="date" @bind-Value="Document.DateTime" />
+    <InputDate @bind-Value="Document.DateTime" />
     <InputSelect @bind-Value="Document.Organization" />
     <InputSelect @bind-Value="Document.Client" />
     <InputSelect @bind-Value="Document.ClientContract" />
@@ -35,7 +34,5 @@
     private void HandleValidSubmit()
     {
         Logger.LogInformation("HandleValidSubmit called");
-
-        // Process the valid form
     }
 }
