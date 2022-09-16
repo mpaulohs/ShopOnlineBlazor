@@ -4,27 +4,38 @@
 @inject ILogger<DocumentEdit> Logger
 
 
-<PageTitle>Document</PageTitle>
+<PageTitle>Document edit</PageTitle>
 <h1>Document edit</h1>
 <EditForm Model="@Document" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
-    <div>
-        <label>Type
-            <InputSelect @bind-Value="Document.DocumentType" />
-        </label>
-    </div>
-    <InputText @bind-Value="Document.ExchangeId" />
-    <InputDate @bind-Value="Document.DateTime" />
-    <InputSelect @bind-Value="Document.Organization" />
-    <InputSelect @bind-Value="Document.Client" />
-    <InputSelect @bind-Value="Document.ClientContract" />
-    <InputSelect @bind-Value="Document.DocumentStatus" />
-    <InputSelect @bind-Value="Document.Responsible" />
-    <InputSelect @bind-Value="Document.ClientContract" />
-    <InputSelect @bind-Value="Document.ExchangeDateTime" />
 
-
+    <body>
+        <nav>
+            Navigation
+        </nav>
+        <header class="container">
+            <section>
+                <div class="form-group">
+                    <label for="type">Type</label>
+                    <InputSelect class="form-control" id="type" @bind-Value="Document.DocumentType">
+                        <option selected>Order</option>
+                        <option>Sale</option>
+                        <option>Bascet</option>
+                    </InputSelect>
+                </div>
+                <InputText @bind-Value="Document.ExchangeId" />
+                <InputDate @bind-Value="Document.DateTime" />
+                <InputSelect @bind-Value="Document.Organization" />
+                <InputSelect @bind-Value="Document.Client" />
+                <InputSelect @bind-Value="Document.ClientContract" />
+                <InputSelect @bind-Value="Document.DocumentStatus" />
+                <InputSelect @bind-Value="Document.Responsible" />
+                <InputSelect @bind-Value="Document.ClientContract" />
+                <InputSelect @bind-Value="Document.ExchangeDateTime" />
+            </section>
+        </header>
+    </body>
 
 </EditForm>
 

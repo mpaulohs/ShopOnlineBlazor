@@ -7,11 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{A63289D8-BB5A-446E-ABE1-F81585019CAA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebServer", "WebServer\WebServer.csproj", "{C984C0EB-AB47-4408-867E-C400994BF32E}"
-	ProjectSection(ProjectDependencies) = postProject
-		{E4BD13E1-61DD-49FB-A330-ADFC43F27E60} = {E4BD13E1-61DD-49FB-A330-ADFC43F27E60}
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebClient", "WebClient\WebClient.csproj", "{D1FAEED8-31CE-4540-9445-5F917E3855C9}"
 EndProject
 Global
@@ -20,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E4BD13E1-61DD-49FB-A330-ADFC43F27E60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4BD13E1-61DD-49FB-A330-ADFC43F27E60}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4BD13E1-61DD-49FB-A330-ADFC43F27E60}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4BD13E1-61DD-49FB-A330-ADFC43F27E60}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A63289D8-BB5A-446E-ABE1-F81585019CAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A63289D8-BB5A-446E-ABE1-F81585019CAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A63289D8-BB5A-446E-ABE1-F81585019CAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
